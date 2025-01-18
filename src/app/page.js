@@ -20,7 +20,14 @@ export default function Home() {
             </h1>
             <h2 className={styles.jobTitle}>UX/UI Designer | Graphic Designer</h2>
           </div>
-          
+          <div className={styles.heroImageContainer}>
+            <img
+              src="/hero-image.png"
+              alt="Crystal Cheung"
+              width="351"
+              className={styles.heroImage}
+            />
+          </div>
           {/* <div>
             <img
               src="/hero.png"

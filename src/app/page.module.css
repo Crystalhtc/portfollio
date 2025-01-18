@@ -28,10 +28,23 @@
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 2rem;
+  height: fit-content;
 }
 
 .heroText {
   padding: 0 1.5rem;
+}
+
+.heroImageContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.heroImage {
+  width: 80%;
 }
 
 .projects {
@@ -77,23 +90,35 @@
 /* Tablet (768px and up) */
 @media (min-width: 768px) {
   .headingSmall {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 
   .jobTitle {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 
   .heading {
-    font-size: 3.5rem;
+    font-size: 3rem;
   }
 
   .hero {
-    height: 65vh;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 0;
+    padding: 0 5rem;
   }
 
   .heroText {
-    padding: 0 3rem;
+    padding: 0 0 0 3rem;
+  }
+
+  .heroImageContainer {
+    display: flex;
+    width: 25%;
+  }
+
+  .heroImage {
+    width: 100%;
   }
 
   .projects h2 {
@@ -108,6 +133,20 @@
     justify-content: center;
     width: 85%;
     gap: 2rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .headingSmall {
+    font-size: 1.5rem;
+  }
+
+  .jobTitle {
+    font-size: 1.5rem;
+  }
+
+  .heading {
+    font-size: 3.5rem;
   }
 }
 
@@ -127,11 +166,23 @@
   }
 
   .hero {
-    height: 70vh;
+    padding-bottom: 0;
+    justify-content: space-between;
+    padding: 0 5rem;
   }
 
   .heroText {
-    padding: 0 5rem;
+    padding: 0;
+    width: 100%;
+  }
+
+  .heroImageContainer {
+    display: flex;
+    width: 50%;
+  }
+
+  .heroImage {
+    width: 100%;
   }
 
   .projects h2 {
@@ -153,10 +204,19 @@
 /* Large Desktop (1440px and up) */
 @media (min-width: 1440px) {
   .heroText {
-    padding: 0 10rem;
+    padding: 0 0 0 10rem;
   }
 
   .appCardList {
     gap: 4rem;
+  }
+
+    .heroImageContainer {
+      height: 100%;
+      width: auto;
+    }
+
+  .heroImage{
+    padding-right: 5rem;
   }
 }
