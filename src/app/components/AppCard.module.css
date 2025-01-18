@@ -1,0 +1,106 @@
+/* Base styles (Mobile first) */
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    border-bottom: 1.5px solid var(--light-red);
+    width: 100%;
+    max-width: 500px;
+}
+
+
+.text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+}
+
+.text p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.appName {
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: "Lora", serif;
+}
+
+.appImage {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* Tablet (768px and up) */
+@media (min-width: 768px) {
+    .card {
+        flex-direction: row;
+        gap: 2rem;
+        padding: 2rem;
+        max-width: none;
+        align-items: center;
+    }
+
+    .text {
+        text-align: left;
+        gap: 1rem;
+    }
+
+    .text p {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .appName {
+        font-size: 1.75rem;
+    }
+
+    .appImage {
+        width: 45%;
+    }
+}
+
+/* Desktop (1024px and up) */
+@media (min-width: 1024px) {
+    .card {
+        gap: 3rem;
+        padding: 2.5rem 3rem;
+    }
+
+    .text {
+        gap: 1rem;
+    }
+
+    .appName {
+        font-size: 2rem;
+    }
+
+    .appImage {
+        width: 40%;
+    }
+    /* .text {
+        padding-top: 3rem;
+    } */
+}
+
+/* Large Desktop (1440px and up) */
+@media (min-width: 1440px) {
+    .card {
+        gap: 5rem;
+        padding: 2.5rem 5rem;
+        align-items: flex-start;
+    }
+
+    .text p {
+        font-size: 1.1rem;
+    }
+
+    .text {
+        padding-top: 4rem;
+    }
+}

@@ -1,0 +1,27 @@
+.scroll {
+    width: fit-content;
+    height: fit-content;
+    margin-bottom: 2rem;
+    position: sticky;
+    bottom: 5rem;
+    left: 80vw;
+    background-color: var(--background);
+    padding: 0.5rem 0.8rem;
+}
+
+/* Tablet (768px and up) */
+@media screen and (min-width: 768px) {
+    .scroll {
+        left: 88vw;
+    }
+}
+
+/* Desktop (1024px and up) */
+@media screen and (min-width: 1024px) {
+    .scroll {
+        left: 92vw;
+    }
+}
+
+/* Large Desktop (1500px and up) */
+@media screen and (min-width: 1500px) {}

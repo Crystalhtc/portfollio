@@ -1,0 +1,50 @@
+.heroImage {
+    width: 100%;
+    object-fit: contain;
+    border-bottom: 0.5px solid #dddddd;
+    margin-bottom: 2rem;
+}
+
+.persona {
+    margin: 4rem auto;
+}
+
+.personaText {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0 20rem 2rem;
+}
+
+.personaImages {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.prototypeContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 4rem auto 2rem;
+    align-items: center;
+    padding: 0 20rem 2rem;
+}
+
+.prototypeTitle {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.prototype {
+    border: 0.5px solid #dddddd;
+}
+
+.nextButton {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto 6rem;
+}
