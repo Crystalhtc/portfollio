@@ -36,6 +36,10 @@
     object-fit: contain;
 }
 
+.link {
+    width: fit-content;
+}
+
 /* Tablet (768px and up) */
 @media (min-width: 768px) {
     .card {

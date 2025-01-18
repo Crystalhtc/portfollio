@@ -1,5 +1,4 @@
 "use client";
-"use client";
 import React, { useState, useEffect } from 'react';
 import styles from './Header.module.css';
 import { Menu, X } from 'lucide-react';
@@ -7,10 +6,19 @@ import { Menu, X } from 'lucide-react';
 export default function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isTransitioning, setIsTransitioning] = useState(false);
 
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 0);
+            setIsTransitioning(true);
+            
+            // Reset transitioning state after animation completes
+            const timeout = setTimeout(() => {
+                setIsTransitioning(false);
+            }, 300); // Match this with CSS transition duration
+            
+            return () => clearTimeout(timeout);
         };
 
         window.addEventListener('scroll', handleScroll);
@@ -31,16 +39,17 @@ export default function Header() {
         <header className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
             <nav className={styles.nav}>
                 <a href="/" className={styles.name}>
-                    {isScrolled ? (
-                        <span className={styles.textLogo}>Crystal Cheung</span>
-                    ) : (
+                    <div className={styles.logoContainer}>
                         <img
                             src="/logo.svg"
                             alt="Crystal Cheung's logo"
-                            className={styles.logo}
+                            className={`${styles.logo} ${isScrolled ? styles.logoHidden : ''} ${isTransitioning ? styles.transitioning : ''}`}
                             loading="lazy"
                         />
-                    )}
+                        <span className={`${styles.textLogo} ${isScrolled ? styles.textLogoVisible : ''} ${isTransitioning ? styles.transitioning : ''}`}>
+                            Crystal Cheung
+                        </span>
+                    </div>
                 </a>
                 
                 <a
@@ -48,39 +57,39 @@ export default function Header() {
                     onClick={toggleMenu}
                     aria-label="Toggle menu"
                 >
-                    {isMenuOpen ? (
-                        <X size={24} />
-                    ) : (
-                        <Menu size={24} />
-                    )}
+                    {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
                 </a>
             </nav>
 
-            {/* Mobile Menu */}
             <div className={`${styles.mobileMenu} ${isMenuOpen ? styles.menuOpen : ''}`}>
                 <div className={styles.menuContent}>
                     <button 
                         className={styles.closeButton}
                         onClick={closeMenu}
                         aria-label="Close menu"
-                    >
-                        {/* <X size={32} /> */}
-                    </button>
+                    />
                     <div className={styles.links}>
                         <a href="/" onClick={closeMenu}>Projects</a>
                         <a href="/about" onClick={closeMenu}>About</a>
                     </div>
                 </div>
             </div>
-
-            {/* Overlay */}
             
+            {/* <div 
+                className={`${styles.overlay} ${isMenuOpen ? styles.overlayOpen : ''}`}
+                onClick={closeMenu}
+                aria-label="Close menu overlay"
+            /> */}
+
+            {isMenuOpen ? (
                 <div 
-                    className={`${styles.overlay} ${isMenuOpen ? styles.overlayOpen : ''}`}
+                    className={styles.overlay}
                     onClick={closeMenu}
                     aria-label="Close menu overlay"
                 />
-            
+                ) : (
+                <></>
+            )}
         </header>
     );
 }

@@ -7,6 +7,7 @@
     left: 80vw;
     background-color: var(--background);
     padding: 0.5rem 0.8rem;
+    z-index: 900;
 }
 
 /* Tablet (768px and up) */

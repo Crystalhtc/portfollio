@@ -170,6 +170,14 @@
     .interestSection {
         padding: 3rem;
     }
+
+    .social {
+        width: 50%;
+    }
+
+    .resume h2 {
+        text-align: center;
+    }
 }
 
 /* Desktop (1024px and up) */
