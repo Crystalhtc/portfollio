@@ -343,7 +343,7 @@ export default function Remedify() {
                 </div>
                 <div>
                   <li className={styles.bold}>Quick Dose Logging:</li>
-                  <li className={styles.indent}>A "Mark as Taken" button on each medication card allows one-tap tracking, ensuring a seamless experience for all users.</li>
+                  <li className={styles.indent}>A "Mark Taken" button on each medication card allows one-tap tracking, ensuring a seamless experience for all users.</li>
                 </div>
               </ul>
               <div className={styles.linkButton}>
@@ -352,6 +352,68 @@ export default function Remedify() {
                 </a>
               </div>
             </div>
+          </div>
+
+          <div className={styles.initialHiFi}>
+            <ContentSection
+              title="Usability Testing"
+              image="/remedify/usability-testing.png"
+              alt="Remedify Usability Testing"
+              overview="Usability testing was conducted with 4 participants, which involved observing users as they interacted with Remedify. Insights are then drawn to improve the interface and functionality of the app."
+            />
+            <div className={styles.details}>
+              <p>Areas of improvement: </p>
+              <ul className={styles.detailsList}>
+                <div>
+                  <li className={styles.bold}>Confusing Labels for Medication Input Form</li>
+                  <li className={styles.indent}>Users reported difficulty understanding some labels within the medication input form.</li>
+                </div>
+                <div>
+                  <li className={styles.bold}>“Mark Taken” Button Confusion</li>
+                  <li className={styles.indent}>The “Mark Taken” button was unclear to users, with many unsure of its purpose.</li>
+                </div>
+                <div>
+                  <li className={styles.bold}>“Take Photo” Button Misinterpretation</li>
+                  <li className={styles.indent}>Participants mistook the “Take Photo” button for a static instruction rather than an actionable element.</li>
+                </div>
+              </ul>
+              {/* <div className={styles.linkButton}>
+                <a href="https://www.figma.com/design/4ni9gyLkBDkeQNBfia2rgo/Remedify-Hi-fi?node-id=340-5993&t=0Ji5GbZNKZLLvUCy-1" target="_blank">
+                  <button>View Initial Hi-Fi</button>
+                </a>
+              </div> */}
+            </div>
+            <div className={styles.appFeatures}>
+              <div>
+                <h3>Recommendations:</h3>
+            </div>
+            <AppFeature1
+              feature1="Labels for Medication Input Form"
+              image1="/remedify/recommendation1.png"
+              alt1="Labels for Medication Input Form"
+              descriptions1={[
+                "Add clear section headers to improve organization and readability", 
+                "Rearrange the order of input fields to logically group related items, such as grouping dose and strength, as well as duration and frequency"
+              ]}
+            />
+            <AppFeature2
+              feature2="“Mark Taken” Button"
+              image2="/remedify/recommendation2.png"
+              alt2="“Mark Taken” Button"
+              descriptions2={[
+                "Simplify the label by changing it to “Take,” making the function more straightforward and intuitive"
+              ]}
+            />
+            <AppFeature1
+              feature1="“Take Photo” Button"
+              image1="/remedify/recommendation3.png"
+              alt1="“Take Photo” Button"
+              descriptions1={[
+                "Redesign the button to resemble a camera button, similar to those on smartphones, ensuring it is recognizable as interactive"
+              ]}
+            />
+          </div>
+
           </div>
 
           <div className={styles.initialHiFi}>
@@ -366,7 +428,7 @@ export default function Remedify() {
                 <ul className={styles.detailsList}>
                   <div>
                     <li className={styles.bold}>Quick Daily Actions on the Homepage:</li>
-                    <li className={styles.indent}>A prominent “Mark as Taken” button is introduced as the primary call-to-action (CTA) on the homepage. This feature simplifies daily interactions, allowing users to log medications quickly and efficiently.</li>
+                    <li className={styles.indent}>A prominent “Taken” button is introduced as the primary call-to-action (CTA) on the homepage. This feature simplifies daily interactions, allowing users to log medications quickly and efficiently.</li>
                   </div>
                   <div>
                     <li className={styles.bold}>Organized Medication Library:</li>

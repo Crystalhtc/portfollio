@@ -18,9 +18,15 @@
     justify-content: center;
     align-items: center;
     margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
-.wireframeImage {
+.personaImage {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.wireframeImage, .personaImage {
     width: 100%;
     height: auto;
     
@@ -142,7 +148,13 @@
     margin: 2rem auto 0;
 }
 
-.linkButton button {
+.githubButton {
+    display: flex;
+    justify-content: center;
+    margin: 0rem auto 0;
+}
+
+.linkButton, .githubButton button {
     width: fit-content;
 }
 

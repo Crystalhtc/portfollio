@@ -81,6 +81,17 @@
     gap: 1rem;
 }
 
+.recommendations {
+    list-style-type: none;
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+.subIndent {
+    margin-left: 1rem;
+    list-style-type:circle;
+}
+
 .featuresTitle {
     display: flex;
     align-items: flex-start;

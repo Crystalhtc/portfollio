@@ -32,10 +32,10 @@ export default function Remedify() {
             <AppIntro 
               appName="Tranquify"
               description="A user-friendly mobile app designed to enhance mood tracking and meditation. By prioritizing user research, prototyping, and usability testing, Tranquify offers a seamless experience for tracking moods and practicing meditation, with personalized suggestions for self-care."
-              role="UI/UX Design, UX Research, Graphic Design, Usability Testing, Frontend Development"
+              role="UX/UI Design, UX Research, Graphic Design, Usability Testing, Frontend Development"
               tools="Figma, Adobe Illustrator, Adobe After Effects, Next.js"
               duration="Feb 2024 – May 2024 (3 months)"
-              prototypeLink="https://www.figma.com/proto/ZN5Q97M2j8T6LoKXgcoA6l/Tranquify?node-id=157-971&t=CSUZirXANw8ms29c-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=157%3A971"
+              prototypeLink="https://www.figma.com/proto/ZN5Q97M2j8T6LoKXgcoA6l/Tranquify?node-id=3309-3595&p=f&t=ZPZCTFg42gVI1Dhf-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1"
               figmaLink="https://www.figma.com/design/ZN5Q97M2j8T6LoKXgcoA6l/Tranquify?node-id=0-1&p=f&t=CSUZirXANw8ms29c-0"
               styleguideLink="https://tranquify-style-guide.vercel.app/"
             />
@@ -49,7 +49,7 @@ export default function Remedify() {
               <div className={styles.prototypeContainer}>
                 <iframe 
                   className={styles.prototype} 
-                  src="https://embed.figma.com/proto/ZN5Q97M2j8T6LoKXgcoA6l/Tranquify?node-id=157-971&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=157%3A971&embed-host=share" 
+                  src="https://embed.figma.com/proto/ZN5Q97M2j8T6LoKXgcoA6l/Tranquify?node-id=3309-3595&p=f&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&embed-host=share" 
                   allowFullScreen
                 />
                 <div className={styles.nextButton}>
@@ -343,6 +343,27 @@ export default function Remedify() {
                 <div className={styles.linkButton}>
                   <a href="https://www.figma.com/proto/ZN5Q97M2j8T6LoKXgcoA6l/Tranquify?node-id=3309-3595&p=f&t=ZPZCTFg42gVI1Dhf-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1" target="_blank">
                     <button>View Final Hi-Fi</button>
+                  </a>
+                </div>
+              </div>
+          </div>
+
+          <div className={styles.initialHiFi}>
+              <ContentSection
+                title="Final Product: Web App"
+                image="/tranquify/webapp.png"
+                alt="Tranquify Web App"
+                overview="A web app is developed using Next.js, featuring a fully coded interface. Real-time weather data is integrated into the homepage through a weather API, offering users up-to-date and localized weather information. The onboarding animations created in After Effects are implemented using  Lottie, enhancing engagement."
+              />
+              <div className={styles.details}>
+                <div className={styles.linkButton}>
+                  <a href="https://tranquify.vercel.app/" target="_blank">
+                    <button>View Web App</button>
+                  </a>
+                </div>
+                <div className={styles.githubButton}>
+                  <a href="https://github.com/ohmaruko/Tranquify" target="_blank">
+                    <button>View Github Repository</button>
                   </a>
                 </div>
               </div>
