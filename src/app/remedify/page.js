@@ -229,7 +229,7 @@ export default function Remedify() {
                 title="Site Map"
                 image="/remedify/sitemap.png"
                 alt="Remedify Site Map"
-                overview="Based on user surveys, secondary research, and competitive analysis, a site map is developed for Remedify. It serves as a blueprint for the app’s structure, which helps organizing features and ensuring easy navigation."
+                overview="Based on user surveys, secondary research, and competitive analysis, a site map is developed for Remedify. It serves as a blueprint for the app’s structure, which helps organize features and ensure easy navigation."
                 // detailsIntro="Here’s what we’ve planned:"
                 // details = {[
                 //   "Home: This is where users will see their medication schedule at a glance, with upcoming reminders and times clearly displayed.",
