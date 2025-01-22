@@ -13,7 +13,7 @@ export default function AppCard({name, description, image, alt, link}) {
             <div className={styles.text}>
                 <h3 className={styles.appName}>{name}</h3>
                 <p>{description}</p>
-                <a href={link} className={styles.link}>
+                <a href={link} >
                     <button className={styles.button}>Read More</button>
                 </a>
             </div>

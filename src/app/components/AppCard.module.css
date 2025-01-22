@@ -36,9 +36,9 @@
     object-fit: contain;
 }
 
-.link {
+/* .link {
     width: fit-content;
-}
+} */
 
 /* Tablet (768px and up) */
 @media (min-width: 768px) {

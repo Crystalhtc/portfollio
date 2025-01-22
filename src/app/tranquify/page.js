@@ -316,7 +316,42 @@ export default function Remedify() {
                   </a>
                 </div> */}
               </div>
+              <div className={styles.appFeatures}>
+                <div className={styles.featureTitle}>
+                  <h2>Recommendations</h2>
+                </div> 
+                <AppFeature1
+                  feature1="One-Tap Medication Logging"
+                  image1="/tranquify/recommendation1.png"
+                  alt1="One-Tap Medication Logging"
+                  descriptions1={[
+                    "Log each dose with just one tap", 
+                    "Track medications effortlessly through a simple, intuitive interface"
+                  ]}
+                />
+                <AppFeature2
+                  feature2="AI-Powered Label Scanning"
+                  image2="/tranquify/recommendation2.png"
+                  alt2="AI-Powered Label Scanning"
+                  descriptions2={[
+                    "Easily scan medication labels to set up reminders automatically",
+                    "Minimize the steps needed to remember and simplify the process"
+                  ]}
+                />
+                <AppFeature1
+                  feature1="Accessible Medication Library"
+                  image1="/tranquify/recommendation3.png"
+                  alt1="Accessible Medication Library"
+                  descriptions1={[
+                    "Review all medications in one clear, accessible library", 
+                    "Reliable and easy-to-understand information about medications to empower users"
+                  ]}
+                />
+              </div>
           </div>
+
+          
+
           <div className={styles.initialHiFi}>
               <ContentSection
                 title="Final Design"
@@ -325,7 +360,7 @@ export default function Remedify() {
                 overview="The final design of Tranquify reflects a user-centered approach, incorporating feedback from usability testing to create a more intuitive and visually appealing experience."
               />
               <div className={styles.details}>
-                <p>Based on participant feedback, the following recommendations were made to refine the app:</p>
+                {/* <p>Based on participant feedback, the following recommendations were made to refine the app:</p>
                 <ul className={styles.detailsList}>
                   <div>
                     <li className={styles.bold}>Favoriting System:</li>
@@ -339,7 +374,7 @@ export default function Remedify() {
                     <li className={styles.bold}>Weather Section:</li>
                     <li className={styles.indent}>The weather feature on the homepage was redesigned to be less prominent, ensuring it supports the app’s purpose without overshadowing its core features.</li>
                   </div>
-                </ul>
+                </ul> */}
                 <div className={styles.linkButton}>
                   <a href="https://www.figma.com/proto/ZN5Q97M2j8T6LoKXgcoA6l/Tranquify?node-id=3309-3595&p=f&t=ZPZCTFg42gVI1Dhf-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1" target="_blank">
                     <button>View Final Hi-Fi</button>
