@@ -31,7 +31,7 @@ export default function Remedify() {
           <div className={styles.appIntro}>
             <AppIntro 
             appName="Dolce Donuts"
-            description="Introducing the Dolce Donuts Website project— a focused effort to enhance our online presence and create a more enjoyable online experience for our customers. With a dedication to user research, user-centered design principles, our goal is to create a delightful and user-friendly website that mirrors the warmth and delicious offerings of our physical cafe. Visitors can look forward to a smoother journey, whether they’re browsing our menu, placing orders, customizing their own donuts, or connecting with our community."
+            description="The Dolce Donuts Website project is a focused effort to enhance online presence and create a more enjoyable online experience for customers. With a dedication to user research, user-centered design principles, the goal is to create a delightful and user-friendly website that mirrors the warmth and delicious offerings. Visitors can look forward to a smoother journey, whether they’re browsing our menu, placing orders, customizing their own donuts, or connecting with our community."
             role="	UI/UX Design, User research"
             tools="Figma, Adobe Illustrator"
             duration="Sep 2023 – Dec 2023 (3 months)"
