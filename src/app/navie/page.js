@@ -279,27 +279,27 @@ export default function Remedify() {
               </div> */}
           </div>
 
-          {/* <div className={styles.initialHiFi}>
+          <div className={styles.initialHiFi}>
               <ContentSection
-                title="Usability Testing"
-                image="/tranquify/usability-testing.png"
-                alt="Tranquify Usability Testing"
-                overview="Usability testing is crucial in ensuring Tranquify meets the needs and expectations of its users. The testing was conducted with 5 participants, revealing 4 key areas for improvement."
+                title="Navie Testing"
+                image="/navie/usability-testing.png"
+                alt="Navie Usability Testing"
+                overview="The usability of the design of Navie is evaluated based on Jakob Nielsen’s 10 Usability Heuristics for User Interface Design. Insights are then drawn to improve the interface and functionality of the app."
               />
               <div className={styles.details}>
                 <p>Areas of improvement:</p>
                 <ul className={styles.detailsList}>
                   <div>
-                    <li className={styles.bold}>Add meditation to Favourites:</li>
-                    <li className={styles.indent}>The heart icon used to "Favourite" an item was not easily noticeable to users.</li>
+                    <li className={styles.bold}>Search Suggestions:</li>
+                    <li className={styles.indent}>Users may struggle to find relevant products quickly as there are no search suggestions when entering a product name.</li>
                   </div>
                   <div>
-                    <li className={styles.bold}>Meditation categories:</li>
-                    <li className={styles.indent}>Participants expressed confusion about the category cards on the meditation page, as they were unclear about the purpose of these cards.</li>
+                    <li className={styles.bold}>Add to Price Calculator:</li>
+                    <li className={styles.indent}>The option to add products to the Price Calculator is limited to certain pages, potentially disrupting the user flow during the shopping process.</li>
                   </div>
                   <div>
-                    <li className={styles.bold}>Weather section:</li>
-                    <li className={styles.indent}>The weather feature on the homepage created slight confusion for users, as it detracted from the app's primary goal of promoting mindfulness and relaxation.</li>
+                    <li className={styles.bold}>Error handling:</li>
+                    <li className={styles.indent}>There is a lack of feedback for error-prone pages, leaving users unsure about the cause of the problem.</li>
                   </div>
                 </ul>
               </div>
@@ -308,34 +308,33 @@ export default function Remedify() {
                   <h2>Recommendations</h2>
                 </div> 
                 <AppFeature1
-                  feature1="One-Tap Medication Logging"
-                  image1="/tranquify/recommendation1.png"
-                  alt1="One-Tap Medication Logging"
+                  feature1="Search Suggestions"
+                  image1="/navie/recommendation1.png"
+                  alt1="Search Suggestions"
                   descriptions1={[
-                    "Log each dose with just one tap", 
-                    "Track medications effortlessly through a simple, intuitive interface"
+                    "Display related product suggestions under the search bar when users start typing."
                   ]}
                 />
                 <AppFeature2
-                  feature2="AI-Powered Label Scanning"
-                  image2="/tranquify/recommendation2.png"
-                  alt2="AI-Powered Label Scanning"
+                  feature2="Add to Price Calculator"
+                  image2="/navie/recommendation2.png"
+                  alt2="Add to Price Calculator"
                   descriptions2={[
-                    "Easily scan medication labels to set up reminders automatically",
-                    "Minimize the steps needed to remember and simplify the process"
+                    "Expand the availability of the “Add to Price Calculator” option to additional pages, such as the “Shortest Route” page",
+                    "Allows users to add items to the calculator seamlessly at any point in the shopping process"
                   ]}
                 />
                 <AppFeature1
-                  feature1="Accessible Medication Library"
-                  image1="/tranquify/recommendation3.png"
-                  alt1="Accessible Medication Library"
+                  feature1="Error handling"
+                  image1="/navie/recommendation3.png"
+                  alt1="Error handling"
                   descriptions1={[
-                    "Review all medications in one clear, accessible library", 
-                    "Reliable and easy-to-understand information about medications to empower users"
+                    "Add pop-ups for error-prone pages to notify users of any issues", 
+                    "In the Product Scanning page, provide an error alert if the product cannot be scanned, offering suggestions for resolving the issue"
                   ]}
                 />
               </div>
-          </div> */}
+          </div>
 
           
 
