@@ -34,6 +34,10 @@
     width: 18px;
 }
 
+.icon:hover {
+    opacity: 0.8;
+}
+
 .infoContainer {
     display: flex;
     flex-direction: column;
@@ -75,6 +79,10 @@
     gap: 1rem;
     color: var(--red);
     height: fit-content;
+}
+
+.siteLinks a {
+    border-bottom: 1px solid transparent;
 }
 
 .siteLinks a:hover {

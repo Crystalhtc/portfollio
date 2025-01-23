@@ -90,6 +90,10 @@
     color: var(--light-red);
 }
 
+.socialIcon:hover {
+    opacity: 0.8;
+}
+
 .interestSection {
     border-top: 1.5px solid var(--light-red);
     padding: 2rem 1.5rem;
