@@ -279,7 +279,7 @@ export default function Remedify() {
               </div> */}
           </div>
 
-          <div className={styles.initialHiFi}>
+          {/* <div className={styles.initialHiFi}>
               <ContentSection
                 title="Usability Testing"
                 image="/tranquify/usability-testing.png"
@@ -302,11 +302,6 @@ export default function Remedify() {
                     <li className={styles.indent}>The weather feature on the homepage created slight confusion for users, as it detracted from the app's primary goal of promoting mindfulness and relaxation.</li>
                   </div>
                 </ul>
-                {/* <div className={styles.linkButton}>
-                  <a href="https://www.figma.com/proto/ZN5Q97M2j8T6LoKXgcoA6l/Tranquify?node-id=3309-5407&t=811DAQoWWI79VsGh-1&scaling=min-zoom&content-scaling=fixed&page-id=3309%3A4796" target="_blank">
-                    <button>View Initial Hi-Fi</button>
-                  </a>
-                </div> */}
               </div>
               <div className={styles.appFeatures}>
                 <div className={styles.featureTitle}>
@@ -340,7 +335,7 @@ export default function Remedify() {
                   ]}
                 />
               </div>
-          </div>
+          </div> */}
 
           
 
