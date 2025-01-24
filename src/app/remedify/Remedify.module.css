@@ -272,3 +272,35 @@
         padding: 5rem 20rem;
     }
 }
+
+/* Add to the end of Remedify.module.css */
+
+/* Fade-in and Slide Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+/* animations */
+/* Hero Section */
+.heroImage {
+  animation: fadeInUp 1s ease-out;
+}
+
+

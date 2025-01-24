@@ -273,3 +273,9 @@
         padding: 5rem 20rem;
     }
 }
+
+/* animations */
+/* Hero Section */
+.heroImage {
+    animation: fadeInUp 1s ease-out;
+}
