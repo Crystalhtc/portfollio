@@ -215,13 +215,52 @@ export default function Remedify() {
               </div>
           </div>
 
-          <div className={styles.styleGuide}>
+          {/* <div className={styles.styleGuide}>
               <StyleGuide
                 title="Style Guide"
                 image="/remedify/styleguide.png"
                 alt="Remedify Style Guide"
                 styleguideLink="https://www.figma.com/design/4ni9gyLkBDkeQNBfia2rgo/Remedify-Hi-fi?node-id=5145-11431&t=3ICIYqKBCpA4qJrQ-4"
               />
+          </div> */}
+
+          <div className={styles.detailsContainer}>
+              <ContentSection
+                title="Style Guide"
+                image="/remedify/styleguide.png"
+                alt="Remedify Style Guide"
+                overview="Remedify app's style guide is crafted to embody the app’s mission of supporting users in managing their health and medication. It is designed to provoke a calming, warm, inclusive, and accessible feeling."
+              />
+              <div>
+                <div className={styles.details}>
+                  {/* <p>Major Screens in Remedify:</p> */}
+                  <ul className={styles.detailsList}>
+                    <div>
+                      <li className={styles.bold}>Logo:</li>
+                      <li className={styles.subIndent}>The logo combines symbols that represent health and reminders.</li>
+                      <li className={styles.subIndent}><span className={styles.semiBold}>The Rod of Asclepius:</span> A well-known medical symbol, highlights the app’s focus on healing and wellness.</li>
+                      <li className={styles.subIndent}><span className={styles.semiBold}>An exclamation mark:</span> Emphasizes the app’s purpose of helping users stay on track with their medication.</li>
+                    </div>
+                    <div>
+                      <li className={styles.bold}>Colors:</li>
+                      <li className={styles.subIndent}><span className={styles.semiBold}>Green and Blue:</span> Evoke a sense of calm and reassurance.</li>
+                      <li className={styles.subIndent}><span className={styles.semiBold}>Orange:</span> Adds warmth, fostering a comforting experience for users, especially patients managing illnesses.</li>
+                      <li className={styles.subIndent}><span className={styles.semiBold}>Silver White:</span> Conveys simplicity and cleanliness.</li>
+                    </div>
+                    <div>
+                      <li className={styles.bold}>Typography:</li>
+                      <li className={styles.subIndent}><span className={styles.semiBold}>Omnes Cyrillic:</span> Used for the logo wordmark, chosen for its rounded and approachable style.</li>
+                      <li className={styles.subIndent}><span className={styles.semiBold}>Poppins:</span> Applied throughout the app for headings and button text due to its friendly and easy-to-read appearance.</li>
+                      <li className={styles.subIndent}><span className={styles.semiBold}>Public Sans:</span> Used as the body font to create a clear visual hierarchy and enhance readability.</li>
+                    </div>
+                  </ul>
+                  <div className={styles.linkButton}>
+                    <a href="https://www.figma.com/design/4ni9gyLkBDkeQNBfia2rgo/Remedify-Hi-fi?node-id=5145-11431&t=3ICIYqKBCpA4qJrQ-4" target="_blank">
+                      <button>View Style Guide</button>
+                    </a>
+                  </div>
+                </div>
+              </div>
           </div>
 
           <div className={styles.detailsContainer}>
@@ -230,14 +269,6 @@ export default function Remedify() {
                 image="/remedify/sitemap.png"
                 alt="Remedify Site Map"
                 overview="Based on user surveys, secondary research, and competitive analysis, a site map is developed for Remedify. It serves as a blueprint for the app’s structure, which helps organize features and ensure easy navigation."
-                // detailsIntro="Here’s what we’ve planned:"
-                // details = {[
-                //   "Home: This is where users will see their medication schedule at a glance, with upcoming reminders and times clearly displayed.",
-                //   "Add Medication: We make it simple to add medications by allowing users to scan labels with their camera or enter details manually.",
-                //   "Medication Library: Users can manage their medications and reminders in one place, giving them full control as needed.",
-                //   "Account Settings: Here, users can add family members to help monitor their medications and adjust general app settings like font size and language preferences."
-                // ]}
-                // buttonText="View Site Map"
               />
               <div>
                 <div className={styles.details}>

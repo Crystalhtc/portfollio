@@ -143,6 +143,10 @@
     font-weight: bold;
 }
 
+.semiBold {
+    font-weight: 550;
+}   
+
 .indent {
     list-style-type: none
 }
@@ -273,8 +277,7 @@
     }
 }
 
-/* Add to the end of Remedify.module.css */
-
+/* animations */
 /* Fade-in and Slide Animations */
 @keyframes fadeInUp {
   from {
@@ -297,7 +300,6 @@
     transform: translateX(0);
   }
 }
-/* animations */
 /* Hero Section */
 .heroImage {
   animation: fadeInUp 1s ease-out;
