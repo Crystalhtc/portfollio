@@ -215,15 +215,6 @@ export default function Remedify() {
               </div>
           </div>
 
-          {/* <div className={styles.styleGuide}>
-              <StyleGuide
-                title="Style Guide"
-                image="/remedify/styleguide.png"
-                alt="Remedify Style Guide"
-                styleguideLink="https://www.figma.com/design/4ni9gyLkBDkeQNBfia2rgo/Remedify-Hi-fi?node-id=5145-11431&t=3ICIYqKBCpA4qJrQ-4"
-              />
-          </div> */}
-
           <div className={styles.detailsContainer}>
               <ContentSection
                 title="Style Guide"
@@ -233,7 +224,6 @@ export default function Remedify() {
               />
               <div>
                 <div className={styles.details}>
-                  {/* <p>Major Screens in Remedify:</p> */}
                   <ul className={styles.detailsList}>
                     <div>
                       <li className={styles.bold}>Logo:</li>
@@ -490,25 +480,6 @@ export default function Remedify() {
                 overview="After several design iterations and incorporating feedback from usability testing, the final design of Remedify is crafted to create an intuitive experience that fits user needs."
               />
               <div className={styles.details}>
-                {/* <p>Major Changes:</p>
-                <ul className={styles.detailsList}>
-                  <div>
-                    <li className={styles.bold}>Quick Daily Actions on the Homepage:</li>
-                    <li className={styles.indent}>A prominent “Taken” button is introduced as the primary call-to-action (CTA) on the homepage. This feature simplifies daily interactions, allowing users to log medications quickly and efficiently.</li>
-                  </div>
-                  <div>
-                    <li className={styles.bold}>Organized Medication Library:</li>
-                    <li className={styles.indent}>Medications are now displayed as visually organized cards, showcasing key details of the medications. This update makes navigation intuitive and helps users stay informed without feeling overwhelmed.</li>
-                  </div>
-                  <div>
-                    <li className={styles.bold}>Adjusted Color Palette:</li>
-                    <li className={styles.indent}>The use of orange, often perceived as a warning color, was reduced and replaced with green to create a calmer and more supportive tone throughout the app.</li>
-                  </div>
-                  <div>
-                    <li className={styles.bold}>Enhanced Typography:</li>
-                    <li className={styles.indent}>To improve visual hierarchy and readability, Public Sans is added as a secondary font. This pairing with the existing font creates clear differentiation between headings, subheadings, and body text.</li>
-                  </div>
-                </ul> */}
                 <div className={styles.linkButton}>
                   <a href="https://www.figma.com/design/4ni9gyLkBDkeQNBfia2rgo/Remedify-Hi-fi?node-id=1797-14184&t=xd57gQUfuR5S6kpN-1" target="_blank">
                     <button>View Final Hi-Fi</button>
@@ -525,25 +496,6 @@ export default function Remedify() {
                 overview="The marketing landing page for Remedify serves as the main introduction to the app, designed to inform and engage potential users. It is crafted to highlight the app’s unique features, target audience, and the team behind its development."
               />
               <div className={styles.details}>
-                {/* <p>Major Changes:</p>
-                <ul className={styles.detailsList}>
-                  <div>
-                    <li className={styles.bold}>Quick Daily Actions on the Homepage:</li>
-                    <li className={styles.indent}>A prominent “Taken” button is introduced as the primary call-to-action (CTA) on the homepage. This feature simplifies daily interactions, allowing users to log medications quickly and efficiently.</li>
-                  </div>
-                  <div>
-                    <li className={styles.bold}>Organized Medication Library:</li>
-                    <li className={styles.indent}>Medications are now displayed as visually organized cards, showcasing key details of the medications. This update makes navigation intuitive and helps users stay informed without feeling overwhelmed.</li>
-                  </div>
-                  <div>
-                    <li className={styles.bold}>Adjusted Color Palette:</li>
-                    <li className={styles.indent}>The use of orange, often perceived as a warning color, was reduced and replaced with green to create a calmer and more supportive tone throughout the app.</li>
-                  </div>
-                  <div>
-                    <li className={styles.bold}>Enhanced Typography:</li>
-                    <li className={styles.indent}>To improve visual hierarchy and readability, Public Sans is added as a secondary font. This pairing with the existing font creates clear differentiation between headings, subheadings, and body text.</li>
-                  </div>
-                </ul> */}
                 <div className={styles.linkButton}>
                   <a href="https://www.remedify.ca/" target="_blank">
                     <button>View Landing Page</button>
