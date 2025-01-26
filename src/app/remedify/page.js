@@ -10,11 +10,13 @@ import StyleGuide from "../components/StyleGuide";
 import ContentSection from "../components/ContentSection";
 import NextCard from "../components/NextCard";
 import ScrollButton from "../components/ScrollButton";
+import SideMenu from "../components/SideMenu";
 
 export default function Remedify() {
   return (
     <div className={styles.page}>
       <Header />
+      <SideMenu />
       <main className={styles.main}>
         <div className={styles.hero}>
           <div>
@@ -28,7 +30,7 @@ export default function Remedify() {
         </div>
         
         <div className={styles.content}>
-          <div className={styles.appIntro}>
+          <div className={styles.appIntro} id="app-intro">
             <AppIntro 
               appName="Remedify"
               description="An intuitive mobile app designed to revolutionize the way people manage their medications. By utilizing AI technology, Remedify provides personalized medication reminders, detailed drug information, and intuitive scheduling features—all within a simple, accessible interface."
@@ -41,7 +43,7 @@ export default function Remedify() {
             />
           </div>
 
-          <div className={styles.prototypeBanner}>
+          <div className={styles.prototypeBanner} id="prototype">
             <div className={styles.prototypeTitle}>
               <h2>Prototype</h2>
             </div> 
@@ -74,7 +76,7 @@ export default function Remedify() {
             </div>
           </div>
 
-          <div className={styles.appFeatures}>
+          <div className={styles.appFeatures} id="features">
             <div className={styles.featureTitle}>
               <h2>Features</h2>
             </div> 
@@ -115,7 +117,7 @@ export default function Remedify() {
             />
           </div>
 
-          <div className={styles.userResearch}>
+          <div className={styles.userResearch} id="user-research">
               <UserResearch
                 title="User Research"
                 descriptions={[
@@ -131,7 +133,7 @@ export default function Remedify() {
               </div>
           </div>
 
-          <div className={styles.competitiveAnalysis}>
+          <div className={styles.competitiveAnalysis} id="competitive-analysis">
               <ContentSection
                 title="Competitive Analysis"
                 image="/remedify/competitive-analysis.png"
@@ -164,7 +166,7 @@ export default function Remedify() {
           </div>
 
 
-          <div className={styles.detailsContainer}>
+          <div className={styles.detailsContainer} id="values">
             <div className={styles.details}>
               <h2>Values</h2>
               <p>Setting clear values for Remedify was essential to guide the design process and ensure the app meets its goals. These values influence every design decision and feature:</p>
@@ -181,7 +183,7 @@ export default function Remedify() {
             </div>
           </div>
           
-          <div className={styles.detailsContainer}>
+          <div className={styles.detailsContainer} id="target-audience">
             <div className={styles.details}>
               <h2>Target Audience</h2>
               <ul>
@@ -193,7 +195,7 @@ export default function Remedify() {
             </div>
           </div>
 
-          <div className={styles.detailsContainer}>
+          <div className={styles.detailsContainer} id="user-persona">
             <div className={styles.details}>
                 <h2>User Persona</h2>
                 <p>User personas are developed to better understand and address the needs of the target audience. They guide thoughtful design decisions, ensuring the app remains practical, user-friendly, and relevant.</p>
@@ -215,7 +217,7 @@ export default function Remedify() {
               </div>
           </div>
 
-          <div className={styles.detailsContainer}>
+          <div className={styles.detailsContainer} id="style-guide">
               <ContentSection
                 title="Style Guide"
                 image="/remedify/styleguide.png"
@@ -253,7 +255,7 @@ export default function Remedify() {
               </div>
           </div>
 
-          <div className={styles.detailsContainer}>
+          <div className={styles.detailsContainer} id="site-map">
               <ContentSection
                 title="Site Map"
                 image="/remedify/sitemap.png"
@@ -292,7 +294,7 @@ export default function Remedify() {
 
           </div>
 
-          <div className={styles.userFlowChart}>
+          <div className={styles.userFlowChart} id="user-flow-map">
               <ContentSection
                 title="User Flow Map"
                 image="/remedify/user-flow-map.png"
@@ -329,7 +331,7 @@ export default function Remedify() {
 
 
 
-          <div className={styles.detailsContainer}>
+          <div className={styles.detailsContainer} id="wireframing">
             <div className={styles.details}>
               <h2>Wireframing</h2>
               <p>Guided by the site map and user flow chart, the wireframe was developed to visualize the app's layout and user interactions. Drawing on insights from the competitive analysis, the focus was placed on crafting a user-friendly experience tailored to the needs of the target audience. The wireframe showcases how users will engage with each feature, ensuring intuitive navigation and ease of use.</p>
@@ -344,7 +346,7 @@ export default function Remedify() {
             </div>  
           </div>
 
-          <div className={styles.initialHiFi}>
+          <div className={styles.initialHiFi} id="initial-hifi">
             <ContentSection
               title="Initial Hi-Fi"
               image="/remedify/initial-hifi.png"
@@ -375,7 +377,7 @@ export default function Remedify() {
             </div>
           </div>
 
-            <div className={styles.initialHiFi}>
+            <div className={styles.initialHiFi} id="design-iteration">
               <ContentSection
                 title="Design Iteration"
                 image="/remedify/design-iteration.png"
@@ -410,7 +412,7 @@ export default function Remedify() {
               </div>
           </div>
 
-          <div className={styles.initialHiFi}>
+          <div className={styles.initialHiFi} id="usability-testing">
             <ContentSection
               title="Usability Testing"
               image="/remedify/usability-testing.png"
@@ -472,7 +474,7 @@ export default function Remedify() {
 
           </div>
 
-          <div className={styles.initialHiFi}>
+          <div className={styles.initialHiFi} id="final-hifi">
               <ContentSection
                 title="Final Hi-Fi"
                 image="/remedify/final-hifi.png"
@@ -488,7 +490,7 @@ export default function Remedify() {
               </div>
           </div>
 
-          <div className={styles.initialHiFi}>
+          <div className={styles.initialHiFi} id="marketing-landing-page">
               <ContentSection
                 title="Marketing Landing Page"
                 image="/remedify/landing-page.png"

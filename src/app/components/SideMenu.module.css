@@ -1,0 +1,55 @@
+/* Side Menu Styles */
+.sideMenu {
+    position: fixed;
+    top: 55%;
+    left: 40px;
+    transform: translateY(-50%);
+    background-color: var(--background);
+    border: 1px solid var(--light-red);
+    z-index: 100;
+    padding: 1rem;
+
+    /* New transition properties */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+}
+
+/* Modify the existing component to add a visible state */
+.sideMenu.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.sideMenu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sideMenu li {
+    cursor: pointer;
+    padding: 0.5rem 0rem 0.2rem;
+    margin: 0.25rem 0;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+    font-size: 0.9rem;
+    border-bottom: 1.5px solid transparent;
+    width: fit-content;
+}
+
+.sideMenu li:hover {
+    border-bottom: 1.5px solid var(--light-red);
+}
+
+.sideMenu .activeSection {
+    font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1024px) {
+    .sideMenu {
+        display: none;
+        /* Hide on smaller screens */
+    }
+}
