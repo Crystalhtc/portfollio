@@ -80,7 +80,7 @@
 
 /* Responsive adjustments */
 @media screen and (min-width: 1025px) {
-    .sideMenu {
+    .sideMenuContainer {
         display: none;
     }
 }

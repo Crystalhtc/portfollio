@@ -255,11 +255,11 @@
 
     .details,
     .wireframeImage {
-        padding: 0 15rem;
+        padding: 0 10rem;
     }
 
     .userResearch {
-        padding: 5rem 15rem;
+        padding: 5rem 10rem;
     }
 
     .detailsContainer,
@@ -283,11 +283,11 @@
     }
 
     .appFeatures {
-        padding: 0 10rem 4rem;
+        padding: 3rem 10rem 4rem;
     }
 
     .details, .wireframeImage {
-        padding: 0 20rem;
+        padding: 0 15rem;
     }
 
     .prototype {
@@ -295,7 +295,7 @@
     }
 
     .userResearch {
-        padding: 5rem 20rem;
+        padding: 5rem 15rem;
     }
 }
 
