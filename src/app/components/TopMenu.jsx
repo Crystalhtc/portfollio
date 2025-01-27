@@ -98,22 +98,25 @@ const TopMenu = () => {
   };
 
   return (
-    <div className={styles.sideMenu}>
-      <nav>
-        <ul ref={menuRef}>
-          {sections.map((section) => (
-            <li 
-              key={section.id}
-              ref={activeSection === section.id ? activeItemRef : null}
-              className={activeSection === section.id ? styles.activeSection : ''}
-              onClick={() => scrollToSection(section.id)}
-            >
-              {section.name}
-            </li>
-          ))}
-        </ul>
-      </nav>
+    <div className={styles.sideMenuContainer}>
+      <div className={styles.sideMenu}>
+        <nav>
+          <ul ref={menuRef}>
+            {sections.map((section) => (
+              <li 
+                key={section.id}
+                ref={activeSection === section.id ? activeItemRef : null}
+                className={activeSection === section.id ? styles.activeSection : ''}
+                onClick={() => scrollToSection(section.id)}
+              >
+                {section.name}
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
     </div>
+    
   );
 };
 

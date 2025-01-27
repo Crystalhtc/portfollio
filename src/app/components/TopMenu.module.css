@@ -1,8 +1,16 @@
 /* Side Menu Styles */
+.sideMenuContainer {
+    background-color: var(--background);
+    width: 100%;
+    position: sticky;
+    top: 80px;
+    padding-top: 20px;
+}
+
 .sideMenu {
     display: flex;
-    position: sticky;
-    top: 100px;
+    /* position: sticky;
+    top: 100px; */
     margin-left: 2rem;
     margin-right: 2rem;
     transform: translateY(12%);
