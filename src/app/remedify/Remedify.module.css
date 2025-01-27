@@ -1,3 +1,14 @@
+.contentContainer {
+    display: flex;
+    position: relative;
+}
+
+/* .sideMenu {
+        position: sticky;
+            top: 80%;
+            left: 40px;
+} */
+
 .content {
     width: 90%;
     margin: 0 auto;

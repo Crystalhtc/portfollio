@@ -1,18 +1,16 @@
 /* Side Menu Styles */
 .sideMenu {
-    position: fixed;
-    top: 55%;
-    left: 40px;
-    transform: translateY(-50%);
+    position: sticky;
+    top: 10%;
+    margin-left: 2rem;
+    margin-right: 1rem;
+    transform: translateY(12%);
     background-color: var(--background);
     border: 1px solid var(--light-red);
     z-index: 100;
     padding: 1rem;
-
-    /* New transition properties */
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+    max-height: 80vh;
+    overflow-y: auto;
 }
 
 /* Modify the existing component to add a visible state */

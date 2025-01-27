@@ -59,7 +59,7 @@ const SideMenu = () => {
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const offset = 100; // Adjust this value to control the offset
+      const offset = 90; // Adjust this value to control the offset
       const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
       window.scrollTo({
         top: elementPosition - offset,
@@ -70,7 +70,7 @@ const SideMenu = () => {
 
   return (
     <div 
-      className={`${styles.sideMenu} ${isVisible ? styles.visible : ''}`}
+      className={`${styles.sideMenu}`}
     >
       <nav>
         <ul>
