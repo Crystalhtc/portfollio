@@ -405,11 +405,11 @@ export default function Remedify() {
                     <button>View Web App</button>
                   </a>
                 </div>
-                <div className={styles.githubButton}>
+                {/* <div className={styles.githubButton}>
                   <a href="https://github.com/ohmaruko/Tranquify" target="_blank">
                     <button>View Github Repository</button>
                   </a>
-                </div>
+                </div> */}
               </div>
           </div>
 
