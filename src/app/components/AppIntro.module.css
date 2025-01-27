@@ -65,7 +65,7 @@
 /* Desktop (1024px and up) */
 @media screen and (min-width: 1024px) {
     .card {
-        margin: 2rem 8rem;
+        margin: 2rem 4rem;
         padding: 2rem 4rem;
     }
 }

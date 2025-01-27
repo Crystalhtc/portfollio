@@ -5,14 +5,17 @@
     position: sticky;
     top: 80px;
     padding-top: 20px;
+    display: flex;
 }
 
 .sideMenu {
     display: flex;
     /* position: sticky;
     top: 100px; */
-    margin-left: 2rem;
-    margin-right: 2rem;
+    /* margin-left: 2rem;
+    margin-right: 2rem; */
+    max-width: 90%;
+    margin: 0 auto;
     transform: translateY(12%);
     background-color: var(--background);
     border: 1px solid var(--light-red);

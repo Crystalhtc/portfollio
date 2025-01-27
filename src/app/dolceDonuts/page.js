@@ -10,6 +10,8 @@ import StyleGuide from "../components/StyleGuide";
 import ContentSection from "../components/ContentSection";
 import NextCard from "../components/NextCard";
 import ScrollButton from "../components/ScrollButton";
+import TopMenu from "../components/TopMenu";
+import SideMenu from "../components/SideMenu";
 
 export default function Remedify() {
   return (
@@ -27,8 +29,15 @@ export default function Remedify() {
           </div>
         </div>
         
-        <div className={styles.content}>
-          <div className={styles.appIntro}>
+        <div className={styles.contentContainer}>
+          <div className={styles.sideMenu}>
+            <SideMenu />
+          </div>
+
+        <div className={styles.contentFullWidth}>
+          <TopMenu />
+          <div className={styles.content}>
+          <div className={styles.appIntro} id="app-intro">
             <AppIntro 
             appName="Dolce Donuts"
             description="The Dolce Donuts Website project is a focused effort to enhance online presence and create a more enjoyable online experience for customers. With a dedication to user research, user-centered design principles, the goal is to create a delightful and user-friendly website that mirrors the warmth and delicious offerings. Visitors can look forward to a smoother journey, whether they’re browsing our menu, placing orders, customizing their own donuts, or connecting with our community."
@@ -41,7 +50,7 @@ export default function Remedify() {
           />
           </div>
 
-          <div className={styles.prototypeBanner}>
+          <div className={styles.prototypeBanner} id="prototype">
             <div className={styles.prototypeTitle}>
               <h2>Prototype</h2>
             </div> 
@@ -62,7 +71,7 @@ export default function Remedify() {
             </div>
           </div>
 
-          <div className={styles.appFeatures}>
+          <div className={styles.appFeatures} id="features">
             <div className={styles.featureTitle}>
               <h2>Features</h2>
             </div> 
@@ -108,7 +117,7 @@ export default function Remedify() {
             </div>
           </div> */}
 
-          <div className={styles.styleGuide}>
+          <div className={styles.styleGuide} id="style-guide">
               <StyleGuide
               title="Style Guide"
               image="/dolceDonuts/styleguide.png"
@@ -117,7 +126,7 @@ export default function Remedify() {
             />
           </div>
 
-          <div className={styles.detailsContainer}>
+          <div className={styles.detailsContainer} id="wireframing">
             <div className={styles.details}>
               <h2>Wireframing</h2>
               <p>Wireframing serves as a blueprint for creating user interfaces. It provides a visual representation of the structure and layout of an application or website, focusing on functionality and user experience.</p>
@@ -158,7 +167,7 @@ export default function Remedify() {
               </div> */}
           </div>
 
-          <div className={styles.initialHiFi}>
+          <div className={styles.initialHiFi} id="final-hifi">
               <ContentSection
                 title="Final Design"
                 image="/dolceDonuts/final-hifi.png"
@@ -199,6 +208,8 @@ export default function Remedify() {
               button="Next Project"
             />
           </div>
+        </div>
+        </div>
         </div>
       </main>
       <ScrollButton/>

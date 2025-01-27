@@ -1,7 +1,24 @@
+.contentContainer {
+    display: flex;
+    position: relative;
+    padding-bottom: 5rem;
+}
+
+/* .sideMenu {
+        position: sticky;
+            top: 80%;
+            left: 40px;
+} */
+
 .content {
     width: 90%;
     margin: 0 auto;
     padding: 1rem 0 2rem;
+}
+
+.contentFullWidth {
+    width: 100%;
+    margin: 0 auto;
 }
 
 .heroImage {
@@ -18,15 +35,9 @@
     justify-content: center;
     align-items: center;
     margin-top: 1rem;
-    margin-bottom: 1rem;
 }
 
-.personaImage {
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-}
-
-.wireframeImage, .personaImage {
+.wireframeImage {
     width: 100%;
     height: auto;
     
@@ -87,6 +98,17 @@
     gap: 1rem;
 }
 
+.recommendations {
+    list-style-type: none;
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+.subIndent {
+    margin-left: 1rem;
+    list-style-type:circle;
+}
+
 .featuresTitle {
     display: flex;
     align-items: flex-start;
@@ -138,6 +160,10 @@
     font-weight: bold;
 }
 
+.semiBold {
+    font-weight: 550;
+}   
+
 .indent {
     list-style-type: none
 }
@@ -148,13 +174,7 @@
     margin: 2rem auto 0;
 }
 
-.githubButton {
-    display: flex;
-    justify-content: center;
-    margin: 0rem auto 0;
-}
-
-.linkButton, .githubButton button {
+.linkButton button {
     width: fit-content;
 }
 
@@ -170,6 +190,11 @@
     margin: 3rem 0 1rem;
 }
 
+@media screen and (max-width: 1024px) {
+    .contentContainer {
+        flex-direction: column;
+    }
+}
 
 /* Tablet (768px and up) */
 @media screen and (min-width: 768px) {
@@ -230,11 +255,11 @@
 
     .details,
     .wireframeImage {
-        padding: 0 15rem;
+        padding: 0 10rem;
     }
 
     .userResearch {
-        padding: 5rem 15rem;
+        padding: 5rem 10rem;
     }
 
     .detailsContainer,
@@ -258,11 +283,11 @@
     }
 
     .appFeatures {
-        padding: 0 10rem 4rem;
+        padding: 3rem 10rem 4rem;
     }
 
     .details, .wireframeImage {
-        padding: 0 20rem;
+        padding: 0 15rem;
     }
 
     .prototype {
@@ -270,37 +295,36 @@
     }
 
     .userResearch {
-        padding: 5rem 20rem;
+        padding: 5rem 15rem;
     }
 }
 
 /* animations */
 /* Fade-in and Slide Animations */
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
-
 /* Hero Section */
 .heroImage {
-    animation: fadeInUp 1s ease-out;
+  animation: fadeInUp 1s ease-out;
 }
+
+

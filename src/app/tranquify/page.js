@@ -10,6 +10,8 @@ import StyleGuide from "../components/StyleGuide";
 import ContentSection from "../components/ContentSection";
 import NextCard from "../components/NextCard";
 import ScrollButton from "../components/ScrollButton";
+import SideMenu from "../components/SideMenu";
+import TopMenu from "../components/TopMenu";
 
 export default function Remedify() {
   return (
@@ -27,8 +29,15 @@ export default function Remedify() {
           </div>
         </div>
         
+        <div className={styles.contentContainer}>
+          <div className={styles.sideMenu}>
+            <SideMenu />
+          </div>
+        
+        <div className={styles.contentFullWidth}>
+          <TopMenu />
         <div className={styles.content}>
-          <div className={styles.appIntro}>
+          <div className={styles.appIntro} id="app-intro">
             <AppIntro 
               appName="Tranquify"
               description="A user-friendly mobile app designed to enhance mood tracking and meditation. By prioritizing user research, prototyping, and usability testing, Tranquify offers a seamless experience for tracking moods and practicing meditation, with personalized suggestions for self-care."
@@ -41,7 +50,7 @@ export default function Remedify() {
             />
           </div>
 
-          <div className={styles.prototypeBanner}>
+          <div className={styles.prototypeBanner} id="prototype">
             <div className={styles.prototypeTitle}>
               <h2>Prototype</h2>
             </div> 
@@ -62,7 +71,7 @@ export default function Remedify() {
             </div>
           </div>
 
-          <div className={styles.appFeatures}>
+          <div className={styles.appFeatures} id="features">
             <div className={styles.featureTitle}>
               <h2>Features</h2>
             </div> 
@@ -86,7 +95,7 @@ export default function Remedify() {
             />
           </div>
 
-          <div className={styles.userResearch}>
+          <div className={styles.userResearch} id="user-research">
               <UserResearch
                 title="User Research"
                 descriptions={[
@@ -163,7 +172,7 @@ export default function Remedify() {
             </div>
           </div> */}
 
-          <div className={styles.detailsContainer}>
+          <div className={styles.detailsContainer} id="user-persona">
             <div className={styles.details}>
                 <h2>User Persona</h2>
                 <p>Crafting user personas for end users provides essential insights into our target audience. This approach prioritizes user needs, allowing us to customize our products accordingly and deliver a delightful user experience.</p>
@@ -207,7 +216,7 @@ export default function Remedify() {
               </div>
           </div>
 
-          <div className={styles.styleGuide}>
+          <div className={styles.detailsContainer} id="style-guide">
               <StyleGuide
                 title="Style Guide"
                 image="/tranquify/styleguide.png"
@@ -216,7 +225,7 @@ export default function Remedify() {
               />
           </div>
 
-          <div className={styles.detailsContainer}>
+          <div className={styles.detailsContainer} id="wireframing">
             <div className={styles.details}>
               <h2>Wireframing</h2>
               <p>Wireframing serves as a blueprint for creating user interfaces. It provides a visual representation of the structure and layout of an application or website, focusing on functionality and user experience.</p>
@@ -257,7 +266,7 @@ export default function Remedify() {
               </div>
           </div>
 
-          <div className={styles.initialHiFi}>
+          <div className={styles.initialHiFi} id="initial-hifi">
               <ContentSection
                 title="Initial Hi-Fi"
                 image="/tranquify/initial-hifi.png"
@@ -287,7 +296,7 @@ export default function Remedify() {
                 </div>
               </div>
           </div>
-          <div className={styles.initialHiFi}>
+          <div className={styles.initialHiFi} id="usability-testing">
               <ContentSection
                 title="Usability Testing"
                 image="/tranquify/usability-testing.png"
@@ -352,7 +361,7 @@ export default function Remedify() {
 
           
 
-          <div className={styles.initialHiFi}>
+          <div className={styles.initialHiFi} id="final-hifi">
               <ContentSection
                 title="Final Design"
                 image="/tranquify/final-hifi.png"
@@ -383,7 +392,7 @@ export default function Remedify() {
               </div>
           </div>
 
-          <div className={styles.initialHiFi}>
+          <div className={styles.initialHiFi} id="web-app">
               <ContentSection
                 title="Final Product: Web App"
                 image="/tranquify/webapp.png"
@@ -414,6 +423,8 @@ export default function Remedify() {
               button="Next Project"
             />
           </div>
+        </div>
+        </div>
         </div>
       </main>
       <ScrollButton/>

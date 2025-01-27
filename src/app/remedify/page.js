@@ -6,7 +6,6 @@ import AppIntro from "../components/AppIntro";
 import AppFeature1 from "../components/AppFeature1";
 import AppFeature2 from "../components/AppFeature2";
 import UserResearch from "../components/UserResearch";
-import StyleGuide from "../components/StyleGuide";
 import ContentSection from "../components/ContentSection";
 import NextCard from "../components/NextCard";
 import ScrollButton from "../components/ScrollButton";

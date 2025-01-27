@@ -10,6 +10,8 @@ import StyleGuide from "../components/StyleGuide";
 import ContentSection from "../components/ContentSection";
 import NextCard from "../components/NextCard";
 import ScrollButton from "../components/ScrollButton";
+import SideMenu from "../components/SideMenu";
+import TopMenu from "../components/TopMenu";
 
 export default function Remedify() {
   return (
@@ -27,8 +29,15 @@ export default function Remedify() {
           </div>
         </div>
         
-        <div className={styles.content}>
-          <div className={styles.appIntro}>
+        <div className={styles.contentContainer}>
+          <div className={styles.sideMenu}>
+            <SideMenu />
+          </div>
+
+        <div className={styles.contentFullWidth}>
+          <TopMenu />
+          <div className={styles.content}>
+          <div className={styles.appIntro} id="app-intro">
             <AppIntro 
             appName="Squiz"
             description="Squiz is a student-centered study tool designed to revolutionize exam preparation. Through advanced AI technology, including user-friendly PDF upload, content analysis, and dynamic quiz generation, Squiz offers personalized revision quizzes tailored to your specific study materials. By streamlining the study process, Squiz saves time, enhances engagement, and optimizes learning efficiency."
@@ -41,7 +50,7 @@ export default function Remedify() {
           />
           </div>
 
-          <div className={styles.prototypeBanner}>
+          <div className={styles.prototypeBanner} id="prototype">
             <div className={styles.prototypeTitle}>
               <h2>Prototype</h2>
             </div> 
@@ -62,7 +71,7 @@ export default function Remedify() {
             </div>
           </div>
 
-          <div className={styles.appFeatures}>
+          <div className={styles.appFeatures} id="features">
             <div className={styles.featureTitle}>
               <h2>Features</h2>
             </div> 
@@ -96,7 +105,7 @@ export default function Remedify() {
           />
           </div>
 
-          <div className={styles.userResearch}>
+          <div className={styles.userResearch} id="user-research">
               <UserResearch
               title="User Needs"
               descriptions={[
@@ -218,7 +227,7 @@ export default function Remedify() {
               </div>
           </div> */}
 
-          <div className={styles.styleGuide}>
+          <div className={styles.styleGuide} id="style-guide">
               <StyleGuide
               title="Style Guide"
               image="/squiz/styleguide.png"
@@ -227,7 +236,7 @@ export default function Remedify() {
             />
           </div>
 
-          <div className={styles.detailsContainer}>
+          <div className={styles.detailsContainer} id="wireframing">
             <div className={styles.details}>
               <h2>Wireframing</h2>
               <p>Wireframing serves as a blueprint for creating user interfaces. It provides a visual representation of the structure and layout of an application or website, focusing on functionality and user experience.</p>
@@ -268,7 +277,7 @@ export default function Remedify() {
               </div> */}
           </div>
 
-          <div className={styles.initialHiFi}>
+          <div className={styles.initialHiFi} id="final-hifi">
               <ContentSection
                 title="Final Design"
                 image="/squiz/final-hifi.png"
@@ -309,6 +318,8 @@ export default function Remedify() {
               button="Next Project"
             />
           </div>
+        </div>
+        </div>
         </div>
       </main>
       <ScrollButton/>

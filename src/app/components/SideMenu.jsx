@@ -4,9 +4,10 @@ import styles from './SideMenu.module.css';
 const SideMenu = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  const [availableSections, setAvailableSections] = useState([]);
 
-  // List of sections with their corresponding IDs
-  const sections = [
+  // List of all possible sections
+  const allSections = [
     { name: 'Prototype', id: 'prototype' },
     { name: 'Features', id: 'features' },
     { name: 'User Research', id: 'user-research' },
@@ -22,8 +23,27 @@ const SideMenu = () => {
     { name: 'Design Iteration', id: 'design-iteration' },
     { name: 'Usability Testing', id: 'usability-testing' },
     { name: 'Final Hi-Fi', id: 'final-hifi' },
-    { name: 'Marketing Landing Page', id: 'marketing-landing-page' }
+    { name: 'Marketing Landing Page', id: 'marketing-landing-page' },
+    { name: 'Web App', id: 'web-app' }
   ];
+
+  // Check which sections exist in the current page
+  useEffect(() => {
+    const checkAvailableSections = () => {
+      const sections = allSections.filter(section => 
+        document.getElementById(section.id) !== null
+      );
+      setAvailableSections(sections);
+    };
+
+    // Wait for DOM to be fully loaded
+    if (document.readyState === 'complete') {
+      checkAvailableSections();
+    } else {
+      window.addEventListener('load', checkAvailableSections);
+      return () => window.removeEventListener('load', checkAvailableSections);
+    }
+  }, []);
 
   // Handle scroll and section tracking
   useEffect(() => {
@@ -37,7 +57,7 @@ const SideMenu = () => {
       }
 
       // Find the section currently in view
-      const currentSection = sections.find(section => {
+      const currentSection = availableSections.find(section => {
         const element = document.getElementById(section.id);
         if (element) {
           const { top, bottom } = element.getBoundingClientRect();
@@ -53,13 +73,13 @@ const SideMenu = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [availableSections]);
 
   // Scroll to section with offset
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const offset = 90; // Adjust this value to control the offset
+      const offset = 90;
       const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
       window.scrollTo({
         top: elementPosition - offset,
@@ -69,12 +89,10 @@ const SideMenu = () => {
   };
 
   return (
-    <div 
-      className={`${styles.sideMenu}`}
-    >
+    <div className={styles.sideMenu}>
       <nav>
         <ul>
-          {sections.map((section) => (
+          {availableSections.map((section) => (
             <li 
               key={section.id}
               className={activeSection === section.id ? styles.activeSection : ''}

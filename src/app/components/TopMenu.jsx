@@ -4,11 +4,12 @@ import styles from './TopMenu.module.css';
 const TopMenu = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  const [availableSections, setAvailableSections] = useState([]);
   const menuRef = useRef(null);
   const activeItemRef = useRef(null);
 
-  // List of sections with their corresponding IDs
-  const sections = [
+  // List of all possible sections
+  const allSections = [
     { name: 'Prototype', id: 'prototype' },
     { name: 'Features', id: 'features' },
     { name: 'User Research', id: 'user-research' },
@@ -24,8 +25,27 @@ const TopMenu = () => {
     { name: 'Design Iteration', id: 'design-iteration' },
     { name: 'Usability Testing', id: 'usability-testing' },
     { name: 'Final Hi-Fi', id: 'final-hifi' },
-    { name: 'Marketing Landing Page', id: 'marketing-landing-page' }
+    { name: 'Marketing Landing Page', id: 'marketing-landing-page' },
+    { name: 'Web App', id: 'web-app' }
   ];
+
+  // Check which sections exist in the current page
+  useEffect(() => {
+    const checkAvailableSections = () => {
+      const sections = allSections.filter(section => 
+        document.getElementById(section.id) !== null
+      );
+      setAvailableSections(sections);
+    };
+
+    // Wait for DOM to be fully loaded
+    if (document.readyState === 'complete') {
+      checkAvailableSections();
+    } else {
+      window.addEventListener('load', checkAvailableSections);
+      return () => window.removeEventListener('load', checkAvailableSections);
+    }
+  }, []);
 
   // Center the active item in the menu
   const centerActiveItem = () => {
@@ -60,8 +80,8 @@ const TopMenu = () => {
         setIsVisible(scrollPosition > top + window.innerHeight / 2);
       }
 
-      // Find the section currently in view, accounting for offset
-      const currentSection = sections.find(section => {
+      // Find the section currently in view from available sections
+      const currentSection = availableSections.find(section => {
         const element = document.getElementById(section.id);
         if (element) {
           const { top, bottom } = element.getBoundingClientRect();
@@ -77,7 +97,7 @@ const TopMenu = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [availableSections]);
 
   // Center active item whenever it changes
   useEffect(() => {
@@ -102,7 +122,7 @@ const TopMenu = () => {
       <div className={styles.sideMenu}>
         <nav>
           <ul ref={menuRef}>
-            {sections.map((section) => (
+            {availableSections.map((section) => (
               <li 
                 key={section.id}
                 ref={activeSection === section.id ? activeItemRef : null}
@@ -116,7 +136,6 @@ const TopMenu = () => {
         </nav>
       </div>
     </div>
-    
   );
 };
 

@@ -10,6 +10,8 @@ import StyleGuide from "../components/StyleGuide";
 import ContentSection from "../components/ContentSection";
 import NextCard from "../components/NextCard";
 import ScrollButton from "../components/ScrollButton";
+import SideMenu from "../components/SideMenu";
+import TopMenu from "../components/TopMenu";
 
 export default function Remedify() {
   return (
@@ -27,8 +29,15 @@ export default function Remedify() {
           </div>
         </div>
         
-        <div className={styles.content}>
-          <div className={styles.appIntro}>
+        <div className={styles.contentContainer}>
+          <div className={styles.sideMenu}>
+            <SideMenu />
+          </div>
+
+        <div className={styles.contentFullWidth}>
+          <TopMenu />
+          <div className={styles.content}>
+          <div className={styles.appIntro} id="app-intro">
             <AppIntro 
             appName="Navie"
             description="A user-focused mobile app designed to improve your grocery shopping experience. Through user research, wireframing, prototyping, and usability testing, Navie offers easy route finding, quick product search, and convenient shopping list management, providing an intuitive experience."
@@ -41,7 +50,7 @@ export default function Remedify() {
           />
           </div>
 
-          <div className={styles.prototypeBanner}>
+          <div className={styles.prototypeBanner} id="prototype">
             <div className={styles.prototypeTitle}>
               <h2>Prototype</h2>
             </div> 
@@ -62,7 +71,7 @@ export default function Remedify() {
             </div>
           </div>
 
-          <div className={styles.appFeatures}>
+          <div className={styles.appFeatures} id="features">
             <div className={styles.featureTitle}>
               <h2>Features</h2>
             </div> 
@@ -106,7 +115,7 @@ export default function Remedify() {
             />
           </div>
 
-          <div className={styles.userResearch}>
+          <div className={styles.userResearch} id="user-research">
               <UserResearch
                 title="User Research"
                 descriptions={[
@@ -154,24 +163,6 @@ export default function Remedify() {
               </div>
 
           </div> */}
-
-
-          {/* <div className={styles.detailsContainer}>
-            <div className={styles.details}>
-              <h2>Values</h2>
-              <p>Setting clear values for Remedify was essential to guide the design process and ensure the app meets its goals. These values influence every design decision and feature:</p>
-              <ul>
-                <li className={styles.bold}>Improve Medication Adherence:</li>
-                <li className={styles.indent}>The app focuses on making medication management simple and efficient to help users stay on track with their doses.</li>
-                <li className={styles.bold}>Accessible:</li>
-                <li className={styles.indent}>Remedify is designed to be easy to use for everyone, with features like camera scanning and clear interfaces to accommodate all tech abilities and cognitive conditions.</li>
-                <li className={styles.bold}>Support:</li>
-                <li className={styles.indent}>The app offers continuous assistance, from reminders to guidance, ensuring users feel supported in managing their medication.</li>
-                <li className={styles.bold}>Empower:</li>
-                <li className={styles.indent}>Remedify gives users control over their medication schedule, enabling them to personalize settings and manage their health confidently.</li>
-              </ul>
-            </div>
-          </div> */}
           
           {/* <div className={styles.detailsContainer}>
             <div className={styles.details}>
@@ -185,51 +176,7 @@ export default function Remedify() {
             </div>
           </div> */}
 
-          {/* <div className={styles.detailsContainer}>
-            <div className={styles.details}>
-                <h2>User Persona</h2>
-                <p>Crafting user personas for end users provides essential insights into our target audience. This approach prioritizes user needs, allowing us to customize our products accordingly and deliver a delightful user experience.</p>
-                <ul className={styles.detailsList}>
-                  <div>
-                    <img
-                      src="/tranquify/persona1.png"
-                      alt="User Persona 1"
-                      width="600"
-                      className={styles.personaImage}
-                    />
-                    <li className={styles.bold}>Primary Persona: Elderly Individual</li>
-                    <li className={styles.indent}>The primary user is an older adult experiencing memory challenges who must manage multiple medications daily.</li>
-                  </div>
-                  <div>
-                    <img
-                      src="/tranquify/persona2.png"
-                      alt="User Persona 2"
-                      width="600"
-                      className={styles.personaImage}
-                    />
-                    <li className={styles.bold}>Secondary Persona: Caregiver</li>
-                    <li className={styles.indent}>The secondary user is a caregiver responsible for overseeing the medication schedules of their loved ones.</li>
-                  </div>
-                  <div>
-                    <img
-                      src="/tranquify/persona3.png"
-                      alt="User Persona 3"
-                      width="600"
-                      className={styles.personaImage}
-                    />
-                    <li className={styles.bold}>Secondary Persona: Caregiver</li>
-                    <li className={styles.indent}>The secondary user is a caregiver responsible for overseeing the medication schedules of their loved ones.</li>
-                  </div>
-                </ul>
-                <div className={styles.linkButton}>
-                  <a href="" target="_blank">
-                    <button>View User Persona</button>
-                  </a>
-                </div>
-              </div>
-          </div> */}
-
-          <div className={styles.styleGuide}>
+          <div className={styles.styleGuide} id="style-guide">
               <StyleGuide
                 title="Style Guide"
                 image="/navie/styleguide.png"
@@ -238,7 +185,7 @@ export default function Remedify() {
               />
           </div>
 
-          <div className={styles.detailsContainer}>
+          <div className={styles.detailsContainer} id="wireframing">
             <div className={styles.details}>
               <h2>Wireframing</h2>
               <p>Wireframing serves as a blueprint for creating user interfaces. It provides a visual representation of the structure and layout of an application or website, focusing on functionality and user experience.</p>
@@ -279,7 +226,7 @@ export default function Remedify() {
               </div> */}
           </div>
 
-          <div className={styles.initialHiFi}>
+          <div className={styles.initialHiFi} id="usability-testing">
               <ContentSection
                 title="Navie Testing"
                 image="/navie/usability-testing.png"
@@ -338,7 +285,7 @@ export default function Remedify() {
 
           
 
-          <div className={styles.initialHiFi}>
+          <div className={styles.initialHiFi} id="final-hifi">
               <ContentSection
                 title="Final Design"
                 image="/navie/final-hifi.png"
@@ -379,6 +326,8 @@ export default function Remedify() {
               button="Next Project"
             />
           </div>
+        </div>
+        </div>
         </div>
       </main>
       <ScrollButton/>
