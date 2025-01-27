@@ -1,16 +1,18 @@
 /* Side Menu Styles */
 .sideMenu {
+    display: flex;
     position: sticky;
-    top: 10%;
+    top: 100px;
     margin-left: 2rem;
-    margin-right: 1rem;
+    margin-right: 2rem;
     transform: translateY(12%);
     background-color: var(--background);
     border: 1px solid var(--light-red);
     z-index: 100;
-    padding: 1rem;
+    padding: .8rem 1.5rem;
     max-height: 80vh;
-    overflow-y: auto;
+    /* Remove overflow: auto from container to prevent double scrollbars */
+    overflow: hidden;
 }
 
 /* Modify the existing component to add a visible state */
@@ -19,10 +21,31 @@
     visibility: visible;
 }
 
+.sideMenu nav {
+    width: 100%;
+    overflow: hidden;
+    /* Ensures the nav doesn't create unwanted scrollbars */
+}
+
 .sideMenu ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    gap: 1.2rem;
+    /* Add horizontal scroll with smooth behavior */
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    /* Hide scrollbar for different browsers while maintaining functionality */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.sideMenu ul::-webkit-scrollbar {
+    display: none;
 }
 
 .sideMenu li {
@@ -34,6 +57,8 @@
     font-size: 0.9rem;
     border-bottom: 1.5px solid transparent;
     width: fit-content;
+    flex-shrink: 0;
+    /* Prevent items from shrinking */
 }
 
 .sideMenu li:hover {
@@ -42,10 +67,11 @@
 
 .sideMenu .activeSection {
     font-weight: bold;
+    border-bottom: 1.5px solid var(--light-red);
 }
 
 /* Responsive adjustments */
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 1025px) {
     .sideMenu {
         display: none;
     }

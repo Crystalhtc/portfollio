@@ -1,6 +1,7 @@
 .contentContainer {
     display: flex;
     position: relative;
+    padding-bottom: 5rem;
 }
 
 /* .sideMenu {
@@ -13,6 +14,11 @@
     width: 90%;
     margin: 0 auto;
     padding: 1rem 0 2rem;
+}
+
+.contentFullWidth {
+    width: 100%;
+    margin: 0 auto;
 }
 
 .heroImage {
@@ -184,6 +190,11 @@
     margin: 3rem 0 1rem;
 }
 
+@media screen and (max-width: 1024px) {
+    .contentContainer {
+        flex-direction: column;
+    }
+}
 
 /* Tablet (768px and up) */
 @media screen and (min-width: 768px) {

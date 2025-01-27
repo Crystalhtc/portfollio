@@ -11,6 +11,7 @@ import ContentSection from "../components/ContentSection";
 import NextCard from "../components/NextCard";
 import ScrollButton from "../components/ScrollButton";
 import SideMenu from "../components/SideMenu";
+import TopMenu from "../components/TopMenu";
 
 export default function Remedify() {
   return (
@@ -33,6 +34,8 @@ export default function Remedify() {
             <SideMenu />
           </div>
 
+        <div className={styles.contentFullWidth}>
+          <TopMenu />
           <div className={styles.content}>
             <div className={styles.appIntro} id="app-intro">
               <AppIntro 
@@ -521,6 +524,7 @@ export default function Remedify() {
               />
             </div>
           </div>
+        </div>
         </div>
       </main>
       <ScrollButton/>
