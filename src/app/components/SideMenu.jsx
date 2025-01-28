@@ -5,6 +5,7 @@ const SideMenu = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeSection, setActiveSection] = useState('');
   const [availableSections, setAvailableSections] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   // List of all possible sections
   const allSections = [
@@ -34,6 +35,7 @@ const SideMenu = () => {
         document.getElementById(section.id) !== null
       );
       setAvailableSections(sections);
+      setIsLoading(false);
     };
 
     // Wait for DOM to be fully loaded
@@ -88,20 +90,35 @@ const SideMenu = () => {
     }
   };
 
+  // Loading placeholder items
+  const LoadingPlaceholders = () => (
+    <div className={styles.loadingContainer}>
+      {[...Array(6)].map((_, index) => (
+        <div key={index} className={styles.loadingItem}>
+          <div className={styles.loadingBar} />
+        </div>
+      ))}
+    </div>
+  );
+
   return (
     <div className={styles.sideMenu}>
       <nav>
-        <ul>
-          {availableSections.map((section) => (
-            <li 
-              key={section.id}
-              className={activeSection === section.id ? styles.activeSection : ''}
-              onClick={() => scrollToSection(section.id)}
-            >
-              {section.name}
-            </li>
-          ))}
-        </ul>
+        {isLoading ? (
+          <LoadingPlaceholders />
+        ) : (
+          <ul>
+            {availableSections.map((section) => (
+              <li 
+                key={section.id}
+                className={activeSection === section.id ? styles.activeSection : ''}
+                onClick={() => scrollToSection(section.id)}
+              >
+                {section.name}
+              </li>
+            ))}
+          </ul>
+        )}
       </nav>
     </div>
   );
