@@ -64,6 +64,34 @@ export default function About() {
           </div>
 
           <div className={styles.interestSection}>
+            <h2 className={styles.interestTitle}>My Skills</h2>
+            <div className={styles.interest}>
+              <h3>Graphics and Design Skills</h3>
+              <p>
+                Prototyping, Wireframing, User Research, User Testing, Project Management
+              </p>
+            </div>
+            <div className={styles.interest}>
+              <h3>Design Tools</h3>
+              <p>
+                Figma, Adobe Illustrator, Adobe Photoshop, Adobe After Effects, Adobe Indesign, Canva
+              </p>
+            </div>
+            <div className={styles.interest}>
+              <h3>Development Skills</h3>
+              <p>
+                HTML, CSS, JavaScript, Node.js, React, React Native, Next.js, Expo, Bootstrap, GitHub, WordPress
+              </p>
+            </div>
+            <div className={styles.interest}>
+              <h3>Language Skills</h3>
+              <p>
+                Cantonese, English, Mandarin, Japanese
+              </p>
+            </div>
+          </div>
+
+          <div className={styles.interestSection}>
             <h2 className={styles.interestTitle}>What I like to do...</h2>
             <div className={styles.interest}>
               <h3>Dancing 🩰</h3>
