@@ -99,6 +99,11 @@
     padding: 2rem 1.5rem;
 }
 
+.interestSection {
+    padding-top: 3rem;
+    padding-bottom: 0;
+}
+
 .interestTitle {
     margin-bottom: 1rem;
     font-size: 1.5rem;
@@ -158,6 +163,11 @@
         margin: 0 3rem;
     }
 
+        .interestSection {
+            padding-top: 5rem;
+            padding-bottom: 0;
+        }
+
     .connect {
         padding: 3rem;
         flex-direction: row;
@@ -207,6 +217,11 @@
         margin: 0 5rem;
     }
 
+        .interestSection {
+            padding-top: 5rem;
+            padding-bottom: 0;
+        }
+
     .connect {
         padding: 3rem 5rem;
     }
@@ -228,6 +243,11 @@
         margin: 0 12rem;
     }
 
+        .interestSection {
+            padding-top: 5rem;
+            padding-bottom: 0;
+        }
+
     .connect {
         padding: 3rem 15rem;
     }
@@ -236,7 +256,15 @@
 /* Extra Large Desktop (1500px and up) */
 @media screen and (min-width: 1500px) {
     .details {
-        padding: 0 30rem;
+        padding: 0 20rem;
+    }
+
+    .connect {
+        padding: 3rem 30rem;
+    }
+
+    .interestSection {
+        padding: 5rem 20rem 0;
     }
 }
 
