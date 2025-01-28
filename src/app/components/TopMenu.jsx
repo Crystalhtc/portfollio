@@ -5,6 +5,7 @@ const TopMenu = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [activeSection, setActiveSection] = useState('');
   const [availableSections, setAvailableSections] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const menuRef = useRef(null);
   const activeItemRef = useRef(null);
 
@@ -36,6 +37,7 @@ const TopMenu = () => {
         document.getElementById(section.id) !== null
       );
       setAvailableSections(sections);
+      setIsLoading(false);
     };
 
     // Wait for DOM to be fully loaded
@@ -117,22 +119,37 @@ const TopMenu = () => {
     }
   };
 
+  // Loading placeholder items
+  const LoadingPlaceholders = () => (
+    <div className={styles.loadingContainer}>
+      {[...Array(8)].map((_, index) => (
+        <div key={index} className={styles.loadingItem}>
+          <div className={styles.loadingBar} />
+        </div>
+      ))}
+    </div>
+  );
+
   return (
     <div className={styles.sideMenuContainer}>
       <div className={styles.sideMenu}>
         <nav>
-          <ul ref={menuRef}>
-            {availableSections.map((section) => (
-              <li 
-                key={section.id}
-                ref={activeSection === section.id ? activeItemRef : null}
-                className={activeSection === section.id ? styles.activeSection : ''}
-                onClick={() => scrollToSection(section.id)}
-              >
-                {section.name}
-              </li>
-            ))}
-          </ul>
+          {isLoading ? (
+            <LoadingPlaceholders />
+          ) : (
+            <ul ref={menuRef}>
+              {availableSections.map((section) => (
+                <li 
+                  key={section.id}
+                  ref={activeSection === section.id ? activeItemRef : null}
+                  className={activeSection === section.id ? styles.activeSection : ''}
+                  onClick={() => scrollToSection(section.id)}
+                >
+                  {section.name}
+                </li>
+              ))}
+            </ul>
+          )}
         </nav>
       </div>
     </div>
