@@ -1,0 +1,99 @@
+.filterContainer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    padding: 0 1rem;
+}
+
+.filterButton {
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.875rem;
+    border-bottom: 1.5px solid transparent;
+    color: var(--red)
+}
+
+.filterButton:hover {
+    border-bottom: 1.5px solid var(--light-red);
+}
+
+.filterButton.active {
+    border-bottom: 1.5px solid var(--light-red);
+    font-weight: bold;
+}
+
+/* Inherit existing styles from page.module.css */
+.projects {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.projects h2 {
+    width: 90%;
+    margin: 2rem auto 0;
+    font-size: 1.5rem;
+}
+
+.appCardList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    border-top: 1.5px solid var(--light-red);
+    gap: 2rem;
+    padding-top: 2rem;
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+    .projects h2 {
+        width: 85%;
+        margin: 3rem auto 0;
+        font-size: 1.75rem;
+    }
+
+    .appCardList {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 85%;
+        gap: 2rem;
+    }
+
+    .filterContainer {
+        gap: 1.5rem;
+    }
+
+    .filterButton {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .projects h2 {
+        width: 80%;
+        margin: 4rem auto 0;
+        font-size: 2rem;
+    }
+
+    .appCardList {
+        width: 80%;
+        gap: 3rem;
+    }
+
+    .filterContainer {
+        gap: 2rem;
+    }
+}
+
+@media (min-width: 1440px) {
+    .appCardList {
+        gap: 4rem;
+    }
+}

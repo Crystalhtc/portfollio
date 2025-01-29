@@ -6,6 +6,7 @@ import App from "next/app";
 import Footer from "./components/Footer";
 import AboutCard from "./components/AboutCard";
 import ScrollButton from "./components/ScrollButton";
+import ProjectsSection from './components/ProjectsSection';
 
 export default function Home() {
   return (
@@ -39,45 +40,7 @@ export default function Home() {
         </div>
         
         <div className={styles.projects}>
-          <h2>Projects</h2>
-          <div className={styles.appCardList}>
-            <AppCard 
-              className={styles.firstAppCard}
-              image="/remedify-homepage.png" 
-              alt="Remedify" 
-              name="Remedify" 
-              link="/remedify"
-              description="All-in-one mobile solution for emotional well-being, featuring personalized mood tracking, meditation guidance, and self-care recommendations."
-            />
-            <AppCard 
-              image="/tranquify-homepage.png" 
-              alt="Tranquify" 
-              name="Tranquify" 
-              link="/tranquify"
-              description="All-in-one mobile solution for emotional well-being, featuring personalized mood tracking, meditation guidance, and self-care recommendations."
-            />
-            <AppCard 
-              image="/navie-homepage.png" 
-              alt="Navie" 
-              name="Navie" 
-              link="/navie"
-              description="Mobile application for way-finding inside a grocery store, locating the nearest grocery stores, creating shopping list, and calculating total price with tax."
-            />
-            <AppCard 
-              image="/squiz-homepage.png" 
-              alt="Squiz" 
-              name="Squiz" 
-              link="/squiz"
-              description="Web application that generates personalized quizzes from study materials for revisions through the utilization of ChatGPT."
-            />
-            <AppCard 
-              image="/dolcedonuts-homepage.png" 
-              alt="Dolce Donuts" 
-              name="Dolce Donuts" 
-              link="/dolceDonuts"
-              description="Responsive website for a donut shop, featuring an interactive donut customization page."
-            />
-          </div>
+          <ProjectsSection />
         </div>
         
 

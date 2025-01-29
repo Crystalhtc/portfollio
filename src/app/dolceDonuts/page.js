@@ -201,10 +201,10 @@ export default function Remedify() {
           <div className={styles.nextProject}>
             <h2>Next Project is...</h2>
               <NextCard 
-              name="Remedify"
-              image="/remedify-homepage.png"
-              alt="Remedify"
-              link="/remedify"
+              name="Campus Canvas"
+              image="/campusCanvas-homepage.png"
+              alt="Campus Canvas"
+              link="/campusCanvas"
               button="Next Project"
             />
           </div>
