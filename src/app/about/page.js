@@ -63,7 +63,7 @@ export default function About() {
             </div>
           </div>
 
-          <div className={styles.interestSection}>
+          <div className={styles.skillSection}>
             <h2 className={styles.interestTitle}>My Skills</h2>
             <div className={styles.interest}>
               <h3>Graphics and Design Skills</h3>

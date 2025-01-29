@@ -104,6 +104,11 @@
     padding-bottom: 0;
 }
 
+.skillSection {
+    border-top: 1.5px solid var(--light-red);
+    padding: 2rem 1.5rem;
+}
+
 .interestTitle {
     margin-bottom: 1rem;
     font-size: 1.5rem;
@@ -168,6 +173,11 @@
             padding-bottom: 0;
         }
 
+    .skillSection {
+        padding: 5rem;
+        margin: 0 3rem;
+    }
+
     .connect {
         padding: 3rem;
         flex-direction: row;
@@ -213,7 +223,7 @@
     }
 
     .details,
-    .interestSection {
+    .interestSection,.skillSection {
         margin: 0 5rem;
     }
 
@@ -239,7 +249,8 @@
 @media (min-width: 1440px) {
 
     .details,
-    .interestSection {
+    .interestSection,
+        .skillSection {
         margin: 0 12rem;
     }
 
@@ -263,8 +274,13 @@
         padding: 3rem 30rem;
     }
 
-    .interestSection {
+    .interestSection,
+    .skillSection {
         padding: 5rem 20rem 0;
+    }
+
+    .skillSection {
+        padding-bottom: 5rem;
     }
 }
 
