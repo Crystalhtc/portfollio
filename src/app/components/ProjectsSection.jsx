@@ -52,7 +52,15 @@ const ProjectsSection = () => {
       alt: "Campus Canvas",
       name: "Campus Canvas",
       link: "/campusCanvas",
-      description: "Magazine designed in both print and digital formats, showcasing campus architecture worldwide, ighlighting CUHK's modern, functional, and nature-inspired design"
+      description: "Magazine designed in both print and digital formats, showcasing campus architecture worldwide, highlighting CUHK's modern, functional, and nature-inspired design"
+    },
+    {
+      category: 'graphic',
+      image: "/teaddy-homepage.png",
+      alt: "Teaddy",
+      name: "Teaddy",
+      link: "/teaddy",
+      description: ""
     }
   ];
 

@@ -21,196 +21,251 @@ export default function Remedify() {
           <div>
             <img
               src="/teaddy/banner.png"
-              alt="Tranquify"
+              alt="Teaddy"
               className={styles.heroImage}
               priority="true"
             />
           </div>
         </div>
-        
+
         <div className={styles.contentContainer}>
           <div className={styles.sideMenu}>
             <SideMenu />
           </div>
-        
-        <div className={styles.contentFullWidth}>
-          <TopMenu />
-        <div className={styles.content}>
-          <div className={styles.appIntro} id="app-intro">
-            <div className={styles.appIntrocard}>
-            <h1>Campus Canvas</h1>
-            <p>Campus Canvas is a magazine that celebrates campus architectural designs from around the world. This issue focuses on the unique design style of The Chinese University of Hong Kong (CUHK). The architecture of the university reflects a blend of modernity and functionality, with a minimalistic aesthetic that transitions seamlessly into the natural surroundings. The goal of this project is to capture and communicate the essence of this design style in both print and digital formats.</p>
-            <div className={styles.appIntroContainer}>
-                <div className={styles.appIntrodetails}>
-                    <p className={styles.appIntrorowTitle}>Role</p>
-                    <p className={styles.appIntrorowContent}>Graphic Design</p>
-                </div>
-                <div className={styles.appIntrodetails}>
-                    <p className={styles.appIntrorowTitle}>Tools</p>
-                    <p className={styles.appIntrorowContent}>Adobe InDesign</p>
-                </div>
-                <div className={styles.appIntrodetails}>
-                    <p className={styles.appIntrorowTitle}>Duration</p>
-                    <p className={styles.appIntrorowContent}>Oct 2024 (1 month)</p>
-                </div>
-                <div className={styles.appIntrobuttons}>
-                <a href="https://indd.adobe.com/view/bf5a23eb-0abe-44da-92d4-f3d4b5b0d9bd" target="_blank">
-                    <button>View Digital Design</button>
-                </a>
-            </div>
-            </div>
-        </div>
-          </div>
 
-          <div className={styles.prototypeBanner} id="final-product">
-              <div className={styles.prototypeTitle}>
-                <h2>Mock-up</h2>
-              </div> 
-              <div className={styles.prototypes}>
-                <div className={styles.prototypeContainer}>
+          <div className={styles.contentFullWidth}>
+            <TopMenu />
+            <div className={styles.content}>
+              <div className={styles.appIntro} id="app-intro">
+                <div className={styles.appIntrocard}>
+                  <h1>Teaddy</h1>
+                  <p>
+                    This project is a branded advertisement campaign that
+                    focuses on creating a warm and inviting brand identity
+                    through a series of visually engaging posters and a custom
+                    logo for a tea shop called Teaddy. The campaign integrates
+                    the concept of a teddy bear with tea to convey a sense of
+                    comfort and charm. By combining playful design elements, the
+                    campaign aims to enhance brand recognition, attract
+                    customers, and establish Teaddy as an approachable and
+                    memorable brand.
+                  </p>
+                  <div className={styles.appIntroContainer}>
+                    <div className={styles.appIntrodetails}>
+                      <p className={styles.appIntrorowTitle}>Role</p>
+                      <p className={styles.appIntrorowContent}>
+                        Graphic Design
+                      </p>
+                    </div>
+                    <div className={styles.appIntrodetails}>
+                      <p className={styles.appIntrorowTitle}>Tools</p>
+                      <p className={styles.appIntrorowContent}>
+                        Adobe Illustrator
+                      </p>
+                    </div>
+                    <div className={styles.appIntrodetails}>
+                      <p className={styles.appIntrorowTitle}>Duration</p>
+                      <p className={styles.appIntrorowContent}>
+                        Jan 2024 (1 month)
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className={styles.prototypeBanner} id="final-product">
+                <div className={styles.prototypeTitle}>
+                  <h2>Mock-up</h2>
+                </div>
+                <div className={styles.prototypes}>
+                  <div className={styles.prototypeContainer}>
+                    <img
+                      src="/teaddy/ad-mockup.png"
+                      alt="Print Design"
+                      className={styles.prototype}
+                      priority="true"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div className={styles.detailsContainer} id="creative-process">
+                <div className={styles.details}>
+                  <h2>Creative Process</h2>
+                  {/* <p>Wireframing serves as a blueprint for creating user interfaces. It provides a visual representation of the structure and layout of an application or website, focusing on functionality and user experience.</p> */}
+                </div>
+                <div className={styles.wireframeImages}>
                   <img
-                    src="/teaddy/ad-mockup.png"
-                    alt="Print Design"
-                    className={styles.prototype}
-                    priority="true"
+                    src="/teaddy/inspiration.png"
+                    alt="Teaddy Inspiration"
+                    width="600"
+                    className={styles.wireframeImage}
                   />
-                  <div className={styles.nextButton}>
-                    <h3>Print Design</h3>
-                  </div>
+                </div>
+                <div className={styles.details}>
+                  <ul className={styles.detailsList}>
+                    <div>
+                      <li className={styles.bold}>Research and Inspiration:</li>
+                      <li className={styles.indent}>
+                        To craft a distinctive brand identity, I analyzed
+                        various bear-themed logos, focusing on how they conveyed
+                        warmth, friendliness, and approachability.
+                      </li>
+                    </div>
+                  </ul>
                 </div>
               </div>
-            </div>
 
-          <div className={styles.detailsContainer} id="creative-process">
-            <div className={styles.details}>
-              <h2>Creative Process</h2>
-              {/* <p>Wireframing serves as a blueprint for creating user interfaces. It provides a visual representation of the structure and layout of an application or website, focusing on functionality and user experience.</p> */}
-            </div>
-            <div className={styles.wireframeImages}>
-              <img
-                src="/teaddy/inspiration.png"
-                alt="Campus Canvas Inspiration"
-                width="600"
-                className={styles.wireframeImage}
-              />
-            </div>  
-            <div className={styles.details}>
-                <ul className={styles.detailsList}>
-                  <div>
-                    <li className={styles.bold}>Research and Inspiration:</li>
-                    <li className={styles.indent}>The project draws inspiration from existing magazine designs, especially architecture magazines. These references provided insights into clean layouts, consistent photo treatments, and strong typography hierarchies.</li>
-                  </div>
-                  <div>
-                    <li className={styles.bold}>Concept Development</li>
-                    <li className={styles.indent}>Considering CUHK’s minimalistic and geometric architectural style, a structured grid layout with rectangular elements was chosen.</li>
-                    <li className={styles.indent}>The design aims at reflecting the minimalistic and functional aesthetic of CUHK’s architecture.</li>
-                  </div>
-                </ul>
-                <div className={styles.linkButton}>
-                  <a href="https://www.figma.com/design/ZN5Q97M2j8T6LoKXgcoA6l/Tranquify?node-id=3092-2648&t=iypaE9sj1OUFEwxt-4" target="_blank">
-                    <button>View Wireframe</button>
-                  </a>
+              <div className={styles.initialHiFi} id="digital-design">
+                <ContentSection
+                  title="Logo Design: Drafted Logos"
+                  image="/teaddy/drafted-logos.png"
+                  alt="Teaddy Drafted Logos"
+                  overview="To integrate the bear theme with tea, multiple logo variations were created, experimenting with different bear graphics and compositions."
+                />
+                <div className={styles.details}>
+                  <p>Two versions were developed:</p>
+                  <ul className={styles.detailsList}>
+                    <div>
+                      <li className={styles.bold}>Simple Color Logo:</li>
+                      <li className={styles.indent}>
+                        A clean and modern representation.
+                      </li>
+                    </div>
+                    <div>
+                      <li className={styles.bold}>Detailed Color Logo:</li>
+                      <li className={styles.indent}>
+                        Featuring intricate details for a more dynamic look.
+                      </li>
+                    </div>
+                  </ul>
                 </div>
               </div>
-          </div>
 
-           <div className={styles.detailsContainer} id="style-guide">
-              <ContentSection
+              <div className={styles.initialHiFi} id="digital-design">
+                <ContentSection
+                  title="Logo Design: Final Logos"
+                  image="/teaddy/final-logo.png"
+                  alt="Teaddy Final Logo"
+                  overview="To integrate the bear theme with tea, multiple logo variations were created, experimenting with different bear graphics and compositions."
+                />
+                <div className={styles.details}>
+                  <p>The logo with two bears, a white bear and a brown bear, embracing tea leaves are chosen as the final logo.</p>
+                  <ul className={styles.detailsList}>
+                    <div>
+                      <li className={styles.bold}>Reason:</li>
+                      <li className={styles.indent}>
+                        The embrace of tea leaves of the logo symbolizes the shop’s dedication to high-quality tea. 
+                      </li>
+                      <li className={styles.indent}>
+                        This gesture also represents the warmth and care the shop has for both its tea products and services, reinforcing its commitment to excellence.
+                      </li>
+                    </div>
+                  </ul>
+                </div>
+              </div>
+
+              <div className={styles.detailsContainer} id="style-guide">
+                <ContentSection
                   title="Style Guide"
                   image="/teaddy/styleguide.png"
-                  alt="Campus Canvas Style Guidee"
-                  // overview="Remedify app's style guide is crafted to embody the app’s mission of supporting users in managing their health and medication. It is designed to provoke a calming, warm, inclusive, and accessible feeling."
+                  alt="Teaddy Style Guidee"
+                  overview="The color palette is designed to reflect the essence of our brand, creating a warm, inviting, and playful atmosphere."
                 />
-              <div>
+                <div>
                   <div className={styles.details}>
                     <ul className={styles.detailsList}>
                       <div>
                         <li className={styles.bold}>Color Palette:</li>
-                        <li className={styles.subIndent}>To maintain a minimalist aesthetic, the magazine’s color palette is derived primarily from the carefully chosen photographs.</li>
-                        <li className={styles.subIndent}><span className={styles.semiBold}>Gray:</span> Inspired by the campus's concrete architecture, create a clean, minimalistic foundation while emphasizing the modern style.</li>
-                        <li className={styles.subIndent}><span className={styles.semiBold}>Blue:</span> Symbolizes tranquility and aligns with the open sky.</li>
-                        <li className={styles.subIndent}><span className={styles.semiBold}>Green:</span>Represents the greenery that complement the rigid architectural forms.</li>
+                        <li className={styles.subIndent}>
+                          <span className={styles.semiBold}>Brown:</span>{" "}
+                          Represents our mascot, a teddy bear, evoking comfort and warmth.
+                        </li>
+                        <li className={styles.subIndent}>
+                          <span className={styles.semiBold}>Green:</span>{" "}
+                          Symbolizes tea leaves, reinforcing the focus on high-quality tea products.
+                        </li>
+                        <li className={styles.subIndent}>
+                          <span className={styles.semiBold}>Beige:</span>
+                          A neutral complement that adds balance, warmth, and softness to the design.
+                          </li>
                       </div>
                       <div>
                         <li className={styles.bold}>Typography:</li>
-                        <li className={styles.subIndent}><span className={styles.semiBold}>Futura:</span> Used in cover titles and headings. Futura Condensed Medium is chosen particularly for headings, as its narrow forms echo the verticality of the campus buildings.</li>
-                        <li className={styles.subIndent}><span className={styles.semiBold}>Minion Variable Concept:</span> Used in body text. The serif font was selected for its high readability and academic feel, matching the university’s intellectual atmosphere.</li>
-                      </div>
-                      <div>
-                        <li className={styles.bold}>Graphic Elements:</li>
-                        <li className={styles.subIndent}>All graphic elements and photos follow a rectangular structure to reflect the rigid, minimalist architectural style of the campus.</li>
-                        <li className={styles.subIndent}>The use of negative space emphasizes the modern aesthetic while ensuring the layout remains clean and organized.</li>
+                        <li className={styles.subIndent}>
+                          <span className={styles.semiBold}>Noteworthy:</span> 
+                          Used for titles and slogans due to its rounded, handwritten form, adding a fun and friendly touch.
+                        </li>
+                        <li className={styles.subIndent}>
+                          <span className={styles.semiBold}>
+                            Gill Sans:
+                          </span>{" "}
+                          Used for body text because of its clean, modern sans-serif style, ensuring easy readability while maintaining a refined aesthetic.
+                        </li>
                       </div>
                     </ul>
-                    <div className={styles.linkButton}>
-                      <a href="https://www.figma.com/design/4ni9gyLkBDkeQNBfia2rgo/Remedify-Hi-fi?node-id=5145-11431&t=3ICIYqKBCpA4qJrQ-4" target="_blank">
-                        <button>View Style Guide</button>
-                      </a>
-                    </div>
                   </div>
-                </div>
-          </div>
-
-          <div className={styles.initialHiFi} id="digital-design">
-              <ContentSection
-                title="Digital Design"
-                image="/teaddy/final-design.png"
-                alt="Campus Canvas Digital Design"
-                overview="A digital version of the magazine is designed, allowing it to be accessed through digital devices like tablets and desktop as well."
-              />
-              <div className={styles.details}>
-                <p>Major Adjustments:</p>
-                <ul className={styles.detailsList}>
-                  <div>
-                    <li className={styles.bold}>Landscape Layout:</li>
-                    <li className={styles.indent}>The layout is changed from portrait view to landscape view to fit the viewport of tablet and desktop.</li>
-                  </div>
-                  <div>
-                    <li className={styles.bold}>Interactive Element:</li>
-                    <li className={styles.indent}>An interactive table of content is added to allow easy navigation.</li>
-                  </div>
-                  <div>
-                    <li className={styles.bold}>Animations:</li>
-                    <li className={styles.indent}>Animations were added to enhance user experience.</li>
-                  </div>
-                  <div>
-                    <li className={styles.bold}>Font Size:</li>
-                    <li className={styles.indent}>Font sizes are enlarged to enhance comfort while reading on a digital device.</li>
-                  </div>
-                </ul>
-                <div className={styles.linkButton}>
-                  <a href="https://www.figma.com/proto/ZN5Q97M2j8T6LoKXgcoA6l/Tranquify?node-id=3309-5407&t=811DAQoWWI79VsGh-1&scaling=min-zoom&content-scaling=fixed&page-id=3309%3A4796" target="_blank">
-                    <button>View Digital Design</button>
-                  </a>
                 </div>
               </div>
-          </div>
 
-          <div className={styles.userResearch} id="reflection">
+              <div className={styles.initialHiFi} id="digital-design">
+                <ContentSection
+                  title="Poster Design: Final Design"
+                  image="/teaddy/final-design.png"
+                  alt="Campus Canvas Digital Design"
+                  overview="The final design incorporates key elements to ensure brand recognition and audience engagement:"
+                />
+                <div className={styles.details}>
+                  <p>Key elements:</p>
+                  <ul className={styles.detailsList}>
+                    <div>
+                      <li className={styles.bold}>Teddy Bear Mascot:</li>
+                      <li className={styles.indent}>
+                        TA central, eye-catching visual element that embodies the brand’s friendly and cozy essence.
+                      </li>
+                    </div>
+                    <div>
+                      <li className={styles.bold}>Product Showcasing:</li>
+                      <li className={styles.indent}>
+                        Teaddy’s signature tea products are featured with the branding logo, reinforcing brand identity.
+                      </li>
+                    </div>
+                    <div>
+                      <li className={styles.bold}>Slogans:</li>
+                      <li className={styles.indent}>
+                        Each poster contains a unique, playful tagline to keep the campaign fresh and engaging.
+                      </li>
+                    </div>
+                  </ul>
+                </div>
+              </div>
+
+              <div className={styles.userResearch} id="reflection">
                 <UserResearch
                   title="Reflection and Learnings"
                   descriptions={[
-                    "Designing across both print and digital formats enhanced my understanding of how layouts need to adapt to different mediums.",
-                    "Incorporating interactive elements and animations in Adobe InDesign provided an opportunity to expand my skill set in digital design."
+                    "Learned how to create a visual identity that aligns with a brand’s mission and personality.",
+                    "Discovered the impact of using mascots to evoke emotions and build brand recognition.",
+                    "Explored ways to blend a cute and friendly theme with a refined, modern aesthetic."
                   ]}
                 />
-            </div>
+              </div>
 
-          <div className={styles.nextProject}>
-            <h2>Next Project is...</h2>
-              <NextCard 
-              name="Teaddy"
-              image="/teaddy-homepage.png"
-              alt="Teaddy"
-              link="/teaddy"
-              button="Next Project"
-            />
+              {/* <div className={styles.nextProject}>
+                <h2>Next Project is...</h2>
+                <NextCard
+                  name="Etoile Ballet Poster"
+                  image="/teaddy-homepage.png"
+                  alt="Etoile Ballet Academy poster"
+                  link="/Etoile Ballet Academy poster"
+                  button="Next Project"
+                />
+              </div> */}
+            </div>
           </div>
         </div>
-        </div>
-        </div>
       </main>
-      <ScrollButton/>
+      <ScrollButton />
       <Footer />
     </div>
   );
