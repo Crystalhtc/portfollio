@@ -12,7 +12,7 @@ const ProjectsSection = () => {
       alt: "Remedify",
       name: "Remedify",
       link: "/remedify",
-      description: "All-in-one mobile solution for emotional well-being, featuring personalized mood tracking, meditation guidance, and self-care recommendations."
+      description: "AI-powered medication management app with personalized reminders, detailed drug information, and intuitive scheduling—designed for simplicity and accessibility."
     },
     {
       category: 'ux',
