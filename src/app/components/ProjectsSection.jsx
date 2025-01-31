@@ -60,7 +60,15 @@ const ProjectsSection = () => {
       alt: "Teaddy",
       name: "Teaddy",
       link: "/teaddy",
-      description: ""
+      description: "Branded advertisement campaign featuring a series of visually engaging posters and a custom logo, blending the charm of a teddy bear with the warmth of tea."
+    },
+    {
+      category: 'graphic',
+      image: "/moodTracking-homepage.png",
+      alt: "Mood Tracking Motion Graphic Video",
+      name: "Mood Tracking Motion Graphic Video",
+      link: "/moodTracking",
+      description: "Motion graphic explainer video illustrating the benefits of mood tracking and various methods to monitor emotions through engaging visuals and storytelling."
     }
   ];
 

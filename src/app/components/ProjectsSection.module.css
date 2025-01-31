@@ -27,7 +27,7 @@
 /* Inherit existing styles from page.module.css */
 .projects {
     display: flex;
-    flex-direction: column;
+    
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
@@ -95,5 +95,8 @@
 @media (min-width: 1440px) {
     .appCardList {
         gap: 4rem;
+    }
+    .projects {
+        flex-direction: column;
     }
 }

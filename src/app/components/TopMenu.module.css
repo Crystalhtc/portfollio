@@ -6,6 +6,7 @@
     top: 80px;
     padding-top: 20px;
     display: flex;
+    z-index: 100;
 }
 
 .sideMenu {
@@ -19,6 +20,7 @@
     padding: .8rem 1.5rem;
     max-height: 80vh;
     overflow: hidden;
+    
 }
 
 /* Modify the existing component to add a visible state */

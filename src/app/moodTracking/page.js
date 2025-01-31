@@ -71,10 +71,19 @@ export default function Remedify() {
                 </div>
                 <div className={styles.prototypes}>
                   <div className={styles.prototypeContainer}>
-                    <iframe width="420" height="315"
-                      src="https://www.youtube.com/watch?v=Olqu-rU1vaI">
-                    </iframe>
-                  </div>
+                  {/* <div className={styles.prototypeContainer}>
+                    <iframe src="https://www.youtube.com/watch?v=Olqu-rU1vaI" allowFullScreen />
+                  </div> */}
+                  <video controls autoPlay loop poster="/moodTracking/thumbnail.png" className={styles.prototypeContainer}>
+                    <source src="/moodTracking/video.mp4" type="video/mp4"/>
+                    Your browser does not support the video tag.
+                  </video>
+                  <div className={styles.nextButton}>
+                    <a href="https://www.youtube.com/watch?v=Olqu-rU1vaI">
+                    <button>View on Youtube</button>
+                  </a>
+                </div>
+                </div>
                 </div>
               </div>
 
@@ -142,21 +151,21 @@ export default function Remedify() {
                           Serve as neutral, grounding colors to create warmth and familiarity.
                         </li>
                         <li className={styles.subIndent}>
-                          <span className={styles.semiBold}>Gray:</span>
-                          A neutral complement that adds balance, warmth, and softness to the design.
+                          <span className={styles.semiBold}>Gray: </span>
+                          A neutral complement that adds balance to the design.
                           </li>
                       </div>
                       <div>
-                        <li className={styles.bold}>Typography:</li>
+                        <li className={styles.bold}>Typography: </li>
                         <li className={styles.subIndent}>
-                          <span className={styles.semiBold}>Quicksand:</span> 
+                          <span className={styles.semiBold}>Quicksand: </span> 
                           Chosen due to its rounded form, ensuring a friendlines and accessibility.
                         </li>
                       </div>
                       <div>
-                        <li className={styles.bold}>Graphic Style:</li>
+                        <li className={styles.bold}>Graphic Style: </li>
                         <li className={styles.subIndent}>
-                          <span className={styles.semiBold}>Flat vector illustrations:</span> 
+                          <span className={styles.semiBold}>Flat vector illustrations: </span> 
                           Simple, clean, and visually engaging.
                         </li>
                       </div>
@@ -165,43 +174,63 @@ export default function Remedify() {
                 </div>
               </div>
 
-              <div className={styles.initialHiFi} id="color">
-                <ContentSection
-                  title="Color Usage"
-                  image="/moodTracking/scene-transition.png"
-                  alt="Mood Tracking Motion Graphic Video Color Usage"
-                  overview="Color plays a critical role in scene transitions and mood representation, helping to establish different settings and emotional states. This approach ensures a smooth visual flow while reinforcing the key message of how mood tracking can improve well-being."
-                />
+              <div className={styles.detailsContainer} id="color">
                 <div className={styles.details}>
-                  {/* <p>Two versions were developed:</p> */}
+                  <h2>Color Usage</h2>
+                  <p>Color plays a critical role in scene transitions and mood representation, helping to establish different settings and emotional states. This approach ensures a smooth visual flow while reinforcing the key message of how mood tracking can improve well-being.</p>
+                </div>
+                <div className={styles.wireframeImages}>
+                  <img
+                    src="/moodTracking/scene-transition.png"
+                    alt="Mood Tracking Motion Graphic Video Color Usage"
+                    width="600"
+                    className={styles.wireframeImage}
+                  />
+                </div>
+                <div className={styles.details}>
+                  <h3>Scene Transitions:</h3>
                   <ul className={styles.detailsList}>
                     <div>
-                      <li className={styles.bold}>Scene Transitions:</li>
+                      <li className={styles.bold}>Train Scene (Gray Tone):</li>
                       <li className={styles.indent}>
-                        Train Scene (Gray Tone) – Shows the tiring, routine feeling of commuting.
-                      </li>
-                      <li className={styles.indent}>
-                        Office Scene (Blue Tone) - Represents a busy and structured work setting, where stress can build up.
-                      </li>
-                      <li className={styles.indent}>
-                        Home Scene (Yellow Tone) - Creates a cozy and familiar atmosphere, but emotions can still fluctuate.
+                        Shows the tiring, routine feeling of commuting.
                       </li>
                     </div>
-                    <div className={styles.wireframeImages}>
+                    <div>
+                      <li className={styles.bold}>Office Scene (Blue Tone):</li>
+                      <li className={styles.indent}>
+                        Represents a busy and structured work setting, where stress can build up.
+                      </li>
+                    </div>
+                    <div>
+                      <li className={styles.bold}>Home Scene (Yellow Tone):</li>
+                      <li className={styles.indent}>
+                        Creates a cozy and familiar atmosphere, but emotions can still fluctuate.
+                      </li>
+                    </div>
+                  </ul>
+                </div>
+                  <div className={styles.wireframeImages}>
                       <img
-                        src="/mooodTracking/mood-change.png"
+                        src="/moodTracking/mood-change.png"
                         alt="Mood Changes"
                         width="600"
                         className={styles.wireframeImage}
                       />
+                  </div>
+                  <div className={styles.details}>
+                    <h3>Mood Changes:</h3>
+                  <ul className={styles.detailsList}>
+                    <div>
+                      <li className={styles.bold}>Anxiety & Stress (Purple Background): </li>
+                      <li className={styles.indent}>
+                        Shows the tiring, routine feeling of commuting.
+                      </li>
                     </div>
                     <div>
-                      <li className={styles.bold}>Mood Changes:</li>
+                      <li className={styles.bold}>Calm & Balance (Green Background): </li>
                       <li className={styles.indent}>
-                        Anxiety & Stress (Purple Background) – Shows the tiring, routine feeling of commuting.
-                      </li>
-                      <li className={styles.indent}>
-                        Calm & Balance (Green Background) – Symbolizing peace and emotional stability after mood tracking.
+                        Symbolizing peace and emotional stability after mood tracking.
                       </li>
                     </div>
                   </ul>
@@ -211,7 +240,7 @@ export default function Remedify() {
               <div className={styles.initialHiFi} id="key-motion">
                 <ContentSection
                   title="Key Animations"
-                  image="/moodTracking/drafted-logos.png"
+                  image="/moodTracking/key-animation.gif"
                   alt="Mood Tracking Motion Graphic Video Key Animations"
                   overview=""
                 />
@@ -276,9 +305,9 @@ export default function Remedify() {
                 <UserResearch
                   title="Reflection and Learnings"
                   descriptions={[
-                    "Learned how to create a visual identity that aligns with a brand’s mission and personality.",
-                    "Discovered the impact of using mascots to evoke emotions and build brand recognition.",
-                    "Explored ways to blend a cute and friendly theme with a refined, modern aesthetic."
+                    'Learned how to "Show Not Tell" by using visual storytelling to convey complex ideas and emotions.',
+                    'Discovered the importance of color psychology in setting the tone and mood of a narrative.',
+                    'Enhanced skills in character design and animation to create relatable and engaging visuals.',
                   ]}
                 />
               </div>
