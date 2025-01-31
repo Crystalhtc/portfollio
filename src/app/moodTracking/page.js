@@ -2,8 +2,6 @@
 import styles from "./Remedify.module.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import AppFeature1 from "../components/AppFeature1";
-import AppFeature2 from "../components/AppFeature2";
 import UserResearch from "../components/UserResearch";
 import StyleGuide from "../components/StyleGuide";
 import ContentSection from "../components/ContentSection";
@@ -65,7 +63,7 @@ export default function Remedify() {
                 </div>
               </div>
 
-              <div className={styles.prototypeBanner} id="final-product">
+              <div className={styles.prototypeBanner} id="final-video">
                 <div className={styles.prototypeTitle}>
                   <h2>Final Video</h2>
                 </div>
@@ -79,7 +77,7 @@ export default function Remedify() {
                     Your browser does not support the video tag.
                   </video>
                   <div className={styles.nextButton}>
-                    <a href="https://www.youtube.com/watch?v=Olqu-rU1vaI">
+                    <a href="https://www.youtube.com/watch?v=Olqu-rU1vaI" target="_blank">
                     <button>View on Youtube</button>
                   </a>
                 </div>
@@ -87,14 +85,14 @@ export default function Remedify() {
                 </div>
               </div>
 
-              <div className={styles.detailsContainer} id="creative-process">
+              <div className={styles.detailsContainer} id="research">
                 <div className={styles.details}>
                   <h2>Research and Concept Development</h2>
                   <p>Conducted in-depth research on mood tracking and its psychological benefits, and developed a structured script and storyboard, ensuring a logical flow of information..</p>
                 </div>
                 <div className={styles.wireframeImages}>
                   <img
-                    src="/mooodTracking/inspiration.png"
+                    src="/moodTracking/inspiration.png"
                     alt="Mood Tracking Inspiration"
                     width="600"
                     className={styles.wireframeImage}
@@ -103,28 +101,34 @@ export default function Remedify() {
                 <div className={styles.details}>
                   <ul className={styles.detailsList}>
                     <div>
-                      <li className={styles.bold}>Identified three key benefits:</li>
-                      <li className={styles.indent}>
-                        Creating Space – Allows individuals to step back and process emotions without immediate reaction.
-                      </li>
-                      <li className={styles.indent}>
-                        Recognizing Patterns – Helps detect emotional triggers and trends over time.
-                      </li>
-                      <li className={styles.indent}>
-                        Better Self-Care – Encourages self-awareness, leading to improved coping strategies and self-improvement.
-                      </li>
+                        <li className={styles.bold}>Identified three key benefits:</li>
+                        <li className={styles.subIndent}>
+                          <span className={styles.semiBold}>Creating Space:</span>{" "}
+                          Allows individuals to step back and process emotions without immediate reaction.
+                        </li>
+                        <li className={styles.subIndent}>
+                          <span className={styles.semiBold}>Recognizing Patterns:</span>{" "}
+                          Helps detect emotional triggers and trends over time.
+                        </li>
+                        <li className={styles.subIndent}>
+                          <span className={styles.semiBold}>Better Self-Care: </span>
+                          Encourages self-awareness, leading to improved coping strategies and self-improvement.
+                          </li>
                     </div>
                     <div>
-                      <li className={styles.bold}>Explored three common ways to track moods:</li>
-                      <li className={styles.indent}>
-                        Mood Journal – Writing daily reflections to understand emotional trends.
-                      </li>
-                      <li className={styles.indent}>
-                        Mood Chart – Visualizing emotions over time using colors, numbers, or symbols.
-                      </li>
-                      <li className={styles.indent}>
-                        Mood Tracking Apps – Digital tools with reminders and insights for easier tracking.
-                      </li>
+                        <li className={styles.bold}>Explored three common ways to track moods:</li>
+                        <li className={styles.subIndent}>
+                          <span className={styles.semiBold}>Mood Journal:</span>{" "}
+                          Writing daily reflections to understand emotional trends.
+                        </li>
+                        <li className={styles.subIndent}>
+                          <span className={styles.semiBold}>Mood Chart</span>{" "}
+                          Visualizing emotions over time using colors, numbers, or symbols.
+                        </li>
+                        <li className={styles.subIndent}>
+                          <span className={styles.semiBold}>Mood Tracking Apps: </span>
+                          Digital tools with reminders and insights for easier tracking.
+                          </li>
                     </div>
                   </ul>
                 </div>
@@ -147,7 +151,7 @@ export default function Remedify() {
                           Represents calmness, balance, and emotional stability.
                         </li>
                         <li className={styles.subIndent}>
-                          <span className={styles.semiBold}>Brown & Soft Yello:</span>{" "}
+                          <span className={styles.semiBold}>Brown & Soft Yellow:</span>{" "}
                           Serve as neutral, grounding colors to create warmth and familiarity.
                         </li>
                         <li className={styles.subIndent}>
@@ -312,16 +316,16 @@ export default function Remedify() {
                 />
               </div>
 
-              {/* <div className={styles.nextProject}>
+              <div className={styles.nextProject}>
                 <h2>Next Project is...</h2>
                 <NextCard
-                  name="Etoile Ballet Poster"
-                  image="/teaddy-homepage.png"
-                  alt="Etoile Ballet Academy poster"
-                  link="/Etoile Ballet Academy poster"
+                  name="Remedify"
+                  image="/remedify-homepage.png"
+                  alt="Remedify"
+                  link="/remedify"
                   button="Next Project"
                 />
-              </div> */}
+              </div>
             </div>
           </div>
         </div>

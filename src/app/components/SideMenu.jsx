@@ -9,6 +9,8 @@ const SideMenu = () => {
 
   // List of all possible sections
   const allSections = [
+    { name: 'Introduction', id: "app-intro" },
+    { name: 'Final Video', id: "final-video" },
     { name: 'Prototype', id: 'prototype' },
     { name: 'Features', id: 'features' },
     { name: 'User Research', id: 'user-research' },
@@ -16,6 +18,9 @@ const SideMenu = () => {
     { name: 'Values', id: 'values' },
     { name: 'Target Audience', id: 'target-audience' },
     { name: 'User Persona', id: 'user-persona' },
+    { name: 'Mock Up', id: 'mock-up' },
+    { name: 'Research', id: 'research' },
+    { name: 'Creative Process', id: 'creative-process' },
     { name: 'Style Guide', id: 'style-guide' },
     { name: 'Site Map', id: 'site-map' },
     { name: 'User Flow Map', id: 'user-flow-map' },
@@ -25,7 +30,13 @@ const SideMenu = () => {
     { name: 'Usability Testing', id: 'usability-testing' },
     { name: 'Final Hi-Fi', id: 'final-hifi' },
     { name: 'Marketing Landing Page', id: 'marketing-landing-page' },
-    { name: 'Web App', id: 'web-app' }
+    { name: 'Web App', id: 'web-app' },
+    { name: 'Color Usage', id: 'color' },
+    { name: 'Key Animations', id: 'key-motion' },
+    { name: 'Digital Design', id: 'digital-design' },
+    { name: 'Logo Design', id: 'logo-design' },
+    { name: 'Final Design', id: 'final-design' },
+    { name: 'Reflection and Learnings', id: 'reflection' },
   ];
 
   // Check which sections exist in the current page

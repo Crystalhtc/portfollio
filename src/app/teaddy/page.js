@@ -73,7 +73,7 @@ export default function Remedify() {
                 </div>
               </div>
 
-              <div className={styles.prototypeBanner} id="final-product">
+              <div className={styles.prototypeBanner} id="final-design">
                 <div className={styles.prototypeTitle}>
                   <h2>Mock-up</h2>
                 </div>
@@ -116,7 +116,7 @@ export default function Remedify() {
                 </div>
               </div>
 
-              <div className={styles.initialHiFi} id="digital-design">
+              <div className={styles.initialHiFi} id="logo-design">
                 <ContentSection
                   title="Logo Design: Drafted Logos"
                   image="/teaddy/drafted-logos.png"
@@ -142,7 +142,7 @@ export default function Remedify() {
                 </div>
               </div>
 
-              <div className={styles.initialHiFi} id="digital-design">
+              <div className={styles.initialHiFi}>
                 <ContentSection
                   title="Logo Design: Final Logos"
                   image="/teaddy/final-logo.png"
@@ -208,7 +208,7 @@ export default function Remedify() {
                 </div>
               </div>
 
-              <div className={styles.initialHiFi} id="digital-design">
+              <div className={styles.initialHiFi} id="final-design">
                 <ContentSection
                   title="Poster Design: Final Design"
                   image="/teaddy/final-design.png"
@@ -251,16 +251,16 @@ export default function Remedify() {
                 />
               </div>
 
-              {/* <div className={styles.nextProject}>
+              <div className={styles.nextProject}>
                 <h2>Next Project is...</h2>
                 <NextCard
-                  name="Etoile Ballet Poster"
-                  image="/teaddy-homepage.png"
-                  alt="Etoile Ballet Academy poster"
-                  link="/Etoile Ballet Academy poster"
+                  name="Mood Tracking Motion Graphic Video"
+                  image="/moodTracking-homepage.png"
+                  alt="Mood Tracking Motion Graphic Video"
+                  link="/moodTracking"
                   button="Next Project"
                 />
-              </div> */}
+              </div>
             </div>
           </div>
         </div>

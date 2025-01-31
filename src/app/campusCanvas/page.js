@@ -62,9 +62,9 @@ export default function Remedify() {
         </div>
           </div>
 
-          <div className={styles.prototypeBanner} id="final-product">
+          <div className={styles.prototypeBanner} id="mock-up">
               <div className={styles.prototypeTitle}>
-                <h2>Prototype</h2>
+                <h2>Mock Up</h2>
               </div> 
               <div className={styles.prototypes}>
                 <div className={styles.prototypeContainer}>
