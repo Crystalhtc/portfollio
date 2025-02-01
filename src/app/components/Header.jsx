@@ -1,7 +1,7 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "./Header.module.css";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronLeft, ChevronRight } from "lucide-react";
 import ProjectsMenu from "./ProjectsMenu";
 
 export default function Header() {
@@ -9,6 +9,7 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isProjectsHovered, setIsProjectsHovered] = useState(false);
+   const projectsContainerRef = useRef(null);
 
   const handleMouseEnter = () => {
     setIsProjectsHovered(true);
@@ -44,6 +45,21 @@ export default function Header() {
       image: "/dolcedonuts-homepage.png",
       link: "/dolceDonuts",
     },
+    {
+      name: "Campus Canvas",
+      image: "/campusCanvas-homepage.png",
+      link: "/campusCanvas",
+    },
+    {
+      name: "Teaddy",
+      image: "/teaddy-homepage.png",
+      link: "/teaddy",
+    },
+    {
+      name: "Mood Tracking Motion Graphic Video",
+      image: "/moodTracking-homepage.png",
+      link: "/moodTracking",
+    },
   ];
 
   useEffect(() => {
@@ -71,6 +87,14 @@ export default function Header() {
   const closeMenu = () => {
     setIsMenuOpen(false);
     document.body.style.overflow = "unset";
+  };
+
+  const scrollLeft = () => {
+    projectsContainerRef.current.scrollBy({ left: -540, behavior: "smooth" });
+  };
+
+  const scrollRight = () => {
+    projectsContainerRef.current.scrollBy({ left: 540, behavior: "smooth" });
   };
 
   return (
@@ -121,17 +145,21 @@ export default function Header() {
             >
               <a href="/">Projects</a>
               {isProjectsHovered && (
-                <div className={styles.projectsOverlay} onMouseLeave={handleMouseLeave}>
-                  {projectPreviews.map((project) => (
-                    <a
-                      key={project.name}
-                      href={project.link}
-                      className={styles.projectPreview}
-                    >
-                      <img src={project.image} alt={project.name} />
-                      <span>{project.name}</span>
-                    </a>
-                  ))}
+                <div className={styles.projectsOverlay} onMouseLeave={() => setIsProjectsHovered(false)}>
+                  <button className={styles.scrollButton} onClick={scrollLeft}>
+                    <ChevronLeft size={40} />
+                  </button>
+                  <div className={styles.projectsContainer} ref={projectsContainerRef}>
+                    {projectPreviews.map((project) => (
+                      <a key={project.name} href={project.link} className={styles.projectPreview}>
+                        <img src={project.image} alt={project.name} />
+                        <span>{project.name}</span>
+                      </a>
+                    ))}
+                  </div>
+                  <button className={styles.scrollButton} onClick={scrollRight}>
+                    <ChevronRight size={40} />
+                  </button>
                 </div>
               )}
             </div>
