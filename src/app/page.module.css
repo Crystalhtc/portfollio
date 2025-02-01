@@ -1,5 +1,6 @@
 /* Base styles (Mobile first) */
 
+
 .headingSmall {
   color: var(--pink);
   font-size: 1.25rem;
@@ -78,12 +79,12 @@
   align-items: center;
   gap: 1rem;
   width: 100%;
-  padding: 2rem 2rem 4rem;
+  padding: 4rem 2rem 4rem;
 }
 
 @media (min-width: 400px) {
   .aboutMe {
-    padding: 2rem 4rem 4rem;
+    padding: 6rem 4rem 4rem;
   }
 }
 

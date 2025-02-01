@@ -19,6 +19,21 @@ export default function Header() {
     setIsProjectsHovered(false);
   };
 
+  const scrollToProjects = (event) => {
+    event.preventDefault(); // Prevent default anchor behavior
+    setIsProjectsHovered(false); // Close overlay
+    setIsMenuOpen(false);
+    document.body.style.overflow = "unset";
+
+    const projectSection = document.getElementById("project");
+    const offset = 60; // Adjust if needed
+    
+    if (projectSection) {
+      const sectionTop = projectSection.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: sectionTop - offset, behavior: "smooth" });
+    }
+  };
+
   const projectPreviews = [
     {
       name: "Remedify",
@@ -143,7 +158,7 @@ export default function Header() {
               className={styles.projectsLink}
               onMouseEnter={handleMouseEnter}
             >
-              <a href="/">Projects</a>
+              <a href="#project" onClick={scrollToProjects}>Projects</a>
               {isProjectsHovered && (
                 <div className={styles.projectsOverlay} onMouseLeave={() => setIsProjectsHovered(false)}>
                   <button className={styles.scrollButton} onClick={scrollLeft}>

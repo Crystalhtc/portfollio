@@ -6,14 +6,15 @@
     width: 100%;
     left: 0;
     right: 0;
+    padding: 0.5rem 0;
     border-bottom: 1.5px solid transparent;
-    transition: background-color 0.3s ease, border-bottom 0.3s ease;
+    transition: all 0.3s ease, border-bottom 0.3s ease;
 }
 
 .header.scrolled {
     border-bottom: 1.5px solid var(--light-red);
-    padding: 0.5rem 0;
-    transition: background-color 0.3s ease, border-bottom 0.3s ease;
+    padding: 0;
+    transition: all 0.3s ease, border-bottom 0.3s ease;
 }
 
 .nav {
@@ -34,6 +35,7 @@
     height: 40px;
     display: flex;
     align-items: center;
+    text-wrap: nowrap;
 }
 
 .logo {
@@ -187,6 +189,7 @@
 .projectsOverlay {
     position: absolute;
     width: 100%;
+    height: 330px;
     top: 100%;
     left: 0;
     display: flex;
@@ -301,7 +304,7 @@
 
     .nav {
         padding: 1rem 3rem;
-        width: 80%;
+        /* width: 80%; */
     }
 
     .name {
@@ -378,7 +381,5 @@
         padding: 1rem 8rem;
     }
 
-        .projectsContainer {
-            max-width: 90%;
-        }
+
 }

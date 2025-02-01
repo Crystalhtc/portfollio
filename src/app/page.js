@@ -39,7 +39,7 @@ export default function Home() {
           </div> */}
         </div>
         
-        <div className={styles.projects}>
+        <div className={styles.projects} id="project">
           <ProjectsSection />
         </div>
         
