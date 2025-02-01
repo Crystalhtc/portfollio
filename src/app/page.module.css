@@ -32,7 +32,8 @@
   flex-direction: column;
   gap: 3rem;
   padding: 2rem;
-  height: fit-content;
+  max-height: 60vh;
+  overflow: hidden;
 }
 
 .heroText {
@@ -85,6 +86,14 @@
 @media (min-width: 400px) {
   .aboutMe {
     padding: 6rem 4rem 4rem;
+  }
+
+  .heroImage {
+    width: 50%;
+  }
+
+  .hero {
+    height: fit-content;
   }
 }
 

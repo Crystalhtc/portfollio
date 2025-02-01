@@ -26,9 +26,7 @@
     z-index: 1002;
 }
 
-.name {
-    width: 100%;
-}
+
 
 .logoContainer {
     position: relative;
@@ -63,11 +61,13 @@
     opacity: 0;
     transform: translateY(10px);
     transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
 }
 
 .textLogo.textLogoVisible {
     opacity: 1;
     transform: translateY(0);
+    pointer-events:all;
 }
 
 .transitioning {
