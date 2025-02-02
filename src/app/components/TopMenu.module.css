@@ -3,7 +3,7 @@
     background-color: var(--background);
     width: 100%;
     position: sticky;
-    top: 80px;
+    top: 70px;
     padding-top: 20px;
     display: flex;
     z-index: 100;
