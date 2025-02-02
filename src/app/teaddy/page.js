@@ -147,10 +147,10 @@ export default function Remedify() {
                   title="Logo Design: Final Logos"
                   image="/teaddy/final-logo.png"
                   alt="Teaddy Final Logo"
-                  overview="To integrate the bear theme with tea, multiple logo variations were created, experimenting with different bear graphics and compositions."
+                  overview="The logo with two bears, a white bear and a brown bear, embracing tea leaves are chosen as the final logo."
                 />
                 <div className={styles.details}>
-                  <p>The logo with two bears, a white bear and a brown bear, embracing tea leaves are chosen as the final logo.</p>
+                  {/* <p>The logo with two bears, a white bear and a brown bear, embracing tea leaves are chosen as the final logo.</p> */}
                   <ul className={styles.detailsList}>
                     <div>
                       <li className={styles.bold}>Reason:</li>

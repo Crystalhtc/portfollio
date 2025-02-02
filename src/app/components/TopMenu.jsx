@@ -23,6 +23,7 @@ const TopMenu = () => {
     { name: 'Mock Up', id: 'mock-up' },
     { name: 'Research', id: 'research' },
     { name: 'Creative Process', id: 'creative-process' },
+    { name: 'Logo Design', id: 'logo-design' },
     { name: 'Style Guide', id: 'style-guide' },
     { name: 'Site Map', id: 'site-map' },
     { name: 'User Flow Map', id: 'user-flow-map' },
@@ -36,7 +37,6 @@ const TopMenu = () => {
     { name: 'Color Usage', id: 'color' },
     { name: 'Key Animations', id: 'key-motion' },
     { name: 'Digital Design', id: 'digital-design' },
-    { name: 'Logo Design', id: 'logo-design' },
     { name: 'Final Design', id: 'final-design' },
     { name: 'Reflection and Learnings', id: 'reflection' },
   ];
