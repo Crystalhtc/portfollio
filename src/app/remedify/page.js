@@ -82,8 +82,8 @@ export default function Remedify() {
               </div>
             </div>
 
-            <div className={styles.connect}>
-              <div className={styles.social}>
+            <div className={styles.problemSolution} id="problem-solution">
+              <div className={styles.problem}>
                 <h2>Problem</h2>
                   <ul className={styles.detailsList}>
                     <div>
@@ -100,7 +100,7 @@ export default function Remedify() {
                     </div>
                   </ul>
               </div>
-              <div className={styles.resume}>
+              <div className={styles.solution}>
                 <h2>Solution</h2>
                   <ul className={styles.detailsList}>
                     <div>

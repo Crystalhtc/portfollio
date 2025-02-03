@@ -190,7 +190,7 @@
     margin: 3rem 0 1rem;
 }
 
-.connect {
+.problemSolution {
     margin-bottom: 3rem;
     padding: 3rem 1.5rem;
     display: flex;
@@ -200,8 +200,8 @@
     border-bottom: 1.5px solid var(--light-red);
 }
 
-.social,
-.resume {
+.problem,
+.solution {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -209,7 +209,7 @@
     width: 100%;
 }
 
-.resume {
+.solution {
     border-left: none;
     border-top: 1.5px solid var(--light-red);
     padding: 3rem 0 0 0;
@@ -256,25 +256,25 @@
         padding: 0 1rem;
     }
 
-        /* .connect {
+        /* .problemSolution {
             padding: 3rem;
             flex-direction: row;
             justify-content: center;
             align-items: flex-start;
         }
 
-        .social {
+        .problem {
             width: 50%;
         }
     
-        .resume {
+        .solution {
             border-top: none;
             border-left: 1.5px solid var(--light-red);
             padding: 0 0 0 3rem;
             width: 50%;
         }
 
-        .resume h2 {
+        .solution h2 {
             text-align: center;
         } */
 }
@@ -316,29 +316,29 @@
         padding: 5rem 0;
     }
 
-        .connect {
+        .problemSolution {
             padding: 5rem 5rem;
         }
 
-.connect {
+.problemSolution {
     padding: 3rem;
     flex-direction: row;
     justify-content: center;
     align-items: flex-start;
 }
 
-.social {
+.problem {
     width: 50%;
 }
 
-.resume {
+.solution {
     border-top: none;
     border-left: 1.5px solid var(--light-red);
     padding: 0 0 0 3rem;
     width: 50%;
 }
 
-.resume h2 {
+.solution h2 {
     text-align: center;
 }
 }
@@ -350,7 +350,7 @@
 }
 
 @media (min-width: 1440px) {
-.connect {
+.problemSolution {
         padding: 5rem 5rem;
     }
 }
@@ -377,7 +377,7 @@
         padding: 5rem 15rem;
     }
 
-     .connect {
+     .problemSolution {
         padding: 3rem 15rem;
     }
 }
