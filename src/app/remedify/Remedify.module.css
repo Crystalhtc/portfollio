@@ -190,6 +190,31 @@
     margin: 3rem 0 1rem;
 }
 
+.connect {
+    margin-bottom: 3rem;
+    padding: 3rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    border-bottom: 1.5px solid var(--light-red);
+}
+
+.social,
+.resume {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.resume {
+    border-left: none;
+    border-top: 1.5px solid var(--light-red);
+    padding: 3rem 0 0 0;
+}
+
 @media screen and (max-width: 1024px) {
     .contentContainer {
         flex-direction: column;
@@ -230,6 +255,28 @@
     .wireframeImage {
         padding: 0 1rem;
     }
+
+        /* .connect {
+            padding: 3rem;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .social {
+            width: 50%;
+        }
+    
+        .resume {
+            border-top: none;
+            border-left: 1.5px solid var(--light-red);
+            padding: 0 0 0 3rem;
+            width: 50%;
+        }
+
+        .resume h2 {
+            text-align: center;
+        } */
 }
 
 /* Desktop (1024px and up) */
@@ -268,11 +315,43 @@
     .competitiveAnalysis {
         padding: 5rem 0;
     }
+
+        .connect {
+            padding: 5rem 5rem;
+        }
+
+.connect {
+    padding: 3rem;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.social {
+    width: 50%;
+}
+
+.resume {
+    border-top: none;
+    border-left: 1.5px solid var(--light-red);
+    padding: 0 0 0 3rem;
+    width: 50%;
+}
+
+.resume h2 {
+    text-align: center;
+}
 }
 
 @media screen and (min-width: 1200px) {
     .appIntro {
         padding: 0 5rem;
+    }
+}
+
+@media (min-width: 1440px) {
+.connect {
+        padding: 5rem 5rem;
     }
 }
 
@@ -296,6 +375,10 @@
 
     .userResearch {
         padding: 5rem 15rem;
+    }
+
+     .connect {
+        padding: 3rem 15rem;
     }
 }
 

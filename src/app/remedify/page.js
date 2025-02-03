@@ -82,6 +82,43 @@ export default function Remedify() {
               </div>
             </div>
 
+            <div className={styles.connect}>
+              <div className={styles.social}>
+                <h2>Problem</h2>
+                  <ul className={styles.detailsList}>
+                    <div>
+                      <li className={styles.bold}>Low Adherence Rate:</li>
+                      <li className={styles.indent}>Patients with chronic illnesses take only ~50% of prescribed medications.</li>
+                    </div>
+                    <div>
+                      <li className={styles.bold}>Misunderstanding Instructions:</li>
+                      <li className={styles.indent}>Over 60% of patients misunderstand medication directions after doctor visits.</li>
+                    </div>
+                    <div>
+                      <li className={styles.bold}>Forgetfulness:</li>
+                      <li className={styles.indent}>A major cause of non-adherence, affecting 49.6% of patients.</li>
+                    </div>
+                  </ul>
+              </div>
+              <div className={styles.resume}>
+                <h2>Solution</h2>
+                  <ul className={styles.detailsList}>
+                    <div>
+                      <li className={styles.bold}>Simplify medication regimens:</li>
+                      <li className={styles.indent}>Provides clear, organized schedules to prevent confusion.</li>
+                    </div>
+                    <div>
+                      <li className={styles.bold}>Explain key information:</li>
+                      <li className={styles.indent}>Displays essential details about each medication, including what the drug is and why is it prescribed.</li>
+                    </div>
+                    <div>
+                      <li className={styles.bold}>Smart Reminders:</li>
+                      <li className={styles.indent}>Sends timely alerts to help users take medications on time.</li>
+                    </div>
+                  </ul>
+              </div>
+            </div>
+
             <div className={styles.appFeatures} id="features">
               <div className={styles.featureTitle}>
                 <h2>Features</h2>
@@ -134,7 +171,7 @@ export default function Remedify() {
                 />
                 <div className={styles.nextButton}>
                   <a href="https://docs.google.com/document/d/1MGyxeF7pkwpVo4VsNl829hrDaSTTYn5Frfa2RREm4Nc/edit?usp=sharing" target="_blank">
-                    <button>VIEW FINDINGS</button>
+                    <button>View Findings</button>
                   </a>
                 </div>
             </div>
