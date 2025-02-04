@@ -7,9 +7,12 @@ import Footer from "./components/Footer";
 import AboutCard from "./components/AboutCard";
 import ScrollButton from "./components/ScrollButton";
 import ProjectsSection from './components/ProjectsSection';
+import { useState, useEffect } from "react";
 
 export default function Home() {
-    const scrollToProjects = (event) => {
+  const [fontSize, setFontSize] = useState(32);
+  
+  const scrollToProjects = (event) => {
     event.preventDefault(); // Prevent default anchor behavior
     document.body.style.overflow = "unset";
 
@@ -21,6 +24,20 @@ export default function Home() {
       window.scrollTo({ top: sectionTop - offset, behavior: "smooth" });
     }
   };
+
+
+      useEffect(() => {
+        const handleScroll = () => {
+            const scrollPosition = window.scrollY;
+            const maxFontSize = 42;
+            const minFontSize = 32;
+            const newFontSize = Math.min(maxFontSize, minFontSize + scrollPosition / 20);
+            setFontSize(newFontSize);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
   return (
     <div className={styles.page}>
       <Header />
@@ -32,7 +49,9 @@ export default function Home() {
               Crystal Cheung
             </h1>
             <h2 className={styles.jobTitle}>UX/UI Designer | Graphic Designer</h2>
-            <button className={styles.ctaButton} onClick={scrollToProjects}>View Projects</button>
+            <button className={styles.ctaButton} onClick={scrollToProjects}>
+  View Projects
+</button>
           </div>
           <div className={styles.heroImageContainer}>
             <img
@@ -42,19 +61,11 @@ export default function Home() {
               className={styles.heroImage}
             />
           </div>
-          {/* <div>
-            <img
-              src="/hero.png"
-              alt="Crystal Cheung"
-              width="300"
-              className={styles.heroImage}
-            />
-          </div> */}
         </div>
         
         <div className={styles.background}>
         <div className={styles.taglineContainer}>
-          <h3 className={styles.tagline}>"Crafts user-centric designs that enhance quality of life."</h3>
+          <h3 className={styles.tagline} style={{ fontSize: `${fontSize}px` }}>"Crafts user-centric designs that enhance quality of life."</h3>
         </div>
 
         <div className={styles.projects} id="project">
