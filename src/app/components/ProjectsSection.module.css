@@ -46,8 +46,8 @@
     width: 90%;
     margin: 0 auto;
     border-top: 1.5px solid var(--light-red);
-    gap: 2rem;
-    padding-top: 2rem;
+    /* gap: 2rem; */
+    padding-top: 1rem;
 }
 
 /* Media Queries */
@@ -84,7 +84,7 @@
 
     .appCardList {
         width: 80%;
-        gap: 3rem;
+        /* gap: 3rem; */
     }
 
     .filterContainer {
@@ -94,7 +94,7 @@
 
 @media (min-width: 1440px) {
     .appCardList {
-        gap: 4rem;
+        /* gap: 4rem; */
     }
     .projects {
         flex-direction: column;

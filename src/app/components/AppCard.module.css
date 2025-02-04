@@ -16,6 +16,7 @@
     flex-direction: column;
     gap: 0.75rem;
     text-align: center;
+    padding-bottom: 2rem;
 }
 
 .text p {
