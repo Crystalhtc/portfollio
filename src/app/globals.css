@@ -26,7 +26,7 @@ button {
   border: 1.5px solid var(--light-red);
   font-family: "Bona Nova", serif;
   font-weight: 600;
-  width: 150px;
+  width: 100%;
   transition: background-color 0.3s ease;
 }
 
@@ -35,6 +35,13 @@ button:hover {
   color: var(--background);
   border: 1.5px solid var(--light-red);
   cursor: pointer;
+}
+
+/* Tablet (768px and up) */
+@media screen and (min-width: 768px) {
+  button {
+    width: 150px;
+  }
 }
 
 img {

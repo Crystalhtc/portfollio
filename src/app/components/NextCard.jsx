@@ -14,7 +14,10 @@ export default function NextCard({name, image, alt, link, button}) {
                 <div className={styles.text}>
                     <h3 className={styles.appName}>{name}</h3>
                     
+                    
                         <button className={styles.button}>{button}</button>
+                    
+                        
                     
                 </div>
             </div>

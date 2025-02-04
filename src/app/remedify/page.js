@@ -62,7 +62,7 @@ export default function Remedify() {
                   />
                   <div className={styles.nextButton}>
                     <a href="https://www.figma.com/proto/4ni9gyLkBDkeQNBfia2rgo/Remedify-Hi-fi?node-id=1797-14271&t=Zh0rrTMckVWV8wmW-1&scaling=scale-down&content-scaling=fixed&page-id=1797%3A14184&starting-point-node-id=1797%3A14295">
-                      <button>Light Mode</button>
+                      <button className={styles.button}>Light Mode</button>
                     </a>
                   </div>
                 </div>
@@ -75,7 +75,7 @@ export default function Remedify() {
                   />
                   <div className={styles.nextButton}>
                     <a href="https://www.figma.com/proto/4ni9gyLkBDkeQNBfia2rgo/Remedify-Hi-fi?node-id=5057-8734&t=0Ji5GbZNKZLLvUCy-0&scaling=scale-down&content-scaling=fixed&page-id=1797%3A14184&starting-point-node-id=1797%3A14295">
-                      <button>Dark Mode</button>
+                      <button button  className={styles.button}>Dark Mode</button>
                     </a>
                   </div>
                 </div>
@@ -170,8 +170,8 @@ export default function Remedify() {
                   ]}
                 />
                 <div className={styles.nextButton}>
-                  <a href="https://docs.google.com/document/d/1MGyxeF7pkwpVo4VsNl829hrDaSTTYn5Frfa2RREm4Nc/edit?usp=sharing" target="_blank">
-                    <button>View Findings</button>
+                  <a className={styles.button} href="https://docs.google.com/document/d/1MGyxeF7pkwpVo4VsNl829hrDaSTTYn5Frfa2RREm4Nc/edit?usp=sharing" target="_blank">
+                    <button  className={styles.button}>View Findings</button>
                   </a>
                 </div>
             </div>
@@ -200,8 +200,8 @@ export default function Remedify() {
                     </div>
                   </ul>
                   <div className={styles.linkButton}>
-                    <a href="https://www.figma.com/board/iWziE36DOEeWn9JDKIlI9B/Remedify-Competitive-Analysis-(UI-Focused)?node-id=0-1&p=f&t=cUPe0MNMm4oksBdT-0" target="_blank">
-                      <button>View Competitive Analysis</button>
+                    <a className={styles.button} href="https://www.figma.com/board/iWziE36DOEeWn9JDKIlI9B/Remedify-Competitive-Analysis-(UI-Focused)?node-id=0-1&p=f&t=cUPe0MNMm4oksBdT-0" target="_blank">
+                      <button  className={styles.button}>View Competitive Analysis</button>
                     </a>
                   </div>
                 </div>
@@ -253,8 +253,8 @@ export default function Remedify() {
                     </div>
                   </ul>
                   <div className={styles.linkButton}>
-                    <a href="https://www.figma.com/design/sFlvLVZM1M8rmGbnaQ6o8y/Remedify-User-Persona?node-id=64-4&t=8BGBLVHFu5cxMfyD-1" target="_blank">
-                      <button>View User Persona</button>
+                    <a className={styles.button} href="https://www.figma.com/design/sFlvLVZM1M8rmGbnaQ6o8y/Remedify-User-Persona?node-id=64-4&t=8BGBLVHFu5cxMfyD-1" target="_blank">
+                      <button className={styles.button}>View User Persona</button>
                     </a>
                   </div>
                 </div>
@@ -290,8 +290,8 @@ export default function Remedify() {
                       </div>
                     </ul>
                     <div className={styles.linkButton}>
-                      <a href="https://www.figma.com/design/4ni9gyLkBDkeQNBfia2rgo/Remedify-Hi-fi?node-id=5145-11431&t=3ICIYqKBCpA4qJrQ-4" target="_blank">
-                        <button>View Style Guide</button>
+                      <a className={styles.button} href="https://www.figma.com/design/4ni9gyLkBDkeQNBfia2rgo/Remedify-Hi-fi?node-id=5145-11431&t=3ICIYqKBCpA4qJrQ-4" target="_blank">
+                        <button  className={styles.button}>View Style Guide</button>
                       </a>
                     </div>
                   </div>
@@ -327,8 +327,8 @@ export default function Remedify() {
                       </div>
                     </ul>
                     <div className={styles.linkButton}>
-                      <a href="https://www.figma.com/board/VrhDXG7Y3wxiZduuAapuib/Remedify-Site-Map?t=Key3IoYuNMjQCwtM-1" target="_blank">
-                        <button>View Site Map</button>
+                      <a className={styles.button} href="https://www.figma.com/board/VrhDXG7Y3wxiZduuAapuib/Remedify-Site-Map?t=Key3IoYuNMjQCwtM-1" target="_blank">
+                        <button  className={styles.button}>View Site Map</button>
                       </a>
                     </div>
                   </div>
@@ -365,8 +365,8 @@ export default function Remedify() {
                     </div>
                   </ul>
                   <div className={styles.linkButton}>
-                    <a href="https://www.figma.com/board/IlQbI2pQmUyfFw6szZLPHE/Remedify-User-Flow-Map?node-id=0-1&t=8VERkkMOfgUymhgJ-1" target="_blank">
-                      <button>View User Flow Map</button>
+                    <a className={styles.button} href="https://www.figma.com/board/IlQbI2pQmUyfFw6szZLPHE/Remedify-User-Flow-Map?node-id=0-1&t=8VERkkMOfgUymhgJ-1" target="_blank">
+                      <button  className={styles.button}>View User Flow Map</button>
                     </a>
                   </div>
                 </div>
@@ -413,8 +413,8 @@ export default function Remedify() {
                   </div>
                 </ul>
                 <div className={styles.linkButton}>
-                  <a href="https://www.figma.com/design/4ni9gyLkBDkeQNBfia2rgo/Remedify-Hi-fi?node-id=340-5993&t=0Ji5GbZNKZLLvUCy-1" target="_blank">
-                    <button>View Initial Hi-Fi</button>
+                  <a className={styles.button} href="https://www.figma.com/design/4ni9gyLkBDkeQNBfia2rgo/Remedify-Hi-fi?node-id=340-5993&t=0Ji5GbZNKZLLvUCy-1" target="_blank">
+                    <button  className={styles.button}>View Initial Hi-Fi</button>
                   </a>
                 </div>
               </div>
@@ -449,7 +449,7 @@ export default function Remedify() {
                   </ul>
                   {/* <div className={styles.linkButton}>
                     <a href="https://www.figma.com/design/4ni9gyLkBDkeQNBfia2rgo/Remedify-Hi-fi?node-id=1797-14184&t=xd57gQUfuR5S6kpN-1" target="_blank">
-                      <button>View Final Hi-Fi</button>
+                      <button  className={styles.button}>View Final Hi-Fi</button>
                     </a>
                   </div> */}
                 </div>
@@ -480,7 +480,7 @@ export default function Remedify() {
                 </ul>
                 {/* <div className={styles.linkButton}>
                   <a href="https://www.figma.com/design/4ni9gyLkBDkeQNBfia2rgo/Remedify-Hi-fi?node-id=340-5993&t=0Ji5GbZNKZLLvUCy-1" target="_blank">
-                    <button>View Initial Hi-Fi</button>
+                    <button  className={styles.button}>View Initial Hi-Fi</button>
                   </a>
                 </div> */}
               </div>
@@ -526,8 +526,8 @@ export default function Remedify() {
                 />
                 <div className={styles.details}>
                   <div className={styles.linkButton}>
-                    <a href="https://www.figma.com/design/4ni9gyLkBDkeQNBfia2rgo/Remedify-Hi-fi?node-id=5244-5265&t=9yDqh5qVIF2NRdlL-4" target="_blank">
-                      <button>View Final Hi-Fi</button>
+                    <a className={styles.button} href="https://www.figma.com/design/4ni9gyLkBDkeQNBfia2rgo/Remedify-Hi-fi?node-id=5244-5265&t=9yDqh5qVIF2NRdlL-4" target="_blank">
+                      <button  className={styles.button}>View Final Hi-Fi</button>
                     </a>
                   </div>
                 </div>
@@ -542,8 +542,8 @@ export default function Remedify() {
                 />
                 <div className={styles.details}>
                   <div className={styles.linkButton}>
-                    <a href="https://www.remedify.ca/" target="_blank">
-                      <button>View Landing Page</button>
+                    <a className={styles.button} href="https://www.remedify.ca/" target="_blank">
+                      <button  className={styles.button}>View Landing Page</button>
                     </a>
                   </div>
                 </div>
