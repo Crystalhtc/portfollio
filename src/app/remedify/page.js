@@ -104,11 +104,11 @@ export default function Remedify() {
                 <h2>Solution</h2>
                   <ul className={styles.detailsList}>
                     <div>
-                      <li className={styles.bold}>Simplify medication regimens:</li>
+                      <li className={styles.bold}>Simplify Medication Regimens:</li>
                       <li className={styles.indent}>Provides clear, organized schedules to prevent confusion.</li>
                     </div>
                     <div>
-                      <li className={styles.bold}>Explain key information:</li>
+                      <li className={styles.bold}>Explain Key Information:</li>
                       <li className={styles.indent}>Displays essential details about each medication, including what the drug is and why is it prescribed.</li>
                     </div>
                     <div>
@@ -526,7 +526,7 @@ export default function Remedify() {
                 />
                 <div className={styles.details}>
                   <div className={styles.linkButton}>
-                    <a href="https://www.figma.com/design/4ni9gyLkBDkeQNBfia2rgo/Remedify-Hi-fi?node-id=1797-14184&t=xd57gQUfuR5S6kpN-1" target="_blank">
+                    <a href="https://www.figma.com/design/4ni9gyLkBDkeQNBfia2rgo/Remedify-Hi-fi?node-id=5244-5265&t=9yDqh5qVIF2NRdlL-4" target="_blank">
                       <button>View Final Hi-Fi</button>
                     </a>
                   </div>

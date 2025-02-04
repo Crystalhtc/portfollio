@@ -71,6 +71,43 @@ export default function Remedify() {
             </div>
           </div>
 
+            <div className={styles.problemSolution} id="problem-solution">
+              <div className={styles.problem}>
+                <h2>Problem</h2>
+                  <ul className={styles.detailsList}>
+                    <div>
+                      <li className={styles.bold}>Stress & Anxiety:</li>
+                      <li className={styles.indent}>A growing number of people face stress and struggle to achieve inner peace.</li>
+                    </div>
+                    <div>
+                      <li className={styles.bold}>Lack of Mental Health Support:</li>
+                      <li className={styles.indent}>Many individuals struggle with managing emotional health on their own.</li>
+                    </div>
+                    <div>
+                      <li className={styles.bold}>Difficulty in Building Healthy Habits:</li>
+                      <li className={styles.indent}>Incorporating meditation and mindfulness into daily life can be challenging.</li>
+                    </div>
+                  </ul>
+              </div>
+              <div className={styles.solution}>
+                <h2>Solution</h2>
+                  <ul className={styles.detailsList}>
+                    <div>
+                      <li className={styles.bold}>Tracks Mood Patterns:</li>
+                      <li className={styles.indent}>Helps users monitor their emotional well-being over time.</li>
+                    </div>
+                    <div>
+                      <li className={styles.bold}>Provides Personalized Recommendations:</li>
+                      <li className={styles.indent}>Provides tailored mental well-being and meditation tips.</li>
+                    </div>
+                    <div>
+                      <li className={styles.bold}>Integrates Meditation Contents:</li>
+                      <li className={styles.indent}>Offers guided sessions and resources for seamless meditation practice.</li>
+                    </div>
+                  </ul>
+              </div>
+            </div>
+
           <div className={styles.appFeatures} id="features">
             <div className={styles.featureTitle}>
               <h2>Features</h2>
@@ -385,7 +422,7 @@ export default function Remedify() {
                   </div>
                 </ul> */}
                 <div className={styles.linkButton}>
-                  <a href="https://www.figma.com/proto/ZN5Q97M2j8T6LoKXgcoA6l/Tranquify?node-id=3309-3595&p=f&t=ZPZCTFg42gVI1Dhf-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1" target="_blank">
+                  <a href="https://www.figma.com/design/ZN5Q97M2j8T6LoKXgcoA6l/Tranquify?node-id=3002-2006&t=bkwpxL6IxRzZO4iG-4" target="_blank">
                     <button>View Final Hi-Fi</button>
                   </a>
                 </div>
