@@ -15,7 +15,7 @@ export default function StyleGuide({image, alt, styleguideLink, title}) {
                 />
             </div>
             <div className={styles.buttonContainer}>
-                <a href={styleguideLink} target="_blank">
+                <a className={styles.button} href={styleguideLink} target="_blank">
                     <button className={styles.button}>View Style Guide</button>
                 </a>
             </div>

@@ -63,7 +63,7 @@ export default function Remedify() {
                 />
                 <div className={styles.nextButton}>
                   <a href="https://www.figma.com/proto/4ni9gyLkBDkeQNBfia2rgo/Remedify-Hi-fi?node-id=1797-14271&t=Zh0rrTMckVWV8wmW-1&scaling=scale-down&content-scaling=fixed&page-id=1797%3A14184&starting-point-node-id=1797%3A14295">
-                    <button>View Prototype</button>
+                    <button  className={styles.button}>View Prototype</button>
                   </a>
                 </div>
               </div>
@@ -142,7 +142,7 @@ export default function Remedify() {
               />
               {/* <div className={styles.nextButton}>
                 <a href="https://docs.google.com/document/d/1MGyxeF7pkwpVo4VsNl829hrDaSTTYn5Frfa2RREm4Nc/edit?usp=sharing" target="_blank">
-                  <button>VIEW FINDINGS</button>
+                  <button  className={styles.button}>VIEW FINDINGS</button>
                 </a>
               </div> */}
           </div>
@@ -172,7 +172,7 @@ export default function Remedify() {
                 </ul>
                 <div className={styles.linkButton}>
                   <a href="https://www.figma.com/board/iWziE36DOEeWn9JDKIlI9B/Remedify-Competitive-Analysis-(UI-Focused)?node-id=0-1&p=f&t=cUPe0MNMm4oksBdT-0" target="_blank">
-                    <button>View Competitive Analysis</button>
+                    <button  className={styles.button}>View Competitive Analysis</button>
                   </a>
                 </div>
               </div>
@@ -246,8 +246,8 @@ export default function Remedify() {
                   </div>
                 </ul>
                 <div className={styles.linkButton}>
-                  <a href="" target="_blank">
-                    <button>View User Persona</button>
+                  <a className={styles.button} href="https://docs.google.com/presentation/d/19od2HCri96Ox-DJ3LtkctFdLnKAP0Vr3pxA15SFT8rU/edit?usp=sharing" target="_blank">
+                    <button  className={styles.button}>View User Persona</button>
                   </a>
                 </div>
               </div>
@@ -296,8 +296,8 @@ export default function Remedify() {
                   </div>
                 </ul>
                 <div className={styles.linkButton}>
-                  <a href="https://www.figma.com/design/ZN5Q97M2j8T6LoKXgcoA6l/Tranquify?node-id=3092-2648&t=iypaE9sj1OUFEwxt-4" target="_blank">
-                    <button>View Wireframe</button>
+                  <a className={styles.button} href="https://www.figma.com/design/ZN5Q97M2j8T6LoKXgcoA6l/Tranquify?node-id=3092-2648&t=iypaE9sj1OUFEwxt-4" target="_blank">
+                    <button  className={styles.button}>View Wireframe</button>
                   </a>
                 </div>
               </div>
@@ -327,8 +327,8 @@ export default function Remedify() {
                   </div>
                 </ul>
                 <div className={styles.linkButton}>
-                  <a href="https://www.figma.com/proto/ZN5Q97M2j8T6LoKXgcoA6l/Tranquify?node-id=3309-5407&t=811DAQoWWI79VsGh-1&scaling=min-zoom&content-scaling=fixed&page-id=3309%3A4796" target="_blank">
-                    <button>View Initial Hi-Fi</button>
+                  <a className={styles.button} href="https://www.figma.com/proto/ZN5Q97M2j8T6LoKXgcoA6l/Tranquify?node-id=3309-5407&t=811DAQoWWI79VsGh-1&scaling=min-zoom&content-scaling=fixed&page-id=3309%3A4796" target="_blank">
+                    <button  className={styles.button}>View Initial Hi-Fi</button>
                   </a>
                 </div>
               </div>
@@ -358,7 +358,7 @@ export default function Remedify() {
                 </ul>
                 {/* <div className={styles.linkButton}>
                   <a href="https://www.figma.com/proto/ZN5Q97M2j8T6LoKXgcoA6l/Tranquify?node-id=3309-5407&t=811DAQoWWI79VsGh-1&scaling=min-zoom&content-scaling=fixed&page-id=3309%3A4796" target="_blank">
-                    <button>View Initial Hi-Fi</button>
+                    <button  className={styles.button}>View Initial Hi-Fi</button>
                   </a>
                 </div> */}
               </div>
@@ -422,8 +422,8 @@ export default function Remedify() {
                   </div>
                 </ul> */}
                 <div className={styles.linkButton}>
-                  <a href="https://www.figma.com/design/ZN5Q97M2j8T6LoKXgcoA6l/Tranquify?node-id=3002-2006&t=bkwpxL6IxRzZO4iG-4" target="_blank">
-                    <button>View Final Hi-Fi</button>
+                  <a className={styles.button} href="https://www.figma.com/design/ZN5Q97M2j8T6LoKXgcoA6l/Tranquify?node-id=3002-2006&t=bkwpxL6IxRzZO4iG-4" target="_blank">
+                    <button  className={styles.button}>View Final Hi-Fi</button>
                   </a>
                 </div>
               </div>
@@ -438,13 +438,13 @@ export default function Remedify() {
               />
               <div className={styles.details}>
                 <div className={styles.linkButton}>
-                  <a href="https://tranquify.vercel.app/" target="_blank">
-                    <button>View Web App</button>
+                  <a className={styles.button} href="https://tranquify.vercel.app/" target="_blank">
+                    <button  className={styles.button}>View Web App</button>
                   </a>
                 </div>
                 {/* <div className={styles.githubButton}>
                   <a href="https://github.com/ohmaruko/Tranquify" target="_blank">
-                    <button>View Github Repository</button>
+                    <button  className={styles.button}>View Github Repository</button>
                   </a>
                 </div> */}
               </div>

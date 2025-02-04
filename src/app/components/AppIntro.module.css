@@ -39,7 +39,7 @@
 }
 
 .buttons button {
-    width: 18rem;
+    width: 16rem;
 }
 
 /* Tablet (768px and up) */
@@ -60,6 +60,10 @@
     .rowContent {
         width: 70%;
     }
+
+        .buttons button {
+            width: 18rem;
+        }
 }
 
 /* Desktop (1024px and up) */
