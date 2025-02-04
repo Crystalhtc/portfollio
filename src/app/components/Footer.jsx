@@ -14,7 +14,7 @@ export default function Footer() {
                 
                 <div className={styles.infoContainer}>
                     <div className={styles.siteLinks}>
-                        <a href="/">Projects</a>
+                        <a href="/#project">Projects</a>
                         <a href="/about">About</a>
                     </div>
                     <div className={styles.connectContainer}>
