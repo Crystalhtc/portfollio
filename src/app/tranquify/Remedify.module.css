@@ -173,10 +173,20 @@
     display: flex;
     justify-content: center;
     margin: 2rem auto 0;
+    width: 100%;
 }
 
 .linkButton button {
-    width: fit-content;
+    width: 100%;
+}
+
+.nextButton {
+    width: 100%;
+    padding: 0 1rem;
+}
+
+.button {
+    width: 100%;
 }
 
 .nextProject {
@@ -224,6 +234,26 @@
 
 /* Tablet (768px and up) */
 @media screen and (min-width: 768px) {
+    .linkButton button {
+        width: fit-content;
+    }
+
+    .linkedButton {
+        display: flex;
+        justify-content: center;
+        width: fit-content;
+    }
+
+    .nextButton {
+        display: flex;
+        justify-content: center;
+        width: fit-content;
+    }
+
+    .button {
+        width: fit-content;
+    }
+
     .content {
         width: 85%;
         padding: 1.5rem 0 3rem;

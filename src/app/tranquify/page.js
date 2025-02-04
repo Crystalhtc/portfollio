@@ -219,7 +219,7 @@ export default function Remedify() {
                       src="/tranquify/persona1.png"
                       alt="User Persona 1"
                       width="600"
-                      className={styles.personaImage}
+                      className={styles.wireframeImage}
                     />
                     <li className={styles.bold}>Primary Persona: Elderly Individual</li>
                     <li className={styles.indent}>The primary user is an older adult experiencing memory challenges who must manage multiple medications daily.</li>
@@ -229,7 +229,7 @@ export default function Remedify() {
                       src="/tranquify/persona2.png"
                       alt="User Persona 2"
                       width="600"
-                      className={styles.personaImage}
+                      className={styles.wireframeImage}
                     />
                     <li className={styles.bold}>Secondary Persona: Caregiver</li>
                     <li className={styles.indent}>The secondary user is a caregiver responsible for overseeing the medication schedules of their loved ones.</li>
@@ -239,7 +239,7 @@ export default function Remedify() {
                       src="/tranquify/persona3.png"
                       alt="User Persona 3"
                       width="600"
-                      className={styles.personaImage}
+                      className={styles.wireframeImage}
                     />
                     <li className={styles.bold}>Secondary Persona: Caregiver</li>
                     <li className={styles.indent}>The secondary user is a caregiver responsible for overseeing the medication schedules of their loved ones.</li>

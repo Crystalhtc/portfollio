@@ -1,15 +1,13 @@
-"use client";
 import React, { useState, useEffect, useRef } from "react";
 import styles from "./Header.module.css";
 import { Menu, X, ChevronLeft, ChevronRight } from "lucide-react";
-import ProjectsMenu from "./ProjectsMenu";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [isProjectsHovered, setIsProjectsHovered] = useState(false);
-   const projectsContainerRef = useRef(null);
+  const projectsContainerRef = useRef(null);
 
   const handleMouseEnter = () => {
     setIsProjectsHovered(true);
@@ -19,27 +17,27 @@ export default function Header() {
     setIsProjectsHovered(false);
   };
 
- const scrollToProjects = (event) => {
-  event.preventDefault(); // Prevent default anchor behavior
-  setIsProjectsHovered(false); // Close overlay
-  setIsMenuOpen(false);
-  document.body.style.overflow = "unset";
+  const scrollToProjects = async (event) => {
+    event.preventDefault();
+    
+    // Close menus first
+    setIsProjectsHovered(false);
+    setIsMenuOpen(false);
+    document.body.style.overflow = "unset";
 
-  const projectSection = document.getElementById("project");
-  // const offset = 60; // Adjust if needed
-  
-  if (window.location.pathname === "/") {
-    // If already on homepage, just scroll
-    if (projectSection) {
-      const sectionTop = projectSection.getBoundingClientRect().top + window.scrollY;
-      window.scrollTo({ top: sectionTop, behavior: "smooth" });
+    // Small delay to ensure menu state is updated
+    await new Promise(resolve => setTimeout(resolve, 10));
+
+    if (window.location.pathname === "/") {
+      const projectSection = document.getElementById("project");
+      if (projectSection) {
+        const sectionTop = projectSection.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo({ top: sectionTop, behavior: "smooth" });
+      }
+    } else {
+      window.location.href = "/#project";
     }
-  } else {
-    // Navigate to homepage first, then scroll
-    window.location.href = "/#project";
-  }
-};
-
+  };
 
   const projectPreviews = [
     {
@@ -89,10 +87,9 @@ export default function Header() {
       setIsScrolled(window.scrollY > 0);
       setIsTransitioning(true);
 
-      // Reset transitioning state after animation completes
       const timeout = setTimeout(() => {
         setIsTransitioning(false);
-      }, 300); // Match this with CSS transition duration
+      }, 300);
 
       return () => clearTimeout(timeout);
     };
@@ -165,7 +162,7 @@ export default function Header() {
               className={styles.projectsLink}
               onMouseEnter={handleMouseEnter}
             >
-              <a href="/" onClick={scrollToProjects}>Projects</a>
+              <a href="/#project" onClick={scrollToProjects}>Projects</a>
               {isProjectsHovered && (
                 <div className={styles.projectsOverlay} onMouseLeave={() => setIsProjectsHovered(false)}>
                   <button className={styles.scrollButton} onClick={scrollLeft}>
@@ -190,7 +187,7 @@ export default function Header() {
             </a>
             <a className={styles.connectContainer} href='https://www.linkedin.com/in/crystal-cheunghtc/' target="_blank">
               <button className={styles.connect}>
-                <svg className={styles.linkedin} xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="bi bi-linkedin" viewBox="0 0 16 16">
+                <svg className={styles.linkedin} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                   <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
                 </svg>
                 <p>Connect</p>
@@ -200,20 +197,12 @@ export default function Header() {
         </div>
       </div>
 
-      {/* <div 
-                className={`${styles.overlay} ${isMenuOpen ? styles.overlayOpen : ''}`}
-                onClick={closeMenu}
-                aria-label="Close menu overlay"
-            /> */}
-
-      {isMenuOpen ? (
+      {isMenuOpen && (
         <div
           className={styles.overlay}
           onClick={closeMenu}
           aria-label="Close menu overlay"
         />
-      ) : (
-        <></>
       )}
     </header>
   );
