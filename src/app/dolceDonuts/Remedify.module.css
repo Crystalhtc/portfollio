@@ -40,7 +40,7 @@
 .wireframeImage {
     width: 100%;
     height: auto;
-    
+
 }
 
 .prototypeBanner {
@@ -106,7 +106,7 @@
 
 .subIndent {
     margin-left: 1rem;
-    list-style-type:circle;
+    list-style-type: circle;
 }
 
 .featuresTitle {
@@ -129,7 +129,8 @@
     padding: 2rem 0;
 }
 
-.detailsContainer, .initialHiFi {
+.detailsContainer,
+.initialHiFi {
     padding: 2rem 0;
     border-bottom: 1.5px solid var(--light-red);
 }
@@ -162,7 +163,7 @@
 
 .semiBold {
     font-weight: 550;
-}   
+}
 
 .indent {
     list-style-type: none
@@ -172,10 +173,20 @@
     display: flex;
     justify-content: center;
     margin: 2rem auto 0;
+    width: 100%;
 }
 
 .linkButton button {
-    width: fit-content;
+    width: 100%;
+}
+
+.nextButton {
+    width: 100%;
+    padding: 0 1rem;
+}
+
+.button {
+    width: 100%;
 }
 
 .nextProject {
@@ -190,6 +201,31 @@
     margin: 3rem 0 1rem;
 }
 
+.problemSolution {
+    margin-bottom: 3rem;
+    padding: 3rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    border-bottom: 1.5px solid var(--light-red);
+}
+
+.problem,
+.solution {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.solution {
+    border-left: none;
+    border-top: 1.5px solid var(--light-red);
+    padding: 3rem 0 0 0;
+}
+
 @media screen and (max-width: 1024px) {
     .contentContainer {
         flex-direction: column;
@@ -198,6 +234,26 @@
 
 /* Tablet (768px and up) */
 @media screen and (min-width: 768px) {
+    .linkButton button {
+        width: fit-content;
+    }
+
+    .linkedButton {
+        display: flex;
+        justify-content: center;
+        width: fit-content;
+    }
+
+    .nextButton {
+        display: flex;
+        justify-content: center;
+        width: fit-content;
+    }
+
+    .button {
+        width: fit-content;
+    }
+
     .content {
         width: 85%;
         padding: 1.5rem 0 3rem;
@@ -221,8 +277,12 @@
         gap: 3rem;
     }
 
-    .userResearch, .competitiveAnalysis, .detailsContainer, 
-    .userFlowChart, .initialHiFi, .finalHiFi {
+    .userResearch,
+    .competitiveAnalysis,
+    .detailsContainer,
+    .userFlowChart,
+    .initialHiFi,
+    .finalHiFi {
         padding: 3rem 4rem;
     }
 
@@ -230,6 +290,28 @@
     .wireframeImage {
         padding: 0 1rem;
     }
+
+    /* .problemSolution {
+            padding: 3rem;
+            flex-direction: row;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .problem {
+            width: 50%;
+        }
+    
+        .solution {
+            border-top: none;
+            border-left: 1.5px solid var(--light-red);
+            padding: 0 0 0 3rem;
+            width: 50%;
+        }
+
+        .solution h2 {
+            text-align: center;
+        } */
 }
 
 /* Desktop (1024px and up) */
@@ -268,11 +350,43 @@
     .competitiveAnalysis {
         padding: 5rem 0;
     }
+
+    .problemSolution {
+        padding: 5rem 5rem;
+    }
+
+    .problemSolution {
+        padding: 3rem;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+    }
+
+    .problem {
+        width: 50%;
+    }
+
+    .solution {
+        border-top: none;
+        border-left: 1.5px solid var(--light-red);
+        padding: 0 0 0 3rem;
+        width: 50%;
+    }
+
+    .solution h2 {
+        text-align: center;
+    }
 }
 
 @media screen and (min-width: 1200px) {
     .appIntro {
         padding: 0 5rem;
+    }
+}
+
+@media (min-width: 1440px) {
+    .problemSolution {
+        padding: 5rem 5rem;
     }
 }
 
@@ -286,7 +400,8 @@
         padding: 3rem 10rem 4rem;
     }
 
-    .details, .wireframeImage {
+    .details,
+    .wireframeImage {
         padding: 0 15rem;
     }
 
@@ -297,34 +412,39 @@
     .userResearch {
         padding: 5rem 15rem;
     }
+
+    .problemSolution {
+        padding: 3rem 15rem;
+    }
 }
 
 /* animations */
 /* Fade-in and Slide Animations */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes fadeInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
+
 /* Hero Section */
 .heroImage {
-  animation: fadeInUp 1s ease-out;
+    animation: fadeInUp 1s ease-out;
 }
-
-

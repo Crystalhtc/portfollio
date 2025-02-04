@@ -54,8 +54,8 @@ export default function Remedify() {
                     <p className={styles.appIntrorowContent}>Oct 2024 (1 month)</p>
                 </div>
                 <div className={styles.appIntrobuttons}>
-                <a href="https://indd.adobe.com/view/bf5a23eb-0abe-44da-92d4-f3d4b5b0d9bd" target="_blank">
-                    <button>View Digital Design</button>
+                <a className={styles.button} href="https://indd.adobe.com/view/bf5a23eb-0abe-44da-92d4-f3d4b5b0d9bd" target="_blank">
+                    <button className={styles.button}>View Digital Design</button>
                 </a>
             </div>
             </div>
@@ -118,11 +118,11 @@ export default function Remedify() {
                     <li className={styles.indent}>The design aims at reflecting the minimalistic and functional aesthetic of CUHK’s architecture.</li>
                   </div>
                 </ul>
-                <div className={styles.linkButton}>
+                {/* <div className={styles.linkButton}>
                   <a href="https://www.figma.com/design/ZN5Q97M2j8T6LoKXgcoA6l/Tranquify?node-id=3092-2648&t=iypaE9sj1OUFEwxt-4" target="_blank">
-                    <button>View Wireframe</button>
+                    <button  className={styles.button}>View Wireframe</button>
                   </a>
-                </div>
+                </div> */}
               </div>
           </div>
 
@@ -154,11 +154,11 @@ export default function Remedify() {
                         <li className={styles.subIndent}>The use of negative space emphasizes the modern aesthetic while ensuring the layout remains clean and organized.</li>
                       </div>
                     </ul>
-                    <div className={styles.linkButton}>
+                    {/* <div className={styles.linkButton}>
                       <a href="https://www.figma.com/design/4ni9gyLkBDkeQNBfia2rgo/Remedify-Hi-fi?node-id=5145-11431&t=3ICIYqKBCpA4qJrQ-4" target="_blank">
-                        <button>View Style Guide</button>
+                        <button  className={styles.button}>View Style Guide</button>
                       </a>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
           </div>
@@ -191,8 +191,8 @@ export default function Remedify() {
                   </div>
                 </ul>
                 <div className={styles.linkButton}>
-                  <a href="https://www.figma.com/proto/ZN5Q97M2j8T6LoKXgcoA6l/Tranquify?node-id=3309-5407&t=811DAQoWWI79VsGh-1&scaling=min-zoom&content-scaling=fixed&page-id=3309%3A4796" target="_blank">
-                    <button>View Digital Design</button>
+                  <a className={styles.button} href="https://indd.adobe.com/view/bf5a23eb-0abe-44da-92d4-f3d4b5b0d9bd" target="_blank">
+                    <button  className={styles.button}>View Digital Design</button>
                   </a>
                 </div>
               </div>

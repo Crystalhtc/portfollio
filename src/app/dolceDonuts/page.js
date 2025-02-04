@@ -191,7 +191,7 @@ export default function Remedify() {
                   </div>
                 </ul> */}
                 <div className={styles.linkButton}>
-                  <a href="https://www.figma.com/design/8ogYcfirxJHYjrCvLm2mut/DolceDonuts?node-id=0-1&p=f&t=E6n8gLtbaFJiPonv-0" target="_blank">
+                  <a className={styles.button} href="https://www.figma.com/design/8ogYcfirxJHYjrCvLm2mut/DolceDonuts?node-id=0-1&p=f&t=E6n8gLtbaFJiPonv-0" target="_blank">
                     <button>View Final Hi-Fi</button>
                   </a>
                 </div>
