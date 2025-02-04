@@ -570,11 +570,7 @@ export default function Remedify() {
                         <li className={styles.subIndent}>I improved my ability to communicate design ideas clearly, adapt to technical constraints, and refine UI elements for better usability and performance.</li>
                       </div>
                     </ul>
-                    <div className={styles.linkButton}>
-                      <a href="https://www.figma.com/design/4ni9gyLkBDkeQNBfia2rgo/Remedify-Hi-fi?node-id=5145-11431&t=3ICIYqKBCpA4qJrQ-4" target="_blank">
-                        <button>View Style Guide</button>
-                      </a>
-                    </div>
+                   
                   </div>
                 </div>
             </div>
