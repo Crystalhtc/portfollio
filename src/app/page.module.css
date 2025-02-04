@@ -21,8 +21,9 @@
 }
 
 .hero {
+  position: sticky;
+  top: 72px;
   width: 100%;
-  height: 60vh;
   background-image: url("/hero.png");
   background-size: cover;
   background-position: center;
@@ -32,7 +33,7 @@
   flex-direction: column;
   gap: 3rem;
   padding: 2rem;
-  max-height: 60vh;
+  max-height: 80vh;
   overflow: hidden;
 }
 
@@ -81,6 +82,30 @@
   gap: 1rem;
   width: 100%;
   padding: 4rem 2rem 4rem;
+}
+
+.tagline {
+  padding: 2rem 0;
+  font-size: 2.5rem;
+  font-weight: 400;
+  border-top: 1px solid var(--light-red);
+  border-bottom: 1px solid var(--light-red);
+}
+
+.taglineContainer {
+  display: flex;
+  justify-content: center;
+  padding: 8rem 1.5rem 6rem;
+  
+}
+
+.ctaButton {
+  margin-top: 2rem;
+}
+
+.background {
+  position: relative;
+  background-color: var(--background);
 }
 
 @media (min-width: 400px) {
@@ -158,6 +183,7 @@
   .heading {
     font-size: 3.5rem;
   }
+  
 }
 
 /* Desktop (1024px and up) */
@@ -209,6 +235,14 @@
   .aboutButtonContainer {
     margin: 3rem 0 4rem 0;
   }
+
+  .hero {
+    max-height: none;
+  }
+
+    .tagline {
+      padding: 3rem 0;
+    }
 }
 
 /* Large Desktop (1440px and up) */

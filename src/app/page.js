@@ -9,6 +9,18 @@ import ScrollButton from "./components/ScrollButton";
 import ProjectsSection from './components/ProjectsSection';
 
 export default function Home() {
+    const scrollToProjects = (event) => {
+    event.preventDefault(); // Prevent default anchor behavior
+    document.body.style.overflow = "unset";
+
+    const projectSection = document.getElementById("project");
+    const offset = 60; // Adjust if needed
+    
+    if (projectSection) {
+      const sectionTop = projectSection.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top: sectionTop - offset, behavior: "smooth" });
+    }
+  };
   return (
     <div className={styles.page}>
       <Header />
@@ -20,6 +32,7 @@ export default function Home() {
               Crystal Cheung
             </h1>
             <h2 className={styles.jobTitle}>UX/UI Designer | Graphic Designer</h2>
+            <button className={styles.ctaButton} onClick={scrollToProjects}>View Projects</button>
           </div>
           <div className={styles.heroImageContainer}>
             <img
@@ -39,6 +52,11 @@ export default function Home() {
           </div> */}
         </div>
         
+        <div className={styles.background}>
+        <div className={styles.taglineContainer}>
+          <h3 className={styles.tagline}>"Crafts user-centric designs that enhance quality of life."</h3>
+        </div>
+
         <div className={styles.projects} id="project">
           <ProjectsSection />
         </div>
@@ -54,6 +72,7 @@ export default function Home() {
               button="About Me"
             />
           </div>
+        </div>
       </main>
       <ScrollButton/>
       <Footer />
