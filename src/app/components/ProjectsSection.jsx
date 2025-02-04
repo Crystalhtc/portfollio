@@ -60,7 +60,7 @@ const ProjectsSection = () => {
       alt: "Teaddy",
       name: "Teaddy",
       link: "/teaddy",
-      description: "Branded advertisement campaign featuring a series of visually engaging posters and a custom logo, blending the charm of a teddy bear with the warmth of tea."
+      description: ""
     },
     {
       category: 'graphic',

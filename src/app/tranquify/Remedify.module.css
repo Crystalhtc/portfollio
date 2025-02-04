@@ -4,6 +4,10 @@
     padding-bottom: 5rem;
 }
 
+.contentContainer {
+    flex-direction: column;
+}
+
 /* .sideMenu {
         position: sticky;
             top: 80%;
@@ -37,10 +41,10 @@
     margin-top: 1rem;
 }
 
-.wireframeImage {
+.wireframeImage, .personaImage {
     width: 100%;
     height: auto;
-
+    
 }
 
 .prototypeBanner {
@@ -106,7 +110,7 @@
 
 .subIndent {
     margin-left: 1rem;
-    list-style-type: circle;
+    list-style-type:circle;
 }
 
 .featuresTitle {
@@ -129,8 +133,7 @@
     padding: 2rem 0;
 }
 
-.detailsContainer,
-.initialHiFi {
+.detailsContainer, .initialHiFi {
     padding: 2rem 0;
     border-bottom: 1.5px solid var(--light-red);
 }
@@ -163,7 +166,7 @@
 
 .semiBold {
     font-weight: 550;
-}
+}   
 
 .indent {
     list-style-type: none
@@ -226,15 +229,9 @@
     padding: 3rem 0 0 0;
 }
 
-@media screen and (max-width: 1024px) {
-    .contentContainer {
-        flex-direction: column;
-    }
-}
-
 /* Tablet (768px and up) */
 @media screen and (min-width: 768px) {
-    .linkButton button {
+.linkButton button {
         width: fit-content;
     }
 
@@ -244,11 +241,11 @@
         width: fit-content;
     }
 
-    .nextButton {
-        display: flex;
-        justify-content: center;
-        width: fit-content;
-    }
+        .nextButton {
+            display: flex;
+            justify-content: center;
+            width: fit-content;
+        }
 
     .button {
         width: fit-content;
@@ -277,12 +274,8 @@
         gap: 3rem;
     }
 
-    .userResearch,
-    .competitiveAnalysis,
-    .detailsContainer,
-    .userFlowChart,
-    .initialHiFi,
-    .finalHiFi {
+    .userResearch, .competitiveAnalysis, .detailsContainer, 
+    .userFlowChart, .initialHiFi, .finalHiFi {
         padding: 3rem 4rem;
     }
 
@@ -291,7 +284,7 @@
         padding: 0 1rem;
     }
 
-    /* .problemSolution {
+        /* .problemSolution {
             padding: 3rem;
             flex-direction: row;
             justify-content: center;
@@ -316,6 +309,10 @@
 
 /* Desktop (1024px and up) */
 @media screen and (min-width: 1024px) {
+    .contentContainer {
+            flex-direction: row;
+        }
+        
     .content {
         width: 80%;
         padding: 2rem 0 4rem;
@@ -351,31 +348,36 @@
         padding: 5rem 0;
     }
 
-    .problemSolution {
-        padding: 5rem 5rem;
-    }
+        .problemSolution {
+            padding: 5rem 5rem;
+        }
 
-    .problemSolution {
-        padding: 3rem;
-        flex-direction: row;
-        justify-content: center;
-        align-items: flex-start;
-    }
+.problemSolution {
+    padding: 3rem;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+}
 
-    .problem {
-        width: 50%;
-    }
+.problem {
+    width: 50%;
+}
 
-    .solution {
-        border-top: none;
-        border-left: 1.5px solid var(--light-red);
-        padding: 0 0 0 3rem;
-        width: 50%;
-    }
+.solution {
+    border-top: none;
+    border-left: 1.5px solid var(--light-red);
+    padding: 0 0 0 3rem;
+    width: 50%;
+}
 
-    .solution h2 {
-        text-align: center;
-    }
+.solution h2 {
+    text-align: center;
+}
+
+.personaImage {
+    padding:0;
+}
+
 }
 
 @media screen and (min-width: 1200px) {
@@ -385,7 +387,7 @@
 }
 
 @media (min-width: 1440px) {
-    .problemSolution {
+.problemSolution {
         padding: 5rem 5rem;
     }
 }
@@ -400,8 +402,7 @@
         padding: 3rem 10rem 4rem;
     }
 
-    .details,
-    .wireframeImage {
+    .details, .wireframeImage {
         padding: 0 15rem;
     }
 
@@ -413,7 +414,7 @@
         padding: 5rem 15rem;
     }
 
-    .problemSolution {
+     .problemSolution {
         padding: 3rem 15rem;
     }
 }
@@ -421,30 +422,29 @@
 /* animations */
 /* Fade-in and Slide Animations */
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-20px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
-
 /* Hero Section */
 .heroImage {
-    animation: fadeInUp 1s ease-out;
+  animation: fadeInUp 1s ease-out;
 }
+
+

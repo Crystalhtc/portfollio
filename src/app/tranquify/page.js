@@ -132,7 +132,7 @@ export default function Remedify() {
             />
           </div>
 
-          <div className={styles.userResearch} id="user-research">
+          {/* <div className={styles.userResearch} id="user-research">
               <UserResearch
                 title="User Research"
                 descriptions={[
@@ -140,12 +140,7 @@ export default function Remedify() {
                   "The key challenge for users is finding a comprehensive solution that integrates mood tracking with personalized meditation guidance, offering a holistic approach to emotional health and wellness."
                 ]}
               />
-              {/* <div className={styles.nextButton}>
-                <a href="https://docs.google.com/document/d/1MGyxeF7pkwpVo4VsNl829hrDaSTTYn5Frfa2RREm4Nc/edit?usp=sharing" target="_blank">
-                  <button  className={styles.button}>VIEW FINDINGS</button>
-                </a>
-              </div> */}
-          </div>
+          </div> */}
 
           {/* <div className={styles.competitiveAnalysis}>
               <ContentSection
@@ -219,7 +214,7 @@ export default function Remedify() {
                       src="/tranquify/persona1.png"
                       alt="User Persona 1"
                       width="600"
-                      className={styles.wireframeImage}
+                      className={styles.personaImage}
                     />
                     <li className={styles.bold}>Primary Persona: Elderly Individual</li>
                     <li className={styles.indent}>The primary user is an older adult experiencing memory challenges who must manage multiple medications daily.</li>
@@ -229,7 +224,7 @@ export default function Remedify() {
                       src="/tranquify/persona2.png"
                       alt="User Persona 2"
                       width="600"
-                      className={styles.wireframeImage}
+                      className={styles.personaImage}
                     />
                     <li className={styles.bold}>Secondary Persona: Caregiver</li>
                     <li className={styles.indent}>The secondary user is a caregiver responsible for overseeing the medication schedules of their loved ones.</li>
@@ -239,7 +234,7 @@ export default function Remedify() {
                       src="/tranquify/persona3.png"
                       alt="User Persona 3"
                       width="600"
-                      className={styles.wireframeImage}
+                      className={styles.personaImage}
                     />
                     <li className={styles.bold}>Secondary Persona: Caregiver</li>
                     <li className={styles.indent}>The secondary user is a caregiver responsible for overseeing the medication schedules of their loved ones.</li>

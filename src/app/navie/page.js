@@ -122,14 +122,14 @@ export default function Remedify() {
                   "Users often struggle with locating specific products in grocery stores, which can lead to inefficient shopping experiences.",
                 "Users often encounter difficulties in determining whether desired items are in stock before heading to the store.",
                 "Users are uncertain about the final price of items, especially after factoring in taxes and fees.",
-                "Users often struggle with managing shopping lists across multiple apps or platforms."
+                "Users would benefit from a digital system, such as a mobile app or digital cart integration, to streamline their shopping experience."
                 ]}
               />
-              {/* <div className={styles.nextButton}>
-                <a href="https://docs.google.com/document/d/1MGyxeF7pkwpVo4VsNl829hrDaSTTYn5Frfa2RREm4Nc/edit?usp=sharing" target="_blank">
-                  <button>VIEW FINDINGS</button>
+              <div className={styles.nextButton}>
+                <a href="https://docs.google.com/presentation/d/1mhr50yCOICKOfwsF3J2H8Z0xcjVKVxcN/edit?usp=sharing&ouid=108242262772012439744&rtpof=true&sd=true" target="_blank">
+                  <button>View Findings</button>
                 </a>
-              </div> */}
+              </div>
           </div>
 
           {/* <div className={styles.competitiveAnalysis}>

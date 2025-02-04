@@ -42,7 +42,7 @@
 /* Desktop (1024px and up) */
 @media screen and (min-width: 1024px) {
     .styleguide {
-        padding: 4rem 15rem;
+        padding: 4rem 10rem;
     }
 }
 
