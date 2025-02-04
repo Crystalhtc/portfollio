@@ -19,20 +19,27 @@ export default function Header() {
     setIsProjectsHovered(false);
   };
 
-  const scrollToProjects = (event) => {
-    event.preventDefault(); // Prevent default anchor behavior
-    setIsProjectsHovered(false); // Close overlay
-    setIsMenuOpen(false);
-    document.body.style.overflow = "unset";
+ const scrollToProjects = (event) => {
+  event.preventDefault(); // Prevent default anchor behavior
+  setIsProjectsHovered(false); // Close overlay
+  setIsMenuOpen(false);
+  document.body.style.overflow = "unset";
 
-    const projectSection = document.getElementById("project");
-    const offset = 60; // Adjust if needed
-    
+  const projectSection = document.getElementById("project");
+  // const offset = 60; // Adjust if needed
+  
+  if (window.location.pathname === "/") {
+    // If already on homepage, just scroll
     if (projectSection) {
       const sectionTop = projectSection.getBoundingClientRect().top + window.scrollY;
-      window.scrollTo({ top: sectionTop - offset, behavior: "smooth" });
+      window.scrollTo({ top: sectionTop, behavior: "smooth" });
     }
-  };
+  } else {
+    // Navigate to homepage first, then scroll
+    window.location.href = "/#project";
+  }
+};
+
 
   const projectPreviews = [
     {
@@ -158,7 +165,7 @@ export default function Header() {
               className={styles.projectsLink}
               onMouseEnter={handleMouseEnter}
             >
-              <a href="#project" onClick={scrollToProjects}>Projects</a>
+              <a href="/" onClick={scrollToProjects}>Projects</a>
               {isProjectsHovered && (
                 <div className={styles.projectsOverlay} onMouseLeave={() => setIsProjectsHovered(false)}>
                   <button className={styles.scrollButton} onClick={scrollLeft}>

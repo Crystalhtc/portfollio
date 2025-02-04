@@ -107,6 +107,7 @@
 .skillSection {
     border-top: 1.5px solid var(--light-red);
     padding: 2rem 1.5rem;
+    margin: 0 2rem;
 }
 
 .interestTitle {
@@ -174,7 +175,7 @@
         }
 
     .skillSection {
-        padding: 5rem;
+        padding: 3rem;
         margin: 0 3rem;
     }
 

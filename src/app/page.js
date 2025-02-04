@@ -17,7 +17,7 @@ export default function Home() {
     document.body.style.overflow = "unset";
 
     const projectSection = document.getElementById("project");
-    const offset = 60; // Adjust if needed
+    const offset = 0; // Adjust if needed
     
     if (projectSection) {
       const sectionTop = projectSection.getBoundingClientRect().top + window.scrollY;
@@ -68,7 +68,8 @@ export default function Home() {
           <h3 className={styles.tagline} style={{ fontSize: `${fontSize}px` }}>"Crafts user-centric designs that enhance quality of life."</h3>
         </div>
 
-        <div className={styles.projects} id="project">
+        <div className={styles.projectOffset} id="project"></div>
+        <div className={styles.projects}>
           <ProjectsSection />
         </div>
         

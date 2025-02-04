@@ -107,6 +107,10 @@
   background-color: var(--background);
 }
 
+.projectOffset {
+  padding: 2rem 0;
+}
+
 @media (min-width: 400px) {
   .aboutMe {
     padding: 6rem 4rem 4rem;
