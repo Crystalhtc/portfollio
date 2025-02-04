@@ -293,22 +293,24 @@
     gap: 0.5rem;
     width: 100%;
     padding: 0.7rem 1rem;
+    background-color: var(--light-red);
     transition: all 0.3s ease;
 }
 
 .connect p {
     font-weight: 400;
     font-size: 1.5rem;
-    color: var(--light-red);
+    color: var(--background);
     transition: all 0.3s ease;
 }
 
 .connect:hover {
     cursor: pointer;
+    background-color: var(--background);
 }
 
 .connect:hover p {
-    color: var(--background);
+    color: var(--light-red);
 }
 
 .connectContainer {
@@ -320,12 +322,12 @@
 }
 
 .linkedin {
-    fill: var(--light-red);
+    fill: var(--background);
     transition: all 0.3s ease;
 }
 
 .connect:hover .linkedin {
-    fill: var(--background);
+    fill: var(--light-red);
 }
 
 /* Tablet and up (768px and up) */
