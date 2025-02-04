@@ -450,6 +450,31 @@ export default function Remedify() {
               </div>
           </div>
 
+          <div className={styles.detailsContainer} id="style-guide">
+                <div>
+                  <div className={styles.details}>
+                    <h2>Reflection and Learnings</h2>
+                    <ul className={styles.detailsList}>
+                      <div>
+                        <li className={styles.bold}>Iterative Design:</li>
+                        <li className={styles.subIndent}>Designing Tranquify reinforced the importance of iterative design and refining features based on user feedback.</li>
+                        <li className={styles.subIndent}>Small adjustments, like repositioning the favoriting icon can significantly improve user experience.</li>
+                      </div>
+                      <div>
+                        <li className={styles.bold}>Enhancing Engagement with Motion Graphics:</li>
+                        <li className={styles.subIndent}>Using animations strategically made interactions feel smooth and intuitive rather than overwhelming.</li>
+                        <li className={styles.subIndent}>Motion graphics can make the app more engaging, and microinteractions, like button feedback can improve usability.</li>
+                      </div>
+                      <div>
+                        <li className={styles.bold}>Web-app development with Next.js:</li>
+                        <li className={styles.subIndent}>Developing Tranquify as a web app using Next.js taught me how to build a fully coded interface that remains true to the design vision.</li>
+                      </div>
+                    </ul>
+                   
+                  </div>
+                </div>
+            </div>
+
           <div className={styles.nextProject}>
             <h2>Next Project is...</h2>
               <NextCard 
