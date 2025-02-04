@@ -168,6 +168,10 @@
     width: 85%;
     gap: 2rem;
   }
+
+  .taglineContainer {
+    padding: 10rem 6rem;
+  }
 }
 
 @media (min-width: 900px) {

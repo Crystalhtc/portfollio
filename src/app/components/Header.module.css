@@ -8,13 +8,12 @@
     right: 0;
     padding: 0.5rem 0;
     border-bottom: 1.5px solid transparent;
-    transition: all 0.3s ease, border-bottom 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .header.scrolled {
     border-bottom: 1.5px solid var(--light-red);
-    padding: 0;
-    transition: all 0.3s ease, border-bottom 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .nav {
@@ -25,8 +24,6 @@
     position: relative;
     z-index: 1002;
 }
-
-
 
 .logoContainer {
     position: relative;
