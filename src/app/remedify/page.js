@@ -549,6 +549,36 @@ export default function Remedify() {
                 </div>
             </div>
 
+            <div className={styles.detailsContainer} id="style-guide">
+                <div>
+                  <div className={styles.details}>
+                    <h2>Reflection and Learnings</h2>
+                    <ul className={styles.detailsList}>
+                      <div>
+                        <li className={styles.bold}>Integrating AI into App Design:</li>
+                        <li className={styles.subIndent}>Building Remedify taught me how to use AI-driven features, like image recognition for medication identification, while ensuring a smooth and user-friendly experience.</li>
+                        <li className={styles.subIndent}>I learned to balance automation with user control, making AI auto-fill helpful but still allowing manual inputs.</li>
+                      </div>
+                      <div>
+                        <li className={styles.bold}>Effective Team Leadership:</li>
+                        <li className={styles.subIndent}>Leading the design team strengthened my skills in guiding creative direction, managing workflows, and providing feedback.</li>
+                        <li className={styles.subIndent}>I learned to balance different perspectives, resolve challenges, and keep the team motivated while meeting project deadlines.</li>
+                      </div>
+                      <div>
+                        <li className={styles.bold}>Collaboration with Developers:</li>
+                        <li className={styles.subIndent}>Working closely with developers helped me understand the importance of aligning design with functionality.</li>
+                        <li className={styles.subIndent}>I improved my ability to communicate design ideas clearly, adapt to technical constraints, and refine UI elements for better usability and performance.</li>
+                      </div>
+                    </ul>
+                    <div className={styles.linkButton}>
+                      <a href="https://www.figma.com/design/4ni9gyLkBDkeQNBfia2rgo/Remedify-Hi-fi?node-id=5145-11431&t=3ICIYqKBCpA4qJrQ-4" target="_blank">
+                        <button>View Style Guide</button>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
             <div className={styles.nextProject}>
               <h2>Next Project is...</h2>
                 <NextCard 
