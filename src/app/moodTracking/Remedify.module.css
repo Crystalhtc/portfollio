@@ -188,6 +188,17 @@
     margin: 3rem 0 1rem;
 }
 
+.nextButton, .button {
+    width: 100%;
+}
+
+.nextButton {
+    display: flex;
+    justify-content: center;
+    padding: 0 1rem;
+}
+
+
 @media screen and (max-width: 1024px) {
     .contentContainer {
         flex-direction: column;
@@ -196,6 +207,10 @@
 
 /* Tablet (768px and up) */
 @media screen and (min-width: 768px) {
+    .button {
+        width: fit-content;
+    }
+
     .content {
         width: 85%;
         padding: 1.5rem 0 3rem;

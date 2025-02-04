@@ -77,7 +77,7 @@ export default function Remedify() {
                     Your browser does not support the video tag.
                   </video>
                   <div className={styles.nextButton}>
-                    <a href="https://www.youtube.com/watch?v=Olqu-rU1vaI" target="_blank">
+                    <a className={styles.button} href="https://www.youtube.com/watch?v=Olqu-rU1vaI" target="_blank">
                     <button>View on Youtube</button>
                   </a>
                 </div>
