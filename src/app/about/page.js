@@ -57,7 +57,7 @@ export default function About() {
             </div>
             <div className={styles.resume}>
               <h2>Check out my resume!</h2>
-              <a href="https://drive.google.com/file/d/10Nc8TYV3dkn4aR8IB-kjcmLq0EuW9H3L/view?usp=sharing" target="_blank">
+              <a className={styles.button} href="https://drive.google.com/file/d/10Nc8TYV3dkn4aR8IB-kjcmLq0EuW9H3L/view?usp=sharing" target="_blank">
                 <button>Resume</button>
               </a>
             </div>

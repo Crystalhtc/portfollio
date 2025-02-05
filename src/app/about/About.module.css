@@ -136,8 +136,18 @@
     width: fit-content;
 }
 
+.button {
+    width: 100%;
+    padding: 0 1rem;
+}
+
 /* Tablet (768px and up) */
 @media (min-width: 768px) {
+    .button{
+        display: flex;
+        justify-content: center;
+    }
+
     .content {
         width: 90%;
         padding: 2rem 0 3rem;
