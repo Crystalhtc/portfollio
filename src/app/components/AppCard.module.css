@@ -58,6 +58,7 @@
 .skillsContainer {
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-wrap: wrap;
     /* gap: 0.5rem; */
     margin-bottom: 1rem;
@@ -108,6 +109,10 @@
 
     .skillTag, .application {
         font-size: 0.9rem;
+    }
+
+    .skillsContainer{
+        justify-content: left;
     }
 }
 
