@@ -49,6 +49,29 @@ export default function Remedify() {
               />
             </div>
 
+            <div className={styles.prototypeBanner} id="wordpress">
+              <div className={styles.prototypeTitle}>
+                <h2>WordPress Website</h2>
+              </div> 
+              <div className={styles.prototypes}>
+                    <div className={styles.prototypeContainer}>
+                      <div className={styles.wireframeImages}>
+                    <img
+                      src="/westPointHotel/wordpress.png"
+                      alt="West Point Hotel WordPress Website"
+                      width="600"
+                      className={styles.wireframeImage}
+                    />
+                  </div>  
+                  <div className={styles.nextButton}>
+                    <a target="_blank" href="https://west-point-hotel.vercel.app/#scroll">
+                      <button className={styles.button}>View Website</button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div className={styles.prototypeBanner} id="prototype">
               <div className={styles.prototypeTitle}>
                 <h2>Prototype</h2>
@@ -68,7 +91,6 @@ export default function Remedify() {
                 </div>
               </div>
             </div>
-
             {/* <div className={styles.problemSolution} id="problem-solution">
               <div className={styles.problem}>
                 <h2>Problem</h2>

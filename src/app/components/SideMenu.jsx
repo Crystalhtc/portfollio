@@ -11,6 +11,7 @@ const SideMenu = () => {
   const allSections = [
     { name: 'Introduction', id: "app-intro" },
     { name: 'Final Video', id: "final-video" },
+    { name: 'WordPress Website', id: "wordpress" },
     { name: 'Prototype', id: 'prototype' },
     { name: 'Problem and Solution', id: 'problem-solution' },
     { name: 'Features', id: 'features' },
