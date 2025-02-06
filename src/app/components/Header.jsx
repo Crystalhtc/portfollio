@@ -51,6 +51,11 @@ export default function Header() {
       link: "/tranquify",
     },
     {
+      name: "West Point Hotel",
+      image: "/westPointHotel-homepage.png",
+      link: "/westPointHotel",
+    },
+    {
       name: "Navie",
       image: "/navie-homepage.png",
       link: "/navie",
