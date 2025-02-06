@@ -41,7 +41,7 @@ export default function Remedify() {
             <AppIntro 
               appName="Tranquify"
               description="A user-friendly mobile app designed to enhance mood tracking and meditation. By prioritizing user research, prototyping, and usability testing, Tranquify offers a seamless experience for tracking moods and practicing meditation, with personalized suggestions for self-care."
-              role="UX/UI Design, UX Research, Graphic Design, Usability Testing, Frontend Development"
+              role="UX/UI Design, Graphic Design, Usability Testing, Front-end Development"
               tools="Figma, Adobe Illustrator, Adobe After Effects, Next.js"
               duration="Feb 2024 – May 2024 (3 months)"
               prototypeLink="https://www.figma.com/proto/ZN5Q97M2j8T6LoKXgcoA6l/Tranquify?node-id=3309-3595&p=f&t=ZPZCTFg42gVI1Dhf-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1"

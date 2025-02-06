@@ -50,9 +50,11 @@ export default function Remedify() {
             </div>
 
             <div className={styles.prototypeBanner} id="wordpress">
-              <div className={styles.prototypeTitle}>
+              <div className={styles.details}>
                 <h2>WordPress Website</h2>
-              </div> 
+                <p>The West Point Hotel website was developed using WordPress, ensuring a balance between aesthetics, functionality, and performance.</p>
+                <p>To achieve this, a combination of WordPress plugins was utilized for enhanced functionality and performance. Additionally, the styles were customized using custom CSS to faithfully translate the original Figma design, ensuring a cohesive and polished final product.</p>
+              </div>
               <div className={styles.prototypes}>
                     <div className={styles.prototypeContainer}>
                       <div className={styles.wireframeImages}>

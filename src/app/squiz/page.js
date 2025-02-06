@@ -41,7 +41,7 @@ export default function Remedify() {
             <AppIntro 
             appName="Squiz"
             description="Squiz is a student-centered study tool designed to revolutionize exam preparation. Through advanced AI technology, including user-friendly PDF upload, content analysis, and dynamic quiz generation, Squiz offers personalized revision quizzes tailored to your specific study materials. By streamlining the study process, Squiz saves time, enhances engagement, and optimizes learning efficiency."
-            role="UI/UX Design, UX Research, Usability Testing"
+            role="UI/UX Design"
             tools="Figma, Adobe Illustrator"
             duration="20 Jan 2024 – 21 Jan 2024 (2-days Hackathon)"
             prototypeLink="https://www.figma.com/proto/JvOScxfe8zCuqGOnjl2GTo/Squiz?node-id=114-3189&t=xzfJ6dbfUQ1Vl63N-1&scaling=scale-down&content-scaling=fixed&page-id=30%3A619&starting-point-node-id=114%3A3189"

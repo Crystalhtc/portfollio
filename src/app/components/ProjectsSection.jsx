@@ -12,7 +12,8 @@ const ProjectsSection = () => {
       alt: "Remedify",
       name: "Remedify",
       link: "/remedify",
-      description: "AI-powered medication management app with personalized reminders, detailed drug information, and intuitive scheduling—designed for simplicity and accessibility."
+      description: "AI-powered medication management app with personalized reminders, detailed drug information, and intuitive scheduling—designed for simplicity and accessibility.",
+      skills: ["UX/UI Design", "UX Research", "Graphic Design"]
     },
     {
       category: 'ux',
@@ -20,7 +21,8 @@ const ProjectsSection = () => {
       alt: "Tranquify",
       name: "Tranquify",
       link: "/tranquify",
-      description: "All-in-one mobile solution for emotional well-being, featuring personalized mood tracking, meditation guidance, and self-care recommendations."
+      description: "All-in-one mobile solution for emotional well-being, featuring personalized mood tracking, meditation guidance, and self-care recommendations.",
+      skills: ["UX/UI Design", "UX Research", "Graphic Design", "Front-end development"]
     },
     {
       category: 'ux',
@@ -28,7 +30,8 @@ const ProjectsSection = () => {
       alt: "West Point Hotel",
       name: "West Point Hotel",
       link: "/westPointHotel",
-      description: "An immersive website experience reflecting West Point Hotel's elegant and contemporary design. Tailored for adult couples, business retreats, and weddings, it showcases stunning amenities with seamless, intuitive navigation for effortless booking."
+      description: "An immersive website experience reflecting West Point Hotel's elegant and contemporary design. Tailored for adult couples, business retreats, and weddings, it showcases stunning amenities with seamless, intuitive navigation for effortless booking.",
+      skills: ["UX/UI Design", "UX Research", "Graphic Design", "WordPress"]
     },
     {
       category: 'ux',
@@ -36,7 +39,8 @@ const ProjectsSection = () => {
       alt: "Navie",
       name: "Navie",
       link: "/navie",
-      description: "Mobile application for way-finding inside a grocery store, locating the nearest grocery stores, creating shopping list, and calculating total price with tax."
+      description: "Mobile application for way-finding inside a grocery store, locating the nearest grocery stores, creating shopping list, and calculating total price with tax.",
+      skills: ["UX/UI Design", "UX Research", "Usability Testing"]
     },
     {
       category: 'ux',
@@ -44,7 +48,8 @@ const ProjectsSection = () => {
       alt: "Squiz",
       name: "Squiz",
       link: "/squiz",
-      description: "Web application that generates personalized quizzes from study materials for revisions through the utilization of ChatGPT."
+      description: "Web application that generates personalized quizzes from study materials for revisions through the utilization of ChatGPT.",
+      skills: ["UX/UI Design"]
     },
     {
       category: 'ux',
@@ -52,7 +57,8 @@ const ProjectsSection = () => {
       alt: "Dolce Donuts",
       name: "Dolce Donuts",
       link: "/dolceDonuts",
-      description: "Responsive website for a donut shop, featuring an interactive donut customization page."
+      description: "Responsive website for a donut shop, featuring an interactive donut customization page.",
+      skills: ["UX/UI Design"]
     },
     {
       category: 'graphic',
@@ -60,7 +66,8 @@ const ProjectsSection = () => {
       alt: "Campus Canvas",
       name: "Campus Canvas",
       link: "/campusCanvas",
-      description: "Magazine designed in both print and digital formats, showcasing campus architecture worldwide, highlighting CUHK's modern, functional, and nature-inspired design"
+      description: "Magazine designed in both print and digital formats, showcasing campus architecture worldwide, highlighting CUHK's modern, functional, and nature-inspired design",
+      skills: ["Graphic Design"]
     },
     {
       category: 'graphic',
@@ -68,7 +75,8 @@ const ProjectsSection = () => {
       alt: "Teaddy",
       name: "Teaddy",
       link: "/teaddy",
-      description: ""
+      description: "Branded advertisement campaign featuring visually engaging posters and a custom logo, blending the warmth of a teddy bear with the charm of tea to create a welcoming identity for Teaddy.",
+      skills: ["Graphic Design"]
     },
     {
       category: 'graphic',
@@ -76,7 +84,8 @@ const ProjectsSection = () => {
       alt: "Mood Tracking Motion Graphic Video",
       name: "Mood Tracking Motion Graphic Video",
       link: "/moodTracking",
-      description: "Motion graphic explainer video illustrating the benefits of mood tracking and various methods to monitor emotions through engaging visuals and storytelling."
+      description: "Motion graphic explainer video illustrating the benefits of mood tracking and various methods to monitor emotions through engaging visuals and storytelling.",
+      skills: ["Motion Graphic", "Graphic Design", "Storyboarding"]
     }
   ];
 
@@ -119,6 +128,7 @@ const ProjectsSection = () => {
             name={project.name}
             link={project.link}
             description={project.description}
+            skills={project.skills}
           />
         ))}
       </div>

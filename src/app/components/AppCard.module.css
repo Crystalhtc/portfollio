@@ -37,6 +37,24 @@
     object-fit: contain;
 }
 
+.skillsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    /* gap: 0.5rem; */
+    margin-bottom: 1rem;
+    border-left: 1px solid var(--light-red);
+}
+
+.skillTag {
+    /* background-color: var(--light-red); */
+    font-family: "Bona Nova", serif;
+    color: var(--light-red);
+    padding: 0.25rem 0.75rem;
+    border-right: 1px solid var(--light-red);
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
 /* .link {
     width: fit-content;
 } */
@@ -68,6 +86,10 @@
     .appImage {
         width: 45%;
     }
+
+    .skillTag {
+        font-size: 0.9rem;
+    }
 }
 
 /* Desktop (1024px and up) */
@@ -88,9 +110,9 @@
     .appImage {
         width: 40%;
     }
-    /* .text {
-        padding-top: 3rem;
-    } */
+    .skillsContainer {
+        /* gap: 0.75rem; */
+    }
 }
 
 /* Large Desktop (1440px and up) */
@@ -109,3 +131,5 @@
         padding-top: 4rem;
     }
 }
+
+

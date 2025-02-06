@@ -41,7 +41,7 @@ export default function Remedify() {
             <AppIntro 
             appName="Dolce Donuts"
             description="The Dolce Donuts Website project is a focused effort to enhance online presence and create a more enjoyable online experience for customers. With a dedication to user research, user-centered design principles, the goal is to create a delightful and user-friendly website that mirrors the warmth and delicious offerings. Visitors can look forward to a smoother journey, whether they’re browsing our menu, placing orders, customizing their own donuts, or connecting with our community."
-            role="	UI/UX Design, User research"
+            role="UI/UX Design"
             tools="Figma, Adobe Illustrator"
             duration="Sep 2023 – Dec 2023 (3 months)"
             prototypeLink="https://www.figma.com/proto/8ogYcfirxJHYjrCvLm2mut/DolceDonuts?node-id=1-16&t=ZRJUINahPqI9L4to-1&scaling=scale-down-width&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A16"
