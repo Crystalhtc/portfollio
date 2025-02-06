@@ -288,6 +288,7 @@
     }
 
     .prototype {
+        width: 600px;
         height: 450px;
     }
 
@@ -342,7 +343,7 @@
     }
 
     .prototype {
-        width: 400px;
+        width: 600px;
     }
 
     .appFeatures {
@@ -420,7 +421,7 @@
     }
 
     .prototype {
-        width: 600px;
+        width: 800px;
     }
 
     .userResearch {
