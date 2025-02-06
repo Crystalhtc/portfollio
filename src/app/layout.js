@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Crystal Cheung",
-  description: "Crystal Cheung is a UX/UI and graphic designer creating user-friendly digital experiences.",
+  description: "Crystal Cheung, a UX/UI and graphic designer crafting intuitive, user-centric experiences in web design, app design, branding, and interactive visuals.",
   icons: {
-    icon: '/favicon.ico', // Path to your favicon
+    icon: '/favicon.ico', 
   },
 };
 
