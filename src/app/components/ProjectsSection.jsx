@@ -24,6 +24,14 @@ const ProjectsSection = () => {
     },
     {
       category: 'ux',
+      image: "/westPointHotel-homepage.png",
+      alt: "West Point Hotel",
+      name: "West Point Hotel",
+      link: "/westPointHotel",
+      description: "An immersive website experience reflecting West Point Hotel's elegant and contemporary design. Tailored for adult couples, business retreats, and weddings, it showcases stunning amenities with seamless, intuitive navigation for effortless booking."
+    },
+    {
+      category: 'ux',
       image: "/navie-homepage.png",
       alt: "Navie",
       name: "Navie",
