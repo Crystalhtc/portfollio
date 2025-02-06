@@ -64,7 +64,7 @@ export default function Remedify() {
                     />
                   </div>  
                   <div className={styles.nextButton}>
-                    <a target="_blank" href="https://west-point-hotel.vercel.app/#scroll">
+                    <a target="_blank" href="https://westpointhotel.altervista.org/">
                       <button className={styles.button}>View Website</button>
                     </a>
                   </div>
