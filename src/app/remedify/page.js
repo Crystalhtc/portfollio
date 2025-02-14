@@ -195,7 +195,7 @@ export default function Remedify() {
                       <li className={styles.indent}>Users can quickly scan their medication labels instead of relying on manual entry, making the process faster, easier, and more accessible.</li>
                     </div>
                     <div>
-                      <li className={styles.bold}>Better UI/UX Design:</li>
+                      <li className={styles.bold}>Better UX/UI Design:</li>
                       <li className={styles.indent}>The app prioritizes a clean, user-friendly interface that is simple to navigate, ensuring accessibility for users of all ages and tech abilities.</li>
                     </div>
                   </ul>
@@ -232,7 +232,7 @@ export default function Remedify() {
                 <ul>
                   <li className={styles.bold}>Polypharmacy</li>
                   <li className={styles.indent}>For those managing multiple medications, Remedify simplifies complex schedules with clear reminders, ensuring users stay on track and in control of their health.</li>
-                  <li className={styles.bold}>Accessible</li>
+                  <li className={styles.bold}>Cognitive impairments</li>
                   <li className={styles.indent}>Remedify’s intuitive reminders help users with cognitive challenges remember their medications, supporting confidence and routine.</li>
                 </ul>
               </div>
