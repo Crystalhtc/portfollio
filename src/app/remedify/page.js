@@ -160,16 +160,26 @@ export default function Remedify() {
               />
             </div>
 
-            <div className={styles.userResearch} id="user-research">
-                <UserResearch
-                  title="User Research"
-                  descriptions={[
-                    "Tracking Medication Issues: Users often forget when or if they’ve taken their medication, highlighting the need for clear tracking and reminders.",
-                    "Understanding the Medication: Lack of knowledge about medications can lead to poor adherence, so educating users reduces fears and improves usage.",
-                    "Simplicity is Key: Existing apps often have a high learning curve, making them difficult to use"
-                  ]}
-                />
-                <div className={styles.nextButton}>
+            <div className={styles.detailsContainer} id="user-research">
+              <div className={styles.details}>
+                <h2>User Research</h2>
+                <p>Primary and secondary research were conducted to understand medication adherence and user needs. The primary research involved a survey distributed to 9 participants, along with interviews with self-administered patients, nurses, and caregivers to gather firsthand insights. For secondary research, existing studies, articles, and reports on medication routines were analyzed. Major findings are as follows:</p>
+                <ul className={styles.detailsList}>
+                  <div>
+                    <li className={styles.bold}>Tracking Medication Issues:</li>
+                    <li className={styles.indent}>Users often forget when or if they’ve taken their medication, highlighting the need for clear tracking and reminders.</li>
+                  </div>
+                  <div>
+                    <li className={styles.bold}>Understanding the Medication:</li>
+                    <li className={styles.indent}>Lack of knowledge about medications can lead to poor adherence, so educating users reduces fears and improves usage.</li>
+                  </div>
+                  <div>
+                    <li className={styles.bold}>Simplicity is Key:</li>
+                    <li className={styles.indent}>Existing apps often have a high learning curve, making them difficult to use.</li>
+                  </div>
+                </ul>
+              </div>
+                <div className={styles.linkButton}>
                   <a className={styles.button} href="https://docs.google.com/document/d/1MGyxeF7pkwpVo4VsNl829hrDaSTTYn5Frfa2RREm4Nc/edit?usp=sharing" target="_blank">
                     <button  className={styles.button}>View Findings</button>
                   </a>
