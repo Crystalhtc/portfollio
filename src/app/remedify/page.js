@@ -502,7 +502,7 @@ export default function Remedify() {
                   </a>
                 </div> */}
               </div>
-              <div className={styles.appFeatures}>
+              <div className={styles.recommendations}>
                 <div>
                   <h3>Recommendations:</h3>
               </div>

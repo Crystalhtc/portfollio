@@ -81,7 +81,7 @@
     height: 400px;
 }
 
-.appFeatures {
+.appFeatures, .recommendations {
     margin: 1rem auto;
     width: 100%;
     display: flex;
@@ -89,6 +89,9 @@
     align-items: center;
     gap: 2rem;
     padding: 0 1rem 2rem;
+}
+
+.appFeatures {
     border-bottom: 1.5px solid var(--light-red);
 }
 
@@ -272,7 +275,8 @@
         height: 450px;
     }
 
-    .appFeatures {
+    .appFeatures,
+    .recommendations {
         padding: 3rem 3rem 3rem;
         gap: 3rem;
     }
@@ -324,7 +328,8 @@
         width: 400px;
     }
 
-    .appFeatures {
+    .appFeatures,
+    .recommendations {
         padding: 3rem 6rem 4rem;
         gap: 4rem;
     }
@@ -390,7 +395,8 @@
         width: 75%;
     }
 
-    .appFeatures {
+    .appFeatures,
+    .recommendations {
         padding: 3rem 10rem 4rem;
     }
 
