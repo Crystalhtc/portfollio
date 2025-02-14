@@ -400,6 +400,11 @@ export default function Remedify() {
                   className={styles.wireframeImage}
                 />
               </div>  
+              <div className={styles.linkButton}>
+                  <a className={styles.button} href="https://www.figma.com/design/4ni9gyLkBDkeQNBfia2rgo/Remedify-Hi-fi?node-id=5150-11712&t=HTJDw3071SFJpKij-4" target="_blank">
+                    <button  className={styles.button}>View Wireframe</button>
+                  </a>
+              </div>
             </div>
 
             <div className={styles.initialHiFi} id="initial-hifi">
