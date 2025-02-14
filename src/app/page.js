@@ -7,17 +7,19 @@ import Footer from "./components/Footer";
 import AboutCard from "./components/AboutCard";
 import ScrollButton from "./components/ScrollButton";
 import ProjectsSection from './components/ProjectsSection';
+import LoadingScreen from './components/LoadingScreen';
 import { useState, useEffect } from "react";
 
 export default function Home() {
   const [fontSize, setFontSize] = useState(32);
+  const [isLoading, setIsLoading] = useState(true);
   
   const scrollToProjects = (event) => {
-    event.preventDefault(); // Prevent default anchor behavior
+    event.preventDefault();
     document.body.style.overflow = "unset";
 
     const projectSection = document.getElementById("project");
-    const offset = 0; // Adjust if needed
+    const offset = 0;
     
     if (projectSection) {
       const sectionTop = projectSection.getBoundingClientRect().top + window.scrollY;
@@ -25,69 +27,71 @@ export default function Home() {
     }
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const maxFontSize = 42;
+      const minFontSize = 32;
+      const newFontSize = Math.min(maxFontSize, minFontSize + scrollPosition / 20);
+      setFontSize(newFontSize);
+    };
 
-      useEffect(() => {
-        const handleScroll = () => {
-            const scrollPosition = window.scrollY;
-            const maxFontSize = 42;
-            const minFontSize = 32;
-            const newFontSize = Math.min(maxFontSize, minFontSize + scrollPosition / 20);
-            setFontSize(newFontSize);
-        };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
   return (
-    <div className={styles.page}>
-      <Header />
-      <main className={styles.main}>
-        <div className={styles.hero}>
-          <div className={styles.heroText}>
-            <p className={styles.headingSmall}>Hi, I am </p>
-            <h1 className={styles.heading}>
-              Crystal Cheung
-            </h1>
-            <h2 className={styles.jobTitle}>UX/UI Designer | Graphic Designer</h2>
-            <button className={styles.ctaButton} onClick={scrollToProjects}>
-  View Projects
-</button>
+    <>
+      {isLoading && <LoadingScreen onLoadingComplete={() => setIsLoading(false)} />}
+      <div className={`${styles.page} ${isLoading ? styles.hidden : styles.visible}`}>
+        <Header />
+        <main className={styles.main}>
+          <div className={styles.hero}>
+            <div className={styles.heroText}>
+              <p className={styles.headingSmall}>Hi, I am </p>
+              <h1 className={styles.heading}>Crystal Cheung</h1>
+              <h2 className={styles.jobTitle}>UX/UI Designer | Graphic Designer</h2>
+              <button className={styles.ctaButton} onClick={scrollToProjects}>
+                View Projects
+              </button>
+            </div>
+            <div className={styles.heroImageContainer}>
+              <img
+                src="/hero-image.png"
+                alt="Crystal Cheung"
+                width="351"
+                className={styles.heroImage}
+              />
+            </div>
           </div>
-          <div className={styles.heroImageContainer}>
-            <img
-              src="/hero-image.png"
-              alt="Crystal Cheung"
-              width="351"
-              className={styles.heroImage}
-            />
-          </div>
-        </div>
-        
-        <div className={styles.background}>
-        <div className={styles.taglineContainer}>
-          <h3 className={styles.tagline} style={{ fontSize: `${fontSize}px` }}>"Crafts user-centric designs that enhance quality of life."</h3>
-        </div>
+          
+          <div className={styles.background}>
+            <div className={styles.taglineContainer}>
+              <h3 className={styles.tagline} style={{ fontSize: `${fontSize}px` }}>
+                "Crafts user-centric designs that enhance quality of life."
+              </h3>
+            </div>
 
-        <div className={styles.projectOffset} id="project"></div>
-        <div className={styles.projects}>
-          <ProjectsSection />
-        </div>
-        
+            <div className={styles.projectOffset} id="project"></div>
+            <div className={styles.projects}>
+              <ProjectsSection />
+            </div>
 
-        <div className={styles.aboutMe}>
-            <h2>Who is Crystal?</h2>
-            <AboutCard 
-              name="Crystal Cheung"
-              image="/profile-pic-square.png"
-              alt="Crystal Cheung"
-              link="/about"
-              button="About Me"
-            />
+            <div className={styles.aboutMe}>
+              <h2>Who is Crystal?</h2>
+              <AboutCard 
+                name="Crystal Cheung"
+                image="/profile-pic-square.png"
+                alt="Crystal Cheung"
+                link="/about"
+                button="About Me"
+              />
+            </div>
           </div>
-        </div>
-      </main>
-      <ScrollButton/>
-      <Footer />
-    </div>
+        </main>
+        <ScrollButton/>
+        <Footer />
+      </div>
+    </>
   );
 }
