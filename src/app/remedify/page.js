@@ -215,7 +215,6 @@ export default function Remedify() {
                     </a>
                   </div>
                 </div>
-
             </div>
 
 
@@ -248,10 +247,14 @@ export default function Remedify() {
               </div>
             </div>
 
-            <div className={styles.detailsContainer} id="user-persona">
-              <div className={styles.details}>
-                  <h2>User Persona</h2>
-                  <p>User personas are developed to better understand and address the needs of the target audience. They guide thoughtful design decisions, ensuring the app remains practical, user-friendly, and relevant.</p>
+            <div className={styles.competitiveAnalysis} id="user-persona">
+                <ContentSection
+                  title="User Persona"
+                  image="/remedify/user-persona.png"
+                  alt="Remedify User Persona"
+                  overview="User personas are developed to better understand and address the needs of the target audience. They guide thoughtful design decisions, ensuring the app remains practical, user-friendly, and relevant."
+                />
+                <div className={styles.details}>
                   <ul className={styles.detailsList}>
                     <div>
                       <li className={styles.bold}>Primary Persona: Elderly Individual</li>
