@@ -39,7 +39,7 @@ export default function Remedify() {
             <div className={styles.appIntro} id="app-intro">
               <AppIntro 
                 appName="Remedify"
-                description="An intuitive mobile app designed to revolutionize the way people manage their medications. By utilizing AI technology, Remedify provides personalized medication reminders, detailed drug information, and intuitive scheduling features—all within a simple, accessible interface."
+                description="Low adherence rate, misunderstanding instructions, and forgetfulness are common challenges in medication management. Remedify is an intuitive mobile app designed to revolutionize the way people manage their medications. By utilizing AI technology, Remedify provides personalized medication reminders, detailed drug information, and intuitive scheduling features, all within a simple, accessible interface."
                 role="UX/UI Design, UX Research, Graphic Design, Usability Testing, Competitive Analysis, Frontend Development"
                 tools="Figma, Adobe Illustrator, Expo, React Native"
                 duration="Sep 2024 – Dec 2024 (3 months)"
@@ -218,7 +218,7 @@ export default function Remedify() {
             </div>
 
 
-            <div className={styles.detailsContainer} id="values">
+            {/* <div className={styles.detailsContainer} id="values">
               <div className={styles.details}>
                 <h2>Values</h2>
                 <p>Setting clear values for Remedify was essential to guide the design process and ensure the app meets its goals. These values influence every design decision and feature:</p>
@@ -233,9 +233,9 @@ export default function Remedify() {
                   <li className={styles.indent}>Remedify gives users control over their medication schedule, enabling them to personalize settings and manage their health confidently.</li>
                 </ul>
               </div>
-            </div>
+            </div> */}
             
-            <div className={styles.detailsContainer} id="target-audience">
+            {/* <div className={styles.detailsContainer} id="target-audience">
               <div className={styles.details}>
                 <h2>Target Audience</h2>
                 <ul>
@@ -245,7 +245,7 @@ export default function Remedify() {
                   <li className={styles.indent}>Remedify’s intuitive reminders help users with cognitive challenges remember their medications, supporting confidence and routine.</li>
                 </ul>
               </div>
-            </div>
+            </div> */}
 
             <div className={styles.competitiveAnalysis} id="user-persona">
                 <ContentSection

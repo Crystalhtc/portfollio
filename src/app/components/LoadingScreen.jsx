@@ -8,7 +8,7 @@ const LoadingScreen = ({ onLoadingComplete }) => {
     const timer = setTimeout(() => {
       setOpacity(0);
       setTimeout(onLoadingComplete, 500);
-    }, 2000);
+    }, 1500);
 
     return () => clearTimeout(timer);
   }, [onLoadingComplete]);
@@ -28,9 +28,6 @@ const LoadingScreen = ({ onLoadingComplete }) => {
           alt="Logo"
           className={styles.logo}
         />
-        {/* <div className={styles.loadingBarContainer}>
-          <div className={styles.loadingBar} />
-        </div> */}
       </div>
     </div>
   );

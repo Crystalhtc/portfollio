@@ -22,25 +22,6 @@
     animation: pulse 2s infinite;
 }
 
-.loadingBarContainer {
-    position: absolute;
-    bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 64px;
-    height: 4px;
-    background-color: #f3f3f3;
-    border-radius: 9999px;
-    overflow: hidden;
-}
-
-.loadingBar {
-    height: 100%;
-    background-color: var(--pink);
-    border-radius: 9999px;
-    animation: loading 2s ease-in-out infinite;
-}
-
 @keyframes bounce {
 
     0%,
