@@ -12,7 +12,28 @@ import { useState, useEffect } from "react";
 
 export default function Home() {
   const [fontSize, setFontSize] = useState(32);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(() => {
+    return sessionStorage.getItem("homePageLoaded") ? false : true;
+  });
+
+useEffect(() => {
+  if (isLoading) {
+    sessionStorage.setItem("homePageLoaded", "true");
+    setTimeout(() => setIsLoading(false), 2000);
+  } else {
+    // If coming from another page, jump to the project section instantly
+    if (sessionStorage.getItem("jumpToProject")) {
+      sessionStorage.removeItem("jumpToProject"); // Clear flag
+      const projectSection = document.getElementById("project");
+      if (projectSection) {
+        projectSection.scrollIntoView({ behavior: "auto" }); // Instant jump
+      }
+    }
+  }
+}, [isLoading]);
+
+
+  
   
   const scrollToProjects = (event) => {
     event.preventDefault();
@@ -43,7 +64,7 @@ export default function Home() {
   return (
     <>
       {isLoading && <LoadingScreen onLoadingComplete={() => setIsLoading(false)} />}
-      <div className={`${styles.page} ${isLoading ? styles.hidden : styles.visible}`}>
+      <div className={`${styles.page}`}>
         <Header />
         <main className={styles.main}>
           <div className={styles.hero}>

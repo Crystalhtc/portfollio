@@ -16,28 +16,29 @@ export default function Header() {
   const handleMouseLeave = () => {
     setIsProjectsHovered(false);
   };
+const scrollToProjects = async (event) => {
+  event.preventDefault();
+  
+  // Close menus first
+  setIsProjectsHovered(false);
+  setIsMenuOpen(false);
 
-  const scrollToProjects = async (event) => {
-    event.preventDefault();
-    
-    // Close menus first
-    setIsProjectsHovered(false);
-    setIsMenuOpen(false);
-    document.body.style.overflow = "unset";
-
-    // Small delay to ensure menu state is updated
-    await new Promise(resolve => setTimeout(resolve, 10));
-
-    if (window.location.pathname === "/") {
+  if (window.location.pathname === "/") {
+    // Smooth scroll if already on homepage
+    setTimeout(() => {
       const projectSection = document.getElementById("project");
       if (projectSection) {
         const sectionTop = projectSection.getBoundingClientRect().top + window.scrollY;
         window.scrollTo({ top: sectionTop, behavior: "smooth" });
       }
-    } else {
-      window.location.href = "/#project";
-    }
-  };
+    }, 100);
+  } else {
+    // Set flag and navigate to homepage
+    sessionStorage.setItem("jumpToProject", "true");
+    window.location.href = "/";
+  }
+};
+
 
   const projectPreviews = [
     {

@@ -204,10 +204,10 @@ export default function Remedify() {
                       <li className={styles.bold}>Camera Scanning:</li>
                       <li className={styles.indent}>Users can quickly scan their medication labels instead of relying on manual entry, making the process faster, easier, and more accessible.</li>
                     </div>
-                    <div>
+                    {/* <div>
                       <li className={styles.bold}>Better UX/UI Design:</li>
                       <li className={styles.indent}>The app prioritizes a clean, user-friendly interface that is simple to navigate, ensuring accessibility for users of all ages and tech abilities.</li>
-                    </div>
+                    </div> */}
                   </ul>
                   <div className={styles.linkButton}>
                     <a className={styles.button} href="https://www.figma.com/board/iWziE36DOEeWn9JDKIlI9B/Remedify-Competitive-Analysis-(UI-Focused)?node-id=0-1&p=f&t=cUPe0MNMm4oksBdT-0" target="_blank">
