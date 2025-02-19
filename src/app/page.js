@@ -15,22 +15,33 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(() => {
     return sessionStorage.getItem("homePageLoaded") ? false : true;
   });
+const [shouldJumpToProject, setShouldJumpToProject] = useState(false);
 
-useEffect(() => {
-  if (isLoading) {
-    sessionStorage.setItem("homePageLoaded", "true");
-    setTimeout(() => setIsLoading(false), 2000);
-  } else {
-    // If coming from another page, jump to the project section instantly
-    if (sessionStorage.getItem("jumpToProject")) {
-      sessionStorage.removeItem("jumpToProject"); // Clear flag
+  useEffect(() => {
+    if (typeof window !== "undefined") { // Ensure this runs only in the browser
+      if (sessionStorage.getItem("homePageLoaded")) {
+        setIsLoading(false);
+      } else {
+        sessionStorage.setItem("homePageLoaded", "true");
+        setTimeout(() => setIsLoading(false), 2000); // Simulate loading time
+      }
+
+      // Check if we need to jump to the project section
+      if (sessionStorage.getItem("jumpToProject")) {
+        sessionStorage.removeItem("jumpToProject"); // Clear flag
+        setShouldJumpToProject(true);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!isLoading && shouldJumpToProject) {
       const projectSection = document.getElementById("project");
       if (projectSection) {
         projectSection.scrollIntoView({ behavior: "auto" }); // Instant jump
       }
     }
-  }
-}, [isLoading]);
+  }, [isLoading, shouldJumpToProject]);
 
 
   
