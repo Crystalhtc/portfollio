@@ -438,42 +438,184 @@ export default function Remedify() {
               </div>
             </div>
 
-              <div className={styles.initialHiFi} id="design-iteration">
-                <ContentSection
-                  title="Design Iteration"
-                  image="/remedify/design-iteration.png"
-                  alt="Remedify Design Iteration"
-                  overview="Based on user feedback, the high-fidelity prototype was refined with several major updates to enhance usability and accessibility."
-                />
-                <div className={styles.details}>
-                  <p>Major Changes:</p>
-                  <ul className={styles.detailsList}>
+            <div className={styles.detailsContainer} id="usability-testing">
+              <div className={styles.details}>
+                <h2>Usability Testing</h2>
+                <p>Usability testing was conducted with 4 participants, which involved observing users as they interacted with Remedify. Insights are then drawn to improve the interface and functionality of the app.</p>
+              </div>
+              <div className={styles.usabilityTesting}>
+                <div className={styles.testing}>
+                  <h3 className={styles.testingTitle}>Upcoming medication logging </h3>
+                  <div className={styles.testingImageContainer}>
                     <div>
-                      <li className={styles.bold}>Quick Daily Actions on the Homepage:</li>
-                      <li className={styles.indent}>A prominent “Taken” button is introduced as the primary call-to-action (CTA) on the homepage. This feature simplifies daily interactions, allowing users to log medications quickly and efficiently.</li>
+                      <img
+                        src="/remedify/before1.png"
+                        alt="Upcoming medication logging Before Usability Testing"
+                        width="600"
+                        className={styles.testingImage}
+                      />
                     </div>
                     <div>
-                      <li className={styles.bold}>Organized Medication Library:</li>
-                      <li className={styles.indent}>Medications are now displayed as visually organized cards, showcasing key details of the medications. This update makes navigation intuitive and helps users stay informed without feeling overwhelmed.</li>
+                      <img
+                        src="/remedify/after1.png"
+                        alt="Upcoming medication logging After Usability Testing"
+                        width="600"
+                        className={styles.testingImage}
+                      />
                     </div>
-                    <div>
-                      <li className={styles.bold}>Adjusted Color Palette:</li>
-                      <li className={styles.indent}>The use of orange, often perceived as a warning color, was reduced and replaced with green to create a calmer and more supportive tone throughout the app.</li>
+                  </div>
+                  <div className={styles.testingTextContainer}>
+                    {/* <h3 className={styles.testingTitle}>Upcoming medication logging </h3> */}
+                    <div className={styles.testingDetailsContainer}>
+                      <div className={styles.testingDetails}>
+                        <ul className={styles.detailsList}>
+                          <div>
+                            <p className={styles.bold}>Before:</p>
+                            <li>Participants highlighted the need for a simplified way to log daily medications.</li>
+                          </div>
+                        </ul>
+                      </div>
+                      <div className={styles.testingDetails}>
+                        <ul className={styles.detailsList}>
+                          <div>
+                            <p className={styles.bold}>After:</p>
+                            <li>Introduce a prominent “Mark as Taken” button as the primary call-to-action (CTA) on the homepage. This feature streamlines daily interactions, enabling users to log medications quickly and efficiently.</li>
+                          </div>
+                        </ul>
+                      </div>
                     </div>
-                    <div>
-                      <li className={styles.bold}>Enhanced Typography:</li>
-                      <li className={styles.indent}>To improve visual hierarchy and readability, Public Sans is added as a secondary font. This pairing with the existing font creates clear differentiation between headings, subheadings, and body text.</li>
-                    </div>
-                  </ul>
-                  {/* <div className={styles.linkButton}>
-                    <a href="https://www.figma.com/design/4ni9gyLkBDkeQNBfia2rgo/Remedify-Hi-fi?node-id=1797-14184&t=xd57gQUfuR5S6kpN-1" target="_blank">
-                      <button  className={styles.button}>View Final Hi-Fi</button>
-                    </a>
-                  </div> */}
+                  </div>
                 </div>
+                <div className={styles.testing}>
+                  <h3 className={styles.testingTitle}>Medication Library</h3>
+                  <div className={styles.testingImageContainer}>
+                    <div>
+                      <img
+                        src="/remedify/before2.png"
+                        alt="Upcoming medication logging Before Usability Testing"
+                        width="600"
+                        className={styles.testingImage}
+                      />
+                    </div>
+                    <div>
+                      <img
+                        src="/remedify/after2.png"
+                        alt="Upcoming medication logging After Usability Testing"
+                        width="600"
+                        className={styles.testingImage}
+                      />
+                    </div>
+                  </div>
+                  <div className={styles.testingTextContainer}>
+                    {/* <h3 className={styles.testingTitle}>Medication Library</h3> */}
+                    <div className={styles.testingDetailsContainer}>
+                      <div className={styles.testingDetails}>
+                        <ul className={styles.detailsList}>
+                          <div>
+                            <p className={styles.bold}>Before:</p>
+                            <li>Feedback indicated that the medication list was overwhelming and difficult to navigate.</li>
+                          </div>
+                        </ul>
+                      </div>
+                      <div className={styles.testingDetails}>
+                        <ul className={styles.detailsList}>
+                          <div>
+                            <p className={styles.bold}>After:</p>
+                            <li>Display medications as visually organized cards, presenting key details clearly. This update enhances navigation and keeps users informed without creating unnecessary complexity.</li>
+                          </div>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className={styles.testing}>
+                  <h3 className={styles.testingTitle}>Color Palette</h3>
+                  <div className={styles.testingImageContainer}>
+                    <div>
+                      <img
+                        src="/remedify/before3.png"
+                        alt="Upcoming medication logging Before Usability Testing"
+                        width="600"
+                        className={styles.testingImage}
+                      />
+                    </div>
+                    <div>
+                      <img
+                        src="/remedify/after3.png"
+                        alt="Upcoming medication logging After Usability Testing"
+                        width="600"
+                        className={styles.testingImage}
+                      />
+                    </div>
+                  </div>
+                  <div className={styles.testingTextContainer}>
+                    <div className={styles.testingDetailsContainer}>
+                      <div className={styles.testingDetails}>
+                        <ul className={styles.detailsList}>
+                          <div>
+                            <p className={styles.bold}>Before:</p>
+                            <li>The heavy use of orange in the design was perceived as harsh and warning-like, detracting from the app's supportive tone.</li>
+                          </div>
+                        </ul>
+                      </div>
+                      <div className={styles.testingDetails}>
+                        <ul className={styles.detailsList}>
+                          <div>
+                            <p className={styles.bold}>After:</p>
+                            <li>Replace orange with green tones to create a calmer and more supportive aesthetic, aligning with the app's mission of promoting comfort and trust.</li>
+                          </div>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className={styles.testing}>
+                  <h3 className={styles.testingTitle}>“Take Photo” Button</h3>
+                  <div className={styles.testingImageContainer}>
+                    <div>
+                      <img
+                        src="/remedify/before4.png"
+                        alt="Upcoming medication logging Before Usability Testing"
+                        width="600"
+                        className={styles.testingImage}
+                      />
+                    </div>
+                    <div>
+                      <img
+                        src="/remedify/after4.png"
+                        alt="Upcoming medication logging After Usability Testing"
+                        width="600"
+                        className={styles.testingImage}
+                      />
+                    </div>
+                  </div>
+                  <div className={styles.lastTestingTextContainer}>
+                    {/* <h3 className={styles.testingTitle}>“Take Photo” Button</h3> */}
+                    <div className={styles.testingDetailsContainer}>
+                      <div className={styles.testingDetails}>
+                        <ul className={styles.detailsList}>
+                          <div>
+                            <p className={styles.bold}>Before:</p>
+                            <li>Participants mistook the “Take Photo” button for a static instruction rather than an actionable element.</li>
+                          </div>
+                        </ul>
+                      </div>
+                      <div className={styles.testingDetails}>
+                        <ul className={styles.detailsList}>
+                          <div>
+                            <p className={styles.bold}>After:</p>
+                            <li>Redesign the button to resemble a camera button, similar to those on smartphones, ensuring it is recognizable as interactive.</li>
+                          </div>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>  
+              
             </div>
 
-            <div className={styles.initialHiFi} id="usability-testing">
+            {/* <div className={styles.initialHiFi} id="usability-testing">
               <ContentSection
                 title="Usability Testing"
                 image="/remedify/usability-testing.png"
@@ -484,23 +626,18 @@ export default function Remedify() {
                 <p>Areas of improvement: </p>
                 <ul className={styles.detailsList}>
                   <div>
-                    <li className={styles.bold}>Confusing Labels for Medication Input Form</li>
-                    <li className={styles.indent}>Users reported difficulty understanding some labels within the medication input form.</li>
-                  </div>
-                  <div>
                     <li className={styles.bold}>“Mark Taken” Button Confusion</li>
                     <li className={styles.indent}>The “Mark Taken” button was unclear to users, with many unsure of its purpose.</li>
+                  </div>
+                  <div>
+                    <li className={styles.bold}>Confusing Labels for Medication Input Form</li>
+                    <li className={styles.indent}>Users reported difficulty understanding some labels within the medication input form.</li>
                   </div>
                   <div>
                     <li className={styles.bold}>“Take Photo” Button Misinterpretation</li>
                     <li className={styles.indent}>Participants mistook the “Take Photo” button for a static instruction rather than an actionable element.</li>
                   </div>
                 </ul>
-                {/* <div className={styles.linkButton}>
-                  <a href="https://www.figma.com/design/4ni9gyLkBDkeQNBfia2rgo/Remedify-Hi-fi?node-id=340-5993&t=0Ji5GbZNKZLLvUCy-1" target="_blank">
-                    <button  className={styles.button}>View Initial Hi-Fi</button>
-                  </a>
-                </div> */}
               </div>
               <div className={styles.recommendations}>
                 <div>
@@ -534,7 +671,7 @@ export default function Remedify() {
               />
             </div>
 
-            </div>
+            </div> */}
 
             <div className={styles.initialHiFi} id="final-hifi">
                 <ContentSection
@@ -568,7 +705,7 @@ export default function Remedify() {
                 </div>
             </div>
 
-            <div className={styles.detailsContainer} id="style-guide">
+            <div className={styles.detailsContainer} id="reflection">
                 <div>
                   <div className={styles.details}>
                     <h2>Reflection and Learnings</h2>
