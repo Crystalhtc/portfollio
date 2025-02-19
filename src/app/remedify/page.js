@@ -506,21 +506,22 @@ export default function Remedify() {
                 <div>
                   <h3>Recommendations:</h3>
               </div>
+              
               <AppFeature1
-                feature1="Labels for Medication Input Form"
+                feature1="“Mark Taken” Button"
                 image1="/remedify/recommendation1.png"
-                alt1="Labels for Medication Input Form"
+                alt1="“Mark Taken” Button"
                 descriptions1={[
-                  "Add clear section headers to improve organization and readability", 
-                  "Rearrange the order of input fields to logically group related items, such as grouping dose and strength, as well as duration and frequency"
+                  "Simplify the label by changing it to “Take,” making the function more straightforward and intuitive"
                 ]}
               />
               <AppFeature2
-                feature2="“Mark Taken” Button"
+                feature2="Labels for Medication Input Form"
                 image2="/remedify/recommendation2.png"
-                alt2="“Mark Taken” Button"
+                alt2="Labels for Medication Input Form"
                 descriptions2={[
-                  "Simplify the label by changing it to “Take,” making the function more straightforward and intuitive"
+                  "Add clear section headers to improve organization and readability", 
+                  "Rearrange the order of input fields to logically group related items, such as grouping dose and strength, as well as duration and frequency"
                 ]}
               />
               <AppFeature1
