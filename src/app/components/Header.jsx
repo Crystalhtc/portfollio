@@ -34,9 +34,11 @@ const scrollToProjects = async (event) => {
     }, 100);
   } else {
     // Set flag and navigate to homepage
+    if (typeof window !== "undefined") {
     sessionStorage.setItem("jumpToProject", "true");
     window.location.href = "/";
   }
+}
 };
 
 

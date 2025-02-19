@@ -2,7 +2,6 @@
 import styles from "./page.module.css";
 import Header from "./components/Header";
 import AppCard from "./components/AppCard";
-import App from "next/app";
 import Footer from "./components/Footer";
 import AboutCard from "./components/AboutCard";
 import ScrollButton from "./components/ScrollButton";
@@ -12,21 +11,18 @@ import { useState, useEffect } from "react";
 
 export default function Home() {
   const [fontSize, setFontSize] = useState(32);
-  const [isLoading, setIsLoading] = useState(() => {
-    return sessionStorage.getItem("homePageLoaded") ? false : true;
-  });
-const [shouldJumpToProject, setShouldJumpToProject] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [shouldJumpToProject, setShouldJumpToProject] = useState(false);
 
   useEffect(() => {
-    if (typeof window !== "undefined") { // Ensure this runs only in the browser
-      if (sessionStorage.getItem("homePageLoaded")) {
-        setIsLoading(false);
-      } else {
+    if (typeof window !== "undefined") { // Prevents server-side execution
+      if (!sessionStorage.getItem("homePageLoaded")) {
         sessionStorage.setItem("homePageLoaded", "true");
+        setIsLoading(true);
         setTimeout(() => setIsLoading(false), 2000); // Simulate loading time
       }
 
-      // Check if we need to jump to the project section
+      // Check if the user needs to jump to the project section
       if (sessionStorage.getItem("jumpToProject")) {
         sessionStorage.removeItem("jumpToProject"); // Clear flag
         setShouldJumpToProject(true);
@@ -43,19 +39,14 @@ const [shouldJumpToProject, setShouldJumpToProject] = useState(false);
     }
   }, [isLoading, shouldJumpToProject]);
 
-
-  
-  
   const scrollToProjects = (event) => {
     event.preventDefault();
     document.body.style.overflow = "unset";
 
     const projectSection = document.getElementById("project");
-    const offset = 0;
-    
     if (projectSection) {
       const sectionTop = projectSection.getBoundingClientRect().top + window.scrollY;
-      window.scrollTo({ top: sectionTop - offset, behavior: "smooth" });
+      window.scrollTo({ top: sectionTop, behavior: "smooth" });
     }
   };
 
@@ -74,56 +65,57 @@ const [shouldJumpToProject, setShouldJumpToProject] = useState(false);
 
   return (
     <>
-      {isLoading && <LoadingScreen onLoadingComplete={() => setIsLoading(false)} />}
-      <div className={`${styles.page}`}>
-        <Header />
-        <main className={styles.main}>
-          <div className={styles.hero}>
-            <div className={styles.heroText}>
-              <p className={styles.headingSmall}>Hi, I am </p>
-              <h1 className={styles.heading}>Crystal Cheung</h1>
-              <h2 className={styles.jobTitle}>UX/UI Designer | Graphic Designer</h2>
-              <button className={styles.ctaButton} onClick={scrollToProjects}>
-                View Projects
-              </button>
-            </div>
-            <div className={styles.heroImageContainer}>
-              <img
-                src="/hero-image.png"
-                alt="Crystal Cheung"
-                width="351"
-                className={styles.heroImage}
-              />
-            </div>
-          </div>
-          
-          <div className={styles.background}>
-            <div className={styles.taglineContainer}>
-              <h3 className={styles.tagline} style={{ fontSize: `${fontSize}px` }}>
-                "Crafts user-centric designs that enhance quality of life."
-              </h3>
+      {isLoading ? <LoadingScreen /> : (
+        <div className={`${styles.page}`}>
+          <Header />
+          <main className={styles.main}>
+            <div className={styles.hero}>
+              <div className={styles.heroText}>
+                <p className={styles.headingSmall}>Hi, I am </p>
+                <h1 className={styles.heading}>Crystal Cheung</h1>
+                <h2 className={styles.jobTitle}>UX/UI Designer | Graphic Designer</h2>
+                <button className={styles.ctaButton} onClick={scrollToProjects}>
+                  View Projects
+                </button>
+              </div>
+              <div className={styles.heroImageContainer}>
+                <img
+                  src="/hero-image.png"
+                  alt="Crystal Cheung"
+                  width="351"
+                  className={styles.heroImage}
+                />
+              </div>
             </div>
 
-            <div className={styles.projectOffset} id="project"></div>
-            <div className={styles.projects}>
-              <ProjectsSection />
-            </div>
+            <div className={styles.background}>
+              <div className={styles.taglineContainer}>
+                <h3 className={styles.tagline} style={{ fontSize: `${fontSize}px` }}>
+                  "Crafts user-centric designs that enhance quality of life."
+                </h3>
+              </div>
 
-            <div className={styles.aboutMe}>
-              <h2>Who is Crystal?</h2>
-              <AboutCard 
-                name="Crystal Cheung"
-                image="/profile-pic-square.png"
-                alt="Crystal Cheung"
-                link="/about"
-                button="About Me"
-              />
+              <div className={styles.projectOffset} id="project"></div>
+              <div className={styles.projects}>
+                <ProjectsSection />
+              </div>
+
+              <div className={styles.aboutMe}>
+                <h2>Who is Crystal?</h2>
+                <AboutCard 
+                  name="Crystal Cheung"
+                  image="/profile-pic-square.png"
+                  alt="Crystal Cheung"
+                  link="/about"
+                  button="About Me"
+                />
+              </div>
             </div>
-          </div>
-        </main>
-        <ScrollButton/>
-        <Footer />
-      </div>
+          </main>
+          <ScrollButton />
+          <Footer />
+        </div>
+      )}
     </>
   );
 }
