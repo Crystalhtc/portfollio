@@ -447,38 +447,143 @@ export default function Remedify() {
                   </div>
             </div>
 
-            {/* <div className={styles.initialHiFi} id="initial-hifi">
-              <ContentSection
-                title="Initial Hi-Fi"
-                image="/westPointHotel/initial-hifi.png"
-                alt="West Point Hotel Initial Hi-Fi"
-                overview="The hi-fi prototype aligns with the site map and user flow, incorporating colors from the style guide to create a design that is inviting, professional, and user-friendly."
-              />
+            <div className={styles.detailsContainer} id="usability-testing">
               <div className={styles.details}>
-                <p>Design Highlights:</p>
-                <ul className={styles.detailsList}>
-                  <div>
-                    <li className={styles.bold}>Icons and Graphics:</li>
-                    <li className={styles.indent}>Intuitive visuals guide users and reduce cognitive load, making navigation simple and engaging.</li>
-                  </div>
-                  <div>
-                    <li className={styles.bold}>Error Handling:</li>
-                    <li className={styles.indent}>Clear error messages help users resolve issues, like failed scans or incomplete reminders, with ease.</li>
-                  </div>
-                  <div>
-                    <li className={styles.bold}>Quick Dose Logging:</li>
-                    <li className={styles.indent}>A "Mark Taken" button on each medication card allows one-tap tracking, ensuring a seamless experience for all users.</li>
-                  </div>
-                </ul>
-                <div className={styles.linkButton}>
-                  <a className={styles.button} href="https://www.figma.com/design/4ni9gyLkBDkeQNBfia2rgo/Remedify-Hi-fi?node-id=340-5993&t=0Ji5GbZNKZLLvUCy-1" target="_blank">
-                    <button  className={styles.button}>View Initial Hi-Fi</button>
-                  </a>
-                </div>
+                <h2>Usability Testing</h2>
+                <p>Usability testing was conducted with 5 participants, which involved observing users as they interacted with West Point Hotel’s website. Insights are then drawn to improve the interface and functionality of the website.</p>
               </div>
-            </div> */}
+              <div className={styles.usabilityTesting}>
+                <div className={styles.testing}>
+                  <h3 className={styles.testingTitle}>Navigation Issues</h3>
+                  <div className={styles.testingImageContainer}>
+                    <div>
+                      <img
+                        src="/westPointHotel/before1.png"
+                        alt="Favoriting System Before Usability Testing"
+                        width="600"
+                        className={styles.testingImage}
+                      />
+                    </div>
+                    <div>
+                      <img
+                        src="/westPointHotel/after1.png"
+                        alt="Favoriting System After Usability Testing"
+                        width="600"
+                        className={styles.testingImage}
+                      />
+                    </div>
+                  </div>
+                  <div className={styles.testingTextContainer}>
+                    {/* <h3 className={styles.testingTitle}>Upcoming medication logging </h3> */}
+                    <div className={styles.testingDetailsContainer}>
+                      <div className={styles.testingDetails}>
+                        <ul className={styles.detailsList}>
+                          <div>
+                            <p className={styles.bold}>Before:</p>
+                            <li>Users reported difficulty returning to previous pages.</li>
+                          </div>
+                        </ul>
+                      </div>
+                      <div className={styles.testingDetails}>
+                        <ul className={styles.detailsList}>
+                          <div>
+                            <p className={styles.bold}>After:</p>
+                            <li>Added breadcrumbs for easier navigation.</li>
+                          </div>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className={styles.testing}>
+                  <h3 className={styles.testingTitle}>Call-to-Action for Booking on Homepage</h3>
+                  <div className={styles.testingImageContainer}>
+                    <div>
+                      <img
+                        src="/westPointHotel/before2.png"
+                        alt="Meditation Categories Before Usability Testing"
+                        width="600"
+                        className={styles.testingImage}
+                      />
+                    </div>
+                    <div>
+                      <img
+                        src="/westPointHotel/after2.png"
+                        alt="Meditation Categories After Usability Testing"
+                        width="600"
+                        className={styles.testingImage}
+                      />
+                    </div>
+                  </div>
+                  <div className={styles.testingTextContainer}>
+                    {/* <h3 className={styles.testingTitle}>Medication Library</h3> */}
+                    <div className={styles.testingDetailsContainer}>
+                      <div className={styles.testingDetails}>
+                        <ul className={styles.detailsList}>
+                          <div>
+                            <p className={styles.bold}>Before:</p>
+                            <li>Users struggled to find booking options.</li>
+                          </div>
+                        </ul>
+                      </div>
+                      <div className={styles.testingDetails}>
+                        <ul className={styles.detailsList}>
+                          <div>
+                            <p className={styles.bold}>After:</p>
+                            <li>Implemented a prominent "Book Now" CTA on the homepage.</li>
+                          </div>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className={styles.testing}>
+                  <h3 className={styles.testingTitle}>Itinerary Page</h3>
+                  <div className={styles.testingImageContainer}>
+                    <div>
+                      <img
+                        src="/westPointHotel/before3.png"
+                        alt="Weather Section Before Usability Testing"
+                        width="600"
+                        className={styles.testingImage}
+                      />
+                    </div>
+                    <div>
+                      <img
+                        src="/westPointHotel/after3.png"
+                        alt="Weather Section After Usability Testing"
+                        width="600"
+                        className={styles.testingImage}
+                      />
+                    </div>
+                  </div>
+                  <div className={styles.lastTestingTextContainer}>
+                    <div className={styles.testingDetailsContainer}>
+                      <div className={styles.testingDetails}>
+                        <ul className={styles.detailsList}>
+                          <div>
+                            <p className={styles.bold}>Before:</p>
+                            <li>Users found it challenging to create itineraries.</li>
+                          </div>
+                        </ul>
+                      </div>
+                      <div className={styles.testingDetails}>
+                        <ul className={styles.detailsList}>
+                          <div>
+                            <p className={styles.bold}>After:</p>
+                            <li>Create packages that include multiple activities and display these packages in itinerary view.</li>
+                            <li>Allow users to select an itinerary and edit it by removing or adding experiences as desired.</li>
+                          </div>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>  
+              
+            </div>
 
-            <div className={styles.initialHiFi} id="usability-testing">
+            {/* <div className={styles.initialHiFi} id="usability-testing">
               <ContentSection
                 title="Usability Testing"
                 image="/westPointHotel/usability-testing.png"
@@ -536,17 +641,9 @@ export default function Remedify() {
                   "Allow users to select an itinerary and edit it by removing or adding experiences as desired."
                 ]}
               />
-              {/* <AppFeature2
-                feature2="Wedding/Business Retreat Booking"
-                image2="/westPointHotel/recommendation2.png"
-                alt2="Wedding/Business Retreat Booking"
-                descriptions2={[
-                  "Added direct contact forms in the Wedding/Business Retreat Pages for concierge services."
-                ]}
-              /> */}
             </div>
 
-            </div>
+            </div> */}
 
             <div className={styles.initialHiFi} id="final-hifi">
                 <ContentSection

@@ -40,7 +40,7 @@
 .wireframeImage {
     width: 100%;
     height: auto;
-    
+
 }
 
 .prototypeBanner {
@@ -81,7 +81,8 @@
     height: 400px;
 }
 
-.appFeatures {
+.appFeatures,
+.recommendations {
     margin: 1rem auto;
     width: 100%;
     display: flex;
@@ -89,6 +90,10 @@
     align-items: center;
     gap: 2rem;
     padding: 0 1rem 2rem;
+}
+
+.appFeatures {
+    border-bottom: 1.5px solid var(--light-red);
 }
 
 .details {
@@ -100,13 +105,12 @@
 
 .recommendations {
     list-style-type: none;
-    font-weight: 600;
     margin-top: 0.5rem;
 }
 
 .subIndent {
     margin-left: 1rem;
-    list-style-type:circle;
+    list-style-type: circle;
 }
 
 .featuresTitle {
@@ -129,14 +133,10 @@
     padding: 2rem 0;
 }
 
-.detailsContainer, .initialHiFi {
+.detailsContainer,
+.initialHiFi {
     padding: 2rem 0;
     border-bottom: 1.5px solid var(--light-red);
-}
-
-.client {
-    padding: 2rem 0;
-    border-top: 1.5px solid var(--light-red);
 }
 
 .userFlowChart {
@@ -144,7 +144,8 @@
     border-bottom: 1.5px solid var(--light-red);
 }
 
-.details {
+.details,
+.testingDetails {
     display: flex;
     flex-direction: column;
     padding: 0rem 1rem;
@@ -167,7 +168,7 @@
 
 .semiBold {
     font-weight: 550;
-}   
+}
 
 .indent {
     list-style-type: none
@@ -230,20 +231,48 @@
     padding: 3rem 0 0 0;
 }
 
-.table, .table th, .table td {
-    border: 1px solid var(--light-red);
-    border-collapse: collapse;
+.usabilityTesting {
+    padding: 3rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
 }
 
-.table th{
-    padding: 0.5rem;
-    text-align: left;
-    color: var(--red);
+.testing {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
-.table td {
-    padding: 1rem 0.5rem 1rem 2rem;
+.testingImageContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
+
+.testingImage {
+    width: 100%;
+    height: auto;
+}
+
+.testingTextContainer,
+.lastTestingTextContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.testingTextContainer {
+    padding-bottom: 3rem;
+    border-bottom: 1.5px solid var(--light-red);
+}
+
+.testingDetailsContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
 
 @media screen and (max-width: 1024px) {
     .contentContainer {
@@ -253,7 +282,7 @@
 
 /* Tablet (768px and up) */
 @media screen and (min-width: 768px) {
-.linkButton button {
+    .linkButton button {
         width: fit-content;
     }
 
@@ -263,11 +292,11 @@
         width: fit-content;
     }
 
-        .nextButton {
-            display: flex;
-            justify-content: center;
-            width: fit-content;
-        }
+    .nextButton {
+        display: flex;
+        justify-content: center;
+        width: fit-content;
+    }
 
     .button {
         width: fit-content;
@@ -288,46 +317,83 @@
     }
 
     .prototype {
-        width: 600px;
         height: 450px;
     }
 
-    .appFeatures {
+    .appFeatures,
+    .recommendations {
         padding: 3rem 3rem 3rem;
         gap: 3rem;
     }
 
-    .userResearch, .competitiveAnalysis, .detailsContainer, .client,
-    .userFlowChart, .initialHiFi, .finalHiFi {
+    .userResearch,
+    .competitiveAnalysis,
+    .detailsContainer,
+    .userFlowChart,
+    .initialHiFi,
+    .finalHiFi {
         padding: 3rem 4rem;
     }
 
     .details,
-    .wireframeImage {
+    .wireframeImage,
+    .testingDetails {
         padding: 0 1rem;
     }
 
-        /* .problemSolution {
-            padding: 3rem;
-            flex-direction: row;
-            justify-content: center;
-            align-items: flex-start;
-        }
+    .problem,
+    .solution {
+        padding: 0 2rem;
+    }
 
-        .problem {
-            width: 50%;
-        }
-    
-        .solution {
-            border-top: none;
-            border-left: 1.5px solid var(--light-red);
-            padding: 0 0 0 3rem;
-            width: 50%;
-        }
+    .problem {
+        display: flex;
+        align-items: flex-start;
+    }
 
-        .solution h2 {
-            text-align: center;
-        } */
+    .problem h2 {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .solution {
+        padding-top: 3rem;
+    }
+
+    .usabilityTesting {
+        gap: 4rem;
+    }
+
+    .testingImageContainer {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    .testingImageContainer div {
+        width: 50%;
+    }
+
+    .testingTextContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .testingDetailsContainer {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .testingTitle {
+        text-align: center;
+    }
+
+    .testingDetails {
+        width: 50%;
+    }
+
 }
 
 /* Desktop (1024px and up) */
@@ -343,10 +409,11 @@
     }
 
     .prototype {
-        width: 600px;
+        width: 400px;
     }
 
-    .appFeatures {
+    .appFeatures,
+    .recommendations {
         padding: 3rem 6rem 4rem;
         gap: 4rem;
     }
@@ -360,38 +427,60 @@
         padding: 5rem 10rem;
     }
 
-    .detailsContainer,.client,
+    .detailsContainer,
     .userFlowChart,
     .initialHiFi,
     .competitiveAnalysis {
         padding: 5rem 0;
     }
 
-        .problemSolution {
-            padding: 5rem 5rem;
-        }
+    .problemSolution {
+        padding: 5rem 5rem;
+    }
 
-.problemSolution {
-    padding: 3rem;
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-}
+    .problemSolution {
+        padding: 3rem;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+    }
 
-.problem {
-    width: 50%;
-}
+    .problem,
+    .solution {
+        width: 50%;
+    }
 
-.solution {
-    border-top: none;
-    border-left: 1.5px solid var(--light-red);
-    padding: 0 0 0 3rem;
-    width: 50%;
-}
+    .solution {
+        border-top: none;
+        border-left: 1.5px solid var(--light-red);
+        padding: 0 0 0 3rem;
+        width: 50%;
+    }
 
-.solution h2 {
-    text-align: center;
-}
+    .solution h2 {
+        text-align: center;
+    }
+
+    .testing {
+        padding: 0rem 8rem;
+    }
+
+    .testingImageContainer,
+    .testingDetailsContainer {
+        display: flex;
+        flex-direction: row;
+        gap: 2rem;
+    }
+
+    .testingDetails {
+        padding: 0rem 2rem;
+    }
+
+    .testingImage {
+        width: 100%;
+        height: auto;
+    }
+
 }
 
 @media screen and (min-width: 1200px) {
@@ -401,7 +490,7 @@
 }
 
 @media (min-width: 1440px) {
-.problemSolution {
+    .problemSolution {
         padding: 5rem 5rem;
     }
 }
@@ -412,53 +501,60 @@
         width: 75%;
     }
 
-    .appFeatures {
+    .appFeatures,
+    .recommendations {
         padding: 3rem 10rem 4rem;
     }
 
-    .details, .wireframeImage {
+    .details,
+    .wireframeImage {
         padding: 0 15rem;
     }
 
     .prototype {
-        width: 800px;
+        width: 600px;
     }
 
     .userResearch {
         padding: 5rem 15rem;
     }
 
-     .problemSolution {
+    .problemSolution {
         padding: 3rem 15rem;
+    }
+
+    .testing {
+        padding: 0rem 13rem;
     }
 }
 
 /* animations */
 /* Fade-in and Slide Animations */
 @keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes fadeInLeft {
-  from {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
+
 /* Hero Section */
 .heroImage {
-  animation: fadeInUp 1s ease-out;
+    animation: fadeInUp 1s ease-out;
 }
-
-
