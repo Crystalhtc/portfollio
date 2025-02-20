@@ -492,7 +492,7 @@ export default function Remedify() {
                     <div>
                       <img
                         src="/remedify/before2.png"
-                        alt="Upcoming medication logging Before Usability Testing"
+                        alt="Medication Library Before Usability Testing"
                         width="600"
                         className={styles.testingImage}
                       />
@@ -500,7 +500,7 @@ export default function Remedify() {
                     <div>
                       <img
                         src="/remedify/after2.png"
-                        alt="Upcoming medication logging After Usability Testing"
+                        alt="Medication Library logging After Usability Testing"
                         width="600"
                         className={styles.testingImage}
                       />
@@ -534,7 +534,7 @@ export default function Remedify() {
                     <div>
                       <img
                         src="/remedify/before3.png"
-                        alt="Upcoming medication logging Before Usability Testing"
+                        alt="Color Palette Before Usability Testing"
                         width="600"
                         className={styles.testingImage}
                       />
@@ -542,7 +542,7 @@ export default function Remedify() {
                     <div>
                       <img
                         src="/remedify/after3.png"
-                        alt="Upcoming medication logging After Usability Testing"
+                        alt="Color Palette After Usability Testing"
                         width="600"
                         className={styles.testingImage}
                       />
@@ -575,7 +575,7 @@ export default function Remedify() {
                     <div>
                       <img
                         src="/remedify/before4.png"
-                        alt="Upcoming medication logging Before Usability Testing"
+                        alt='“Take Photo” Button Before Usability Testing'
                         width="600"
                         className={styles.testingImage}
                       />
@@ -583,7 +583,7 @@ export default function Remedify() {
                     <div>
                       <img
                         src="/remedify/after4.png"
-                        alt="Upcoming medication logging After Usability Testing"
+                        alt='“Take Photo” Button After Usability Testing'
                         width="600"
                         className={styles.testingImage}
                       />
