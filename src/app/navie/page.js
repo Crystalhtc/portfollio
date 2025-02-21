@@ -226,7 +226,142 @@ export default function Remedify() {
               </div> */}
           </div>
 
-          <div className={styles.initialHiFi} id="usability-testing">
+<div className={styles.detailsContainer} id="usability-testing">
+              <div className={styles.details}>
+                <h2>Usability Testing</h2>
+                <p>Usability testing is crucial in ensuring Tranquify meets the needs and expectations of its users. The testing was conducted with 5 participants, revealing 4 key areas for improvement.</p>
+              </div>
+              <div className={styles.usabilityTesting}>
+                <div className={styles.testing}>
+                  <h3 className={styles.testingTitle}>Favoriting System</h3>
+                  <div className={styles.testingImageContainer}>
+                    <div>
+                      <img
+                        src="/navie/before1.png"
+                        alt="Favoriting System Before Usability Testing"
+                        width="600"
+                        className={styles.testingImage}
+                      />
+                    </div>
+                    <div>
+                      <img
+                        src="/navie/after1.png"
+                        alt="Favoriting System After Usability Testing"
+                        width="600"
+                        className={styles.testingImage}
+                      />
+                    </div>
+                  </div>
+                  <div className={styles.testingTextContainer}>
+                    {/* <h3 className={styles.testingTitle}>Upcoming medication logging </h3> */}
+                    <div className={styles.testingDetailsContainer}>
+                      <div className={styles.testingDetails}>
+                        <ul className={styles.detailsList}>
+                          <div>
+                            <p className={styles.bold}>Before:</p>
+                            <li>The heart icon used to "Favourite" an item was not easily noticeable to users. </li>
+                          </div>
+                        </ul>
+                      </div>
+                      <div className={styles.testingDetails}>
+                        <ul className={styles.detailsList}>
+                          <div>
+                            <p className={styles.bold}>After:</p>
+                            <li>The heart icon for favoriting meditation content was made more prominent and repositioned for greater visibility, allowing users to save their favorite meditations effortlessly.</li>
+                          </div>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className={styles.testing}>
+                  <h3 className={styles.testingTitle}>Meditation Categories</h3>
+                  <div className={styles.testingImageContainer}>
+                    <div>
+                      <img
+                        src="/navie/before2.png"
+                        alt="Meditation Categories Before Usability Testing"
+                        width="600"
+                        className={styles.testingImage}
+                      />
+                    </div>
+                    <div>
+                      <img
+                        src="/navie/after2.png"
+                        alt="Meditation Categories After Usability Testing"
+                        width="600"
+                        className={styles.testingImage}
+                      />
+                    </div>
+                  </div>
+                  <div className={styles.testingTextContainer}>
+                    {/* <h3 className={styles.testingTitle}>Medication Library</h3> */}
+                    <div className={styles.testingDetailsContainer}>
+                      <div className={styles.testingDetails}>
+                        <ul className={styles.detailsList}>
+                          <div>
+                            <p className={styles.bold}>Before:</p>
+                            <li>Participants expressed confusion about the category cards on the meditation page, as they were unclear about the purpose of these cards.</li>
+                          </div>
+                        </ul>
+                      </div>
+                      <div className={styles.testingDetails}>
+                        <ul className={styles.detailsList}>
+                          <div>
+                            <p className={styles.bold}>After:</p>
+                            <li>Labels were added above meditation categories to clarify their purpose, addressing user confusion.</li>
+                          </div>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className={styles.testing}>
+                  <h3 className={styles.testingTitle}>Weather Section</h3>
+                  <div className={styles.testingImageContainer}>
+                    <div>
+                      <img
+                        src="/navie/before3.png"
+                        alt="Weather Section Before Usability Testing"
+                        width="600"
+                        className={styles.testingImage}
+                      />
+                    </div>
+                    <div>
+                      <img
+                        src="/navie/after3.png"
+                        alt="Weather Section After Usability Testing"
+                        width="600"
+                        className={styles.testingImage}
+                      />
+                    </div>
+                  </div>
+                  <div className={styles.lastTestingTextContainer}>
+                    <div className={styles.testingDetailsContainer}>
+                      <div className={styles.testingDetails}>
+                        <ul className={styles.detailsList}>
+                          <div>
+                            <p className={styles.bold}>Before:</p>
+                            <li>The weather feature on the homepage created slight confusion for users, as it detracted from the app's primary goal of promoting mindfulness and relaxation.</li>
+                          </div>
+                        </ul>
+                      </div>
+                      <div className={styles.testingDetails}>
+                        <ul className={styles.detailsList}>
+                          <div>
+                            <p className={styles.bold}>After:</p>
+                            <li>The weather feature on the homepage was redesigned to be less prominent, ensuring it supports the app’s purpose without overshadowing its core features.</li>
+                          </div>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>  
+              
+            </div>
+
+          {/* <div className={styles.initialHiFi} id="usability-testing">
               <ContentSection
                 title="Navie Testing"
                 image="/navie/usability-testing.png"
@@ -281,7 +416,7 @@ export default function Remedify() {
                   ]}
                 />
               </div>
-          </div>
+          </div> */}
 
           
 
