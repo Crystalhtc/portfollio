@@ -154,6 +154,7 @@
 }
 
 .styleGuide {
+    border-top: 1.5px solid var(--light-red);
     border-bottom: 1.5px solid var(--light-red);
 }
 

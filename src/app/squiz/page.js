@@ -105,7 +105,7 @@ export default function Remedify() {
           />
           </div>
 
-          <div className={styles.userResearch} id="user-research">
+          {/* <div className={styles.userResearch} id="user-research">
               <UserResearch
               title="User Needs"
               descriptions={[
@@ -114,12 +114,7 @@ export default function Remedify() {
                 "Many learners struggle with maintaining interest and engagement during study sessions. They seek interactive and dynamic study methods to keep them motivated and involved.",
               ]}
             />
-              {/* <div className={styles.nextButton}>
-                <a href="https://docs.google.com/document/d/1MGyxeF7pkwpVo4VsNl829hrDaSTTYn5Frfa2RREm4Nc/edit?usp=sharing" target="_blank">
-                  <button>VIEW FINDINGS</button>
-                </a>
-              </div> */}
-          </div>
+          </div> */}
 
           {/* <div className={styles.competitiveAnalysis}>
               <ContentSection
