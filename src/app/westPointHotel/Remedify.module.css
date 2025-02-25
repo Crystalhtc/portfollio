@@ -273,6 +273,27 @@
     gap: 1rem;
 }
 
+.client {
+    padding: 2rem 0;
+}
+
+.table,
+.table th,
+.table td {
+    border: 1px solid var(--light-red);
+    border-collapse: collapse;
+}
+
+.table th {
+    padding: 0.5rem;
+    text-align: left;
+    color: var(--red);
+}
+
+.table td {
+    padding: 1rem 0.5rem 1rem 2rem;
+}
+
 
 @media screen and (max-width: 1024px) {
     .contentContainer {
@@ -331,7 +352,8 @@
     .detailsContainer,
     .userFlowChart,
     .initialHiFi,
-    .finalHiFi {
+    .finalHiFi,
+    .client {
         padding: 3rem 4rem;
     }
 
@@ -430,7 +452,8 @@
     .detailsContainer,
     .userFlowChart,
     .initialHiFi,
-    .competitiveAnalysis {
+    .competitiveAnalysis,
+    .client {
         padding: 5rem 0;
     }
 

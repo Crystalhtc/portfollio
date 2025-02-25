@@ -1,4 +1,5 @@
 "use client";
+import { useState, useEffect, useRef } from "react";
 import styles from "./Remedify.module.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -11,6 +12,36 @@ import NextCard from "../components/NextCard";
 import ScrollButton from "../components/ScrollButton";
 import SideMenu from "../components/SideMenu";
 import TopMenu from "../components/TopMenu";
+import { motion } from "framer-motion";
+
+// Section fade-in and float-up animation
+const sectionVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.6, ease: "easeOut" }
+  }
+};
+
+// Staggered animation for list items
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (index) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: index * 0.2, duration: 0.6 }
+  }),
+};
+
+const slideVariants = (direction) => ({
+  hidden: { opacity: 0, x: direction === "left" ? -100 : 100 },
+  visible: { 
+    opacity: 1, 
+    x: 0, 
+    transition: { duration: 0.8, ease: "easeOut" }
+  }
+});
 
 export default function Remedify() {
   return (
@@ -36,6 +67,12 @@ export default function Remedify() {
         <div className={styles.contentFullWidth}>
           <TopMenu />
           <div className={styles.content}>
+            <motion.div 
+              initial="hidden" 
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={sectionVariants}
+            >
             <div className={styles.appIntro} id="app-intro">
               <AppIntro 
                 appName="Remedify"
@@ -48,13 +85,29 @@ export default function Remedify() {
                 styleguideLink="https://www.figma.com/design/4ni9gyLkBDkeQNBfia2rgo/Remedify-Hi-fi?node-id=5145-11431&t=IdXuzk5pD3d9AF8h-4"
               />
             </div>
+            </motion.div>
 
-            <div className={styles.prototypeBanner} id="prototype">
+            <motion.div 
+              className={styles.prototypeBanner} 
+              id="prototype"
+              initial="hidden" 
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={sectionVariants}
+            >
               <div className={styles.prototypeTitle}>
                 <h2>Prototype</h2>
               </div> 
               <div className={styles.prototypes}>
-                <div className={styles.prototypeContainer}>
+                
+                {/* Light Mode Prototype - Slides in from the Left */}
+                <motion.div 
+                  className={styles.prototypeContainer}
+                  variants={slideVariants("left")}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                >
                   <iframe 
                     className={styles.prototype} 
                     src="https://embed.figma.com/proto/4ni9gyLkBDkeQNBfia2rgo/Remedify-Hi-fi?node-id=1797-14271&scaling=scale-down&content-scaling=fixed&page-id=1797%3A14184&starting-point-node-id=1797%3A14295&embed-host=share" 
@@ -65,9 +118,16 @@ export default function Remedify() {
                       <button className={styles.button}>Light Mode</button>
                     </a>
                   </div>
-                </div>
+                </motion.div>
 
-                <div className={styles.prototypeContainer}>
+                {/* Dark Mode Prototype - Slides in from the Right */}
+                <motion.div 
+                  className={styles.prototypeContainer}
+                  variants={slideVariants("right")}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                >
                   <iframe 
                     className={styles.prototype} 
                     src="https://embed.figma.com/proto/4ni9gyLkBDkeQNBfia2rgo/Remedify-Hi-fi?node-id=5057-8734&scaling=scale-down&content-scaling=fixed&page-id=1797%3A14184&starting-point-node-id=1797%3A14295&embed-host=share" 
@@ -75,49 +135,67 @@ export default function Remedify() {
                   />
                   <div className={styles.nextButton}>
                     <a href="https://www.figma.com/proto/4ni9gyLkBDkeQNBfia2rgo/Remedify-Hi-fi?node-id=5057-8734&t=0Ji5GbZNKZLLvUCy-0&scaling=scale-down&content-scaling=fixed&page-id=1797%3A14184&starting-point-node-id=1797%3A14295">
-                      <button button  className={styles.button}>Dark Mode</button>
+                      <button className={styles.button}>Dark Mode</button>
                     </a>
                   </div>
-                </div>
-              </div>
-            </div>
+                </motion.div>
 
-            <div className={styles.problemSolution} id="problem-solution">
-              <div className={styles.problem}>
+              </div>
+            </motion.div>
+
+            <motion.div 
+              className={styles.problemSolution} 
+              id="problem-solution"
+              initial="hidden" 
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              {/* Problem Section - Slides in from the Left */}
+              <motion.div 
+                className={styles.problem}
+                variants={slideVariants("left")}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
                 <h2>Problem</h2>
-                  <ul className={styles.detailsList}>
-                    <div>
-                      <li className={styles.bold}>Low Adherence Rate:</li>
-                      <li className={styles.indent}>Patients with chronic illnesses take only ~50% of prescribed medications.</li>
-                    </div>
-                    <div>
-                      <li className={styles.bold}>Misunderstanding Instructions:</li>
-                      <li className={styles.indent}>Over 60% of patients misunderstand medication directions after doctor visits.</li>
-                    </div>
-                    <div>
-                      <li className={styles.bold}>Forgetfulness:</li>
-                      <li className={styles.indent}>A major cause of non-adherence, affecting 49.6% of patients.</li>
-                    </div>
-                  </ul>
-              </div>
-              <div className={styles.solution}>
+                <ul className={styles.detailsList}>
+                  {[
+                    { title: "Low Adherence Rate", description: "Patients with chronic illnesses take only ~50% of prescribed medications." },
+                    { title: "Misunderstanding Instructions", description: "Over 60% of patients misunderstand medication directions after doctor visits." },
+                    { title: "Forgetfulness", description: "A major cause of non-adherence, affecting 49.6% of patients." }
+                  ].map((problem, index) => (
+                    <motion.div key={index} variants={slideVariants("left")}>
+                      <li className={styles.bold}>{problem.title}:</li>
+                      <li className={styles.indent}>{problem.description}</li>
+                    </motion.div>
+                  ))}
+                </ul>
+              </motion.div>
+
+              {/* Solution Section - Slides in from the Right */}
+              <motion.div 
+                className={styles.solution}
+                variants={slideVariants("right")}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+              >
                 <h2>Solution</h2>
-                  <ul className={styles.detailsList}>
-                    <div>
-                      <li className={styles.bold}>Simplify Medication Regimens:</li>
-                      <li className={styles.indent}>Provides clear, organized schedules to prevent confusion.</li>
-                    </div>
-                    <div>
-                      <li className={styles.bold}>Explain Key Information:</li>
-                      <li className={styles.indent}>Displays essential details about each medication, including what the drug is and why is it prescribed.</li>
-                    </div>
-                    <div>
-                      <li className={styles.bold}>Smart Reminders:</li>
-                      <li className={styles.indent}>Sends timely alerts to help users take medications on time.</li>
-                    </div>
-                  </ul>
-              </div>
-            </div>
+                <ul className={styles.detailsList}>
+                  {[
+                    { title: "Simplify Medication Regimens", description: "Provides clear, organized schedules to prevent confusion." },
+                    { title: "Explain Key Information", description: "Displays essential details about each medication, including what the drug is and why it is prescribed." },
+                    { title: "Smart Reminders", description: "Sends timely alerts to help users take medications on time." }
+                  ].map((solution, index) => (
+                    <motion.div key={index} variants={slideVariants("right")}>
+                      <li className={styles.bold}>{solution.title}:</li>
+                      <li className={styles.indent}>{solution.description}</li>
+                    </motion.div>
+                  ))}
+                </ul>
+              </motion.div>
+            </motion.div>
 
             <div className={styles.appFeatures} id="features">
               <div className={styles.featureTitle}>
