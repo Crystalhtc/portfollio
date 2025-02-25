@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styles from "./ProjectsSection.module.css";
 import AppCard from "./AppCard";
+import { motion } from "framer-motion";
 
 const ProjectsSection = () => {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -126,40 +127,47 @@ const ProjectsSection = () => {
     <div className={styles.projects}>
       <h2>Projects</h2>
       <div className={styles.filterContainer}>
-        <a
-          onClick={() => setActiveFilter('all')}
-          className={`${styles.filterButton} ${activeFilter === 'all' ? styles.active : ''}`}
+        <button
+          onClick={() => setActiveFilter("all")}
+          className={`${styles.filterButton} ${activeFilter === "all" ? styles.active : ""}`}
         >
           All
-        </a>
-        <a
-          onClick={() => setActiveFilter('ux')}
-          className={`${styles.filterButton} ${activeFilter === 'ux' ? styles.active : ''}`}
+        </button>
+        <button
+          onClick={() => setActiveFilter("ux")}
+          className={`${styles.filterButton} ${activeFilter === "ux" ? styles.active : ""}`}
         >
           UX/UI Design
-        </a>
-        <a
-          onClick={() => setActiveFilter('graphic')}
-          className={`${styles.filterButton} ${activeFilter === 'graphic' ? styles.active : ''}`}
+        </button>
+        <button
+          onClick={() => setActiveFilter("graphic")}
+          className={`${styles.filterButton} ${activeFilter === "graphic" ? styles.active : ""}`}
         >
           Graphic Design
-        </a>
+        </button>
       </div>
       <div className={styles.appCardList}>
         {filteredProjects.map((project, index) => (
-          <AppCard
+          <motion.div
             key={project.name}
-            className={index === 0 ? styles.firstAppCard : ''}
-            image={project.image}
-            alt={project.alt}
-            name={project.name}
-            link={project.link}
-            description={project.description}
-            skills={project.skills}
-            application={project.application}
-            appIcon={project.appIcon}
-            appType={project.appType}
-          />
+            className={styles.projectCard}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            viewport={{ once: true }}
+          >
+            <AppCard
+              image={project.image}
+              alt={project.alt}
+              name={project.name}
+              link={project.link}
+              description={project.description}
+              skills={project.skills}
+              application={project.application}
+              appIcon={project.appIcon}
+              appType={project.appType}
+            />
+          </motion.div>
         ))}
       </div>
     </div>
