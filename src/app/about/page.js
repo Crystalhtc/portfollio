@@ -1,15 +1,75 @@
 "use client";
+import { useState, useEffect, useRef } from "react";
 import styles from "./About.module.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ScrollButton from "../components/ScrollButton";
+import { motion } from "framer-motion";
+
+// Animation variants for staggered floating effect
+const itemVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: (index) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: index * 0.2, duration: 0.6 },
+  }),
+};
+
+// Animation for the Connect Section (delayed float-in)
+const connectVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { delay: 0.5, duration: 0.8 } // Delay of 0.5s for smooth appearance
+  },
+};
 
 export default function About() {
+  const skills = [
+    { title: "Graphics and Design Skills", description: "Prototyping, Wireframing, User Research, User Testing, Project Management" },
+    { title: "Design Tools", description: "Figma, Adobe Illustrator, Adobe Photoshop, Adobe After Effects, Adobe Indesign, Canva" },
+    { title: "Development Skills", description: "HTML, CSS, JavaScript, Node.js, React, React Native, Next.js, Expo, Bootstrap, GitHub, WordPress" },
+    { title: "Language Skills", description: "Cantonese, English, Mandarin, Japanese" },
+  ];
+
+  const interests = [
+    { title: "Dancing 🩰", description: "I’ve been dancing ballet since I was 5, and I still love it at 24. Ballet has taught me discipline and how to express myself through movement." },
+    { title: "Watching Anime and Dramas 🎥", description: "I enjoy watching anime and dramas. They allow me to escape into different stories and inspire my creativity." },
+    { title: "Listening to Music 🎵", description: "Music has always been a big part of my life, and lately, I’ve been enjoying J-pop. It helps me relax and stay focused." },
+    { title: "Traveling ✈️", description: "I love traveling and have visited places like Japan, Taiwan, Australia, Switzerland, Thailand, and Malaysia. Each trip brings new experiences and perspectives." },
+  ];
+
+  // Ref to track the Interest Section
+  const interestRef = useRef(null);
+  const [isInterestVisible, setIsInterestVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInterestVisible(true);
+        }
+      },
+      { threshold: 0.2 } // Trigger when 20% of the section is visible
+    );
+
+    if (interestRef.current) {
+      observer.observe(interestRef.current);
+    }
+
+    return () => {
+      if (interestRef.current) {
+        observer.unobserve(interestRef.current);
+      }
+    };
+  }, []);
+
   return (
     <div className={styles.page}>
       <Header />
       <main className={styles.main}>
-        
         <div className={styles.content}>
           <div className={styles.details}>
             <h1 className={styles.heading}>Who is Crystal?</h1>
@@ -33,7 +93,14 @@ export default function About() {
             </div>
           </div>
 
-          <div className={styles.connect}>
+          {/* Connect Section with Delayed Animation */}
+          <motion.div
+            className={styles.connect}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={connectVariants}
+          >
             <div className={styles.social}>
               <h2>Connect with me!</h2>
               <div className={styles.socialIcons}>
@@ -61,66 +128,52 @@ export default function About() {
                 <button>Resume</button>
               </a>
             </div>
-          </div>
+          </motion.div>
 
-          <div className={styles.skillSection}>
+          {/* Skill Section with Staggered Floating Effect */}
+          <motion.div
+            className={styles.skillSection}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
             <h2 className={styles.interestTitle}>My Skills</h2>
-            <div className={styles.interest}>
-              <h3>Graphics and Design Skills</h3>
-              <p>
-                Prototyping, Wireframing, User Research, User Testing, Project Management
-              </p>
-            </div>
-            <div className={styles.interest}>
-              <h3>Design Tools</h3>
-              <p>
-                Figma, Adobe Illustrator, Adobe Photoshop, Adobe After Effects, Adobe Indesign, Canva
-              </p>
-            </div>
-            <div className={styles.interest}>
-              <h3>Development Skills</h3>
-              <p>
-                HTML, CSS, JavaScript, Node.js, React, React Native, Next.js, Expo, Bootstrap, GitHub, WordPress
-              </p>
-            </div>
-            <div className={styles.interest}>
-              <h3>Language Skills</h3>
-              <p>
-                Cantonese, English, Mandarin, Japanese
-              </p>
-            </div>
-          </div>
+            {skills.map((skill, index) => (
+              <motion.div
+                key={index}
+                className={styles.interest}
+                variants={itemVariants}
+                custom={index}
+              >
+                <h3>{skill.title}</h3>
+                <p>{skill.description}</p>
+              </motion.div>
+            ))}
+          </motion.div>
 
-          <div className={styles.interestSection}>
+          {/* Interest Section - Animates ONLY when user scrolls to it */}
+          <motion.div
+            ref={interestRef}
+            className={styles.interestSection}
+            initial="hidden"
+            animate={isInterestVisible ? "visible" : "hidden"}
+          >
             <h2 className={styles.interestTitle}>What I like to do...</h2>
-            <div className={styles.interest}>
-              <h3>Dancing 🩰</h3>
-              <p>
-                I’ve been dancing ballet since I was 5, and I still love it at 24. Ballet has taught me discipline and how to express myself through movement.
-              </p>
-            </div>
-            <div className={styles.interest}>
-              <h3>Watching Anime and Dramas 🎥</h3>
-              <p>
-                I enjoy watching anime and dramas. They allow me to escape into different stories and inspire my creativity.
-              </p>
-            </div>
-            <div className={styles.interest}>
-              <h3>Listening to Music 🎵</h3>
-              <p>
-                Music has always been a big part of my life, and lately, I’ve been enjoying J-pop. It helps me relax and stay focused.
-              </p>
-            </div>
-            <div className={styles.interest}>
-              <h3>Traveling ✈️</h3>
-              <p>
-                I love traveling and have visited places like Japan, Taiwan, Australia, Switzerland, Thailand, and Malaysia. Each trip brings new experiences and perspectives.
-              </p>
-            </div>
-          </div>
+            {interests.map((interest, index) => (
+              <motion.div
+                key={index}
+                className={styles.interest}
+                variants={itemVariants}
+                custom={index}
+              >
+                <h3>{interest.title}</h3>
+                <p>{interest.description}</p>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </main>
-      <ScrollButton/>
+      <ScrollButton />
       <Footer />
     </div>
   );
