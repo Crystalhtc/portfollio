@@ -580,6 +580,7 @@
 
 .heroText {
   animation: fadeInDissolve 1.5s ease-out;
+  animation-delay: 0.2s;
   opacity: 0;
   animation-fill-mode: forwards;
 }
