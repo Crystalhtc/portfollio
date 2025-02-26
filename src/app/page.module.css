@@ -572,3 +572,110 @@
     max-width: 70%;
   }
 }
+
+/* Hero Section Animations - Sequential Flow */
+.heroImageContainer {
+  animation: floatIn 1.5s ease-out;
+}
+
+.heroText {
+  animation: fadeInDissolve 1.5s ease-out;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+/* .cta {
+  animation: fadeInDissolve 1.5s ease-out;
+  animation-delay: 1.2s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+} */
+
+.cta h3 {
+  animation: fadeInDissolve 1.5s ease-out;
+  animation-delay: 1s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.ctaButton {
+  animation: justDissolve 1.5s ease-out;
+  animation-delay: 1.5s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+/* Individual text elements with proper sequencing */
+.headingSmall {
+  animation: fadeInDissolve 1.2s ease-out;
+  animation-delay: 0.6s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.heading {
+  animation: fadeInDissolve 1.2s ease-out;
+  animation-delay: 0.8s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.jobTitle {
+  animation: fadeInDissolve 1.2s ease-out;
+  animation-delay: 1s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+/* Keyframe Animations */
+@keyframes fadeInDissolve {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  30% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes justDissolve {
+  0% {
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes floatIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+  }
+
+  40% {
+    opacity: 0.4;
+    transform: translateY(15px) scale(0.98);
+  }
+
+  70% {
+    opacity: 0.8;
+    transform: translateY(5px) scale(0.99);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
