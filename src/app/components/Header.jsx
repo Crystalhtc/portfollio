@@ -16,30 +16,37 @@ export default function Header() {
   const handleMouseLeave = () => {
     setIsProjectsHovered(false);
   };
-const scrollToProjects = async (event) => {
-  event.preventDefault();
   
-  // Close menus first
-  setIsProjectsHovered(false);
-  setIsMenuOpen(false);
+  const scrollToProjects = async (event) => {
+    event.preventDefault();
+    
+    // Close menus first
+    setIsProjectsHovered(false);
+    setIsMenuOpen(false);
+    document.body.style.overflow = "unset";
 
-  if (window.location.pathname === "/") {
-    // Smooth scroll if already on homepage
-    setTimeout(() => {
-      const projectSection = document.getElementById("project");
-      if (projectSection) {
-        const sectionTop = projectSection.getBoundingClientRect().top + window.scrollY;
-        window.scrollTo({ top: sectionTop, behavior: "smooth" });
+    if (window.location.pathname === "/") {
+      // Smooth scroll if already on homepage
+      setTimeout(() => {
+        const projectSection = document.getElementById("project");
+        if (projectSection) {
+          const sectionTop = projectSection.getBoundingClientRect().top + window.scrollY;
+          // Subtract header height to prevent section being hidden under header
+          const headerHeight = document.querySelector(`.${styles.header}`).offsetHeight;
+          window.scrollTo({ 
+            top: sectionTop - headerHeight, 
+            behavior: "smooth" 
+          });
+        }
+      }, 100);
+    } else {
+      // Set flag and navigate to homepage
+      if (typeof window !== "undefined") {
+        sessionStorage.setItem("jumpToProject", "true");
+        window.location.href = "/";
       }
-    }, 100);
-  } else {
-    // Set flag and navigate to homepage
-    if (typeof window !== "undefined") {
-    sessionStorage.setItem("jumpToProject", "true");
-    window.location.href = "/";
-  }
-}
-};
+    }
+  };
 
 
   const projectPreviews = [
