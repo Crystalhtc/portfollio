@@ -161,7 +161,8 @@ export default function Home() {
                   className={styles.tagline} 
                   style={{ transform: `scale(${taglineScale})` }}
                 >
-                  "Crafts user-centric designs that enhance quality of life."
+                  "Human-Centered Design, <br/>
+                  Enriched by a social sciences perspective."
                 </h3>
               </div>
 

@@ -120,6 +120,7 @@
   font-weight: 400;
   border-top: 1px solid var(--light-red);
   border-bottom: 1px solid var(--light-red);
+  /* text-wrap: balance; */
 }
 
 .taglineContainer {
@@ -399,7 +400,7 @@
 }
   
 .cta {
-  padding-left: 6rem;
+  padding-left: 4rem;
 }
 }
 
