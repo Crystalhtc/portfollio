@@ -11,7 +11,17 @@ import NextCard from "../components/NextCard";
 import ScrollButton from "../components/ScrollButton";
 import SideMenu from "../components/SideMenu";
 import TopMenu from "../components/TopMenu";
+import { motion } from "framer-motion";
 
+// Section fade-in and float-up animation
+const sectionVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.6, ease: "easeOut" }
+  }
+};
 export default function Remedify() {
   return (
     <div className={styles.page}>
@@ -37,6 +47,12 @@ export default function Remedify() {
           <TopMenu />
           <div className={styles.content}>
             <div className={styles.appIntro} id="app-intro">
+              <motion.div 
+              initial="hidden" 
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={sectionVariants}
+              >
               <AppIntro 
                 appName="West Point Hotel"
                 description="The West Point Hotel website project was designed to provide an immersive digital experience that reflects the elegant and contemporary architecture of the hotel itself. West Point Hotel is a modern Caribbean escape tailored for adult couples, business retreats, and weddings. Our goal was to create a platform that not only showcases the stunning beauty and high-end amenities of the hotel but also offers seamless, intuitive navigation for effortless booking."
@@ -47,6 +63,7 @@ export default function Remedify() {
                 figmaLink="https://www.figma.com/design/EOZx56ArPGxKOZS4uGsBKw/West-Point-Hotel?node-id=1263-4573&t=GN6VlNZdbgBVB8M5-1"
                 styleguideLink="https://www.figma.com/design/EOZx56ArPGxKOZS4uGsBKw/West-Point-Hotel?node-id=3001-20218&t=GN6VlNZdbgBVB8M5-4"
               />
+              </motion.div>
             </div>
 
             <div className={styles.prototypeBanner} id="wordpress">

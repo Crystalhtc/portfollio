@@ -25,24 +25,7 @@ const sectionVariants = {
   }
 };
 
-// Staggered animation for list items
-const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (index) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: index * 0.2, duration: 0.6 }
-  }),
-};
 
-const slideVariants = (direction) => ({
-  hidden: { opacity: 0, x: direction === "left" ? -100 : 100 },
-  visible: { 
-    opacity: 1, 
-    x: 0, 
-    transition: { duration: 0.8, ease: "easeOut" }
-  }
-});
 
 export default function Remedify() {
   return (
@@ -74,18 +57,18 @@ export default function Remedify() {
               viewport={{ once: true }}
               variants={sectionVariants}
             >
-            <div className={styles.appIntro} id="app-intro">
-              <AppIntro 
-                appName="Remedify"
-                description="Low adherence rate, misunderstanding instructions, and forgetfulness are common challenges in medication management. Remedify is an intuitive mobile app designed to revolutionize the way people manage their medications. By utilizing AI technology, Remedify provides personalized medication reminders, detailed drug information, and intuitive scheduling features, all within a simple, accessible interface."
-                role="UX/UI Design, UX Research, Graphic Design, Usability Testing, Competitive Analysis, Frontend Development"
-                tools="Figma, Adobe Illustrator, Expo, React Native"
-                duration="Sep 2024 – Dec 2024 (3 months)"
-                prototypeLink="https://www.figma.com/proto/4ni9gyLkBDkeQNBfia2rgo/Remedify-Hi-fi?node-id=1797-14271&t=Zh0rrTMckVWV8wmW-1&scaling=scale-down&content-scaling=fixed&page-id=1797%3A14184&starting-point-node-id=1797%3A14295"
-                figmaLink="https://www.figma.com/design/4ni9gyLkBDkeQNBfia2rgo/Remedify-Hi-fi?node-id=1797-14184&t=xd57gQUfuR5S6kpN-1"
-                styleguideLink="https://www.figma.com/design/4ni9gyLkBDkeQNBfia2rgo/Remedify-Hi-fi?node-id=5145-11431&t=IdXuzk5pD3d9AF8h-4"
-              />
-            </div>
+              <div className={styles.appIntro} id="app-intro">
+                <AppIntro 
+                  appName="Remedify"
+                  description="Low adherence rate, misunderstanding instructions, and forgetfulness are common challenges in medication management. Remedify is an intuitive mobile app designed to revolutionize the way people manage their medications. By utilizing AI technology, Remedify provides personalized medication reminders, detailed drug information, and intuitive scheduling features, all within a simple, accessible interface."
+                  role="UX/UI Design, UX Research, Graphic Design, Usability Testing, Competitive Analysis, Frontend Development"
+                  tools="Figma, Adobe Illustrator, Expo, React Native"
+                  duration="Sep 2024 – Dec 2024 (3 months)"
+                  prototypeLink="https://www.figma.com/proto/4ni9gyLkBDkeQNBfia2rgo/Remedify-Hi-fi?node-id=1797-14271&t=Zh0rrTMckVWV8wmW-1&scaling=scale-down&content-scaling=fixed&page-id=1797%3A14184&starting-point-node-id=1797%3A14295"
+                  figmaLink="https://www.figma.com/design/4ni9gyLkBDkeQNBfia2rgo/Remedify-Hi-fi?node-id=1797-14184&t=xd57gQUfuR5S6kpN-1"
+                  styleguideLink="https://www.figma.com/design/4ni9gyLkBDkeQNBfia2rgo/Remedify-Hi-fi?node-id=5145-11431&t=IdXuzk5pD3d9AF8h-4"
+                />
+              </div>
             </motion.div>
 
             <div className={styles.prototypeBanner} id="prototype">

@@ -12,6 +12,17 @@ import NextCard from "../components/NextCard";
 import ScrollButton from "../components/ScrollButton";
 import SideMenu from "../components/SideMenu";
 import TopMenu from "../components/TopMenu";
+import { motion } from "framer-motion";
+
+// Section fade-in and float-up animation
+const sectionVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.6, ease: "easeOut" }
+  }
+};
 
 export default function Remedify() {
   return (
@@ -38,16 +49,23 @@ export default function Remedify() {
           <TopMenu />
           <div className={styles.content}>
           <div className={styles.appIntro} id="app-intro">
-            <AppIntro 
-            appName="Navie"
-            description="A user-focused mobile app designed to improve your grocery shopping experience. Through user research, wireframing, prototyping, and usability testing, Navie offers easy route finding, quick product search, and convenient shopping list management, providing an intuitive experience."
-            role="UI/UX Design, UX Research, Usability Testing"
-            tools="Figma, Adobe Illustrator"
-            duration="Sep 2023 – Dec 2023 (3 months)"
-            prototypeLink="https://www.figma.com/proto/yV7FPG1caTMggZewOycFYB/Navie?node-id=509-482&t=f7VVWRqPGj8iaflM-0&scaling=scale-down&content-scaling=fixed&page-id=131%3A4620&starting-point-node-id=509%3A482&show-proto-sidebar=1"
-            figmaLink="https://www.figma.com/design/yV7FPG1caTMggZewOycFYB/Navie?node-id=131-4620&p=f&t=f7VVWRqPGj8iaflM-0"
-            styleguideLink="https://www.figma.com/design/yV7FPG1caTMggZewOycFYB/Navie?node-id=2255-2774&t=f7VVWRqPGj8iaflM-4"
-          />
+            <motion.div 
+              initial="hidden" 
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={sectionVariants}
+              >
+              <AppIntro 
+              appName="Navie"
+              description="A user-focused mobile app designed to improve your grocery shopping experience. Through user research, wireframing, prototyping, and usability testing, Navie offers easy route finding, quick product search, and convenient shopping list management, providing an intuitive experience."
+              role="UI/UX Design, UX Research, Usability Testing"
+              tools="Figma, Adobe Illustrator"
+              duration="Sep 2023 – Dec 2023 (3 months)"
+              prototypeLink="https://www.figma.com/proto/yV7FPG1caTMggZewOycFYB/Navie?node-id=509-482&t=f7VVWRqPGj8iaflM-0&scaling=scale-down&content-scaling=fixed&page-id=131%3A4620&starting-point-node-id=509%3A482&show-proto-sidebar=1"
+              figmaLink="https://www.figma.com/design/yV7FPG1caTMggZewOycFYB/Navie?node-id=131-4620&p=f&t=f7VVWRqPGj8iaflM-0"
+              styleguideLink="https://www.figma.com/design/yV7FPG1caTMggZewOycFYB/Navie?node-id=2255-2774&t=f7VVWRqPGj8iaflM-4"
+              />
+            </motion.div>
           </div>
 
           <div className={styles.prototypeBanner} id="prototype">

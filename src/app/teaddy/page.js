@@ -11,6 +11,17 @@ import NextCard from "../components/NextCard";
 import ScrollButton from "../components/ScrollButton";
 import SideMenu from "../components/SideMenu";
 import TopMenu from "../components/TopMenu";
+import { motion } from "framer-motion";
+
+// Section fade-in and float-up animation
+const sectionVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.6, ease: "easeOut" }
+  }
+};
 
 export default function Remedify() {
   return (
@@ -37,6 +48,12 @@ export default function Remedify() {
             <TopMenu />
             <div className={styles.content}>
               <div className={styles.appIntro} id="app-intro">
+                <motion.div 
+              initial="hidden" 
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={sectionVariants}
+              >
                 <div className={styles.appIntrocard}>
                   <h1>Teaddy</h1>
                   <p>
@@ -71,6 +88,7 @@ export default function Remedify() {
                     </div>
                   </div>
                 </div>
+                </motion.div>
               </div>
 
               <div className={styles.prototypeBanner} id="final-design">

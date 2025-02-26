@@ -12,6 +12,17 @@ import NextCard from "../components/NextCard";
 import ScrollButton from "../components/ScrollButton";
 import TopMenu from "../components/TopMenu";
 import SideMenu from "../components/SideMenu";
+import { motion } from "framer-motion";
+
+// Section fade-in and float-up animation
+const sectionVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.6, ease: "easeOut" }
+  }
+};
 
 export default function Remedify() {
   return (
@@ -38,6 +49,12 @@ export default function Remedify() {
           <TopMenu />
           <div className={styles.content}>
           <div className={styles.appIntro} id="app-intro">
+            <motion.div 
+              initial="hidden" 
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={sectionVariants}
+              >
             <AppIntro 
             appName="Dolce Donuts"
             description="The Dolce Donuts Website project is a focused effort to enhance online presence and create a more enjoyable online experience for customers. With a dedication to user research, user-centered design principles, the goal is to create a delightful and user-friendly website that mirrors the warmth and delicious offerings. Visitors can look forward to a smoother journey, whether they’re browsing our menu, placing orders, customizing their own donuts, or connecting with our community."
@@ -48,6 +65,7 @@ export default function Remedify() {
             figmaLink="https://www.figma.com/design/8ogYcfirxJHYjrCvLm2mut/DolceDonuts?node-id=0-1&p=f&t=E6n8gLtbaFJiPonv-0"
             styleguideLink="https://www.figma.com/design/8ogYcfirxJHYjrCvLm2mut/DolceDonuts?node-id=1202-2437&p=f&t=E6n8gLtbaFJiPonv-0"
           />
+          </motion.div>
           </div>
 
           <div className={styles.prototypeBanner} id="prototype">

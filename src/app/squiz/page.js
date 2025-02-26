@@ -12,6 +12,17 @@ import NextCard from "../components/NextCard";
 import ScrollButton from "../components/ScrollButton";
 import SideMenu from "../components/SideMenu";
 import TopMenu from "../components/TopMenu";
+import { motion } from "framer-motion";
+
+// Section fade-in and float-up animation
+const sectionVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.6, ease: "easeOut" }
+  }
+};
 
 export default function Remedify() {
   return (
@@ -38,6 +49,12 @@ export default function Remedify() {
           <TopMenu />
           <div className={styles.content}>
           <div className={styles.appIntro} id="app-intro">
+            <motion.div 
+              initial="hidden" 
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={sectionVariants}
+              >
             <AppIntro 
             appName="Squiz"
             description="Squiz is a student-centered study tool designed to revolutionize exam preparation. Through advanced AI technology, including user-friendly PDF upload, content analysis, and dynamic quiz generation, Squiz offers personalized revision quizzes tailored to your specific study materials. By streamlining the study process, Squiz saves time, enhances engagement, and optimizes learning efficiency."
@@ -48,6 +65,7 @@ export default function Remedify() {
             figmaLink="https://www.figma.com/design/JvOScxfe8zCuqGOnjl2GTo/Squiz?node-id=30-619&p=f&t=O1Id74WD6aQ3oFJY-0"
             styleguideLink="https://www.figma.com/design/JvOScxfe8zCuqGOnjl2GTo/Squiz?node-id=2010-809&t=O1Id74WD6aQ3oFJY-4"
           />
+          </motion.div>
           </div>
 
           <div className={styles.prototypeBanner} id="prototype">
