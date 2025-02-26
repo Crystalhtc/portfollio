@@ -21,24 +21,54 @@
 }
 
 .hero {
-  position: sticky;
+  /* position: sticky; */
   top: 72px;
   width: 100%;
-  background-image: url("/hero.png");
+  /* background-image: url("/hero.png"); */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
-  gap: 3rem;
+  gap: 2.5rem;
   padding: 2rem;
-  max-height: 80vh;
+  /* max-height: 80vh; */
   overflow: hidden;
 }
 
-.heroText {
-  padding: 0 1.5rem;
+.heroImageContainer {
+  width: 100%;
+}
+
+.heroImageMobile {
+  width: 100%;
+}
+
+.heroImage {
+  display: none;
+}
+
+.heroImageTablet {
+  display: none;
+}
+
+.heroTextContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+}
+
+.cta h3 {
+  display: none;
+}
+
+.ctaButton {
+  width: 240px;
 }
 
 .heroImageContainer {
@@ -127,8 +157,70 @@
   }
 }
 
+@media (min-width: 425px) {
+  .heroImageMobile {
+    max-height: 45vh;
+    object-fit: cover;
+  }
+}
+
 /* Tablet (768px and up) */
 @media (min-width: 768px) {
+  
+  .heroImageMobile {
+      display: none;
+    }
+  
+    .heroImage {
+      display: none;
+    }
+  
+    .heroImageTablet {
+      display: flex;
+      width: 100%;
+    }
+
+.heroTextContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+}
+
+.cta h3 {
+  display: flex;
+  text-align: right;
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.heroTextContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+}
+
+.heroText {
+  border-right: 1.5px solid var(--light-red);
+  width: 60%;
+  padding-right: 2rem;
+}
+
+.cta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 40%;
+}
+
+.ctaButton {
+  width: 200px;
+}
+
   .headingSmall {
     font-size: 1rem;
   }
@@ -142,19 +234,15 @@
   }
 
   .hero {
-    flex-direction: row;
+    /* flex-direction: row; */
     justify-content: space-between;
     padding-bottom: 0;
     padding: 0 5rem;
   }
 
-  .heroText {
-    padding: 0 0 0 3rem;
-  }
-
   .heroImageContainer {
     display: flex;
-    width: 25%;
+    width: 100%;
   }
 
   .heroImage {
@@ -181,22 +269,74 @@
 }
 
 @media (min-width: 900px) {
+  .heroImageTablet {
+    display: none;
+  }
+
+  .heroImage {
+    display: flex;
+    width: 100%;
+  }
+
+  .heroText {
+    width: 60%;
+    
+  }
+
+  .cta {
+    width: 40%;
+  }
+
+  .cta h3 {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .ctaButton {
+    width: 240px;
+  }
+  
   .headingSmall {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
   .jobTitle {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
 
   .heading {
-    font-size: 3.5rem;
+    font-size: 3rem;
   }
   
 }
 
 /* Desktop (1024px and up) */
 @media (min-width: 1024px) {
+
+.heroText {
+  width: 70%;
+  padding-right: 2rem;
+}
+
+.cta {
+  width: 30%;
+}
+
+.cta h3 {
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+
+.cta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-left: 2rem;
+}
+
+
   .headingSmall {
     font-size: 2rem;
   }
@@ -216,14 +356,9 @@
     padding: 0 5rem;
   }
 
-  .heroText {
-    padding: 0;
-    width: 100%;
-  }
-
   .heroImageContainer {
     display: flex;
-    width: 50%;
+    width: 100%;
   }
 
   .heroImage {
@@ -245,9 +380,7 @@
     margin: 3rem 0 4rem 0;
   }
 
-  .hero {
-    max-height: none;
-  }
+
 
     .tagline {
       padding: 3rem 0;
@@ -256,22 +389,18 @@
 
 /* Large Desktop (1440px and up) */
 @media (min-width: 1440px) {
-  .heroText {
-    padding: 0 0 0 10rem;
+
+  .heroImageContainer {
+    width: 100%;
   }
 
-  .appCardList {
-    /* gap: 4rem; */
-  }
-
-    .heroImageContainer {
-      height: 100%;
-      width: auto;
-    }
-
-  .heroImage{
-    padding-right: 5rem;
-  }
+.heroImage {
+  width: 100%;
+}
+  
+.cta {
+  padding-left: 6rem;
+}
 }
 
 /* Add to the end of page.module.css */
@@ -372,5 +501,69 @@
 
   to {
     opacity: 1;
+  }
+}
+
+/* Base styles (Mobile first) */
+/* ... existing CSS ... */
+
+/* Tagline section styles */
+.taglineContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  z-index: 10;
+  background-color: var(--background);
+  overflow: hidden; /* Prevent overflow during scaling */
+}
+
+.taglineSticky {
+  position: relative;
+  top: 0;
+}
+
+.tagline {
+  padding: 2rem 0;
+  font-size: 32px; /* Base font size - now static */
+  font-weight: 400;
+  text-align: center;
+  max-width: 90%;
+  margin: 0 auto;
+  transform-origin: center center; /* Scale from center */
+  /* Remove transition to ensure immediate response to scroll */
+  transition: none;
+}
+
+/* Project section wrapper */
+.projectsWrapper {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  position: relative;
+  z-index: 5;
+}
+
+.showProjects {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Padding to ensure smooth scroll behavior */
+.projectOffset {
+  padding-top: 2rem;
+}
+
+/* Media queries for responsive behavior */
+@media (min-width: 768px) {
+  .tagline {
+    max-width: 80%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .tagline {
+    max-width: 70%;
   }
 }
