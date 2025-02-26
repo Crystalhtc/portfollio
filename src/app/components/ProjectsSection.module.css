@@ -17,6 +17,7 @@
 
 .filterButton:hover {
     border-bottom: 1.5px solid var(--light-red);
+    border-top: none;
 }
 
 .filterButton.active {

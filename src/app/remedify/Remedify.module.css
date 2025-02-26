@@ -260,7 +260,7 @@
 
 .testingTextContainer {
     padding-bottom: 3rem;
-    border-bottom: 1.5px solid var(--light-red);
+        border-bottom: 1.5px solid var(--light-red);
 }
 
 .testingDetailsContainer {
@@ -361,9 +361,9 @@
         gap: 1rem;
     }
 
-    .testingImageContainer div {
+    /* .testingImageContainer div {
         width: 50%;
-    }
+    } */
 
     .testingTextContainer {
         display: flex;
