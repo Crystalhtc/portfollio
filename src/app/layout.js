@@ -22,7 +22,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head><link rel="icon" href="/favicon.ico" sizes="any" /></head>
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <meta property="og:title" content="Crystal Cheung | UX/UI Designer" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://www.crystalhtc.com/" />
+        <meta property="og:image" content="/logo.svg" />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
       </body>
