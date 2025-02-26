@@ -318,6 +318,10 @@
 /* Desktop (1024px and up) */
 @media (min-width: 1024px) {
 
+  .hero {
+    gap: 1.5rem;
+  }
+
 .heroText {
   width: 70%;
   padding-right: 2rem;
