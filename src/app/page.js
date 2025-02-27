@@ -14,10 +14,13 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [shouldJumpToProject, setShouldJumpToProject] = useState(false);
   const [showProjects, setShowProjects] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(0);
   const taglineSectionRef = useRef(null);
 
   useEffect(() => {
     if (typeof window !== "undefined") { // Prevents server-side execution
+      setWindowWidth(window.innerWidth);
+      
       if (!sessionStorage.getItem("homePageLoaded")) {
         sessionStorage.setItem("homePageLoaded", "true");
         setIsLoading(true);
@@ -29,6 +32,14 @@ export default function Home() {
         sessionStorage.removeItem("jumpToProject"); // Clear flag
         setShouldJumpToProject(true);
       }
+      
+      // Add resize listener
+      const handleResize = () => {
+        setWindowWidth(window.innerWidth);
+      };
+      
+      window.addEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
     }
   }, []);
 
@@ -67,9 +78,17 @@ export default function Home() {
         // Calculate how far through the tagline section we've scrolled (0-1)
         const scrollProgress = (scrollPosition - taglineStartPosition) / (taglineEndPosition - taglineStartPosition);
         
-        // Scale from 1 to 1.2 based on scroll progress
+        // Define different max scale values based on screen width
         const minScale = 1;
-        const maxScale = 1.5;
+        let maxScale = 1.5; // Default for larger screens
+        
+        // Mobile screens (adjust these breakpoints as needed)
+        if (windowWidth < 768) {
+          maxScale = 1.2; // Smaller maximum scale for mobile
+        } else if (windowWidth < 1024) {
+          maxScale = 1.35; // Medium maximum scale for tablets
+        }
+        
         const newScale = minScale + ((maxScale - minScale) * scrollProgress);
         
         setTaglineScale(newScale);
@@ -88,8 +107,17 @@ export default function Home() {
           taglineSectionRef.current.style.top = '0';
         }
       } else {
-        // After tagline section, keep maximum scale
-        setTaglineScale(1.5);
+        // After tagline section, keep maximum scale (device dependent)
+        // Use the same max scale logic as above
+        let maxScale = 1.5; // Default for larger screens
+        
+        if (windowWidth < 768) {
+          maxScale = 1.2; // Smaller maximum scale for mobile
+        } else if (windowWidth < 1024) {
+          maxScale = 1.35; // Medium maximum scale for tablets
+        }
+        
+        setTaglineScale(maxScale);
         
         if (taglineSectionRef.current) {
           taglineSectionRef.current.style.position = 'relative';
@@ -107,7 +135,7 @@ export default function Home() {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [windowWidth]);
 
   return (
     <>
