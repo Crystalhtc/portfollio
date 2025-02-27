@@ -27,7 +27,7 @@ export default function RootLayout({ children }) {
         <meta property="og:title" content="Crystal Cheung | UX/UI Designer" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://www.crystalhtc.com/" />
-        <meta property="og:image" content="https://www.crystalhtc.com/logo.svg" />
+        <meta property="og:image" content="https://www.crystalhtc.com/linkedin-share.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="627" />
         <meta property="og:description" content="Crystal Cheung, a UX/UI and graphic designer crafting intuitive, user-centric experiences in web design, app design, branding, and interactive visuals." />
@@ -36,7 +36,7 @@ export default function RootLayout({ children }) {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Crystal Cheung | UX/UI Designer" />
         <meta name="twitter:description" content="Crystal Cheung, a UX/UI and graphic designer crafting intuitive, user-centric experiences in web design, app design, branding, and interactive visuals." />
-        <meta name="twitter:image" content="https://www.crystalhtc.com/logo.svg" />
+        <meta name="twitter:image" content="https://www.crystalhtc.com/linkedin-share.png" />
         <meta name="twitter:site" content="@your_twitter_handle" />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
