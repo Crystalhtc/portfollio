@@ -32,8 +32,9 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 1rem;
   padding: 2rem;
+  padding-top: 0;
   /* max-height: 80vh; */
   overflow: hidden;
 }
@@ -69,6 +70,7 @@
 
 .ctaButton {
   width: 240px;
+  margin-top: 0rem;
 }
 
 .heroImageContainer {
@@ -133,10 +135,6 @@
   padding: 10rem 1.5rem;
 }
 
-.ctaButton {
-  margin-top: 2rem;
-}
-
 .background {
   position: relative;
   background-color: var(--background);
@@ -159,6 +157,11 @@
 
   .hero {
     height: fit-content;
+    gap: 2.5rem;
+  }
+
+  .ctaButton {
+    margin-top: 2rem;
   }
 }
 
