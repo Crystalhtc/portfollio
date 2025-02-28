@@ -138,13 +138,24 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [windowWidth]);
 
- useEffect(() => {
+useEffect(() => {
   const cursor = document.getElementById('cursor');
   const heroImageContainer = document.querySelector('.' + styles.heroImageContainer);
+  let lastX = 0; // Store the last X position of the mouse
 
   const moveCursor = (e) => {
-    cursor.style.left = `${e.clientX}px`;
-    cursor.style.top = `${e.clientY}px`;
+    const { clientX, clientY } = e;
+    cursor.style.left = `${clientX}px`;
+    cursor.style.top = `${clientY}px`;
+
+    // Determine movement direction
+    if (clientX < lastX) {
+      cursor.style.transform = 'rotate(-10deg)'; // Moving left
+    } else {
+      cursor.style.transform = 'rotate(10deg)'; // Moving right
+    }
+    
+    lastX = clientX; // Update last X position
   };
 
   document.addEventListener('mousemove', moveCursor);
@@ -155,15 +166,13 @@ export default function Home() {
 
   heroImageContainer.addEventListener('mouseleave', () => {
     cursor.style.display = 'none';
+    cursor.style.transform = 'rotate(0deg)'; // Reset rotation when leaving
   });
 
   return () => {
     document.removeEventListener('mousemove', moveCursor);
-    heroImageContainer.removeEventListener('mouseenter', () => {});
-    heroImageContainer.removeEventListener('mouseleave', () => {});
   };
 }, []);
-
 
   return (
     <>

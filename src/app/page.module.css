@@ -170,6 +170,7 @@
   transform: translate(-50%, -50%);
   display: none;
   z-index: 998;
+  /* transition: all 0.1s ease; */
   /* Hide initially */
 }
 
@@ -180,7 +181,6 @@
 
 .heroImageContainer {
   cursor: none;
-  /* Hide default cursor */
 }
 
 .heroImageContainer:hover~#cursor {
