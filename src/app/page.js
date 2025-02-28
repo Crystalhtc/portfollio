@@ -156,18 +156,37 @@ useEffect(() => {
     }
     
     lastX = clientX; // Update last X position
+    
+    // Check if cursor is within heroImageContainer
+    const containerRect = heroImageContainer.getBoundingClientRect();
+    if (
+      clientX >= containerRect.left &&
+      clientX <= containerRect.right &&
+      clientY >= containerRect.top &&
+      clientY <= containerRect.bottom
+    ) {
+      cursor.style.display = 'block';
+    } else {
+      cursor.style.display = 'none';
+      cursor.style.transform = 'rotate(0deg)'; // Reset rotation when leaving
+    }
   };
 
   document.addEventListener('mousemove', moveCursor);
-
-  heroImageContainer.addEventListener('mouseenter', () => {
-    cursor.style.display = 'block';
-  });
-
-  heroImageContainer.addEventListener('mouseleave', () => {
-    cursor.style.display = 'none';
-    cursor.style.transform = 'rotate(0deg)'; // Reset rotation when leaving
-  });
+  
+  // Initial check for cursor position
+  const checkInitialPosition = () => {
+    const containerRect = heroImageContainer.getBoundingClientRect();
+    if (
+      lastX >= containerRect.left &&
+      lastX <= containerRect.right
+    ) {
+      cursor.style.display = 'block';
+    }
+  };
+  
+  // Run initial check after a small delay to ensure elements are rendered
+  setTimeout(checkInitialPosition, 100);
 
   return () => {
     document.removeEventListener('mousemove', moveCursor);
