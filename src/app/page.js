@@ -8,6 +8,7 @@ import ScrollButton from "./components/ScrollButton";
 import ProjectsSection from './components/ProjectsSection';
 import LoadingScreen from './components/LoadingScreen';
 import { useState, useEffect, useRef } from "react";
+import { MouseParallaxContainer, MouseParallaxChild } from "react-parallax-mouse";
 
 export default function Home() {
   const [taglineScale, setTaglineScale] = useState(1);
@@ -146,12 +147,6 @@ export default function Home() {
             <div className={styles.hero}>
               <div className={styles.heroImageContainer}>
                 <img
-                  src="/cover.png"
-                  alt="Crystal Cheung"
-                  width="500"
-                  className={styles.heroImage}
-                />
-                <img
                   src="/cover-tablet.png"
                   alt="Crystal Cheung"
                   width="500"
@@ -164,6 +159,16 @@ export default function Home() {
                   className={styles.heroImageMobile}
                 />
               </div>
+
+              <MouseParallaxContainer globalFactorX={0.1} globalFactorY={0.1} className={styles.heroMovement}>
+                  <MouseParallaxChild factorX={0.2} factorY={0.3} className={`${styles.crystal} ${styles.heroImageContainer}`}>
+                    <img src="/cover-crystal.png" alt="Crystal" className={styles.heroImage}/>
+                  </MouseParallaxChild>
+                  <MouseParallaxChild factorX={0.5} factorY={0.6} className={`${styles.heroBg} ${styles.heroImageContainer}`}>
+                    <img src="/cover-background.png" alt="Hero image background" className={styles.heroImage}/>
+                  </MouseParallaxChild>
+                </MouseParallaxContainer>
+              
             
               <div className={styles.heroTextContainer}>
                 <div className={styles.heroText}>
