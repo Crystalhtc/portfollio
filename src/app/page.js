@@ -158,9 +158,7 @@ export default function Home() {
                   width="500"
                   className={styles.heroImageMobile}
                 />
-              </div>
-
-              <MouseParallaxContainer globalFactorX={0.1} globalFactorY={0.1} className={styles.heroMovement}>
+                <MouseParallaxContainer globalFactorX={0.1} globalFactorY={0.1} className={styles.heroMovement}>
                   <MouseParallaxChild factorX={0.2} factorY={0.3} className={`${styles.crystal} ${styles.heroImageContainer}`}>
                     <img src="/cover-crystal.png" alt="Crystal" className={styles.heroImage}/>
                   </MouseParallaxChild>
@@ -168,6 +166,7 @@ export default function Home() {
                     <img src="/cover-background.png" alt="Hero image background" className={styles.heroImage}/>
                   </MouseParallaxChild>
                 </MouseParallaxContainer>
+              </div>
               
             
               <div className={styles.heroTextContainer}>
