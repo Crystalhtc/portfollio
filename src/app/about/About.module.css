@@ -1,339 +1,340 @@
 /* Base styles (Mobile first) */
 .content {
-    width: 100%;
-    margin: 0 auto;
-    padding: 1rem 0 2rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem 0 2rem;
 }
 
 .heading {
-    padding: 1rem 1.5rem;
-    border-bottom: 1.5px solid var(--light-red);
-    font-size: 1.75rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1.5px solid var(--light-red);
+  font-size: 1.75rem;
 }
 
 .about {
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    padding: 1.5rem;
-    border-bottom: 1.5px solid var(--light-red);
-    gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 1.5rem;
+  border-bottom: 1.5px solid var(--light-red);
+  gap: 2rem;
 }
 
 .about div {
-    width: 100%;
+  width: 100%;
 }
 
 .profilePic {
-    margin-right: 0;
+  margin-right: 0;
 }
 
 .profilePic img {
-    width: 100%;
-    max-width: 300px;
-    margin: 0 auto;
-    display: block;
+  width: 100%;
+  /* max-width: 300px; */
+  margin: 0 auto;
+  display: block;
+  animation: zoomIn 0.8s ease-out;
 }
 
 .text {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    border-left: none;
-    padding-left: 0;
-    border-top: 1.5px solid var(--light-red);
-    padding-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-left: none;
+  padding-left: 0;
+  border-top: 1.5px solid var(--light-red);
+  padding-top: 1.5rem;
 }
 
 .details,
 .interestSection {
-    display: flex;
-    flex-direction: column;
-    margin: 0 1.5rem;
-    gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  margin: 0 1.5rem;
+  gap: 1rem;
 }
 
 .detailsList {
-    display: flex;
-    gap: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
 }
 
 .connect {
-    padding: 2rem 1.5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 }
 
 .social,
 .resume {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
 }
 
 .resume {
-    border-left: none;
-    border-top: 1.5px solid var(--light-red);
-    padding: 2rem 0 0 0;
+  border-left: none;
+  border-top: 1.5px solid var(--light-red);
+  padding: 2rem 0 0 0;
 }
 
 .socialIcons {
-    display: flex;
-    gap: 2rem;
+  display: flex;
+  gap: 2rem;
 }
 
 .socialIcon {
-    color: var(--light-red);
+  color: var(--light-red);
 }
 
 .socialIcon:hover {
-    opacity: 0.8;
+  opacity: 0.8;
 }
 
 .interestSection {
-    border-top: 1.5px solid var(--light-red);
-    padding: 2rem 1.5rem;
+  border-top: 1.5px solid var(--light-red);
+  padding: 2rem 1.5rem;
 }
 
 .interestSection {
-    padding-top: 3rem;
-    padding-bottom: 0;
+  padding-top: 3rem;
+  padding-bottom: 0;
 }
 
 .skillSection {
-    border-top: 1.5px solid var(--light-red);
-    padding: 2rem 1.5rem;
-    margin: 0 2rem;
+  border-top: 1.5px solid var(--light-red);
+  padding: 2rem 1.5rem;
+  margin: 0 2rem;
 }
 
 .interestTitle {
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
 }
 
 .interest {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .interest h3 {
-    font-size: 1.2rem;
+  font-size: 1.2rem;
 }
 
 .linkButton {
-    display: flex;
-    justify-content: center;
-    margin: 2rem auto 3rem;
+  display: flex;
+  justify-content: center;
+  margin: 2rem auto 3rem;
 }
 
 .linkButton button {
-    width: fit-content;
+  width: fit-content;
 }
 
 .button {
-    width: 100%;
-    padding: 0 1rem;
+  width: 100%;
+  padding: 0 1rem;
 }
 
 /* Tablet (768px and up) */
 @media (min-width: 768px) {
-    .button{
-        display: flex;
-        justify-content: center;
-    }
+  .button {
+    display: flex;
+    justify-content: center;
+  }
 
-    .content {
-        width: 90%;
-        padding: 2rem 0 3rem;
-    }
+  .content {
+    width: 90%;
+    padding: 2rem 0 3rem;
+  }
 
-    .heading {
-        padding: 1rem 3rem;
-        font-size: 2rem;
-    }
+  .heading {
+    padding: 1rem 3rem;
+    font-size: 2rem;
+  }
 
-    .about {
-        flex-direction: row;
-        padding: 2rem 3rem;
-        gap: 3rem;
-    }
+  .text {
+    border-top: none;
+    padding-bottom: 2rem;
+  }
 
-    .about div {
-        width: 50%;
-    }
+  .details,
+  .interestSection {
+    margin: 0 3rem;
+  }
 
-    .text {
-        border-left: 1.5px solid var(--light-red);
-        border-top: none;
-        padding: 0 0 0 2rem;
-    }
+  .interestSection {
+    padding-top: 5rem;
+    padding-bottom: 0;
+  }
 
-    .details,
-    .interestSection {
-        margin: 0 3rem;
-    }
+  .skillSection {
+    padding: 3rem;
+    margin: 0 3rem;
+  }
 
-        .interestSection {
-            padding-top: 5rem;
-            padding-bottom: 0;
-        }
+  .connect {
+    padding: 3rem;
+    flex-direction: row;
+    justify-content: center;
+  }
 
-    .skillSection {
-        padding: 3rem;
-        margin: 0 3rem;
-    }
+  .resume {
+    border-top: none;
+    border-left: 1.5px solid var(--light-red);
+    padding: 0 0 0 3rem;
+    width: 50%;
+  }
 
-    .connect {
-        padding: 3rem;
-        flex-direction: row;
-        justify-content: center;
-    }
+  .interestSection {
+    padding: 3rem;
+  }
 
-    .resume {
-        border-top: none;
-        border-left: 1.5px solid var(--light-red);
-        padding: 0 0 0 3rem;
-        width: 50%;
-    }
+  .social {
+    width: 50%;
+  }
 
-    .interestSection {
-        padding: 3rem;
-    }
-
-    .social {
-        width: 50%;
-    }
-
-    .resume h2 {
-        text-align: center;
-    }
+  .resume h2 {
+    text-align: center;
+  }
 }
 
 /* Desktop (1024px and up) */
 @media (min-width: 1024px) {
-    .content {
-        width: 80%;
-    }
+  .profilePic {
+    max-width: 380px;
+    margin-left: 2.5rem;
+  }
+  .about {
+    flex-direction: row;
+    padding: 2rem 3rem;
+    gap: 3rem;
+  }
 
-    .heading {
-        padding: 1rem 5rem;
-    }
+  .about div {
+    width: 50%;
+  }
 
-    .about {
-        padding: 2rem 5rem;
-    }
+  .content {
+    width: 80%;
+  }
 
-    .text {
-        padding-left: 3rem;
-    }
+  .heading {
+    padding: 1rem 5rem;
+  }
 
-    .details,
-    .interestSection,.skillSection {
-        margin: 0 5rem;
-    }
+  .about {
+    padding: 2rem 5rem;
+  }
 
-        .interestSection {
-            padding-top: 5rem;
-            padding-bottom: 0;
-        }
+  .text {
+    padding-left: 3rem;
+    border-left: 1.5px solid var(--light-red);
+    border-top: none;
+    padding-top: 0;
+  }
 
-    .connect {
-        padding: 3rem 5rem;
-    }
 
-    .interestTitle {
-        font-size: 1.75rem;
-    }
+  .details,
+  .interestSection,
+  .skillSection {
+    margin: 0 5rem;
+  }
 
-    .interest h3 {
-        font-size: 1.3rem;
-    }
+  .interestSection {
+    padding-top: 5rem;
+    padding-bottom: 0;
+  }
+
+  .connect {
+    padding: 3rem 5rem;
+  }
+
+  .interestTitle {
+    font-size: 1.75rem;
+  }
+
+  .interest h3 {
+    font-size: 1.3rem;
+  }
 }
 
 /* Large Desktop (1440px and up) */
 @media (min-width: 1440px) {
+  .details,
+  .interestSection,
+  .skillSection {
+    margin: 0 12rem;
+  }
 
-    .details,
-    .interestSection,
-        .skillSection {
-        margin: 0 12rem;
-    }
+  .interestSection {
+    padding-top: 5rem;
+    padding-bottom: 0;
+  }
 
-        .interestSection {
-            padding-top: 5rem;
-            padding-bottom: 0;
-        }
-
-    .connect {
-        padding: 3rem 15rem;
-    }
+  .connect {
+    padding: 3rem 15rem;
+  }
 }
 
 /* Extra Large Desktop (1500px and up) */
 @media screen and (min-width: 1500px) {
-    .details {
-        padding: 0 20rem;
-    }
+  .details {
+    padding: 0 10rem;
+  }
 
-    .connect {
-        padding: 3rem 30rem;
-    }
+  .connect {
+    padding: 3rem 20rem;
+  }
 
-    .interestSection,
-    .skillSection {
-        padding: 5rem 20rem 0;
-    }
+  .interestSection,
+  .skillSection {
+    padding: 5rem 10rem 0;
+    margin: 0 22rem;
+  }
 
-    .skillSection {
-        padding-bottom: 5rem;
-    }
+  .skillSection {
+    padding-bottom: 5rem;
+  }
 }
 
 /* animations */
 
 /* Base styles (Mobile first) */
 .content {
-    width: 100%;
-    margin: 0 auto;
-    padding: 1rem 0 2rem;
-    opacity: 0;
-    animation: fadeIn 1s ease-out forwards;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem 0 2rem;
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.profilePic img {
-    width: 100%;
-    max-width: 300px;
-    margin: 0 auto;
-    display: block;
-    animation: zoomIn 0.8s ease-out;
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes zoomIn {
-    from {
-        transform: scale(0.95);
-        opacity: 0;
-    }
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
 
-    to {
-        transform: scale(1);
-        opacity: 1;
-    }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }

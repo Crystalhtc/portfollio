@@ -76,7 +76,7 @@ export default function About() {
             <div className={styles.about}>
               <div className={styles.profilePic}>
                 <img
-                  src="/profile-pic.png"
+                  src="/profile-pic-square.png"
                   alt="Crystal Cheung"
                   width="300"
                   className={styles.profilePic}
@@ -84,10 +84,16 @@ export default function About() {
               </div>
               <div className={styles.text}>
                 <p>
-                  Hi! I am a student of the Digital Design and Development program at British Columbia Institute of Technology (BCIT). I aspire to specialize as a UX/UI designer with front-end development skills, and my passion lies in crafting innovative digital experiences.
+                  Hi! I’m Crystal Cheung, a UX/UI designer with a background in social sciences. I love creating designs that aren’t just pretty but actually make people’s lives easier and more enjoyable!
                 </p>
                 <p>
-                  My background in social science and internship experiences have honed my skills in graphic design, communication, and problem-solving, which are crucial for creating engaging and user-friendly web applications.
+                  I’m currently studying Digital Design and Development at BCIT, where I’ve been diving into UX research, wireframing, and prototyping. My social sciences background helps me understand people on a deeper level, so I always design with empathy and a user-first mindset.
+                </p>
+                <p>
+                  When I’m not designing, you’ll probably find me dancing ballet. Whether I’m perfecting a pirouette or refining a user flow, I believe great design, just like dance, is all about precision, balance, and creativity.
+                </p>
+                <p>
+                  Excited to connect and create meaningful experiences together!
                 </p>
               </div>
             </div>
