@@ -138,12 +138,46 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [windowWidth]);
 
+ useEffect(() => {
+  const cursor = document.getElementById('cursor');
+  const heroImageContainer = document.querySelector('.' + styles.heroImageContainer);
+
+  const moveCursor = (e) => {
+    cursor.style.left = `${e.clientX}px`;
+    cursor.style.top = `${e.clientY}px`;
+  };
+
+  document.addEventListener('mousemove', moveCursor);
+
+  heroImageContainer.addEventListener('mouseenter', () => {
+    cursor.style.display = 'block';
+  });
+
+  heroImageContainer.addEventListener('mouseleave', () => {
+    cursor.style.display = 'none';
+  });
+
+  return () => {
+    document.removeEventListener('mousemove', moveCursor);
+    heroImageContainer.removeEventListener('mouseenter', () => {});
+    heroImageContainer.removeEventListener('mouseleave', () => {});
+  };
+}, []);
+
+
   return (
     <>
       {isLoading ? <LoadingScreen /> : (
         <div className={`${styles.page}`}>
           <Header />
           <main className={styles.main}>
+            <div id="cursor" className={styles.cursor}>
+              <img
+                  src="/cursor.svg"
+                  alt="Sakura Cursor"
+                  width="30"
+                />
+            </div>
             <div className={styles.hero}>
               <div className={styles.heroImageContainer}>
                 <img

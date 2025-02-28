@@ -159,7 +159,32 @@
 
 .crystal {
   position: absolute;
-  z-index: 1;
+  z-index: 999;
+}
+
+.cursor {
+  position: fixed;
+  width: 30px;
+  height: 30px;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  display: none;
+  z-index: 998;
+  /* Hide initially */
+}
+
+.hover-cursor {
+  display: block;
+  z-index: 998;
+}
+
+.heroImageContainer {
+  cursor: none;
+  /* Hide default cursor */
+}
+
+.heroImageContainer:hover~#cursor {
+  display: block;
 }
 
 @media (min-width: 400px) {
