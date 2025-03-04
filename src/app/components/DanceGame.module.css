@@ -1,0 +1,189 @@
+/* styles/Game.module.css */
+.container {
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex: 1;
+    padding: 0 1rem;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+}
+
+.scoreBoard {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+
+.score {
+    font-size: 1.25rem;
+}
+
+.button {
+    background-color: #3b82f6;
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    border: none;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.button:hover {
+    background-color: #2563eb;
+}
+
+.gameOver {
+    font-size: 1.5rem;
+    color: #dc2626;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.gameArea {
+    position: relative;
+    width: 100%;
+    height: 24rem;
+    border: 2px solid #9ca3af;
+    background-color: #e5e7eb;
+    overflow: hidden;
+}
+
+.floor {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #1f2937;
+}
+
+.dancer {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    transition: transform 0.1s ease;
+}
+
+.dancerHead {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #f9a8d4;
+    position: absolute;
+    left: 8px;
+    bottom: 32px;
+}
+
+.dancerBody {
+    width: 40px;
+    height: 64px;
+    background-color: #ec4899;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-radius: 4px;
+}
+
+.dancerArm1 {
+    width: 48px;
+    height: 8px;
+    background-color: #f9a8d4;
+    position: absolute;
+    left: 4px;
+    bottom: 48px;
+    transform: translateX(-8px);
+}
+
+.dancerArm2 {
+    width: 48px;
+    height: 8px;
+    background-color: #f9a8d4;
+    position: absolute;
+    left: 4px;
+    bottom: 32px;
+    transform: translateX(-8px);
+}
+
+.dancerLeg1 {
+    width: 12px;
+    height: 32px;
+    background-color: #be185d;
+    position: absolute;
+    left: 4px;
+    bottom: -32px;
+}
+
+.dancerLeg2 {
+    width: 12px;
+    height: 32px;
+    background-color: #be185d;
+    position: absolute;
+    right: 4px;
+    bottom: -32px;
+}
+
+.obstacle {
+    position: absolute;
+    background-color: #ef4444;
+}
+
+.instructions {
+    margin-top: 1rem;
+    font-size: 1.125rem;
+    max-width: 32rem;
+    text-align: center;
+}
+
+.instructions p {
+    margin: 0.3rem 0;
+}
+
+.falling {
+    animation: fall 1s forwards;
+}
+
+@keyframes fall {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(90deg);
+    }
+}
+
+@keyframes jump {
+    0% {
+        transform: translateY(0) rotate(var(--rotation));
+    }
+
+    50% {
+        transform: translateY(-120px) rotate(var(--rotation));
+    }
+
+    100% {
+        transform: translateY(0) rotate(var(--rotation));
+    }
+}
+
+.jumping {
+    animation: jump 0.5s ease-out;
+}

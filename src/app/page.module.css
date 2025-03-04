@@ -1,5 +1,7 @@
 /* Base styles (Mobile first) */
-
+.projectOffset {
+  padding-top: 2rem;
+}
 
 .headingSmall {
   color: var(--pink);
@@ -101,10 +103,6 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
-}
-
-.projectOffset {
-  margin-top: 50rem;
 }
 
 .projects h2 {
@@ -434,7 +432,9 @@
     margin: 3rem 0 4rem 0;
   }
 
-
+.projectsWrapper {
+  padding-top: 75rem;
+}
 
     .tagline {
       padding: 3rem 0;
@@ -455,7 +455,136 @@
 .cta {
   padding-left: 4rem;
 }
+
+.projectsWrapper {
+  padding-top: 95rem;
 }
+}
+
+@media (min-width: 2000px) {
+  .hero {
+      padding: 0 10rem;
+    }
+  
+  .projectsWrapper {
+    padding-top: 150rem;
+  }
+}
+
+/* Base styles (Mobile first) */
+.content {
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem 0 2rem;
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.projectsWrapper {
+  padding-top: 35rem;
+}
+
+/* Tablet and above slides container styles */
+@media (min-width: 768px) {
+  .slidesContainer {
+    height: auto;
+    /* Allow height to adjust to content */
+    max-height: none;
+    /* Remove any max-height restrictions */
+    overflow: visible;
+    /* Ensure full visibility */
+  }
+
+  .slides {
+    height: auto;
+    /* Allow full height of images */
+    max-height: none;
+    overflow: visible;
+    grid-auto-flow: row;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    /* Add some spacing between images */
+  }
+
+  .imageWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .interestImage {
+    width: 100%;
+    max-width: 540px;
+    /* Consistent max-width */
+    height: auto;
+    /* Maintain aspect ratio */
+    object-fit: contain;
+  }
+
+.projectsWrapper {
+  padding-top: 50rem;
+}
+}
+
+/* Desktop (1024px and up) specific adjustments */
+@media (min-width: 1024px) {
+  .slidesContainer {
+    height: 444px;
+    /* Specific height for desktop layout */
+    overflow: hidden;
+    position: relative;
+  }
+
+  .slides {
+    height: 720px;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    scroll-snap-type: y mandatory;
+    scrollbar-width: none;
+  }
+
+  .slides::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Large screens additional refinement */
+@media (min-width: 1440px) {
+  .slidesContainer {
+    max-width: 540px;
+    margin: 0 auto;
+  }
+}
+
+/* Fix slides div for large screens */
+@media screen and (min-width: 1500px) {
+  .slidesContainer {
+    max-width: 540px;
+    /* Limit the width */
+    margin: 0 auto;
+    /* Center the container */
+  }
+
+  .slides {
+    width: 100%;
+    /* Ensure full width within the container */
+    max-height: 720px;
+    /* Prevent overflow */
+  }
+
+  .interestSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    /* Add some space between interests and slides */
+  }
+}
+
+/* Rest of the existing CSS remains the same */
+/* Previous CSS content continues here... */
 
 /* Add to the end of page.module.css */
 
@@ -602,11 +731,6 @@
 .showProjects {
   opacity: 1;
   visibility: visible;
-}
-
-/* Padding to ensure smooth scroll behavior */
-.projectOffset {
-  padding-top: 2rem;
 }
 
 /* Media queries for responsive behavior */
