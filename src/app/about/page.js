@@ -36,7 +36,7 @@ export default function About() {
   ];
 
   const interests = [
-    { title: "Dancing 🩰", description: "I've been dancing ballet since I was 5, and I still love it at 24. Ballet has taught me discipline and how to express myself through movement.", image: "/ballet.png" },
+    { title: "Dancing 🩰", description: "I love dancing, especially ballet. It allows me to express emotions through movement and brings a sense of grace and discipline.", image: "/ballet.png" },
     { title: "Watching Anime and Dramas 🎥", description: "I enjoy watching anime and dramas. They allow me to escape into different stories and inspire my creativity.", image: "/anime.png" },
     { title: "Listening to Music 🎵", description: "Music has always been a big part of my life, and lately, I've been enjoying J-pop. It helps me relax and stay focused.", image: "/music.png" },
     { title: "Traveling ✈️", description: "I love traveling and have visited places like Japan, Taiwan, Australia, Switzerland, Thailand, and Malaysia. Each trip brings new experiences and perspectives.", image: "/travel.png" },
