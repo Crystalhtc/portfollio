@@ -484,10 +484,16 @@ export default function Remedify() {
                       />
                     </div>
                     <div>
-                      <img
+                      {/* <img
                         src="/remedify/after1.png"
                         alt="Upcoming medication logging After Usability Testing"
                         width="600"
+                        className={styles.testingImage}
+                      /> */}
+                      <ImageModal
+                        src="/remedify/after1.png"
+                        alt="Upcoming medication logging After Usability Testing"
+                        
                         className={styles.testingImage}
                       />
                     </div>
@@ -518,18 +524,29 @@ export default function Remedify() {
                   <h3 className={styles.testingTitle}>Medication Library</h3>
                   <div className={styles.testingImageContainer}>
                     <div>
-                      <img
+                      {/* <img
                         src="/remedify/before2.png"
                         alt="Medication Library Before Usability Testing"
                         width="600"
                         className={styles.testingImage}
+                      /> */}
+                      <ImageModal
+                        src="/remedify/before2.png"
+                        alt="Medication Library Before Usability Testing"
+                        
+                        className={styles.testingImage}
                       />
                     </div>
                     <div>
-                      <img
+                      {/* <img
                         src="/remedify/after2.png"
                         alt="Medication Library logging After Usability Testing"
                         width="600"
+                        className={styles.testingImage}
+                      /> */}
+                      <ImageModal
+                        src="/remedify/after2.png"
+                        alt="Medication Library logging After Usability Testing"
                         className={styles.testingImage}
                       />
                     </div>
@@ -560,18 +577,28 @@ export default function Remedify() {
                   <h3 className={styles.testingTitle}>Color Palette</h3>
                   <div className={styles.testingImageContainer}>
                     <div>
-                      <img
+                      {/* <img
                         src="/remedify/before3.png"
                         alt="Color Palette Before Usability Testing"
                         width="600"
                         className={styles.testingImage}
+                      /> */}
+                      <ImageModal
+                        src="/remedify/before3.png"
+                        alt="Color Palette Before Usability Testing"
+                        className={styles.testingImage}
                       />
                     </div>
                     <div>
-                      <img
+                      {/* <img
                         src="/remedify/after3.png"
                         alt="Color Palette After Usability Testing"
                         width="600"
+                        className={styles.testingImage}
+                      /> */}
+                      <ImageModal
+                        src="/remedify/after3.png"
+                        alt="Color Palette After Usability Testing"
                         className={styles.testingImage}
                       />
                     </div>
@@ -601,18 +628,28 @@ export default function Remedify() {
                   <h3 className={styles.testingTitle}>“Take Photo” Button</h3>
                   <div className={styles.testingImageContainer}>
                     <div>
-                      <img
+                      {/* <img
                         src="/remedify/before4.png"
                         alt='“Take Photo” Button Before Usability Testing'
                         width="600"
                         className={styles.testingImage}
+                      /> */}
+                      <ImageModal
+                        src="/remedify/before4.png"
+                        alt='“Take Photo” Button Before Usability Testing'
+                        className={styles.testingImage}
                       />
                     </div>
                     <div>
-                      <img
+                      {/* <img
                         src="/remedify/after4.png"
                         alt='“Take Photo” Button After Usability Testing'
                         width="600"
+                        className={styles.testingImage}
+                      /> */}
+                      <ImageModal
+                        src="/remedify/after4.png"
+                        alt='“Take Photo” Button After Usability Testing'
                         className={styles.testingImage}
                       />
                     </div>
