@@ -1,308 +1,180 @@
-// pages/index.js
-"use client";
+"use client "
 import { useState, useEffect, useRef } from 'react';
-import Head from 'next/head';
 import styles from './DanceGame.module.css';
-// At the top of your component, add a ref for game start time:
-
 
 export default function DanceGame() {
-const gameStartTimeRef = useRef(null);
-  const [isGameActive, setIsGameActive] = useState(false);
+  const [gameStarted, setGameStarted] = useState(false);
   const [gameOver, setGameOver] = useState(false);
   const [score, setScore] = useState(0);
-  const [highScore, setHighScore] = useState(0);
-  const [dancerRotation, setDancerRotation] = useState(0);
-  const [dancerPosition, setDancerPosition] = useState({ x: 100, y: 300 });
-  const [isJumping, setIsJumping] = useState(false);
+  const [jumping, setJumping] = useState(false);
+  const [rotation, setRotation] = useState(0);
   const [obstacles, setObstacles] = useState([]);
-  const [lastKeyPressed, setLastKeyPressed] = useState(null);
-  const [rotationDirection, setRotationDirection] = useState(1); // 1 for clockwise, -1 for counter-clockwise
-  const [rotationSpeed, setRotationSpeed] = useState(0);
-  const [isFalling, setIsFalling] = useState(false);
-  const gameLoopRef = useRef(null);
-  const obstacleTimerRef = useRef(null);
-  const scoreTimerRef = useRef(null);
-
-  // Game constants
-  const FLOOR_Y = 300;
-  const JUMP_HEIGHT = 120;
-  const JUMP_SPEED = 10;
-  const MAX_ROTATION_SPEED = 6;
-  const ROTATION_DECAY = 0.05;
-  const MIN_ROTATION_SPEED = 1;
-  const OBSTACLE_SPEED = 5;
-
-const startGame = () => {
-  setIsGameActive(true);
-  setGameOver(false);
-  setScore(0);
-  setDancerRotation(0);
-  setDancerPosition({ x: 100, y: FLOOR_Y });
-  setIsJumping(false);
-  setIsFalling(false);
-  setObstacles([]);
-  setLastKeyPressed(null);
-  setRotationDirection(1);
-  setRotationSpeed(MAX_ROTATION_SPEED / 2);
-  // Compute the dancer's visible top position
-const dancerSize = 40;
-const dancerTop = dancerPosition.y - 40; // because the dancer is drawn at y-40
-
-// Check collisions with obstacles
-obstacles.forEach(obstacle => {
-  if (
-    dancerPosition.x < obstacle.x + obstacle.width &&
-    dancerPosition.x + dancerSize > obstacle.x &&
-    dancerTop < obstacle.y + obstacle.height &&
-    dancerTop + dancerSize > obstacle.y
-  ) {
-    handleGameOver();
-  }
-});
-
-// Update falling: move the dancer down until it goes off-screen
-if (isFalling && dancerTop < window.innerHeight) {
-  setDancerPosition(prev => ({ ...prev, y: prev.y + 2 }));
-  setDancerRotation(prev => prev + rotationDirection * 2);
-  // Check if the dancer's top has moved below the screen
-  if (dancerTop > window.innerHeight) {
-    handleGameOver();
-  }
-}
-
   
-  // Record the time when the game starts
-  gameStartTimeRef.current = Date.now();
+  const gameRef = useRef(null);
+  const dancerRef = useRef(null);
+  const frameRef = useRef(null);
+  const obstacleIntervalRef = useRef(null);
   
-  // Game loop & timers remain the same...
-  gameLoopRef.current = requestAnimationFrame(gameLoop);
-  obstacleTimerRef.current = setInterval(() => {
-    if (!gameOver) {
+  const obstacleWidth = 30;
+  const obstacleMinHeight = 40;
+  const obstacleMaxHeight = 80;
+  const obstacleSpeed = 5;
+  const jumpHeight = 150;
+  const jumpDuration = 500;
+  
+  // Initialize game
+  const startGame = () => {
+    setGameStarted(true);
+    setGameOver(false);
+    setScore(0);
+    setObstacles([]);
+    
+    // Start animation frame
+    if (frameRef.current) cancelAnimationFrame(frameRef.current);
+    frameRef.current = requestAnimationFrame(gameLoop);
+    
+    // Generate obstacles
+    if (obstacleIntervalRef.current) clearInterval(obstacleIntervalRef.current);
+    obstacleIntervalRef.current = setInterval(() => {
       setObstacles(prev => [
         ...prev,
         {
           id: Date.now(),
-          x: window.innerWidth,
-          y: FLOOR_Y,
-          width: 30,
-          height: 30
+          x: 800,
+          height: Math.floor(Math.random() * (obstacleMaxHeight - obstacleMinHeight)) + obstacleMinHeight
         }
       ]);
-    }
-  }, 2000);
-  scoreTimerRef.current = setInterval(() => {
-    if (!gameOver) {
-      setScore(prev => prev + 1);
-    }
-  }, 100);
-};
-
-
-  // Game loop
-  const gameLoop = () => {
-    if (!gameOver) {
-      // Update dancer rotation
-      // Update dancer rotation
-if (rotationSpeed > 0) {
-  setDancerRotation(prev => prev + rotationDirection * rotationSpeed);
-  setRotationSpeed(prev => Math.max(prev - ROTATION_DECAY, 0));
-} 
-// Only start falling after 2 seconds have passed
-else if (!isFalling && Date.now() - gameStartTimeRef.current >= 2000) {
-  setIsFalling(true);
-}
-
-      // Update dancer position (for jumping)
-      if (isJumping && !isFalling) {
-  setDancerPosition(prev => {
-    // Going up until reaching the jump height
-    if (prev.y > FLOOR_Y - JUMP_HEIGHT && !prev.isDescending) {
-      return { ...prev, y: prev.y - JUMP_SPEED };
-    } 
-    // Once at the peak, start descending
-    else if (prev.y <= FLOOR_Y - JUMP_HEIGHT && !prev.isDescending) {
-      return { ...prev, y: prev.y, isDescending: true };
-    } 
-    // Descending back down
-    else if (prev.y < FLOOR_Y && prev.isDescending) {
-      return { ...prev, y: prev.y + JUMP_SPEED };
-    } 
-    // Landed: reset jump state
-    else {
-      setIsJumping(false);
-      return { x: prev.x, y: FLOOR_Y, isDescending: false };
-    }
-  });
-}
-
-      
-      // Update obstacles
-      setObstacles(prev => 
-        prev.map(obstacle => ({
-          ...obstacle,
-          x: obstacle.x - OBSTACLE_SPEED
-        })).filter(obstacle => obstacle.x > -obstacle.width)
-      );
-      
-      // Check for collisions
-      const dancerSize = 40;
-      obstacles.forEach(obstacle => {
-        if (
-          dancerPosition.x < obstacle.x + obstacle.width &&
-          dancerPosition.x + dancerSize > obstacle.x &&
-          dancerPosition.y < obstacle.y + obstacle.height &&
-          dancerPosition.y + dancerSize > obstacle.y
-        ) {
-          handleGameOver();
-        }
-      });
-      
-      // Check if dancer has fallen
-      if (isFalling && dancerPosition.y < window.innerHeight) {
-        setDancerPosition(prev => ({ ...prev, y: prev.y + 2 }));
-        setDancerRotation(prev => prev + rotationDirection * 2);
-        if (dancerPosition.y > window.innerHeight) {
-          handleGameOver();
-        }
-      }
-      
-      gameLoopRef.current = requestAnimationFrame(gameLoop);
+    }, 2000);
+  };
+  
+  // Handle jumping
+  const jump = () => {
+    if (!jumping && gameStarted && !gameOver) {
+      setJumping(true);
+      setTimeout(() => {
+        setJumping(false);
+      }, jumpDuration);
     }
   };
   
-  // Handle game over
-  const handleGameOver = () => {
-    setGameOver(true);
-    setIsGameActive(false);
-    if (score > highScore) {
-      setHighScore(score);
-    }
-    cancelAnimationFrame(gameLoopRef.current);
-    clearInterval(obstacleTimerRef.current);
-    clearInterval(scoreTimerRef.current);
-  };
-  
-  // Handle key presses
+  // Handle keyboard events
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (!isGameActive || gameOver) return;
-      
-      // Handle arrow keys for rotation
-      if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
-        if (lastKeyPressed !== e.key) {
-          // Correct alternating pattern
-          if (
-            (lastKeyPressed === 'ArrowLeft' && e.key === 'ArrowRight') ||
-            (lastKeyPressed === 'ArrowRight' && e.key === 'ArrowLeft') ||
-            lastKeyPressed === null
-          ) {
-            setRotationDirection(e.key === 'ArrowRight' ? 1 : -1);
-            setRotationSpeed(MAX_ROTATION_SPEED);
-            setIsFalling(false);
-          }
-          setLastKeyPressed(e.key);
+      if (e.code === 'Space') {
+        e.preventDefault();
+        if (!gameStarted) {
+          startGame();
+        } else {
+          jump();
         }
       }
-      
-      // Handle space for jumping
-       if (e.key === ' ' && !isJumping && !isFalling && dancerPosition.y === FLOOR_Y) {
-    setIsJumping(true);
-  }
     };
     
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [lastKeyPressed, isGameActive, gameOver, isJumping, dancerPosition.y]);
+  }, [gameStarted, jumping, gameOver]);
   
-  // Clean up game resources on unmount
+  // Main game loop
+  const gameLoop = () => {
+    if (gameOver) return;
+    
+    // Update rotation
+    setRotation(prev => (prev + 2) % 360);
+    
+    // Update obstacle positions
+    setObstacles(prev => {
+      return prev
+        .map(obstacle => ({
+          ...obstacle,
+          x: obstacle.x - obstacleSpeed
+        }))
+        .filter(obstacle => obstacle.x > -obstacleWidth);
+    });
+    
+
+    
+    setScore(prev => prev + 1);
+    
+    frameRef.current = requestAnimationFrame(gameLoop);
+  };
+  
+  const endGame = () => {
+    setGameOver(true);
+    if (frameRef.current) cancelAnimationFrame(frameRef.current);
+    if (obstacleIntervalRef.current) clearInterval(obstacleIntervalRef.current);
+  };
+  
   useEffect(() => {
     return () => {
-      cancelAnimationFrame(gameLoopRef.current);
-      clearInterval(obstacleTimerRef.current);
-      clearInterval(scoreTimerRef.current);
+      if (frameRef.current) cancelAnimationFrame(frameRef.current);
+      if (obstacleIntervalRef.current) clearInterval(obstacleIntervalRef.current);
     };
   }, []);
-
+  
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Dancer Minigame</title>
-        <meta name="description" content="A dancing minigame with obstacles" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>Dancer Minigame</h1>
-        
-        <div className={styles.scoreBoard}>
-          <div className={styles.score}>Score: {score}</div>
-          <div className={styles.score}>High Score: {highScore}</div>
-        </div>
-        
-        {!isGameActive && (
-          <button 
-            onClick={startGame}
-            className={styles.button}
-          >
-            {gameOver ? 'Play Again' : 'Start Game'}
-          </button>
+    <div className={styles.gameContainer}>
+      <div className={styles.scoreBoard}>Score: {score}</div>
+      
+      <div 
+        ref={gameRef}
+        className={styles.gameArea}
+        onClick={() => {
+          if (!gameStarted) startGame();
+          else if (!gameOver) jump();
+        }}
+      >
+        {!gameStarted && !gameOver && (
+          <div className={styles.startScreen}>
+            <h2>Dancing Jumper</h2>
+            <p>Press SPACE to start</p>
+          </div>
         )}
         
         {gameOver && (
-          <div className={styles.gameOver}>Game Over!</div>
+          <div className={styles.gameOverScreen}>
+            <h2>Game Over!</h2>
+            <p>Your score: {score}</p>
+            <button className={styles.restartButton} onClick={startGame}>
+              Play Again
+            </button>
+          </div>
         )}
         
-        <div className={styles.gameArea}>
-          {/* Floor */}
-          <div 
-            className={styles.floor}
-            style={{ top: FLOOR_Y + 10 }}
-          ></div>
-          
-          {/* Dancer */}
-          <div
-            className={`${styles.dancer} ${isFalling ? styles.falling : ''}`}
-            style={{
-              left: dancerPosition.x,
-              top: dancerPosition.y - 40, // Adjust for dancer height
-              transform: `rotate(${dancerRotation}deg)`,
-            }}
-          >
-            {/* Dancer head */}
-            <div className={styles.dancerHead}></div>
-            {/* Dancer body */}
-            <div className={styles.dancerBody}></div>
-            {/* Dancer arms */}
-            <div className={styles.dancerArm1}></div>
-            <div className={styles.dancerArm2}></div>
-            {/* Dancer legs */}
-            <div className={styles.dancerLeg1}></div>
-            <div className={styles.dancerLeg2}></div>
-          </div>
-          
-          {/* Obstacles */}
-          {obstacles.map(obstacle => (
-            <div
-              key={obstacle.id}
-              className={styles.obstacle}
+        {(gameStarted || gameOver) && (
+          <>
+            <div 
+              ref={dancerRef}
+              className={styles.dancer}
               style={{
-                left: obstacle.x,
-                top: obstacle.y - obstacle.height,
-                width: obstacle.width,
-                height: obstacle.height
+                transform: `translateY(${jumping ? -jumpHeight : 0}px)    `,
+                transition: jumping ? `transform ${jumpDuration/1000}s cubic-bezier(0.1, 0.8, 0.2, 1)` : 'transform 0.1s linear',
               }}
-            ></div>
-          ))}
-        </div>
-        
-        <div className={styles.instructions}>
-          <p><strong>How to play:</strong></p>
-          <p>Press Left and Right arrow keys alternately to keep the dancer spinning</p>
-          <p>Press Space to jump over obstacles</p>
-          <p>If you stop spinning or hit an obstacle, it's game over!</p>
-        </div>
-      </main>
+            >
+              <img
+                    src="/game/dancer.svg"
+                    alt='Dancer'
+                    className={styles.dancer}
+                    loading="lazy"
+                />
+            </div>
+            
+            {obstacles.map(obstacle => (
+              <div
+                id={`obstacle-${obstacle.id}`}
+                key={obstacle.id}
+                className={styles.obstacle}
+                style={{
+                  left: `${obstacle.x}px`,
+                  height: `${obstacle.height}px`,
+                  bottom: '0',
+                }}
+              ></div>
+            ))}
+            
+            <div className={styles.ground}></div>
+          </>
+        )}
+      </div>
     </div>
   );
 }
