@@ -1,4 +1,4 @@
-"use client "
+"use client"
 import { useState, useEffect, useRef } from 'react';
 import styles from './DanceGame.module.css';
 
@@ -14,16 +14,15 @@ export default function DanceGame() {
   const dancerRef = useRef(null);
   const frameRef = useRef(null);
   const obstacleIntervalRef = useRef(null);
-  
   const obstacleWidth = 30;
-  const obstacleMinHeight = 40;
-  const obstacleMaxHeight = 80;
+  const obstacleMinHeight = 30;
+  const obstacleMaxHeight = 60;
   const obstacleSpeed = 5;
   const jumpHeight = 150;
   const jumpDuration = 500;
   
   // Initialize game
-  const startGame = () => {
+  const startGame = () => { 
     setGameStarted(true);
     setGameOver(false);
     setScore(0);
@@ -97,12 +96,50 @@ export default function DanceGame() {
     
     frameRef.current = requestAnimationFrame(gameLoop);
   };
-  
+
   const endGame = () => {
     setGameOver(true);
     if (frameRef.current) cancelAnimationFrame(frameRef.current);
     if (obstacleIntervalRef.current) clearInterval(obstacleIntervalRef.current);
   };
+
+        // Collision detection
+    if (dancerRef.current) {
+      const dancerRect = dancerRef.current.getBoundingClientRect();
+      
+      if (gameRef.current) {
+        const gameRect = gameRef.current.getBoundingClientRect();
+        
+        obstacles.forEach(obstacle => {
+          const obstacleEl = document.getElementById(`obstacle-${obstacle.id}`);
+          if (obstacleEl) {
+            const obstacleRect = obstacleEl.getBoundingClientRect();
+            
+            // Adjust coordinates relative to game container
+            const dancerLeft = dancerRect.left - gameRect.left;
+            const dancerRight = dancerRect.right - gameRect.left;
+            const dancerTop = dancerRect.top - gameRect.top;
+            const dancerBottom = dancerRect.bottom - gameRect.top;
+            
+            const obstacleLeft = obstacleRect.left - gameRect.left;
+            const obstacleRight = obstacleRect.right - gameRect.left;
+            const obstacleTop = obstacleRect.top - gameRect.top;
+            const obstacleBottom = obstacleRect.bottom - gameRect.top;
+            
+            // Check for collision
+            if (
+              dancerRight > obstacleLeft &&
+              dancerLeft < obstacleRight &&
+              dancerBottom > obstacleTop &&
+              dancerTop < obstacleBottom
+            ) {
+              endGame();
+              return;
+            }
+          }
+        });
+      }
+    }
   
   useEffect(() => {
     return () => {
