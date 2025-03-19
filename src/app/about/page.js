@@ -216,7 +216,7 @@ export default function About() {
             </div>
           </motion.div>
         </div>
-        {/* <DanceGame/> */}
+        <DanceGame/>
       </main>
       <ScrollButton />
       <Footer />
