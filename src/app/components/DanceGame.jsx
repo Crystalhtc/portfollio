@@ -4,10 +4,10 @@ import { useEffect, useRef, useState } from 'react';
 import { useTheme } from 'next-themes';
 import styles from './DanceGame.module.css';
 
-const CANVAS_WIDTH = 800;
+const CANVAS_WIDTH = 1000;
 const CANVAS_HEIGHT = 400;
 const GROUND_HEIGHT = 0;
-const DANCER_WIDTH = 60;
+const DANCER_WIDTH = 100;
 const DANCER_HEIGHT = 200;
 const BLOCK_WIDTH = 30;
 const BLOCK_HEIGHT = 50;
@@ -16,16 +16,25 @@ const JUMP_FORCE = -700;
 const GAME_SPEED = 400; 
 const TERMINAL_VELOCITY = 800; 
 
-const dancerImage = new Image();
-dancerImage.src = '/game/dancer.svg';
-
-export default function TRexGame() {
+export default function DanceGame() {
   const canvasRef = useRef(null);
   const [gameStarted, setGameStarted] = useState(false);
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
   const { theme } = useTheme();
+
+  const dancerImageRef = useRef(null);
+  // Track mouse position for button interaction
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isMouseDown, setIsMouseDown] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = '/game/dancer.svg';
+    dancerImageRef.current = img;
+  }, []);
 
   const gameStateRef = useRef({
     dancerY: 0,
@@ -46,7 +55,9 @@ export default function TRexGame() {
     gameStateRef.current.dancerY = groundY - DANCER_HEIGHT;
 
     function drawDancer() {
-      ctx.drawImage(dancerImage, 50, gameStateRef.current.dancerY, DANCER_WIDTH, DANCER_HEIGHT);
+      if (dancerImageRef.current) {
+        ctx.drawImage(dancerImageRef.current, 50, gameStateRef.current.dancerY, DANCER_WIDTH, DANCER_HEIGHT);
+      }
     }
 
     function drawGround() {
@@ -57,6 +68,74 @@ export default function TRexGame() {
     function drawBlock(x) {
       ctx.fillStyle = '#D66969';
       ctx.fillRect(x, groundY - BLOCK_HEIGHT, BLOCK_WIDTH, BLOCK_HEIGHT);
+    }
+
+    function drawScore() {
+      ctx.fillStyle = '#D66969';
+      ctx.font = 'bold 24px Montserrat';
+      ctx.textAlign = 'left';
+      ctx.fillText(`Score: ${score}`, 20, 40);
+      ctx.fillText(`High Score: ${highScore}`, 20, 80);
+    }
+
+    function drawStartButton() {
+      const buttonWidth = 200;
+      const buttonHeight = 60;
+      const buttonX = (CANVAS_WIDTH - buttonWidth) / 2;
+      const buttonY = (CANVAS_HEIGHT - buttonHeight) / 2;
+      
+      // Calculate if mouse is over button
+      const isMouseOverButton = 
+        mousePos.x >= buttonX && 
+        mousePos.x <= buttonX + buttonWidth &&
+        mousePos.y >= buttonY && 
+        mousePos.y <= buttonY + buttonHeight;
+      
+      // Button background
+      ctx.fillStyle = '#D66969';
+      ctx.fillRect(buttonX, buttonY, buttonWidth, buttonHeight);
+      
+      // Button text
+      ctx.fillStyle = '#FFFFFF';
+      ctx.font = 'bold 24px Montserrat';
+      ctx.textAlign = 'center';
+      ctx.fillText('Start Game', CANVAS_WIDTH / 2, buttonY + buttonHeight / 2 + 8);
+      
+      // Check if mouse is over button and clicked
+      if (isMouseOverButton && isMouseDown) {
+        startGame();
+        setIsMouseDown(false);
+      }
+    }
+
+    function drawPlayAgainButton() {
+      const buttonWidth = 200;
+      const buttonHeight = 60;
+      const buttonX = (CANVAS_WIDTH - buttonWidth) / 2;
+      const buttonY = (CANVAS_HEIGHT - buttonHeight) / 2 + 120;
+      
+      // Calculate if mouse is over button
+      const isMouseOverButton = 
+        mousePos.x >= buttonX && 
+        mousePos.x <= buttonX + buttonWidth &&
+        mousePos.y >= buttonY && 
+        mousePos.y <= buttonY + buttonHeight;
+      
+      // Button background - always use the same color regardless of hover state in game over
+      ctx.fillStyle = '#D66969';
+      ctx.fillRect(buttonX, buttonY, buttonWidth, buttonHeight);
+      
+      // Button text
+      ctx.fillStyle = '#FFFFFF';
+      ctx.font = 'bold 24px Montserrat';
+      ctx.textAlign = 'center';
+      ctx.fillText('Play Again', CANVAS_WIDTH / 2, buttonY + buttonHeight / 2 + 8);
+      
+      // Check if mouse is over button and clicked
+      if (isMouseOverButton && isMouseDown) {
+        startGame();
+        setIsMouseDown(false);
+      }
     }
 
     function checkCollision(dancerY, blockX) {
@@ -100,6 +179,15 @@ export default function TRexGame() {
       if (checkCollision(gameStateRef.current.dancerY, block.x)) {
         setGameOver(true);
         setHighScore((prev) => Math.max(prev, score));
+        
+        // Draw final state before game over screen appears
+        drawGround();
+        drawBlock(block.x);
+        drawDancer();
+        drawScore();
+        
+        // Draw game over screen on canvas
+        drawGameOverScreen();
         return;
       }
 
@@ -111,16 +199,39 @@ export default function TRexGame() {
       drawGround();
       drawBlock(block.x);
       drawDancer();
+      drawScore();
 
       if (!gameOver) {
         requestAnimationFrame(gameLoop);
       }
     }
+    
+    function drawGameOverScreen() {
+      // Add semi-transparent overlay
+      ctx.fillStyle = '#d6696939';
+      ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+      
+      // Game Over text
+      ctx.fillStyle = '#ffffff';
+      ctx.font = 'bold 48px Bona Nova';
+      ctx.textAlign = 'center';
+      ctx.fillText('GAME OVER', CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2 - 50);
+      
+      // Score display
+      ctx.font = '24px Montserrat';
+      ctx.fillText(`Score: ${score}`, CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
+      ctx.fillText(`High Score: ${highScore}`, CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2 + 40);
+      
+      // Draw Play Again button
+      drawPlayAgainButton();
+    }
 
     function handleKeyDown(e) {
       if (e.code === 'Space' || e.code === 'ArrowUp') {
         e.preventDefault();
-        if (!gameStateRef.current.isJumping) {
+        if (gameOver) {
+          startGame();
+        } else if (!gameStateRef.current.isJumping) {
           jump();
         }
       }
@@ -128,7 +239,9 @@ export default function TRexGame() {
 
     function handleTouch(e) {
       e.preventDefault();
-      if (!gameStateRef.current.isJumping) {
+      if (gameOver) {
+        startGame();
+      } else if (!gameStateRef.current.isJumping) {
         jump();
       }
     }
@@ -141,15 +254,32 @@ export default function TRexGame() {
     window.addEventListener('keydown', handleKeyDown);
     canvas.addEventListener('touchstart', handleTouch);
 
-    if (gameStarted && !gameOver) {
+    // Draw appropriate screen based on game state
+    if (!gameStarted) {
+      ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+      drawGround();
+      drawDancer();
+      drawScore();
+      drawStartButton();
+    } else if (gameStarted && !gameOver) {
       requestAnimationFrame(gameLoop);
+    } else if (gameOver) {
+      // Draw final state
+      drawGround();
+      const block = gameStateRef.current.block;
+      drawBlock(block.x);
+      drawDancer();
+      drawScore();
+      
+      // Draw game over screen
+      drawGameOverScreen();
     }
 
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
       canvas.removeEventListener('touchstart', handleTouch);
     };
-  }, [gameStarted, gameOver, score, theme]);
+  }, [gameStarted, gameOver, score, highScore, theme, mousePos, isMouseDown]);
 
   function startGame() {
     setGameStarted(true);
@@ -164,19 +294,40 @@ export default function TRexGame() {
     };
   }
 
+  // Handle mouse events for button interaction
+  function handleMouseMove(e) {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    
+    const rect = canvas.getBoundingClientRect();
+    setMousePos({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top
+    });
+  }
+
+  function handleMouseDown() {
+    setIsMouseDown(true);
+  }
+
+  function handleMouseUp() {
+    setIsMouseDown(false);
+  }
+
   return (
     <div className={styles.gameContainer}>
-      <div className={styles.scoreBoard}>
-        <p>Score: {score}</p>
-        <p>High Score: {highScore}</p>
-      </div>
-      <canvas ref={canvasRef} width={CANVAS_WIDTH} height={CANVAS_HEIGHT} className={styles.gameArea} />
-      {!gameStarted || gameOver ? (
-        <button onClick={startGame} className={styles.startButton}>
-          {gameOver ? 'Play Again' : 'Start Game'}
-        </button>
-      ) : null}
-      <p className={styles.howToPlay}>Press SPACE or UP ARROW to jump</p>
+      <canvas 
+        ref={canvasRef} 
+        width={CANVAS_WIDTH} 
+        height={CANVAS_HEIGHT} 
+        className={styles.gameArea}
+        onMouseMove={handleMouseMove}
+        onMouseDown={handleMouseDown}
+        onMouseUp={handleMouseUp}
+      />
+      <p className={styles.howToPlay}>
+        {gameOver ? 'Press SPACE or UP ARROW to try again' : 'Press SPACE or UP ARROW to jump'}
+      </p>
     </div>
   );
 }

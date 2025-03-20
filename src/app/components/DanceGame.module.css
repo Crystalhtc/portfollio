@@ -4,8 +4,8 @@
     flex-direction: column;
     align-items: center;
     margin: 20px auto;
-    max-width: 800px;
-    max-height: 300px;
+    /* max-width: 800px;
+    max-height: 300px; */
 }
 
 .scoreBoard {
@@ -16,8 +16,6 @@
 
 .gameArea {
     position: relative;
-    width: 800px;
-    height: 300px;
     border: 2px solid var(--light-red);
     overflow: hidden;
     cursor: pointer;
