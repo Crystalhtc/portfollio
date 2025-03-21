@@ -7,7 +7,6 @@ import ScrollButton from "../components/ScrollButton";
 import { motion } from "framer-motion";
 import DanceGame from "../components/DanceGame";
 
-// Animation variants for staggered floating effect
 const itemVariants = {
   hidden: { opacity: 0, y: 30 },
   visible: (index) => ({
@@ -17,13 +16,12 @@ const itemVariants = {
   }),
 };
 
-// Animation for the Connect Section (delayed float-in)
 const connectVariants = {
   hidden: { opacity: 0, y: 50 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { delay: 0.5, duration: 0.8 }, // Delay of 0.5s for smooth appearance
+    transition: { delay: 0.5, duration: 0.8 }, 
   },
 };
 
@@ -77,11 +75,13 @@ export default function About() {
     },
   ];
 
-  // Ref to track the Interest Section
   const interestRef = useRef(null);
   const slidesRef = useRef(null);
   const [isInterestVisible, setIsInterestVisible] = useState(false);
   const [activeInterestIndex, setActiveInterestIndex] = useState(0);
+  const [scrollSource, setScrollSource] = useState(null); // 'hover' or 'scroll'
+  const scrollTimeoutRef = useRef(null);
+  const isManualScrollRef = useRef(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -90,7 +90,7 @@ export default function About() {
           setIsInterestVisible(true);
         }
       },
-      { threshold: 0.2 } // Trigger when 20% of the section is visible
+      { threshold: 0.2 }
     );
 
     if (interestRef.current) {
@@ -104,21 +104,68 @@ export default function About() {
     };
   }, []);
 
-  // Effect to handle smooth scrolling when active interest changes
   useEffect(() => {
-    if (slidesRef.current) {
+    if (slidesRef.current && scrollSource === 'hover') {
       const imageHeight = slidesRef.current.children[0].offsetHeight;
       const targetScrollTop = activeInterestIndex * imageHeight;
-
-      // Use smooth scrolling animation
+      
+      isManualScrollRef.current = true;
+      
       slidesRef.current.scrollTo({
         top: targetScrollTop,
         behavior: "smooth",
       });
+      
+      setTimeout(() => {
+        isManualScrollRef.current = false;
+      }, 500);
     }
-  }, [activeInterestIndex]);
+    
+    const timeout = setTimeout(() => {
+      setScrollSource(null);
+    }, 300);
+    
+    return () => clearTimeout(timeout);
+  }, [activeInterestIndex, scrollSource]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!slidesRef.current || isManualScrollRef.current) return;
+      
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+      
+      scrollTimeoutRef.current = setTimeout(() => {
+        const imageHeight = slidesRef.current.children[0].offsetHeight;
+        const scrollTop = slidesRef.current.scrollTop;
+        
+        const index = Math.round(scrollTop / imageHeight);
+        
+        if (index !== activeInterestIndex && index >= 0 && index < interests.length) {
+          setScrollSource('scroll');
+          setActiveInterestIndex(index);
+        }
+      }, 50);
+    };
+
+    if (slidesRef.current) {
+      slidesRef.current.style.scrollBehavior = 'smooth';
+      slidesRef.current.addEventListener('scroll', handleScroll, { passive: true });
+    }
+
+    return () => {
+      if (slidesRef.current) {
+        slidesRef.current.removeEventListener('scroll', handleScroll);
+      }
+      if (scrollTimeoutRef.current) {
+        clearTimeout(scrollTimeoutRef.current);
+      }
+    };
+  }, [activeInterestIndex, interests.length, scrollSource]);
 
   const handleInterestHover = (index) => {
+    setScrollSource('hover');
     setActiveInterestIndex(index);
   };
 
@@ -165,7 +212,6 @@ export default function About() {
             </div>
           </div>
 
-          {/* Connect Section with Delayed Animation */}
           <motion.div
             className={styles.connect}
             initial="hidden"
@@ -209,7 +255,6 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* Skill Section with Staggered Floating Effect */}
           <motion.div
             className={styles.skillSection}
             initial="hidden"
@@ -230,7 +275,6 @@ export default function About() {
             ))}
           </motion.div>
 
-          {/* Interest Section - Animates ONLY when user scrolls to it */}
           <motion.div
             ref={interestRef}
             className={styles.interestSection}
