@@ -11,31 +11,29 @@ const DANCER_WIDTH = 100;
 const DANCER_HEIGHT = 200;
 const BLOCK_WIDTH = 30;
 const BLOCK_HEIGHT = 50;
-const GRAVITY = 1500; 
-const JUMP_FORCE = -700; 
-const GAME_SPEED = 400; 
-const TERMINAL_VELOCITY = 800; 
+const GRAVITY = 1500;
+const JUMP_FORCE = -700;
+const GAME_SPEED = 400;
+const TERMINAL_VELOCITY = 800;
+const SCORES_PER_SESSION = 3;
+const TOTAL_SESSIONS = 3;
 
 export default function DanceGame() {
   const canvasRef = useRef(null);
   const [gameStarted, setGameStarted] = useState(false);
   const [score, setScore] = useState(0);
+  const [sessionScore, setSessionScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
+  const [currentSession, setCurrentSession] = useState(1);
+  const [sessionPaused, setSessionPaused] = useState(false);
   const { theme } = useTheme();
 
   const dancerImageRef = useRef(null);
-  // Track mouse position for button interaction
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isMouseDown, setIsMouseDown] = useState(false);
-  const [isHovering, setIsHovering] = useState(false);
-
-  useEffect(() => {
-    const img = new Image();
-    img.src = '/game/dancer.svg';
-    dancerImageRef.current = img;
-  }, []);
-
+  const scoreRef = useRef(0);
+  const sessionScoreRef = useRef(0);
   const gameStateRef = useRef({
     dancerY: 0,
     dancerVelocity: 0,
@@ -43,6 +41,275 @@ export default function DanceGame() {
     block: { x: 0 },
     lastTimestamp: 0,
   });
+
+  useEffect(() => {
+    const img = new Image();
+    img.src = '/game/dancer.svg';
+    img.onload = () => {
+      dancerImageRef.current = img;
+    };
+  }, []);
+
+  const danceFacts = [
+    "The oldest recorded dance dates back more than 9,000 years, depicted in cave paintings in India.",
+    "Dancing releases endorphins, the 'feel-good' chemicals in our brains, which can help reduce stress and pain.",
+    "The 'moonwalk', made famous by Michael Jackson, was actually created by dancers in the 1930s.",
+    "Choreophobia is the fear of dancing. Some people experience anxiety at the thought of dancing in public.",
+    "Ballet dancers can spin at speeds of up to 91 RPM during fouettés."
+  ];
+
+  const drawDancer = (ctx) => {
+    if (dancerImageRef.current) {
+      ctx.drawImage(dancerImageRef.current, 50, gameStateRef.current.dancerY, DANCER_WIDTH, DANCER_HEIGHT);
+    } else {
+      ctx.fillStyle = 'blue';
+      ctx.fillRect(50, gameStateRef.current.dancerY, DANCER_WIDTH, DANCER_HEIGHT);
+    }
+  };
+
+  const drawGround = (ctx, groundY) => {
+    ctx.fillStyle = '#D66969';
+    ctx.fillRect(0, groundY, CANVAS_WIDTH, 2);
+  };
+
+  const drawStartScreen = (ctx) => {
+    const centerX = CANVAS_WIDTH / 2;
+    const centerY = CANVAS_HEIGHT / 2;
+    ctx.fillStyle = '#D66969';
+    ctx.font = 'bold 36px Montserrat';
+    ctx.textAlign = 'center';
+    ctx.fillText('Dance Jump!', centerX, centerY - 100);
+    ctx.font = '20px Montserrat';
+    ctx.fillText('Press SPACE or UP ARROW to jump', centerX, centerY - 60);
+    ctx.fillText('Avoid obstacles and score high!', centerX, centerY - 30);
+    ctx.fillText(`Complete ${TOTAL_SESSIONS} sessions of ${SCORES_PER_SESSION} points each`, centerX, centerY);
+  };
+
+  const drawSessionInfo = (ctx) => {
+    ctx.fillStyle = '#D66969';
+    ctx.font = 'bold 16px Montserrat';
+    ctx.textAlign = 'right';
+    ctx.fillText(`Session: ${currentSession}/${TOTAL_SESSIONS}`, CANVAS_WIDTH - 20, 40);
+    ctx.fillText(`Session Progress: ${sessionScore}/${SCORES_PER_SESSION}`, CANVAS_WIDTH - 20, 70);
+  };
+
+  const drawBlock = (ctx, x, groundY) => {
+    ctx.fillStyle = '#D66969';
+    ctx.fillRect(x, groundY - BLOCK_HEIGHT, BLOCK_WIDTH, BLOCK_HEIGHT);
+  };
+
+  const drawScore = (ctx) => {
+    ctx.fillStyle = '#D66969';
+    ctx.font = 'bold 24px Montserrat';
+    ctx.textAlign = 'left';
+    ctx.fillText(`Score: ${score}`, 20, 40);
+    ctx.fillText(`High Score: ${highScore}`, 20, 80);
+  };
+
+  const drawStartButton = (ctx) => {
+    const buttonWidth = 200;
+    const buttonHeight = 60;
+    const buttonX = (CANVAS_WIDTH - buttonWidth) / 2;
+    const buttonY = CANVAS_HEIGHT / 2 + 30;
+    const isMouseOverButton =
+      mousePos.x >= buttonX &&
+      mousePos.x <= buttonX + buttonWidth &&
+      mousePos.y >= buttonY &&
+      mousePos.y <= buttonY + buttonHeight;
+    ctx.fillStyle = isMouseOverButton ? '#E87979' : '#D66969';
+    ctx.fillRect(buttonX, buttonY, buttonWidth, buttonHeight);
+    ctx.fillStyle = '#FFFFFF';
+    ctx.font = 'bold 24px Montserrat';
+    ctx.textAlign = 'center';
+    ctx.fillText('Start Game', CANVAS_WIDTH / 2, buttonY + buttonHeight / 2 + 8);
+    if (isMouseOverButton && isMouseDown) {
+      startGame();
+      setIsMouseDown(false);
+    }
+  };
+
+  const drawFactScreen = (ctx) => {
+    const centerX = CANVAS_WIDTH / 2;
+    const centerY = CANVAS_HEIGHT / 2;
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+    ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    ctx.fillStyle = '#FFFFFF';
+    ctx.font = 'bold 32px Montserrat';
+    ctx.textAlign = 'center';
+    ctx.fillText(`Session ${currentSession} Complete!`, centerX, centerY - 80);
+    ctx.font = '20px Montserrat';
+    ctx.fillText(`You've scored ${SCORES_PER_SESSION} points in this session.`, centerX, centerY - 40);
+    ctx.fillStyle = '#FFD700';
+    ctx.font = 'italic 22px Montserrat';
+    const factIndex = (currentSession - 1) % danceFacts.length;
+    const fact = danceFacts[factIndex];
+    const maxWidth = CANVAS_WIDTH * 0.8;
+    const lineHeight = 30;
+    const words = fact.split(' ');
+    let line = 'Did you know? ';
+    let lines = [];
+    let y = centerY + 20;
+    for (let i = 0; i < words.length; i++) {
+      const testLine = line + words[i] + ' ';
+      const metrics = ctx.measureText(testLine);
+      if (metrics.width > maxWidth && i > 0) {
+        lines.push(line);
+        line = words[i] + ' ';
+      } else {
+        line = testLine;
+      }
+    }
+    lines.push(line);
+    for (let i = 0; i < lines.length; i++) {
+      ctx.fillText(lines[i], centerX, y);
+      y += lineHeight;
+    }
+    drawContinueButton(ctx);
+  };
+
+  const drawContinueButton = (ctx) => {
+    const buttonWidth = 200;
+    const buttonHeight = 60;
+    const buttonX = (CANVAS_WIDTH - buttonWidth) / 2;
+    const buttonY = CANVAS_HEIGHT / 2 + 100;
+    const isMouseOverButton =
+      mousePos.x >= buttonX &&
+      mousePos.x <= buttonX + buttonWidth &&
+      mousePos.y >= buttonY &&
+      mousePos.y <= buttonY + buttonHeight;
+    ctx.fillStyle = isMouseOverButton ? '#E87979' : '#D66969';
+    ctx.fillRect(buttonX, buttonY, buttonWidth, buttonHeight);
+    ctx.fillStyle = '#FFFFFF';
+    ctx.font = 'bold 24px Montserrat';
+    ctx.textAlign = 'center';
+    const buttonText = currentSession < TOTAL_SESSIONS ? 'Continue Playing' : 'See Final Results';
+    ctx.fillText(buttonText, CANVAS_WIDTH / 2, buttonY + buttonHeight / 2 + 8);
+    if (isMouseOverButton && isMouseDown) {
+      if (currentSession < TOTAL_SESSIONS) {
+        continueToNextSession();
+      } else {
+        setGameOver(true);
+        setSessionPaused(false);
+      }
+      setIsMouseDown(false);
+    }
+  };
+
+  const drawPlayAgainButton = (ctx) => {
+    const buttonWidth = 200;
+    const buttonHeight = 60;
+    const buttonX = (CANVAS_WIDTH - buttonWidth) / 2;
+    const buttonY = CANVAS_HEIGHT / 2 + 80;
+    const isMouseOverButton =
+      mousePos.x >= buttonX &&
+      mousePos.x <= buttonX + buttonWidth &&
+      mousePos.y >= buttonY &&
+      mousePos.y <= buttonY + buttonHeight;
+    ctx.fillStyle = isMouseOverButton ? '#E87979' : '#D66969';
+    ctx.fillRect(buttonX, buttonY, buttonWidth, buttonHeight);
+    ctx.fillStyle = '#FFFFFF';
+    ctx.font = 'bold 24px Montserrat';
+    ctx.textAlign = 'center';
+    ctx.fillText('Play Again', CANVAS_WIDTH / 2, buttonY + buttonHeight / 2 + 8);
+    if (isMouseOverButton && isMouseDown) {
+      resetGame();
+      setIsMouseDown(false);
+    }
+  };
+
+  const checkCollision = (dancerY, blockX) => {
+    const dancerX = 50;
+    const dancerRight = dancerX + DANCER_WIDTH;
+    const dancerBottom = dancerY + DANCER_HEIGHT;
+    const blockRight = blockX + BLOCK_WIDTH;
+    const blockTop = CANVAS_HEIGHT - GROUND_HEIGHT - BLOCK_HEIGHT;
+    return dancerRight > blockX && dancerX < blockRight && dancerBottom > blockTop;
+  };
+
+  const drawGameOverScreen = (ctx) => {
+    const centerX = CANVAS_WIDTH / 2;
+    const centerY = CANVAS_HEIGHT / 2;
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+    ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    ctx.fillStyle = '#ffffff';
+    ctx.font = 'bold 48px Bona Nova';
+    ctx.textAlign = 'center';
+    ctx.fillText('GAME OVER', centerX, centerY - 70);
+    ctx.font = '22px Montserrat';
+    ctx.fillText(`You completed ${currentSession - 1} full sessions!`, centerX, centerY - 30);
+    ctx.font = '24px Montserrat';
+    ctx.fillText(`Final Score: ${score}`, centerX, centerY + 10);
+    ctx.fillText(`High Score: ${highScore}`, centerX, centerY + 50);
+    drawPlayAgainButton(ctx);
+  };
+
+  const gameLoop = (timestamp) => {
+    if (!gameStarted || gameOver || sessionPaused) return;
+
+    const ctx = canvasRef.current.getContext('2d');
+    const groundY = CANVAS_HEIGHT - GROUND_HEIGHT;
+
+    if (!gameStateRef.current.lastTimestamp) {
+      gameStateRef.current.lastTimestamp = timestamp;
+    }
+    const deltaTime = timestamp - gameStateRef.current.lastTimestamp;
+    const timeScale = deltaTime / 1000;
+    gameStateRef.current.lastTimestamp = timestamp;
+
+    ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+
+    if (gameStateRef.current.isJumping) {
+      gameStateRef.current.dancerVelocity += GRAVITY * timeScale;
+      if (gameStateRef.current.dancerVelocity > TERMINAL_VELOCITY) {
+        gameStateRef.current.dancerVelocity = TERMINAL_VELOCITY;
+      }
+      gameStateRef.current.dancerY += gameStateRef.current.dancerVelocity * timeScale;
+      if (gameStateRef.current.dancerY >= groundY - DANCER_HEIGHT) {
+        gameStateRef.current.dancerY = groundY - DANCER_HEIGHT;
+        gameStateRef.current.dancerVelocity = 0;
+        gameStateRef.current.isJumping = false;
+      }
+    }
+
+    const block = gameStateRef.current.block;
+    block.x -= GAME_SPEED * timeScale;
+
+    if (checkCollision(gameStateRef.current.dancerY, block.x)) {
+      setGameOver(true);
+      setHighScore((prev) => Math.max(prev, score));
+      drawGround(ctx, groundY);
+      drawBlock(ctx, block.x, groundY);
+      drawDancer(ctx);
+      drawScore(ctx);
+      drawSessionInfo(ctx);
+      drawGameOverScreen(ctx);
+      return;
+    }
+
+    if (block.x + BLOCK_WIDTH < -150) {
+      if (!sessionPaused) {
+        scoreRef.current += 1;
+        setScore(scoreRef.current);
+      }
+      sessionScoreRef.current += 1;
+      setSessionScore(sessionScoreRef.current);
+      if (sessionScoreRef.current >= SCORES_PER_SESSION) {
+        setSessionPaused(true);
+        return;
+      }
+      block.x = CANVAS_WIDTH + 200 + Math.random() * 200;
+    }
+
+    drawGround(ctx, groundY);
+    drawBlock(ctx, block.x, groundY);
+    drawDancer(ctx);
+    drawScore(ctx);
+    drawSessionInfo(ctx);
+
+    if (!gameOver && !sessionPaused) {
+      requestAnimationFrame(gameLoop);
+    }
+  };
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -54,237 +321,88 @@ export default function DanceGame() {
     const groundY = CANVAS_HEIGHT - GROUND_HEIGHT;
     gameStateRef.current.dancerY = groundY - DANCER_HEIGHT;
 
-    function drawDancer() {
-      if (dancerImageRef.current) {
-        ctx.drawImage(dancerImageRef.current, 50, gameStateRef.current.dancerY, DANCER_WIDTH, DANCER_HEIGHT);
-      }
-    }
-
-    function drawGround() {
-      ctx.fillStyle = '#D66969';
-      ctx.fillRect(0, groundY, CANVAS_WIDTH, 2);
-    }
-
-    function drawBlock(x) {
-      ctx.fillStyle = '#D66969';
-      ctx.fillRect(x, groundY - BLOCK_HEIGHT, BLOCK_WIDTH, BLOCK_HEIGHT);
-    }
-
-    function drawScore() {
-      ctx.fillStyle = '#D66969';
-      ctx.font = 'bold 24px Montserrat';
-      ctx.textAlign = 'left';
-      ctx.fillText(`Score: ${score}`, 20, 40);
-      ctx.fillText(`High Score: ${highScore}`, 20, 80);
-    }
-
-    function drawStartButton() {
-      const buttonWidth = 200;
-      const buttonHeight = 60;
-      const buttonX = (CANVAS_WIDTH - buttonWidth) / 2;
-      const buttonY = (CANVAS_HEIGHT - buttonHeight) / 2;
-      
-      // Calculate if mouse is over button
-      const isMouseOverButton = 
-        mousePos.x >= buttonX && 
-        mousePos.x <= buttonX + buttonWidth &&
-        mousePos.y >= buttonY && 
-        mousePos.y <= buttonY + buttonHeight;
-      
-      // Button background
-      ctx.fillStyle = '#D66969';
-      ctx.fillRect(buttonX, buttonY, buttonWidth, buttonHeight);
-      
-      // Button text
-      ctx.fillStyle = '#FFFFFF';
-      ctx.font = 'bold 24px Montserrat';
-      ctx.textAlign = 'center';
-      ctx.fillText('Start Game', CANVAS_WIDTH / 2, buttonY + buttonHeight / 2 + 8);
-      
-      // Check if mouse is over button and clicked
-      if (isMouseOverButton && isMouseDown) {
-        startGame();
-        setIsMouseDown(false);
-      }
-    }
-
-    function drawPlayAgainButton() {
-      const buttonWidth = 200;
-      const buttonHeight = 60;
-      const buttonX = (CANVAS_WIDTH - buttonWidth) / 2;
-      const buttonY = (CANVAS_HEIGHT - buttonHeight) / 2 + 120;
-      
-      // Calculate if mouse is over button
-      const isMouseOverButton = 
-        mousePos.x >= buttonX && 
-        mousePos.x <= buttonX + buttonWidth &&
-        mousePos.y >= buttonY && 
-        mousePos.y <= buttonY + buttonHeight;
-      
-      // Button background - always use the same color regardless of hover state in game over
-      ctx.fillStyle = '#D66969';
-      ctx.fillRect(buttonX, buttonY, buttonWidth, buttonHeight);
-      
-      // Button text
-      ctx.fillStyle = '#FFFFFF';
-      ctx.font = 'bold 24px Montserrat';
-      ctx.textAlign = 'center';
-      ctx.fillText('Play Again', CANVAS_WIDTH / 2, buttonY + buttonHeight / 2 + 8);
-      
-      // Check if mouse is over button and clicked
-      if (isMouseOverButton && isMouseDown) {
-        startGame();
-        setIsMouseDown(false);
-      }
-    }
-
-    function checkCollision(dancerY, blockX) {
-      const dancerX = 50;
-      const dancerRight = dancerX + DANCER_WIDTH;
-      const dancerBottom = dancerY + DANCER_HEIGHT;
-      const blockRight = blockX + BLOCK_WIDTH;
-      const blockTop = groundY - BLOCK_HEIGHT;
-      return dancerRight > blockX && dancerX < blockRight && dancerBottom > blockTop;
-    }
-
-    function gameLoop(timestamp) {
-      if (!gameStarted || gameOver) return;
-
-      if (!gameStateRef.current.lastTimestamp) {
-        gameStateRef.current.lastTimestamp = timestamp;
-      }
-      const deltaTime = timestamp - gameStateRef.current.lastTimestamp;
-      const timeScale = deltaTime / 1000;
-      gameStateRef.current.lastTimestamp = timestamp;
-
-      ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-
-      if (gameStateRef.current.isJumping) {
-        gameStateRef.current.dancerVelocity += GRAVITY * timeScale;
-        if (gameStateRef.current.dancerVelocity > TERMINAL_VELOCITY) {
-          gameStateRef.current.dancerVelocity = TERMINAL_VELOCITY;
-        }
-        gameStateRef.current.dancerY += gameStateRef.current.dancerVelocity * timeScale;
-
-        if (gameStateRef.current.dancerY >= groundY - DANCER_HEIGHT) {
-          gameStateRef.current.dancerY = groundY - DANCER_HEIGHT;
-          gameStateRef.current.dancerVelocity = 0;
-          gameStateRef.current.isJumping = false;
-        }
-      }
-
-      const block = gameStateRef.current.block;
-      block.x -= GAME_SPEED * timeScale;
-
-      if (checkCollision(gameStateRef.current.dancerY, block.x)) {
-        setGameOver(true);
-        setHighScore((prev) => Math.max(prev, score));
-        
-        // Draw final state before game over screen appears
-        drawGround();
-        drawBlock(block.x);
-        drawDancer();
-        drawScore();
-        
-        // Draw game over screen on canvas
-        drawGameOverScreen();
-        return;
-      }
-
-      if (block.x + BLOCK_WIDTH < 0) {
-        setScore((prev) => prev + 1);
-        block.x = CANVAS_WIDTH + 200 + Math.random() * 200;
-      }
-
-      drawGround();
-      drawBlock(block.x);
-      drawDancer();
-      drawScore();
-
-      if (!gameOver) {
-        requestAnimationFrame(gameLoop);
-      }
-    }
-    
-    function drawGameOverScreen() {
-      // Add semi-transparent overlay
-      ctx.fillStyle = '#d6696939';
-      ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-      
-      // Game Over text
-      ctx.fillStyle = '#ffffff';
-      ctx.font = 'bold 48px Bona Nova';
-      ctx.textAlign = 'center';
-      ctx.fillText('GAME OVER', CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2 - 50);
-      
-      // Score display
-      ctx.font = '24px Montserrat';
-      ctx.fillText(`Score: ${score}`, CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
-      ctx.fillText(`High Score: ${highScore}`, CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2 + 40);
-      
-      // Draw Play Again button
-      drawPlayAgainButton();
-    }
-
-    function handleKeyDown(e) {
+    const handleKeyDown = (e) => {
       if (e.code === 'Space' || e.code === 'ArrowUp') {
         e.preventDefault();
         if (gameOver) {
-          startGame();
-        } else if (!gameStateRef.current.isJumping) {
+          resetGame();
+        } else if (sessionPaused) {
+          if (currentSession < TOTAL_SESSIONS) {
+            continueToNextSession();
+          } else {
+            setGameOver(true);
+            setSessionPaused(false);
+          }
+        } else if (!gameStateRef.current.isJumping && gameStarted) {
           jump();
+        } else if (!gameStarted) {
+          startGame();
         }
       }
-    }
+    };
 
-    function handleTouch(e) {
+    const handleTouch = (e) => {
       e.preventDefault();
       if (gameOver) {
-        startGame();
-      } else if (!gameStateRef.current.isJumping) {
+        resetGame();
+      } else if (sessionPaused) {
+        if (currentSession < TOTAL_SESSIONS) {
+          continueToNextSession();
+        } else {
+          setGameOver(true);
+          setSessionPaused(false);
+        }
+      } else if (!gameStateRef.current.isJumping && gameStarted) {
         jump();
+      } else if (!gameStarted) {
+        startGame();
       }
-    }
+    };
 
-    function jump() {
+    const jump = () => {
       gameStateRef.current.isJumping = true;
       gameStateRef.current.dancerVelocity = JUMP_FORCE;
-    }
+    };
 
     window.addEventListener('keydown', handleKeyDown);
     canvas.addEventListener('touchstart', handleTouch);
 
-    // Draw appropriate screen based on game state
     if (!gameStarted) {
       ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-      drawGround();
-      drawDancer();
-      drawScore();
-      drawStartButton();
+      drawGround(ctx, groundY);
+      drawDancer(ctx);
+      drawScore(ctx);
+      drawStartScreen(ctx);
+      drawStartButton(ctx);
+    } else if (sessionPaused) {
+      ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+      drawFactScreen(ctx);
     } else if (gameStarted && !gameOver) {
       requestAnimationFrame(gameLoop);
     } else if (gameOver) {
-      // Draw final state
-      drawGround();
+      drawGround(ctx, groundY);
       const block = gameStateRef.current.block;
-      drawBlock(block.x);
-      drawDancer();
-      drawScore();
-      
-      // Draw game over screen
-      drawGameOverScreen();
+      drawBlock(ctx, block.x, groundY);
+      drawDancer(ctx);
+      drawScore(ctx);
+      drawSessionInfo(ctx);
+      drawGameOverScreen(ctx);
     }
 
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
       canvas.removeEventListener('touchstart', handleTouch);
     };
-  }, [gameStarted, gameOver, score, highScore, theme, mousePos, isMouseDown]);
+  }, [gameStarted, gameOver, score, highScore, theme, mousePos, isMouseDown, currentSession, sessionPaused, sessionScore]);
 
   function startGame() {
     setGameStarted(true);
     setGameOver(false);
-    setScore(0);
+    setScore(0); // Reset total score for a new game
+    setSessionScore(0);
+    sessionScoreRef.current = 0;
+    setCurrentSession(1);
+    setSessionPaused(false);
     gameStateRef.current = {
       dancerY: CANVAS_HEIGHT - GROUND_HEIGHT - DANCER_HEIGHT,
       dancerVelocity: 0,
@@ -292,18 +410,33 @@ export default function DanceGame() {
       block: { x: CANVAS_WIDTH + 100 },
       lastTimestamp: 0,
     };
+    requestAnimationFrame(gameLoop);
   }
 
-  // Handle mouse events for button interaction
+  function resetGame() {
+    startGame();
+  }
+
+  function continueToNextSession() {
+    setCurrentSession((prev) => prev + 1);
+    setSessionPaused(false);
+    setSessionScore(0); // Reset session score only
+    sessionScoreRef.current = 0;
+    gameStateRef.current = {
+      ...gameStateRef.current,
+      block: { x: CANVAS_WIDTH + 100 },
+      lastTimestamp: 0,
+    };
+    requestAnimationFrame(gameLoop);
+  }
+
   function handleMouseMove(e) {
     const canvas = canvasRef.current;
     if (!canvas) return;
-    
     const rect = canvas.getBoundingClientRect();
-    setMousePos({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top
-    });
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    setMousePos({ x, y });
   }
 
   function handleMouseDown() {
@@ -316,17 +449,21 @@ export default function DanceGame() {
 
   return (
     <div className={styles.gameContainer}>
-      <canvas 
-        ref={canvasRef} 
-        width={CANVAS_WIDTH} 
-        height={CANVAS_HEIGHT} 
+      <canvas
+        ref={canvasRef}
+        width={CANVAS_WIDTH}
+        height={CANVAS_HEIGHT}
         className={styles.gameArea}
         onMouseMove={handleMouseMove}
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
       />
       <p className={styles.howToPlay}>
-        {gameOver ? 'Press SPACE or UP ARROW to try again' : 'Press SPACE or UP ARROW to jump'}
+        {gameOver
+          ? 'Press SPACE or UP ARROW to play again'
+          : sessionPaused
+          ? 'Press SPACE or UP ARROW to continue'
+          : 'Press SPACE or UP ARROW to jump'}
       </p>
     </div>
   );
