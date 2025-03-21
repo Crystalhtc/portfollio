@@ -4,13 +4,12 @@ import { useEffect, useRef, useState } from 'react';
 import { useTheme } from 'next-themes';
 import styles from './DanceGame.module.css';
 
-const CANVAS_WIDTH = 1000;
-const CANVAS_HEIGHT = 400;
+const CANVAS_ASPECT_RATIO = 2.5; 
 const GROUND_HEIGHT = 0;
-const DANCER_WIDTH = 100;
-const DANCER_HEIGHT = 200;
-const BLOCK_WIDTH = 30;
-const BLOCK_HEIGHT = 50;
+const DANCER_WIDTH_PERCENT = 0.1; 
+const DANCER_HEIGHT_PERCENT = 0.5; 
+const BLOCK_WIDTH_PERCENT = 0.03; 
+const BLOCK_HEIGHT_PERCENT = 0.125; 
 const GRAVITY = 1500;
 const JUMP_FORCE = -700;
 const GAME_SPEED = 400;
@@ -20,6 +19,8 @@ const TOTAL_SESSIONS = 5;
 
 export default function DanceGame() {
   const canvasRef = useRef(null);
+  const containerRef = useRef(null);
+  const [canvasSize, setCanvasSize] = useState({ width: 1000, height: 400 });
   const [gameStarted, setGameStarted] = useState(false);
   const [score, setScore] = useState(0);
   const [sessionScore, setSessionScore] = useState(0);
@@ -43,11 +44,48 @@ export default function DanceGame() {
     lastTimestamp: 0,
   });
 
+  // Responsive measurements based on canvas size
+  const getDancerWidth = () => canvasSize.width * DANCER_WIDTH_PERCENT;
+  const getDancerHeight = () => canvasSize.height * DANCER_HEIGHT_PERCENT;
+  const getBlockWidth = () => canvasSize.width * BLOCK_WIDTH_PERCENT;
+  const getBlockHeight = () => canvasSize.height * BLOCK_HEIGHT_PERCENT;
+
+  // Function to handle window resize
+  const handleResize = () => {
+    if (containerRef.current) {
+      const containerWidth = containerRef.current.clientWidth;
+      const containerHeight = containerWidth / CANVAS_ASPECT_RATIO;
+      
+      setCanvasSize({
+        width: containerWidth,
+        height: containerHeight
+      });
+
+      // Reset dancer position when resizing
+      if (canvasRef.current) {
+        const groundY = containerHeight - GROUND_HEIGHT;
+        gameStateRef.current.dancerY = groundY - getDancerHeight();
+      }
+    }
+  };
+
   useEffect(() => {
+    // Set initial size
+    handleResize();
+    
+    // Add resize event listener
+    window.addEventListener('resize', handleResize);
+    
+    // Load dancer image
     const img = new Image();
     img.src = '/game/dancer.svg';
     img.onload = () => {
       dancerImageRef.current = img;
+    };
+
+    // Cleanup
+    return () => {
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
@@ -61,63 +99,92 @@ export default function DanceGame() {
 
   const drawDancer = (ctx) => {
     if (dancerImageRef.current) {
-      ctx.drawImage(dancerImageRef.current, 50, gameStateRef.current.dancerY, DANCER_WIDTH, DANCER_HEIGHT);
+      ctx.drawImage(
+        dancerImageRef.current, 
+        canvasSize.width * 0.05, 
+        gameStateRef.current.dancerY, 
+        getDancerWidth(), 
+        getDancerHeight()
+      );
     } else {
       ctx.fillStyle = 'blue';
-      ctx.fillRect(50, gameStateRef.current.dancerY, DANCER_WIDTH, DANCER_HEIGHT);
+      ctx.fillRect(
+        canvasSize.width * 0.05, 
+        gameStateRef.current.dancerY, 
+        getDancerWidth(), 
+        getDancerHeight()
+      );
     }
   };
 
   const drawGround = (ctx, groundY) => {
     ctx.fillStyle = '#D66969';
-    ctx.fillRect(0, groundY, CANVAS_WIDTH, 2);
+    ctx.fillRect(0, groundY, canvasSize.width, 2);
   };
 
   const drawStartScreen = (ctx) => {
-    const centerX = CANVAS_WIDTH / 2;
-    const centerY = CANVAS_HEIGHT / 2;
+    const centerX = canvasSize.width / 2;
+    const centerY = canvasSize.height / 2;
+    
+    // Responsive font sizes
+    const titleFontSize = Math.max(20, Math.min(40, canvasSize.width / 25));
+    const subtitleFontSize = Math.max(12, Math.min(20, canvasSize.width / 50));
+    const infoFontSize = Math.max(10, Math.min(16, canvasSize.width / 60));
+    
     ctx.fillStyle = '#D66969';
-    ctx.font = 'bold 40px Bona Nova';
+    ctx.font = `bold ${titleFontSize}px Bona Nova`;
     ctx.textAlign = 'center';
-    ctx.fillText('Dance with Me', centerX, centerY - 100);
-    ctx.font = 'bold 20px Montserrat';
-    ctx.fillText('Jump, dodge, and discover fun facts about me!', centerX, centerY - 60);
-    ctx.font = '16px Montserrat';
-    ctx.fillText('How to play:', centerX, centerY - 30);
-    ctx.fillText('Press SPACE or UP ARROW to jump and avoid obstacles!', centerX, centerY - 10);
-    ctx.fillText(`Complete ${TOTAL_SESSIONS} sessions of ${SCORES_PER_SESSION} points each`, centerX, centerY + 10);
+    ctx.fillText('Dance with Me', centerX, centerY - canvasSize.height * 0.25);
+    
+    ctx.font = `bold ${subtitleFontSize}px Montserrat`;
+    ctx.fillText('Jump, dodge, and discover fun facts about me!', centerX, centerY - canvasSize.height * 0.15);
+    
+    ctx.font = `${infoFontSize}px Montserrat`;
+    ctx.fillText('How to play:', centerX, centerY - canvasSize.height * 0.075);
+    ctx.fillText('Press SPACE or UP ARROW to jump and avoid obstacles!', centerX, centerY - canvasSize.height * 0.025);
+    ctx.fillText(`Complete ${TOTAL_SESSIONS} sessions of ${SCORES_PER_SESSION} points each`, centerX, centerY + canvasSize.height * 0.025);
   };
 
   const drawSessionInfo = (ctx) => {
+    const fontSize = Math.max(10, Math.min(16, canvasSize.width / 60));
+    
     ctx.fillStyle = '#D66969';
-    ctx.font = 'bold 16px Montserrat';
+    ctx.font = `bold ${fontSize}px Montserrat`;
     ctx.textAlign = 'right';
-    ctx.fillText(`Session: ${currentSession}/${TOTAL_SESSIONS}`, CANVAS_WIDTH - 20, 40);
-    ctx.fillText(`Session Progress: ${sessionScore}/${SCORES_PER_SESSION}`, CANVAS_WIDTH - 20, 70);
+    ctx.fillText(`Session: ${currentSession}/${TOTAL_SESSIONS}`, canvasSize.width - 20, 40);
+    ctx.fillText(`Session Progress: ${sessionScore}/${SCORES_PER_SESSION}`, canvasSize.width - 20, 70);
   };
 
   const drawBlock = (ctx, x, groundY) => {
     ctx.fillStyle = '#D66969';
-    ctx.fillRect(x, groundY - BLOCK_HEIGHT, BLOCK_WIDTH, BLOCK_HEIGHT);
+    ctx.fillRect(
+      x, 
+      groundY - getBlockHeight(), 
+      getBlockWidth(), 
+      getBlockHeight()
+    );
   };
 
-
   const drawStartButton = (ctx) => {
-    const buttonWidth = 200;
-    const buttonHeight = 60;
-    const buttonX = (CANVAS_WIDTH - buttonWidth) / 2;
-    const buttonY = CANVAS_HEIGHT / 2 + 50;
+    const buttonWidth = canvasSize.width * 0.2;
+    const buttonHeight = canvasSize.height * 0.15;
+    const buttonX = (canvasSize.width - buttonWidth) / 2;
+    const buttonY = canvasSize.height / 2 + canvasSize.height * 0.125;
+    const buttonFontSize = Math.max(14, Math.min(24, canvasSize.width / 40));
+    
     const isMouseOverButton =
       mousePos.x >= buttonX &&
       mousePos.x <= buttonX + buttonWidth &&
       mousePos.y >= buttonY &&
       mousePos.y <= buttonY + buttonHeight;
+      
     ctx.fillStyle = isMouseOverButton ? '#E87979' : '#D66969';
     ctx.fillRect(buttonX, buttonY, buttonWidth, buttonHeight);
     ctx.fillStyle = '#FFFFFF';
-    ctx.font = 'bold 24px Montserrat';
+    ctx.font = `bold ${buttonFontSize}px Montserrat`;
     ctx.textAlign = 'center';
-    ctx.fillText('Start Game', CANVAS_WIDTH / 2, buttonY + buttonHeight / 2 + 8);
+    ctx.fillText('Start Game', canvasSize.width / 2, buttonY + buttonHeight / 2 + buttonFontSize / 3);
+    
     if (isMouseOverButton && isMouseDown) {
       startGame();
       setIsMouseDown(false);
@@ -125,26 +192,37 @@ export default function DanceGame() {
   };
 
   const drawFactScreen = (ctx) => {
-    const centerX = CANVAS_WIDTH / 2;
-    const centerY = CANVAS_HEIGHT / 2;
+    const centerX = canvasSize.width / 2;
+    const centerY = canvasSize.height / 2;
+    
+    const titleFontSize = Math.max(16, Math.min(32, canvasSize.width / 30));
+    const factTitleFontSize = Math.max(18, Math.min(32, canvasSize.width / 30));
+    const factFontSize = Math.max(14, Math.min(22, canvasSize.width / 45));
+    
     ctx.fillStyle = '#FFF9F9';
-    ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    ctx.fillRect(0, 0, canvasSize.width, canvasSize.height);
+    
     ctx.fillStyle = '#D66969';
-    ctx.font = '18px Montserrat';
+    ctx.font = `${titleFontSize}px Montserrat`;
     ctx.textAlign = 'center';
-    ctx.fillText(`Session ${currentSession} Complete!`, centerX, centerY - 100);
-    ctx.font = 'bold 32px Montserrat';
-    ctx.fillText(`Fun Fact ${currentSession}`, centerX, centerY - 60);
+    ctx.fillText(`Session ${currentSession} Complete!`, centerX, centerY - canvasSize.height * 0.25);
+    
+    ctx.font = `bold ${factTitleFontSize}px Montserrat`;
+    ctx.fillText(`Fun Fact ${currentSession}`, centerX, centerY - canvasSize.height * 0.15);
+    
     ctx.fillStyle = '#C24A4A';
-    ctx.font = ' 22px Montserrat';
+    ctx.font = `${factFontSize}px Montserrat`;
+    
     const factIndex = (currentSession - 1) % danceFacts.length;
     const fact = danceFacts[factIndex];
-    const maxWidth = CANVAS_WIDTH * 0.8;
-    const lineHeight = 30;
+    const maxWidth = canvasSize.width * 0.8;
+    const lineHeight = factFontSize * 1.4;
+    
     const words = fact.split(' ');
     let line = '';
     let lines = [];
-    let y = centerY + 20;
+    let y = centerY + canvasSize.height * 0.05;
+    
     for (let i = 0; i < words.length; i++) {
       const testLine = line + words[i] + ' ';
       const metrics = ctx.measureText(testLine);
@@ -156,30 +234,37 @@ export default function DanceGame() {
       }
     }
     lines.push(line);
+    
     for (let i = 0; i < lines.length; i++) {
-      ctx.fillText(lines[i], centerX, y-20);
+      ctx.fillText(lines[i], centerX, y - canvasSize.height * 0.05);
       y += lineHeight;
     }
+    
     drawContinueButton(ctx);
   };
 
   const drawContinueButton = (ctx) => {
-    const buttonWidth = 250;
-    const buttonHeight = 60;
-    const buttonX = (CANVAS_WIDTH - buttonWidth) / 2;
-    const buttonY = CANVAS_HEIGHT / 2 + 80;
+    const buttonWidth = canvasSize.width * 0.25;
+    const buttonHeight = canvasSize.height * 0.15;
+    const buttonX = (canvasSize.width - buttonWidth) / 2;
+    const buttonY = canvasSize.height / 2 + canvasSize.height * 0.2;
+    const buttonFontSize = Math.max(14, Math.min(24, canvasSize.width / 40));
+    
     const isMouseOverButton =
       mousePos.x >= buttonX &&
       mousePos.x <= buttonX + buttonWidth &&
       mousePos.y >= buttonY &&
       mousePos.y <= buttonY + buttonHeight;
+      
     ctx.fillStyle = isMouseOverButton ? '#E87979' : '#D66969';
     ctx.fillRect(buttonX, buttonY, buttonWidth, buttonHeight);
     ctx.fillStyle = '#FFFFFF';
-    ctx.font = 'bold 24px Montserrat';
+    ctx.font = `bold ${buttonFontSize}px Montserrat`;
     ctx.textAlign = 'center';
+    
     const buttonText = currentSession < TOTAL_SESSIONS ? 'Continue Playing' : 'See Final Results';
-    ctx.fillText(buttonText, CANVAS_WIDTH / 2, buttonY + buttonHeight / 2 + 8);
+    ctx.fillText(buttonText, canvasSize.width / 2, buttonY + buttonHeight / 2 + buttonFontSize / 3);
+    
     if (isMouseOverButton && isMouseDown) {
       if (currentSession < TOTAL_SESSIONS) {
         continueToNextSession();
@@ -192,70 +277,64 @@ export default function DanceGame() {
   };
 
   const drawWinGameScreen = (ctx) => {
-    const centerX = CANVAS_WIDTH / 2;
-    const centerY = CANVAS_HEIGHT / 2;
+    const centerX = canvasSize.width / 2;
+    const centerY = canvasSize.height / 2;
+    
+    const titleFontSize = Math.max(24, Math.min(52, canvasSize.width / 20));
+    const subtitleFontSize = Math.max(18, Math.min(36, canvasSize.width / 28));
+    const buttonFontSize = Math.max(14, Math.min(24, canvasSize.width / 40));
     
     // Create festive background with gradients
-    const gradient = ctx.createLinearGradient(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    const gradient = ctx.createLinearGradient(0, 0, canvasSize.width, canvasSize.height);
     gradient.addColorStop(0, 'rgba(214, 105, 105, 0.9)');
     gradient.addColorStop(1, 'rgba(214, 105, 105, 0.7)');
     ctx.fillStyle = gradient;
-    ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    ctx.fillRect(0, 0, canvasSize.width, canvasSize.height);
     
-    // Add confetti-like particles
-    for (let i = 0; i < 100; i++) {
+    // Add confetti-like particles (scale with canvas size)
+    const particleCount = Math.floor(canvasSize.width * canvasSize.height / 4000);
+    for (let i = 0; i < particleCount; i++) {
       ctx.fillStyle = ['#FFF', '#FFD700', '#FF8C00', '#FF69B4'][Math.floor(Math.random() * 4)];
-      const size = Math.random() * 10 + 5;
+      const size = Math.random() * (canvasSize.width / 100) + (canvasSize.width / 200);
       ctx.fillRect(
-        Math.random() * CANVAS_WIDTH,
-        Math.random() * CANVAS_HEIGHT,
+        Math.random() * canvasSize.width,
+        Math.random() * canvasSize.height,
         size,
         size
       );
     }
     
     ctx.fillStyle = '#FFFFFF';
-    ctx.font = 'bold 52px Bona Nova';
+    ctx.font = `bold ${titleFontSize}px Bona Nova`;
     ctx.textAlign = 'center';
-    ctx.fillText('CONGRATULATIONS!', centerX, centerY - 80);
+    ctx.fillText('CONGRATULATIONS!', centerX, centerY - canvasSize.height * 0.2);
     
-    ctx.font = 'bold 36px Montserrat';
-    ctx.fillText('Now you know me a little better!', centerX, centerY - 20);
-
-    
-    // ctx.font = '24px Montserrat';
-    // ctx.fillText(`Final Score: ${score}`, centerX, centerY + 40);
-    
-    // if (score > highScore) {
-    //   setHighScore(score);
-    //   ctx.fillStyle = '#FFD700';
-    //   ctx.font = 'bold 28px Montserrat';
-    //   ctx.fillText('NEW HIGH SCORE!', centerX, centerY + 80);
-    // } else {
-    //   ctx.fillStyle = '#FFFFFF';
-    //   ctx.font = '24px Montserrat';
-    //   ctx.fillText(`High Score: ${highScore}`, centerX, centerY + 80);
-    // }
+    ctx.font = `bold ${subtitleFontSize}px Montserrat`;
+    ctx.fillText('Now you know me a little better!', centerX, centerY - canvasSize.height * 0.05);
     
     drawPlayAgainButton(ctx);
   };
 
   const drawPlayAgainButton = (ctx) => {
-    const buttonWidth = 200;
-    const buttonHeight = 60;
-    const buttonX = (CANVAS_WIDTH - buttonWidth) / 2;
-    const buttonY = CANVAS_HEIGHT / 2 + 60;
+    const buttonWidth = canvasSize.width * 0.2;
+    const buttonHeight = canvasSize.height * 0.15;
+    const buttonX = (canvasSize.width - buttonWidth) / 2;
+    const buttonY = canvasSize.height / 2 + canvasSize.height * 0.15;
+    const buttonFontSize = Math.max(14, Math.min(24, canvasSize.width / 40));
+    
     const isMouseOverButton =
       mousePos.x >= buttonX &&
       mousePos.x <= buttonX + buttonWidth &&
       mousePos.y >= buttonY &&
       mousePos.y <= buttonY + buttonHeight;
+      
     ctx.fillStyle = isMouseOverButton ? '#E87979' : '#D66969';
     ctx.fillRect(buttonX, buttonY, buttonWidth, buttonHeight);
     ctx.fillStyle = '#FFFFFF';
-    ctx.font = 'bold 24px Montserrat';
+    ctx.font = `bold ${buttonFontSize}px Montserrat`;
     ctx.textAlign = 'center';
-    ctx.fillText('Play Again', CANVAS_WIDTH / 2, buttonY + buttonHeight / 2 + 8);
+    ctx.fillText('Play Again', canvasSize.width / 2, buttonY + buttonHeight / 2 + buttonFontSize / 3);
+    
     if (isMouseOverButton && isMouseDown) {
       resetGame();
       setIsMouseDown(false);
@@ -263,25 +342,32 @@ export default function DanceGame() {
   };
 
   const checkCollision = (dancerY, blockX) => {
-    const dancerX = 50;
-    const dancerRight = dancerX + DANCER_WIDTH;
-    const dancerBottom = dancerY + DANCER_HEIGHT;
-    const blockRight = blockX + BLOCK_WIDTH;
-    const blockTop = CANVAS_HEIGHT - GROUND_HEIGHT - BLOCK_HEIGHT;
+    const dancerX = canvasSize.width * 0.05;
+    const dancerRight = dancerX + getDancerWidth();
+    const dancerBottom = dancerY + getDancerHeight();
+    const blockRight = blockX + getBlockWidth();
+    const blockTop = canvasSize.height - GROUND_HEIGHT - getBlockHeight();
+    
     return dancerRight > blockX && dancerX < blockRight && dancerBottom > blockTop;
   };
 
   const drawGameOverScreen = (ctx) => {
-    const centerX = CANVAS_WIDTH / 2;
-    const centerY = CANVAS_HEIGHT / 2;
+    const centerX = canvasSize.width / 2;
+    const centerY = canvasSize.height / 2;
+    
+    const titleFontSize = Math.max(24, Math.min(48, canvasSize.width / 20));
+    const subtitleFontSize = Math.max(14, Math.min(22, canvasSize.width / 45));
+    
     ctx.fillStyle = 'rgba(184, 99, 99, 0.6)';
-    ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    ctx.fillRect(0, 0, canvasSize.width, canvasSize.height);
     ctx.fillStyle = '#ffffff';
-    ctx.font = 'bold 48px Bona Nova';
+    ctx.font = `bold ${titleFontSize}px Bona Nova`;
     ctx.textAlign = 'center';
-    ctx.fillText('GAME OVER', centerX, centerY - 70);
-    ctx.font = '22px Montserrat';
-    ctx.fillText(`You completed ${currentSession - 1} full sessions!`, centerX, centerY - 30);
+    ctx.fillText('GAME OVER', centerX, centerY - canvasSize.height * 0.175);
+    
+    ctx.font = `${subtitleFontSize}px Montserrat`;
+    ctx.fillText(`You completed ${currentSession - 1} full sessions!`, centerX, centerY - canvasSize.height * 0.075);
+    
     drawPlayAgainButton(ctx);
   };
 
@@ -289,7 +375,7 @@ export default function DanceGame() {
     if (!gameStarted || gameOver || sessionPaused || gameWon) return;
 
     const ctx = canvasRef.current.getContext('2d');
-    const groundY = CANVAS_HEIGHT - GROUND_HEIGHT;
+    const groundY = canvasSize.height - GROUND_HEIGHT;
 
     if (!gameStateRef.current.lastTimestamp) {
       gameStateRef.current.lastTimestamp = timestamp;
@@ -298,23 +384,26 @@ export default function DanceGame() {
     const timeScale = deltaTime / 1000;
     gameStateRef.current.lastTimestamp = timestamp;
 
-    ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    ctx.clearRect(0, 0, canvasSize.width, canvasSize.height);
 
     if (gameStateRef.current.isJumping) {
-      gameStateRef.current.dancerVelocity += GRAVITY * timeScale;
+      const scaledGravity = GRAVITY * (canvasSize.height / 400);
+      
+      gameStateRef.current.dancerVelocity += scaledGravity * timeScale;
       if (gameStateRef.current.dancerVelocity > TERMINAL_VELOCITY) {
         gameStateRef.current.dancerVelocity = TERMINAL_VELOCITY;
       }
       gameStateRef.current.dancerY += gameStateRef.current.dancerVelocity * timeScale;
-      if (gameStateRef.current.dancerY >= groundY - DANCER_HEIGHT) {
-        gameStateRef.current.dancerY = groundY - DANCER_HEIGHT;
+      if (gameStateRef.current.dancerY >= groundY - getDancerHeight()) {
+        gameStateRef.current.dancerY = groundY - getDancerHeight();
         gameStateRef.current.dancerVelocity = 0;
         gameStateRef.current.isJumping = false;
       }
     }
 
     const block = gameStateRef.current.block;
-    block.x -= GAME_SPEED * timeScale;
+    const scaledGameSpeed = GAME_SPEED * (canvasSize.width / 1000);
+    block.x -= scaledGameSpeed * timeScale;
 
     if (checkCollision(gameStateRef.current.dancerY, block.x)) {
       setGameOver(true);
@@ -327,7 +416,7 @@ export default function DanceGame() {
       return;
     }
 
-    if (block.x + BLOCK_WIDTH < -150) {
+    if (block.x + getBlockWidth() < -150 * (canvasSize.width / 1000)) {
       if (!sessionPaused) {
         scoreRef.current += 1;
         setScore(scoreRef.current);
@@ -338,7 +427,7 @@ export default function DanceGame() {
         setSessionPaused(true);
         return;
       }
-      block.x = CANVAS_WIDTH + 200 + Math.random() * 200;
+      block.x = canvasSize.width + 200 * (canvasSize.width / 1000) + Math.random() * 200 * (canvasSize.width / 1000);
     }
 
     drawGround(ctx, groundY);
@@ -358,8 +447,8 @@ export default function DanceGame() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    const groundY = CANVAS_HEIGHT - GROUND_HEIGHT;
-    gameStateRef.current.dancerY = groundY - DANCER_HEIGHT;
+    const groundY = canvasSize.height - GROUND_HEIGHT;
+    gameStateRef.current.dancerY = groundY - getDancerHeight();
 
     const handleKeyDown = (e) => {
       if (e.code === 'Space' || e.code === 'ArrowUp') {
@@ -401,23 +490,24 @@ export default function DanceGame() {
 
     const jump = () => {
       gameStateRef.current.isJumping = true;
-      gameStateRef.current.dancerVelocity = JUMP_FORCE;
+      const scaledJumpForce = JUMP_FORCE * (canvasSize.height / 400);
+      gameStateRef.current.dancerVelocity = scaledJumpForce;
     };
 
     window.addEventListener('keydown', handleKeyDown);
     canvas.addEventListener('touchstart', handleTouch);
 
     if (!gameStarted) {
-      ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+      ctx.clearRect(0, 0, canvasSize.width, canvasSize.height);
       drawGround(ctx, groundY);
       drawDancer(ctx);
       drawStartScreen(ctx);
       drawStartButton(ctx);
     } else if (sessionPaused) {
-      ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+      ctx.clearRect(0, 0, canvasSize.width, canvasSize.height);
       drawFactScreen(ctx);
     } else if (gameWon) {
-      ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+      ctx.clearRect(0, 0, canvasSize.width, canvasSize.height);
       drawWinGameScreen(ctx);
     } else if (gameStarted && !gameOver) {
       requestAnimationFrame(gameLoop);
@@ -434,25 +524,29 @@ export default function DanceGame() {
       window.removeEventListener('keydown', handleKeyDown);
       canvas.removeEventListener('touchstart', handleTouch);
     };
-  }, [gameStarted, gameOver, gameWon, score, highScore, theme, mousePos, isMouseDown, currentSession, sessionPaused, sessionScore]);
+  }, [gameStarted, gameOver, gameWon, score, highScore, theme, mousePos, isMouseDown, currentSession, sessionPaused, sessionScore, canvasSize]);
 
   function startGame() {
     setGameStarted(true);
     setGameOver(false);
     setGameWon(false);
-    setScore(0); // Reset total score for a new game
+    setScore(0);
     scoreRef.current = 0;
     setSessionScore(0);
     sessionScoreRef.current = 0;
     setCurrentSession(1);
     setSessionPaused(false);
+    
+    const groundY = canvasSize.height - GROUND_HEIGHT;
+    
     gameStateRef.current = {
-      dancerY: CANVAS_HEIGHT - GROUND_HEIGHT - DANCER_HEIGHT,
+      dancerY: groundY - getDancerHeight(),
       dancerVelocity: 0,
       isJumping: false,
-      block: { x: CANVAS_WIDTH + 100 },
+      block: { x: canvasSize.width + canvasSize.width * 0.1 },
       lastTimestamp: 0,
     };
+    
     requestAnimationFrame(gameLoop);
   }
 
@@ -463,22 +557,29 @@ export default function DanceGame() {
   function continueToNextSession() {
     setCurrentSession((prev) => prev + 1);
     setSessionPaused(false);
-    setSessionScore(0); // Reset session score only
+    setSessionScore(0);
     sessionScoreRef.current = 0;
+    
     gameStateRef.current = {
       ...gameStateRef.current,
-      block: { x: CANVAS_WIDTH + 100 },
+      block: { x: canvasSize.width + canvasSize.width * 0.1 },
       lastTimestamp: 0,
     };
+    
     requestAnimationFrame(gameLoop);
   }
 
   function handleMouseMove(e) {
     const canvas = canvasRef.current;
     if (!canvas) return;
+    
     const rect = canvas.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    
+    const x = (e.clientX - rect.left) * scaleX;
+    const y = (e.clientY - rect.top) * scaleY;
+    
     setMousePos({ x, y });
   }
 
@@ -490,28 +591,49 @@ export default function DanceGame() {
     setIsMouseDown(false);
   }
 
+  function handleTouchStart(e) {
+    if (e.touches.length > 0) {
+      const canvas = canvasRef.current;
+      if (!canvas) return;
+      
+      const rect = canvas.getBoundingClientRect();
+      const scaleX = canvas.width / rect.width;
+      const scaleY = canvas.height / rect.height;
+      
+      const x = (e.touches[0].clientX - rect.left) * scaleX;
+      const y = (e.touches[0].clientY - rect.top) * scaleY;
+      
+      setMousePos({ x, y });
+      setIsMouseDown(true);
+      
+      setTimeout(() => {
+        setIsMouseDown(false);
+      }, 100);
+    }
+  }
+
   return (
-    <div className={styles.gameContainer}>
+    <div className={styles.gameContainer} ref={containerRef}>
       <canvas
         ref={canvasRef}
-        width={CANVAS_WIDTH}
-        height={CANVAS_HEIGHT}
+        width={canvasSize.width}
+        height={canvasSize.height}
         className={styles.gameArea}
         onMouseMove={handleMouseMove}
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
+        onTouchStart={handleTouchStart}
       />
       <div className={styles.howToPlay}>
         <p>How to Play:</p>
         <p>
-        {gameOver || gameWon
-          ? 'Press SPACE or UP ARROW to play again'
-          : sessionPaused
-          ? 'Press SPACE or UP ARROW to continue'
-          : 'Press SPACE or UP ARROW to jump'}
-      </p>
+          {gameOver || gameWon
+            ? 'Press SPACE or UP ARROW or click on the button to play again'
+            : sessionPaused
+            ? 'Press SPACE or UP ARROW or click on the button to continue'
+            : 'Press SPACE or UP ARROW or click on the button to jump'}
+        </p>
       </div>
-      
     </div>
   );
 }

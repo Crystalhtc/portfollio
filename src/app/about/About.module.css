@@ -148,6 +148,10 @@
     display: none;
 }
 
+.danceGame {
+  display: none;
+}
+
 /* Tablet (768px and up) */
 @media (min-width: 768px) {
   .button {
@@ -213,6 +217,11 @@
 
 /* Desktop (1024px and up) */
 @media (min-width: 1024px) {
+  .danceGame {
+    display: flex;
+    margin-top: 2rem;
+  }
+
   .profilePic {
     max-width: 380px;
     margin-left: 2.5rem;
