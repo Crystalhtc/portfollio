@@ -20,26 +20,61 @@ const itemVariants = {
 // Animation for the Connect Section (delayed float-in)
 const connectVariants = {
   hidden: { opacity: 0, y: 50 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { delay: 0.5, duration: 0.8 } // Delay of 0.5s for smooth appearance
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { delay: 0.5, duration: 0.8 }, // Delay of 0.5s for smooth appearance
   },
 };
 
 export default function About() {
   const skills = [
-    { title: "Graphics and Design Skills", description: "Prototyping, Wireframing, User Research, User Testing, Project Management" },
-    { title: "Design Tools", description: "Figma, Adobe Illustrator, Adobe Photoshop, Adobe After Effects, Adobe Indesign, Canva" },
-    { title: "Development Skills", description: "HTML, CSS, JavaScript, Node.js, React, React Native, Next.js, Expo, Bootstrap, GitHub, WordPress" },
-    { title: "Language Skills", description: "Cantonese, English, Mandarin, Japanese" },
+    {
+      title: "Graphics and Design Skills",
+      description:
+        "Prototyping, Wireframing, User Research, User Testing, Project Management",
+    },
+    {
+      title: "Design Tools",
+      description:
+        "Figma, Adobe Illustrator, Adobe Photoshop, Adobe After Effects, Adobe Indesign, Canva",
+    },
+    {
+      title: "Development Skills",
+      description:
+        "HTML, CSS, JavaScript, Node.js, React, React Native, Next.js, Expo, Bootstrap, GitHub, WordPress",
+    },
+    {
+      title: "Language Skills",
+      description: "Cantonese, English, Mandarin, Japanese",
+    },
   ];
 
   const interests = [
-    { title: "Dancing 🩰", description: "I love dancing, especially ballet. It allows me to express emotions through movement and brings a sense of grace and discipline.", image: "/ballet.png" },
-    { title: "Watching Anime and Dramas 🎥", description: "I enjoy watching anime and dramas. They allow me to escape into different stories and inspire my creativity.", image: "/anime.png" },
-    { title: "Listening to Music 🎵", description: "Music has always been a big part of my life, and lately, I've been enjoying J-pop. It helps me relax and stay focused.", image: "/music.png" },
-    { title: "Traveling ✈️", description: "I love traveling and have visited places like Japan, Taiwan, Australia, Switzerland, Thailand, and Malaysia. Each trip brings new experiences and perspectives.", image: "/travel.png" },
+    {
+      title: "Dancing 🩰",
+      description:
+        "I love dancing, especially ballet. It allows me to express emotions through movement and brings a sense of grace and discipline.",
+      image: "/ballet.png",
+    },
+    {
+      title: "Watching Anime and Dramas 🎥",
+      description:
+        "I enjoy watching anime and dramas. They allow me to escape into different stories and inspire my creativity.",
+      image: "/anime.png",
+    },
+    {
+      title: "Listening to Music 🎵",
+      description:
+        "Music has always been a big part of my life, and lately, I've been enjoying J-pop. It helps me relax and stay focused.",
+      image: "/music.png",
+    },
+    {
+      title: "Traveling ✈️",
+      description:
+        "I love traveling and have visited places like Japan, Taiwan, Australia, Switzerland, Thailand, and Malaysia. Each trip brings new experiences and perspectives.",
+      image: "/travel.png",
+    },
   ];
 
   // Ref to track the Interest Section
@@ -74,11 +109,11 @@ export default function About() {
     if (slidesRef.current) {
       const imageHeight = slidesRef.current.children[0].offsetHeight;
       const targetScrollTop = activeInterestIndex * imageHeight;
-      
+
       // Use smooth scrolling animation
       slidesRef.current.scrollTo({
         top: targetScrollTop,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
     }
   }, [activeInterestIndex]);
@@ -105,13 +140,23 @@ export default function About() {
               </div>
               <div className={styles.text}>
                 <p>
-                  Hi! I'm Crystal Cheung, a UX/UI designer with a background in social sciences. I love creating designs that aren't just pretty but actually make people's lives easier and more enjoyable!
+                  Hi! I'm Crystal Cheung, a UX/UI designer with a background in
+                  social sciences. I love creating designs that aren't just
+                  pretty but actually make people's lives easier and more
+                  enjoyable!
                 </p>
                 <p>
-                  I'm currently studying Digital Design and Development at BCIT, where I've been diving into UX research, wireframing, and prototyping. My social sciences background helps me understand people on a deeper level, so I always design with empathy and a user-first mindset.
+                  I'm currently studying Digital Design and Development at BCIT,
+                  where I've been diving into UX research, wireframing, and
+                  prototyping. My social sciences background helps me understand
+                  people on a deeper level, so I always design with empathy and
+                  a user-first mindset.
                 </p>
                 <p>
-                  When I'm not designing, you'll probably find me dancing ballet. Whether I'm perfecting a pirouette or refining a user flow, I believe great design, just like dance, is all about precision, balance, and creativity.
+                  When I'm not designing, you'll probably find me dancing
+                  ballet. Whether I'm perfecting a pirouette or refining a user
+                  flow, I believe great design, just like dance, is all about
+                  precision, balance, and creativity.
                 </p>
                 <p>
                   Excited to connect and create meaningful experiences together!
@@ -131,7 +176,10 @@ export default function About() {
             <div className={styles.social}>
               <h2>Connect with me!</h2>
               <div className={styles.socialIcons}>
-                <a href="https://www.linkedin.com/in/crystal-cheunghtc/" target="_blank">
+                <a
+                  href="https://www.linkedin.com/in/crystal-cheunghtc/"
+                  target="_blank"
+                >
                   <img
                     src="/linkedin.svg"
                     alt="Crystal's LinkedIn"
@@ -151,7 +199,11 @@ export default function About() {
             </div>
             <div className={styles.resume}>
               <h2>Check out my resume!</h2>
-              <a className={styles.button} href="https://drive.google.com/file/d/10Nc8TYV3dkn4aR8IB-kjcmLq0EuW9H3L/view?usp=sharing" target="_blank">
+              <a
+                className={styles.button}
+                href="https://drive.google.com/file/d/10Nc8TYV3dkn4aR8IB-kjcmLq0EuW9H3L/view?usp=sharing"
+                target="_blank"
+              >
                 <button>Resume</button>
               </a>
             </div>
@@ -186,20 +238,22 @@ export default function About() {
             animate={isInterestVisible ? "visible" : "hidden"}
           >
             <div>
-      <h2 className={styles.interestTitle}>What I like to do...</h2>
-      {interests.map((interest, index) => (
-        <motion.div
-          key={index}
-          className={`${styles.interest} ${index === activeInterestIndex ? styles.interestActive : ''}`}
-          variants={itemVariants}
-          custom={index}
-          onMouseEnter={() => handleInterestHover(index)}
-        >
-          <h3>{interest.title}</h3>
-          <p>{interest.description}</p>
-        </motion.div>
-      ))}
-    </div>
+              <h2 className={styles.interestTitle}>What I like to do...</h2>
+              {interests.map((interest, index) => (
+                <motion.div
+                  key={index}
+                  className={`${styles.interest} ${
+                    index === activeInterestIndex ? styles.interestActive : ""
+                  }`}
+                  variants={itemVariants}
+                  custom={index}
+                  onMouseEnter={() => handleInterestHover(index)}
+                >
+                  <h3>{interest.title}</h3>
+                  <p>{interest.description}</p>
+                </motion.div>
+              ))}
+            </div>
             <div className={styles.slidesContainer}>
               <div className={styles.slides} ref={slidesRef}>
                 {interests.map((interest, index) => (
@@ -216,7 +270,9 @@ export default function About() {
             </div>
           </motion.div>
         </div>
-        {/* <DanceGame/> */}
+        <div className={styles.danceGame}>
+          <DanceGame />
+        </div>
       </main>
       <ScrollButton />
       <Footer />

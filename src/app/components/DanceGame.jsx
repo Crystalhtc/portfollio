@@ -16,7 +16,7 @@ const JUMP_FORCE = -700;
 const GAME_SPEED = 400;
 const TERMINAL_VELOCITY = 800;
 const SCORES_PER_SESSION = 3;
-const TOTAL_SESSIONS = 3;
+const TOTAL_SESSIONS = 5;
 
 export default function DanceGame() {
   const canvasRef = useRef(null);
@@ -25,6 +25,7 @@ export default function DanceGame() {
   const [sessionScore, setSessionScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
+  const [gameWon, setGameWon] = useState(false);
   const [currentSession, setCurrentSession] = useState(1);
   const [sessionPaused, setSessionPaused] = useState(false);
   const { theme } = useTheme();
@@ -51,11 +52,11 @@ export default function DanceGame() {
   }, []);
 
   const danceFacts = [
-    "The oldest recorded dance dates back more than 9,000 years, depicted in cave paintings in India.",
-    "Dancing releases endorphins, the 'feel-good' chemicals in our brains, which can help reduce stress and pain.",
-    "The 'moonwalk', made famous by Michael Jackson, was actually created by dancers in the 1930s.",
-    "Choreophobia is the fear of dancing. Some people experience anxiety at the thought of dancing in public.",
-    "Ballet dancers can spin at speeds of up to 91 RPM during fouettés."
+    "I've won all three types of medals (gold, silver, and bronze) at the Asian Grand Prix, an international ballet competition 🥇🥈🥉",
+    "I know four languages—English, Cantonese, Mandarin, and Japanese! Right now, I'm levelling up my Japanese by watching J-dramas ‍💻",
+    "I studied Geography at University, and wrote a thesis about how waterfront promenade affect people's mental health 🧠",
+    "I love drinking tea, especially matcha! Need them everyday 🍵",
+    "My favourite anime is Haikyuu, and my favourite character from the show is Oikawa Tooru 🏐"
   ];
 
   const drawDancer = (ctx) => {
@@ -76,13 +77,15 @@ export default function DanceGame() {
     const centerX = CANVAS_WIDTH / 2;
     const centerY = CANVAS_HEIGHT / 2;
     ctx.fillStyle = '#D66969';
-    ctx.font = 'bold 36px Montserrat';
+    ctx.font = 'bold 40px Bona Nova';
     ctx.textAlign = 'center';
-    ctx.fillText('Dance Jump!', centerX, centerY - 100);
-    ctx.font = '20px Montserrat';
-    ctx.fillText('Press SPACE or UP ARROW to jump', centerX, centerY - 60);
-    ctx.fillText('Avoid obstacles and score high!', centerX, centerY - 30);
-    ctx.fillText(`Complete ${TOTAL_SESSIONS} sessions of ${SCORES_PER_SESSION} points each`, centerX, centerY);
+    ctx.fillText('Dance with Me', centerX, centerY - 100);
+    ctx.font = 'bold 20px Montserrat';
+    ctx.fillText('Jump, dodge, and discover fun facts about me!', centerX, centerY - 60);
+    ctx.font = '16px Montserrat';
+    ctx.fillText('How to play:', centerX, centerY - 30);
+    ctx.fillText('Press SPACE or UP ARROW to jump and avoid obstacles!', centerX, centerY - 10);
+    ctx.fillText(`Complete ${TOTAL_SESSIONS} sessions of ${SCORES_PER_SESSION} points each`, centerX, centerY + 10);
   };
 
   const drawSessionInfo = (ctx) => {
@@ -98,19 +101,12 @@ export default function DanceGame() {
     ctx.fillRect(x, groundY - BLOCK_HEIGHT, BLOCK_WIDTH, BLOCK_HEIGHT);
   };
 
-  const drawScore = (ctx) => {
-    ctx.fillStyle = '#D66969';
-    ctx.font = 'bold 24px Montserrat';
-    ctx.textAlign = 'left';
-    ctx.fillText(`Score: ${score}`, 20, 40);
-    ctx.fillText(`High Score: ${highScore}`, 20, 80);
-  };
 
   const drawStartButton = (ctx) => {
     const buttonWidth = 200;
     const buttonHeight = 60;
     const buttonX = (CANVAS_WIDTH - buttonWidth) / 2;
-    const buttonY = CANVAS_HEIGHT / 2 + 30;
+    const buttonY = CANVAS_HEIGHT / 2 + 50;
     const isMouseOverButton =
       mousePos.x >= buttonX &&
       mousePos.x <= buttonX + buttonWidth &&
@@ -131,22 +127,22 @@ export default function DanceGame() {
   const drawFactScreen = (ctx) => {
     const centerX = CANVAS_WIDTH / 2;
     const centerY = CANVAS_HEIGHT / 2;
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+    ctx.fillStyle = '#FFF9F9';
     ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-    ctx.fillStyle = '#FFFFFF';
-    ctx.font = 'bold 32px Montserrat';
+    ctx.fillStyle = '#D66969';
+    ctx.font = '18px Montserrat';
     ctx.textAlign = 'center';
-    ctx.fillText(`Session ${currentSession} Complete!`, centerX, centerY - 80);
-    ctx.font = '20px Montserrat';
-    ctx.fillText(`You've scored ${SCORES_PER_SESSION} points in this session.`, centerX, centerY - 40);
-    ctx.fillStyle = '#FFD700';
-    ctx.font = 'italic 22px Montserrat';
+    ctx.fillText(`Session ${currentSession} Complete!`, centerX, centerY - 100);
+    ctx.font = 'bold 32px Montserrat';
+    ctx.fillText(`Fun Fact ${currentSession}`, centerX, centerY - 60);
+    ctx.fillStyle = '#C24A4A';
+    ctx.font = ' 22px Montserrat';
     const factIndex = (currentSession - 1) % danceFacts.length;
     const fact = danceFacts[factIndex];
     const maxWidth = CANVAS_WIDTH * 0.8;
     const lineHeight = 30;
     const words = fact.split(' ');
-    let line = 'Did you know? ';
+    let line = '';
     let lines = [];
     let y = centerY + 20;
     for (let i = 0; i < words.length; i++) {
@@ -161,17 +157,17 @@ export default function DanceGame() {
     }
     lines.push(line);
     for (let i = 0; i < lines.length; i++) {
-      ctx.fillText(lines[i], centerX, y);
+      ctx.fillText(lines[i], centerX, y-20);
       y += lineHeight;
     }
     drawContinueButton(ctx);
   };
 
   const drawContinueButton = (ctx) => {
-    const buttonWidth = 200;
+    const buttonWidth = 250;
     const buttonHeight = 60;
     const buttonX = (CANVAS_WIDTH - buttonWidth) / 2;
-    const buttonY = CANVAS_HEIGHT / 2 + 100;
+    const buttonY = CANVAS_HEIGHT / 2 + 80;
     const isMouseOverButton =
       mousePos.x >= buttonX &&
       mousePos.x <= buttonX + buttonWidth &&
@@ -188,18 +184,67 @@ export default function DanceGame() {
       if (currentSession < TOTAL_SESSIONS) {
         continueToNextSession();
       } else {
-        setGameOver(true);
+        setGameWon(true);
         setSessionPaused(false);
       }
       setIsMouseDown(false);
     }
   };
 
+  const drawWinGameScreen = (ctx) => {
+    const centerX = CANVAS_WIDTH / 2;
+    const centerY = CANVAS_HEIGHT / 2;
+    
+    // Create festive background with gradients
+    const gradient = ctx.createLinearGradient(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    gradient.addColorStop(0, 'rgba(214, 105, 105, 0.9)');
+    gradient.addColorStop(1, 'rgba(214, 105, 105, 0.7)');
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    
+    // Add confetti-like particles
+    for (let i = 0; i < 100; i++) {
+      ctx.fillStyle = ['#FFF', '#FFD700', '#FF8C00', '#FF69B4'][Math.floor(Math.random() * 4)];
+      const size = Math.random() * 10 + 5;
+      ctx.fillRect(
+        Math.random() * CANVAS_WIDTH,
+        Math.random() * CANVAS_HEIGHT,
+        size,
+        size
+      );
+    }
+    
+    ctx.fillStyle = '#FFFFFF';
+    ctx.font = 'bold 52px Bona Nova';
+    ctx.textAlign = 'center';
+    ctx.fillText('CONGRATULATIONS!', centerX, centerY - 80);
+    
+    ctx.font = 'bold 36px Montserrat';
+    ctx.fillText('Now you know me a little better!', centerX, centerY - 20);
+
+    
+    // ctx.font = '24px Montserrat';
+    // ctx.fillText(`Final Score: ${score}`, centerX, centerY + 40);
+    
+    // if (score > highScore) {
+    //   setHighScore(score);
+    //   ctx.fillStyle = '#FFD700';
+    //   ctx.font = 'bold 28px Montserrat';
+    //   ctx.fillText('NEW HIGH SCORE!', centerX, centerY + 80);
+    // } else {
+    //   ctx.fillStyle = '#FFFFFF';
+    //   ctx.font = '24px Montserrat';
+    //   ctx.fillText(`High Score: ${highScore}`, centerX, centerY + 80);
+    // }
+    
+    drawPlayAgainButton(ctx);
+  };
+
   const drawPlayAgainButton = (ctx) => {
     const buttonWidth = 200;
     const buttonHeight = 60;
     const buttonX = (CANVAS_WIDTH - buttonWidth) / 2;
-    const buttonY = CANVAS_HEIGHT / 2 + 80;
+    const buttonY = CANVAS_HEIGHT / 2 + 60;
     const isMouseOverButton =
       mousePos.x >= buttonX &&
       mousePos.x <= buttonX + buttonWidth &&
@@ -229,7 +274,7 @@ export default function DanceGame() {
   const drawGameOverScreen = (ctx) => {
     const centerX = CANVAS_WIDTH / 2;
     const centerY = CANVAS_HEIGHT / 2;
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+    ctx.fillStyle = 'rgba(184, 99, 99, 0.6)';
     ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
     ctx.fillStyle = '#ffffff';
     ctx.font = 'bold 48px Bona Nova';
@@ -237,14 +282,11 @@ export default function DanceGame() {
     ctx.fillText('GAME OVER', centerX, centerY - 70);
     ctx.font = '22px Montserrat';
     ctx.fillText(`You completed ${currentSession - 1} full sessions!`, centerX, centerY - 30);
-    ctx.font = '24px Montserrat';
-    ctx.fillText(`Final Score: ${score}`, centerX, centerY + 10);
-    ctx.fillText(`High Score: ${highScore}`, centerX, centerY + 50);
     drawPlayAgainButton(ctx);
   };
 
   const gameLoop = (timestamp) => {
-    if (!gameStarted || gameOver || sessionPaused) return;
+    if (!gameStarted || gameOver || sessionPaused || gameWon) return;
 
     const ctx = canvasRef.current.getContext('2d');
     const groundY = CANVAS_HEIGHT - GROUND_HEIGHT;
@@ -280,7 +322,6 @@ export default function DanceGame() {
       drawGround(ctx, groundY);
       drawBlock(ctx, block.x, groundY);
       drawDancer(ctx);
-      drawScore(ctx);
       drawSessionInfo(ctx);
       drawGameOverScreen(ctx);
       return;
@@ -303,10 +344,9 @@ export default function DanceGame() {
     drawGround(ctx, groundY);
     drawBlock(ctx, block.x, groundY);
     drawDancer(ctx);
-    drawScore(ctx);
     drawSessionInfo(ctx);
 
-    if (!gameOver && !sessionPaused) {
+    if (!gameOver && !sessionPaused && !gameWon) {
       requestAnimationFrame(gameLoop);
     }
   };
@@ -324,13 +364,13 @@ export default function DanceGame() {
     const handleKeyDown = (e) => {
       if (e.code === 'Space' || e.code === 'ArrowUp') {
         e.preventDefault();
-        if (gameOver) {
+        if (gameOver || gameWon) {
           resetGame();
         } else if (sessionPaused) {
           if (currentSession < TOTAL_SESSIONS) {
             continueToNextSession();
           } else {
-            setGameOver(true);
+            setGameWon(true);
             setSessionPaused(false);
           }
         } else if (!gameStateRef.current.isJumping && gameStarted) {
@@ -343,13 +383,13 @@ export default function DanceGame() {
 
     const handleTouch = (e) => {
       e.preventDefault();
-      if (gameOver) {
+      if (gameOver || gameWon) {
         resetGame();
       } else if (sessionPaused) {
         if (currentSession < TOTAL_SESSIONS) {
           continueToNextSession();
         } else {
-          setGameOver(true);
+          setGameWon(true);
           setSessionPaused(false);
         }
       } else if (!gameStateRef.current.isJumping && gameStarted) {
@@ -371,12 +411,14 @@ export default function DanceGame() {
       ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
       drawGround(ctx, groundY);
       drawDancer(ctx);
-      drawScore(ctx);
       drawStartScreen(ctx);
       drawStartButton(ctx);
     } else if (sessionPaused) {
       ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
       drawFactScreen(ctx);
+    } else if (gameWon) {
+      ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+      drawWinGameScreen(ctx);
     } else if (gameStarted && !gameOver) {
       requestAnimationFrame(gameLoop);
     } else if (gameOver) {
@@ -384,7 +426,6 @@ export default function DanceGame() {
       const block = gameStateRef.current.block;
       drawBlock(ctx, block.x, groundY);
       drawDancer(ctx);
-      drawScore(ctx);
       drawSessionInfo(ctx);
       drawGameOverScreen(ctx);
     }
@@ -393,12 +434,14 @@ export default function DanceGame() {
       window.removeEventListener('keydown', handleKeyDown);
       canvas.removeEventListener('touchstart', handleTouch);
     };
-  }, [gameStarted, gameOver, score, highScore, theme, mousePos, isMouseDown, currentSession, sessionPaused, sessionScore]);
+  }, [gameStarted, gameOver, gameWon, score, highScore, theme, mousePos, isMouseDown, currentSession, sessionPaused, sessionScore]);
 
   function startGame() {
     setGameStarted(true);
     setGameOver(false);
+    setGameWon(false);
     setScore(0); // Reset total score for a new game
+    scoreRef.current = 0;
     setSessionScore(0);
     sessionScoreRef.current = 0;
     setCurrentSession(1);
@@ -458,13 +501,17 @@ export default function DanceGame() {
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
       />
-      <p className={styles.howToPlay}>
-        {gameOver
+      <div className={styles.howToPlay}>
+        <p>How to Play:</p>
+        <p>
+        {gameOver || gameWon
           ? 'Press SPACE or UP ARROW to play again'
           : sessionPaused
           ? 'Press SPACE or UP ARROW to continue'
           : 'Press SPACE or UP ARROW to jump'}
       </p>
+      </div>
+      
     </div>
   );
 }

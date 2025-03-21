@@ -22,7 +22,7 @@ p, a, li {
 button {
   color: var(--light-red);
   background-color: transparent;
-  padding: 1rem 1rem;
+  padding: 1rem  1rem;
   border: 1.5px solid var(--light-red);
   font-family: "Bona Nova", serif;
   font-weight: 600;
