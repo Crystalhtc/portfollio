@@ -105,6 +105,18 @@ const ProjectsSection = () => {
     },
     {
       category: 'graphic',
+      image: "/oneTimelessStep-homepage.png",
+      alt: "One Timeless Step",
+      name: "One Timeless Step",
+      link: "/oneTimelessStep",
+      description: "Event poster design capturing the elegance and timelessness of ballet, blending dynamic movement and soft pastel accents to create a graceful visual identity for Étoile Ballet Academy’s Gala Performance 2024.",
+      skills: ["Graphic Design"],
+      application: "Poster",
+      appIcon: "/poster.svg",
+      appType: "Poster"
+    },
+    {
+      category: 'graphic',
       image: "/moodTracking-homepage.png",
       alt: "Mood Tracking Motion Graphic Video",
       name: "Mood Tracking Motion Graphic Video",

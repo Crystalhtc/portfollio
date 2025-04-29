@@ -91,6 +91,11 @@ export default function Header() {
       link: "/teaddy",
     },
     {
+      name: "One Timeless Step",
+      image: "/oneTimelessStep-homepage.png",
+      link: "/oneTimelessStep",
+    },
+    {
       name: "Mood Tracking Motion Graphic Video",
       image: "/moodTracking-homepage.png",
       link: "/moodTracking",

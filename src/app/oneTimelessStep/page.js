@@ -31,8 +31,8 @@ export default function Remedify() {
         <div className={styles.hero}>
           <div>
             <img
-              src="/teaddy/banner.png"
-              alt="Teaddy"
+              src="/oneTimelessStep/banner.png"
+              alt="One Timeless Step Poster"
               className={styles.heroImage}
               priority="true"
             />
@@ -55,17 +55,9 @@ export default function Remedify() {
               variants={sectionVariants}
               >
                 <div className={styles.appIntrocard}>
-                  <h1>Teaddy</h1>
+                  <h1>One Timeless Step</h1>
                   <p>
-                    This project is a branded advertisement campaign that
-                    focuses on creating a warm and inviting brand identity
-                    through a series of visually engaging posters and a custom
-                    logo for a tea shop called Teaddy. The campaign integrates
-                    the concept of a teddy bear with tea to convey a sense of
-                    comfort and charm. By combining playful design elements, the
-                    campaign aims to enhance brand recognition, attract
-                    customers, and establish Teaddy as an approachable and
-                    memorable brand.
+                    "One Timeless Step" is a poster design created for the Étoile Ballet Academy’s Gala Performance 2024. The event celebrates the artistry and legacy of ballet through an evening of performances. The goal of this project was to capture the elegance, timelessness, and poise of ballet in a single visual moment, blending classic aesthetics with a modern graphic sensibility. A poster design that visually encapsulates the spirit of ballet — timeless, graceful, and aspirational — through strong imagery, refined typography, and a delicate color palette.
                   </p>
                   <div className={styles.appIntroContainer}>
                     <div className={styles.appIntrodetails}>
@@ -77,13 +69,13 @@ export default function Remedify() {
                     <div className={styles.appIntrodetails}>
                       <p className={styles.appIntrorowTitle}>Tools</p>
                       <p className={styles.appIntrorowContent}>
-                        Adobe Illustrator
+                        Adobe Photoshop, Adobe Illustrator
                       </p>
                     </div>
                     <div className={styles.appIntrodetails}>
                       <p className={styles.appIntrorowTitle}>Duration</p>
                       <p className={styles.appIntrorowContent}>
-                        Jan 2024 (1 month)
+                        Nov 2024 - Dec 2024 (1 month)
                       </p>
                     </div>
                   </div>
@@ -98,8 +90,8 @@ export default function Remedify() {
                 <div className={styles.prototypes}>
                   <div className={styles.prototypeContainer}>
                     <img
-                      src="/teaddy/ad-mockup.png"
-                      alt="Print Design"
+                      src="/oneTimelessStep/ad-mockup.png"
+                      alt="One Timeless Step Poster Mockup"
                       className={styles.prototype}
                       priority="true"
                     />
@@ -110,12 +102,12 @@ export default function Remedify() {
               <div className={styles.detailsContainer} id="creative-process">
                 <div className={styles.details}>
                   <h2>Creative Process</h2>
-                  {/* <p>Wireframing serves as a blueprint for creating user interfaces. It provides a visual representation of the structure and layout of an application or website, focusing on functionality and user experience.</p> */}
+                  <p>Wireframing serves as a blueprint for creating user interfaces. It provides a visual representation of the structure and layout of an application or website, focusing on functionality and user experience.</p>
                 </div>
                 <div className={styles.wireframeImages}>
                   <img
-                    src="/teaddy/inspiration.png"
-                    alt="Teaddy Inspiration"
+                    src="/oneTimelessStep/inspiration.png"
+                    alt="One Timeless Step Poster Inspiration"
                     width="600"
                     className={styles.wireframeImage}
                   />
@@ -125,68 +117,17 @@ export default function Remedify() {
                     <div>
                       <li className={styles.bold}>Research and Inspiration:</li>
                       <li className={styles.indent}>
-                        To craft a distinctive brand identity, I analyzed
-                        various bear-themed logos, focusing on how they conveyed
-                        warmth, friendliness, and approachability.
+                        The design draws inspiration from dance performance posters, focusing on layouts that highlight the dancer’s movement, strategic placement of figures and typography, and techniques that emphasize fluidity and energy within a static image.
                       </li>
                     </div>
                   </ul>
                 </div>
               </div>
 
-              <div className={styles.initialHiFi} id="logo-design">
-                <ContentSection
-                  title="Logo Design: Drafted Logos"
-                  image="/teaddy/drafted-logos.png"
-                  alt="Teaddy Drafted Logos"
-                  overview="To integrate the bear theme with tea, multiple logo variations were created, experimenting with different bear graphics and compositions."
-                />
-                <div className={styles.details}>
-                  <p>Two versions were developed:</p>
-                  <ul className={styles.detailsList}>
-                    <div>
-                      <li className={styles.bold}>Simple Color Logo:</li>
-                      <li className={styles.indent}>
-                        A clean and modern representation.
-                      </li>
-                    </div>
-                    <div>
-                      <li className={styles.bold}>Detailed Color Logo:</li>
-                      <li className={styles.indent}>
-                        Featuring intricate details for a more dynamic look.
-                      </li>
-                    </div>
-                  </ul>
-                </div>
-              </div>
-
-              <div className={styles.initialHiFi}>
-                <ContentSection
-                  title="Logo Design: Final Logos"
-                  image="/teaddy/final-logo.png"
-                  alt="Teaddy Final Logo"
-                  overview="The logo with two bears, a white bear and a brown bear, embracing tea leaves are chosen as the final logo."
-                />
-                <div className={styles.details}>
-                  {/* <p>The logo with two bears, a white bear and a brown bear, embracing tea leaves are chosen as the final logo.</p> */}
-                  <ul className={styles.detailsList}>
-                    <div>
-                      <li className={styles.bold}>Reason:</li>
-                      <li className={styles.indent}>
-                        The embrace of tea leaves of the logo symbolizes the shop’s dedication to high-quality tea. 
-                      </li>
-                      <li className={styles.indent}>
-                        This gesture also represents the warmth and care the shop has for both its tea products and services, reinforcing its commitment to excellence.
-                      </li>
-                    </div>
-                  </ul>
-                </div>
-              </div>
-
-              <div className={styles.detailsContainer} id="style-guide">
+              {/* <div className={styles.detailsContainer} id="style-guide">
                 <ContentSection
                   title="Style Guide"
-                  image="/teaddy/styleguide.png"
+                  image="/oneTimelessStep/styleguide.png"
                   alt="Teaddy Style Guidee"
                   overview="The color palette is designed to reflect the essence of our brand, creating a warm, inviting, and playful atmosphere."
                 />
@@ -224,12 +165,12 @@ export default function Remedify() {
                     </ul>
                   </div>
                 </div>
-              </div>
+              </div> */}
 
               <div className={styles.initialHiFi} id="final-design">
                 <ContentSection
                   title="Poster Design: Final Design"
-                  image="/teaddy/final-design.png"
+                  image="/oneTimelessStep/final-design.png"
                   alt="Campus Canvas Digital Design"
                   overview="The final design incorporates key elements to ensure brand recognition and audience engagement:"
                 />
@@ -237,21 +178,30 @@ export default function Remedify() {
                   <p>Key elements:</p>
                   <ul className={styles.detailsList}>
                     <div>
-                      <li className={styles.bold}>Teddy Bear Mascot:</li>
+                      <li className={styles.bold}>Central Dancer:</li>
                       <li className={styles.indent}>
-                        A central, eye-catching visual element that embodies the brand’s friendly and cozy essence.
+                        A key visual focus, using color contrast against a grayscale background to immediately capture attention.
                       </li>
                     </div>
                     <div>
-                      <li className={styles.bold}>Product Showcasing:</li>
+                      <li className={styles.bold}>Background Details:</li>
                       <li className={styles.indent}>
-                        Teaddy’s signature tea products are featured with the branding logo, reinforcing brand identity.
+                        A close-up shot of a dancer’s feet, enhanced with dynamic splashes of pastel brush strokes, bringing softness and vibrancy.
                       </li>
                     </div>
                     <div>
-                      <li className={styles.bold}>Slogans:</li>
+                      <li className={styles.bold}>Movement Indicators:</li>
                       <li className={styles.indent}>
-                        Each poster contains a unique, playful tagline to keep the campaign fresh and engaging.
+                        Subtle stripes beside the dancer’s feet add implied motion, enhancing the sense of dance without cluttering the design.
+                      </li>
+                    </div>
+                    <div>
+                      <li className={styles.bold}>Title and Event Information:</li>
+                      <li className={styles.indent}>
+                        Bold and elegant title placement.
+                      </li>
+                      <li className={styles.indent}>
+                        Clear details including event name, slogan, date, time, venue, ticket prices, and a QR code for quick access to more information.
                       </li>
                     </div>
                   </ul>
@@ -262,9 +212,9 @@ export default function Remedify() {
                 <UserResearch
                   title="Reflection and Learnings"
                   descriptions={[
-                    "Learned how to create a visual identity that aligns with a brand’s mission and personality.",
-                    "Discovered the impact of using mascots to evoke emotions and build brand recognition.",
-                    "Explored ways to blend a cute and friendly theme with a refined, modern aesthetic."
+                    "Deepened my appreciation for how small graphic decisions, such as from the dancer's pose and subtle color treatments can powerfully evoke emotion.",
+                    "Reinforced the importance of balancing minimalism with expressiveness.",
+                    "Strengthened my skills in visual storytelling and movement depiction through static design."
                   ]}
                 />
               </div>
@@ -272,10 +222,10 @@ export default function Remedify() {
               <div className={styles.nextProject}>
                 <h2>Next Project is...</h2>
                 <NextCard
-                  name="One Timeless Step"
-                  image="/oneTimelessStep-homepage.png"
-                  alt="One Timeless Step"
-                  link="/oneTimelessStep"
+                  name="Mood Tracking Motion Graphic Video"
+                  image="/moodTracking-homepage.png"
+                  alt="Mood Tracking Motion Graphic Video"
+                  link="/moodTracking"
                   button="Next Project"
                 />
               </div>

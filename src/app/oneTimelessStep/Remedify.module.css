@@ -1,0 +1,405 @@
+.contentContainer {
+    display: flex;
+    position: relative;
+    padding-bottom: 5rem;
+}
+
+/* .sideMenu {
+        position: sticky;
+            top: 80%;
+            left: 40px;
+} */
+
+.content {
+    width: 90%;
+    margin: 0 auto;
+    padding: 1rem 0 2rem;
+}
+
+.contentFullWidth {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.heroImage {
+    width: 100%;
+    object-fit: contain;
+    border-bottom: 0.5px solid #dddddd;
+    margin-bottom: 1rem;
+}
+
+.wireframeImages {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.wireframeImage {
+    width: 100%;
+    height: auto;
+    padding-bottom: 2rem;
+}
+
+.prototypeBanner {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-bottom: 2rem;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1.5px solid var(--light-red);
+}
+
+.prototypeContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.prototypeTitle {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.prototypes {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    /* width: 100%; */
+}
+
+.prototype {
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.appFeatures {
+    margin: 1rem auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 0 1rem 2rem;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+    gap: 1rem;
+}
+
+.recommendations {
+    list-style-type: none;
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+.subIndent {
+    margin-left: 1rem;
+    list-style-type:circle;
+}
+
+.featuresTitle {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.userResearch {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 3rem;
+    border-bottom: 1.5px solid var(--light-red);
+    /* border-top: 1.5px solid var(--light-red); */
+}
+
+.competitiveAnalysis {
+    border-bottom: 1.5px solid var(--light-red);
+    padding: 2rem 0;
+}
+
+.detailsContainer, .initialHiFi {
+    padding: 2rem 0;
+    border-bottom: 1.5px solid var(--light-red);
+}
+
+.userFlowChart {
+    padding: 2rem 0;
+    border-bottom: 1.5px solid var(--light-red);
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    padding: 0rem 1rem;
+    gap: 1rem;
+}
+
+.detailsList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.styleGuide {
+    border-bottom: 1.5px solid var(--light-red);
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.semiBold {
+    font-weight: 550;
+}   
+
+.indent {
+    list-style-type: none
+}
+
+.linkButton {
+    display: flex;
+    justify-content: center;
+    margin: 2rem auto 0;
+}
+
+.linkButton button {
+    width: fit-content;
+}
+
+.nextProject {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem auto 6rem;
+}
+
+.nextProject h2 {
+    margin: 3rem 0 1rem;
+}
+
+@media screen and (max-width: 1024px) {
+    .contentContainer {
+        flex-direction: column;
+    }
+}
+
+/* Tablet (768px and up) */
+@media screen and (min-width: 768px) {
+    .content {
+        width: 85%;
+        padding: 1.5rem 0 3rem;
+    }
+
+    .prototypes {
+        flex-direction: row;
+        gap: 2rem;
+    }
+
+    .prototypeContainer {
+        align-items: center;
+    }
+
+
+
+    .appFeatures {
+        padding: 3rem 3rem 3rem;
+        gap: 3rem;
+    }
+
+    .userResearch, .competitiveAnalysis, .detailsContainer, 
+    .userFlowChart, .initialHiFi, .finalHiFi {
+        padding: 3rem 4rem;
+    }
+
+    .details,
+    .wireframeImage {
+        padding: 0 1rem;
+        padding-bottom: 3rem;
+    }
+}
+
+/* Desktop (1024px and up) */
+@media screen and (min-width: 1024px) {
+    .content {
+        width: 80%;
+        padding: 2rem 0 4rem;
+    }
+
+    .prototypeBanner {
+        margin: 3rem auto 0;
+        padding-bottom: 3rem;
+    }
+
+    .appFeatures {
+        padding: 3rem 6rem 4rem;
+        gap: 4rem;
+    }
+
+    .details,
+    .wireframeImage {
+        padding: 0 10rem;
+        padding-bottom: 3rem;
+    }
+
+    .userResearch {
+        padding: 5rem 10rem;
+    }
+
+    .detailsContainer,
+    .userFlowChart,
+    .initialHiFi,
+    .competitiveAnalysis {
+        padding: 5rem 0;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .appIntro {
+        padding: 0 5rem;
+    }
+}
+
+/* Large Desktop (1500px and up) */
+@media screen and (min-width: 1500px) {
+    .content {
+        width: 75%;
+    }
+
+    .appFeatures {
+        padding: 3rem 10rem 4rem;
+    }
+
+    .details, .wireframeImage {
+        padding: 0 15rem;
+        padding-bottom: 3rem;
+    }
+
+    .prototype {
+        width: 600px;
+    }
+
+    .userResearch {
+        padding: 5rem 15rem;
+    }
+}
+
+/* animations */
+/* Fade-in and Slide Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+/* Hero Section */
+.heroImage {
+  animation: fadeInUp 1s ease-out;
+}
+
+/* App Intro */
+.appIntrocard {
+    background-color: var(--light-pink);
+    margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    border-top: 1.5px solid var(--light-red);
+    border-bottom: 1.5px solid var(--light-red);
+}
+
+.appIntroContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.appIntrodetails {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.appIntrorowTitle {
+    width: 100%;
+    font-weight: bold;
+}
+
+.appIntrorowContent {
+    width: 100%;
+}
+
+.appIntrobuttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.appIntrobuttons button {
+    width: 18rem;
+}
+
+/* Tablet (768px and up) */
+@media screen and (min-width: 768px) {
+    .appIntrocard {
+        margin: 1.5rem 4rem;
+        padding: 2rem;
+    }
+
+    .appIntrodetails {
+        flex-direction: row;
+    }
+
+    .appIntrorowTitle {
+        width: 30%;
+    }
+
+    .appIntrorowContent {
+        width: 70%;
+    }
+}
+
+/* Desktop (1024px and up) */
+@media screen and (min-width: 1024px) {
+    .appIntrocard {
+        margin: 2rem 4rem;
+        padding: 2rem 4rem;
+    }
+}
+
+/* Large Desktop (1500px and up) */
+@media screen and (min-width: 1500px) {
+
+    /* AppIntro */
+    .appIntrocard {
+        margin: 2rem 12rem;
+    }
+}
