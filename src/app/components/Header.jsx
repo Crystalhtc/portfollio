@@ -39,11 +39,12 @@ export default function Header() {
 
   const projectPreviews = [
     { name: "Remedify", image: "/remedify-homepage.png", link: "/remedify" },
+    { name: "Equity First HR", image: "/equityFirst-homepage.png", link: "/equityFirstHR" },
     { name: "Tranquify", image: "/tranquify-homepage.png", link: "/tranquify" },
     { name: "West Point Hotel", image: "/westPointHotel-homepage.png", link: "/westPointHotel" },
-    { name: "Navie", image: "/navie-homepage.png", link: "/navie" },
-    { name: "Squiz", image: "/squiz-homepage.png", link: "/squiz" },
-    { name: "Dolce Donuts", image: "/dolcedonuts-homepage.png", link: "/dolceDonuts" },
+    // { name: "Navie", image: "/navie-homepage.png", link: "/navie" },
+    // { name: "Squiz", image: "/squiz-homepage.png", link: "/squiz" },
+    // { name: "Dolce Donuts", image: "/dolcedonuts-homepage.png", link: "/dolceDonuts" },
     { name: "Campus Canvas", image: "/campusCanvas-homepage.png", link: "/campusCanvas" },
     { name: "Teaddy", image: "/teaddy-homepage.png", link: "/teaddy" },
     { name: "One Timeless Step", image: "/oneTimelessStep-homepage.png", link: "/oneTimelessStep" },

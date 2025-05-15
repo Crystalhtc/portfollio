@@ -21,6 +21,18 @@ const ProjectsSection = () => {
     },
     {
       category: 'ux',
+      image: "/equityFirst-homepage.png",
+      alt: "Equity First HR",
+      name: "Equity First HR",
+      link: "/equityFirstHR",
+      description: "An inclusive and modern website experience reflecting Equity First HR’s values-driven mission, highlighting consulting services, interactive tools, and accessible content through a cohesive and professional interface.",
+      skills: ["UX/UI Redesign", "Rebranding", "Data Visualization"],
+      application: "Website",
+      appIcon: "/computer.svg",
+      appType: "Website"
+    },
+    {
+      category: 'ux',
       image: "/tranquify-homepage.png",
       alt: "Tranquify",
       name: "Tranquify",
@@ -43,42 +55,42 @@ const ProjectsSection = () => {
       appIcon: "/computer.svg",
       appType: "Website"
     },
-    {
-      category: 'ux',
-      image: "/navie-homepage.png",
-      alt: "Navie",
-      name: "Navie",
-      link: "/navie",
-      description: "Mobile application for way-finding inside a grocery store, locating the nearest grocery stores, creating shopping list, and calculating total price with tax.",
-      skills: ["UX/UI Design", "UX Research", "Usability Testing"],
-      application: "Mobile App",
-      appIcon: "/phone.svg",
-      appType: "Mobile Application"
-    },
-    {
-      category: 'ux',
-      image: "/squiz-homepage.png",
-      alt: "Squiz",
-      name: "Squiz",
-      link: "/squiz",
-      description: "Web application that generates personalized quizzes from study materials for revisions through the utilization of ChatGPT.",
-      skills: ["UX/UI Design"],
-      application: "Mobile App",
-      appIcon: "/phone.svg",
-      appType: "Mobile Application"
-    },
-    {
-      category: 'ux',
-      image: "/dolcedonuts-homepage.png",
-      alt: "Dolce Donuts",
-      name: "Dolce Donuts",
-      link: "/dolceDonuts",
-      description: "Responsive website for a donut shop, featuring an interactive donut customization page.",
-      skills: ["UX/UI Design"],
-      application: "Website",
-      appIcon: "/computer.svg",
-      appType: "Website"
-    },
+    // {
+    //   category: 'ux',
+    //   image: "/navie-homepage.png",
+    //   alt: "Navie",
+    //   name: "Navie",
+    //   link: "/navie",
+    //   description: "Mobile application for way-finding inside a grocery store, locating the nearest grocery stores, creating shopping list, and calculating total price with tax.",
+    //   skills: ["UX/UI Design", "UX Research", "Usability Testing"],
+    //   application: "Mobile App",
+    //   appIcon: "/phone.svg",
+    //   appType: "Mobile Application"
+    // },
+    // {
+    //   category: 'ux',
+    //   image: "/squiz-homepage.png",
+    //   alt: "Squiz",
+    //   name: "Squiz",
+    //   link: "/squiz",
+    //   description: "Web application that generates personalized quizzes from study materials for revisions through the utilization of ChatGPT.",
+    //   skills: ["UX/UI Design"],
+    //   application: "Mobile App",
+    //   appIcon: "/phone.svg",
+    //   appType: "Mobile Application"
+    // },
+    // {
+    //   category: 'ux',
+    //   image: "/dolcedonuts-homepage.png",
+    //   alt: "Dolce Donuts",
+    //   name: "Dolce Donuts",
+    //   link: "/dolceDonuts",
+    //   description: "Responsive website for a donut shop, featuring an interactive donut customization page.",
+    //   skills: ["UX/UI Design"],
+    //   application: "Website",
+    //   appIcon: "/computer.svg",
+    //   appType: "Website"
+    // },
     {
       category: 'graphic',
       image: "/campusCanvas-homepage.png",

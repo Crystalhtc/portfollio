@@ -14,6 +14,7 @@ const SideMenu = () => {
     { name: 'WordPress Website', id: "wordpress" },
     { name: 'Prototype', id: 'prototype' },
     { name: 'Problem and Solution', id: 'problem-solution' },
+    { name: 'Rebranding and Redesign', id: 'redesign' },
     { name: 'Features', id: 'features' },
     { name: 'Client Requirements', id: 'client-requirements' },
     { name: 'User Research', id: 'user-research' },

@@ -694,10 +694,10 @@ export default function Remedify() {
             <div className={styles.nextProject}>
               <h2>Next Project is...</h2>
                 <NextCard 
-                name="Navie"
-                image="/navie-homepage.png"
-                alt="Navie"
-                link="/navie"
+                name="Campus Canvas"
+                image="/campusCanvas-homepage.png"
+                alt="Campus Canvas"
+                link="/campusCanvas"
                 button="Next Project"
               />
             </div>

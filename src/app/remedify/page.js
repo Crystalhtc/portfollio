@@ -799,10 +799,10 @@ export default function Remedify() {
             <div className={styles.nextProject}>
               <h2>Next Project is...</h2>
                 <NextCard 
-                name="Tranquify"
-                image="/tranquify-homepage.png"
-                alt="Tranquify"
-                link="/tranquify"
+                name="Equity First HR"
+                image="/equityFirst-homepage.png"
+                alt="Equity First HR"
+                link="/equityFirstHR"
                 button="Next Project"
               />
             </div>
