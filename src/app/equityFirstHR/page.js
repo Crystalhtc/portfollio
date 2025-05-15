@@ -31,7 +31,7 @@ export default function Remedify() {
         <div className={styles.hero}>
           <div>
             <img
-              src="/equityFirstHR/banner.png"
+              src="/equityFirst/banner.png"
               alt="Equity First HR"
               className={styles.heroImage}
               priority="true"
@@ -123,7 +123,7 @@ export default function Remedify() {
               <div className={styles.prototypes}>
                 <div className={styles.prototypeContainer}>
                   <img
-                    src="/equityFirstHR/old-design.png"
+                    src="/equityFirst/old-design.png"
                     alt="Print Design"
                     className={styles.square}
                     priority="true"
@@ -135,7 +135,7 @@ export default function Remedify() {
 
                 <div className={styles.prototypeContainer}>
                   <img
-                    src="/equityFirstHR/new-design.png"
+                    src="/equityFirst/new-design.png"
                     alt="Digital Design"
                     className={styles.square}
                     priority="true"
@@ -153,7 +153,7 @@ export default function Remedify() {
               </div> 
               <AppFeature1
                 feature1="Easy Navigation"
-                image1="/equityFirstHR/feature1.png"
+                image1="/equityFirst/feature1.png"
                 alt1="Easy Navigation"
                 descriptions1={[
                   "Clear menu hierarchy, intuitive page layout, and visible call-to-actions ensure users can quickly find what they need without confusion"
@@ -161,7 +161,7 @@ export default function Remedify() {
               />
               <AppFeature2
                 feature2="Interactive Infographic"
-                image2="/equityFirstHR/feature2.png"
+                image2="/equityFirst/feature2.png"
                 alt2="Interactive Infographic"
                 descriptions2={[
                   "Engaging visual elements break down complex consulting processes, allowing users to explore information at their own pace and improving content comprehension",
@@ -169,7 +169,7 @@ export default function Remedify() {
               />
               <AppFeature1
                 feature1="Great accessibility"
-                image1="/equityFirstHR/feature3.png"
+                image1="/equityFirst/feature3.png"
                 alt1="Great accessibility"
                 descriptions1={[
                   "Designed to meet WCAG AA standards with proper color contrast, readable typography, and clear visual hierarchy to support all users"
@@ -177,7 +177,7 @@ export default function Remedify() {
               />
               <AppFeature2
                 feature2="Consistent Branding and Design Style"
-                image2="/equityFirstHR/feature4.png"
+                image2="/equityFirst/feature4.png"
                 alt2="Consistent Branding and Design Style"
                 descriptions2={[
                   "Unified use of typography, color palette, iconography, and layout builds trust and reinforces brand identity across every page and interaction"
@@ -236,7 +236,7 @@ export default function Remedify() {
             <div className={styles.competitiveAnalysis} id="competitive-analysis">
                 <ContentSection
                   title="Competitive Analysis"
-                  image="/equityFirstHR/competitive-analysis.png"
+                  image="/equityFirst/competitive-analysis.png"
                   alt="Equity First HR Competitive Analysis"
                   overview="A review of competing HR and EDI consulting firms revealed common issues such as inconsistent branding, lack of accessible design, and overly complex navigation."
                 />
@@ -283,7 +283,7 @@ export default function Remedify() {
             <div className={styles.detailsContainer} id="style-guide">
                 <ContentSection
                   title="Style Guide"
-                  image="/equityFirstHR/styleguide.png"
+                  image="/equityFirst/styleguide.png"
                   alt="Equity First HR's Style Guide"
                   overview="The Equity First HR style guide is designed to reflect the company’s professionalism and inclusivity."
                 />
@@ -320,7 +320,7 @@ export default function Remedify() {
             <div className={styles.userFlowChart} id="user-flow-map">
                 <ContentSection
                   title="User Flow Map"
-                  image="/equityFirstHR/user-flow-map.png"
+                  image="/equityFirst/user-flow-map.png"
                   alt="Equity First HR User Flow Map"
                   overview="The user flow map outlines how users interact with Equity First HR’s website, ensuring a smooth and intuitive experience from start to finish. With accessibility as a main focus, the flow simplifies complex tasks while maintaining clear and user-friendly navigation."
                 />
@@ -354,7 +354,7 @@ export default function Remedify() {
               </div>
               <div className={styles.wireframeImages}>
                 <img
-                  src="/equityFirstHR/wireframe.png"
+                  src="/equityFirst/wireframe.png"
                   alt="Equity First HR Wireframe"
                   width="600"
                   className={styles.wireframeImage}
@@ -370,7 +370,7 @@ export default function Remedify() {
             <div className={styles.initialHiFi} id="final-hifi">
                 <ContentSection
                   title="Final Hi-Fi"
-                  image="/equityFirstHR/final-hifi.png"
+                  image="/equityFirst/final-hifi.png"
                   alt="West Point Hotel Final Hi-Fi"
                   overview="The final HI-Fi prototype of Equity First HR's redesigned website incorporates client feedback to provide an intuitive, visually appealing, and highly functional website experience."
                 />
