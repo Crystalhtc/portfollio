@@ -32,7 +32,7 @@ export default function Remedify() {
           <div>
             <img
               src="/equityFirstHR/banner.png"
-              alt="Remedify"
+              alt="Equity First HR"
               className={styles.heroImage}
               priority="true"
             />
