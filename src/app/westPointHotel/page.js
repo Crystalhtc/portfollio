@@ -197,17 +197,8 @@ export default function Remedify() {
                       <ul>
                         <li>Modern, high-end, romantic, business-friendly</li>
                         <li>4.5-star luxury experience</li>
-                        <li>Clean, rectilinear design with a neutral palette</li>
-                      </ul>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th>Colors</th>
-                    <td>
-                      <ul>
-                        <li>No green hues or black content backgrounds</li>
-                        <li>Clean line</li>
-                        <li>Rectilinear</li>
+                        <li>Clean, rectilinear design</li>
+                        <li>Neutral palette, no green hues or black content backgrounds</li>
                       </ul>
                     </td>
                   </tr>
@@ -380,7 +371,7 @@ export default function Remedify() {
                 />
                 <div>
                   <div className={styles.details}>
-                    <p>Major sections::</p>
+                    <p>Major sections:</p>
                     <ul className={styles.detailsList}>
                       <div>
                         <li className={styles.bold}>Home:</li>
