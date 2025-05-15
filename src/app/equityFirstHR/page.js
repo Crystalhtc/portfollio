@@ -31,8 +31,8 @@ export default function Remedify() {
         <div className={styles.hero}>
           <div>
             <img
-              src="/westPointHotel/banner.png"
-              alt="West Point Hotel"
+              src="/equityFirstHR/banner.png"
+              alt="Remedify"
               className={styles.heroImage}
               priority="true"
             />
@@ -76,7 +76,7 @@ export default function Remedify() {
                     <div className={styles.prototypeContainer}>
                       <div className={styles.wireframeImages}>
                     <img
-                      src="/westPointHotel/wordpress.png"
+                      src="/equityFirstHR/wordpress.png"
                       alt="West Point Hotel WordPress Website"
                       width="600"
                       className={styles.wireframeImage}
@@ -153,7 +153,7 @@ export default function Remedify() {
               </div> 
               <AppFeature1
                 feature1="Easy Accommodation Booking"
-                image1="/westPointHotel/feature1.png"
+                image1="/equityFirstHR/feature1.png"
                 alt1="Easy Accommodation Booking"
                 descriptions1={[
                   "A user-friendly booking system that simplifies room selection and reservation"
@@ -161,7 +161,7 @@ export default function Remedify() {
               />
               <AppFeature2
                 feature2="Personalized Experience package and Itinerary"
-                image2="/westPointHotel/feature2.png"
+                image2="/equityFirstHR/feature2.png"
                 alt2="Personalized Experience package and Itinerary"
                 descriptions2={[
                   "Guests can customize their stay with tailored activity recommendations based on their preferences",
@@ -169,7 +169,7 @@ export default function Remedify() {
               />
               <AppFeature1
                 feature1="Clear Getting Here Guideline and Pick-up Services"
-                image1="/westPointHotel/feature3.png"
+                image1="/equityFirstHR/feature3.png"
                 alt1="Clear Getting Here Guideline and Pick-up Services"
                 descriptions1={[
                   "Comprehensive transportation guidance, covering airports, cruise terminals, helipads, and parking facilities", 
@@ -178,7 +178,7 @@ export default function Remedify() {
               />
               <AppFeature2
                 feature2="Easy Navigation to Dining Options"
-                image2="/westPointHotel/feature4.png"
+                image2="/equityFirstHR/feature4.png"
                 alt2="Easy Navigation to Dining Options"
                 descriptions2={[
                   "Intuitive browsing for the hotel's fine dining restaurant and casual eatery, each with its own branding and menu"
@@ -253,9 +253,9 @@ export default function Remedify() {
             <div className={styles.competitiveAnalysis} id="competitive-analysis">
                 <ContentSection
                   title="Competitive Analysis"
-                  image="/westPointHotel/competitive-analysis.png"
+                  image="/equityFirstHR/competitive-analysis.png"
                   alt="West Point Hotel Competitive Analysis"
-                  overview="Analyzing the competition was a crucial step in understanding what is already available and identifying opportunities for improvement. By reviewing existing hotel websites, the team identified both their strengths and the gaps that needed to be addressed. This insight shaped West Point Hotel into a more engaging and user-focused website."
+                  overview="Analyzing the competition was a crucial step in understanding what is already available and identifying opportunities for improvement. By reviewing existing medication management apps, the team identified both their strengths and the gaps that needed to be addressed. This insight shaped Remedify into a smarter, more user-focused solution."
                 />
                 <div className={styles.details}>
                   <p>How West Point Hotel's Website Design Stands Out:</p>
@@ -301,7 +301,7 @@ export default function Remedify() {
             <div className={styles.detailsContainer} id="user-persona">
               <ContentSection
                   title="User Persona"
-                  image="/westPointHotel/user-persona.png"
+                  image="/equityFirstHR/user-persona.png"
                   alt="West Point Hotel's User Persona"
                   overview="User personas are developed to better understand and address the needs of the target audience. They guide thoughtful design decisions, ensuring the website remains practical, user-friendly, and relevant."
                 />
@@ -329,7 +329,7 @@ export default function Remedify() {
             <div className={styles.detailsContainer} id="style-guide">
                 <ContentSection
                   title="Style Guide"
-                  image="/westPointHotel/styleguide.png"
+                  image="/equityFirstHR/styleguide.png"
                   alt="West Point Hotel's Style Guide"
                   overview="The West Point Hotel style guide is designed to reflect the hotel's elegance and luxury. Its aesthetic draws inspiration from the sun-kissed sandy shores, the shimmering turquoise waters, and the warm white slabs of the hotel's modern architecture."
                 />
@@ -365,7 +365,7 @@ export default function Remedify() {
             <div className={styles.detailsContainer} id="site-map">
                 <ContentSection
                   title="Site Map"
-                  image="/westPointHotel/site-map.png"
+                  image="/equityFirstHR/site-map.png"
                   alt="West Point Hotel Site Map"
                   overview="Based on user surveys, secondary research, and competitive analysis, we developed a site map for West Point Hotel. Our site map serves as a blueprint for the app’s structure, helping us organize features and ensure users can easily navigate."
                 />
@@ -408,9 +408,9 @@ export default function Remedify() {
             <div className={styles.userFlowChart} id="user-story-map">
                 <ContentSection
                   title="User Story Map"
-                  image="/westPointHotel/user-story-map.png"
+                  image="/equityFirstHR/user-story-map.png"
                   alt="West Point Hotel User Story Chart"
-                  overview="The user story map outlines how users will interact with West Point Hotel, ensuring a smooth and intuitive experience from start to finish."
+                  overview="The user story map outlines how users will interact with Remedify, ensuring a smooth and intuitive experience from start to finish."
                 />
                 <div className={styles.details}>
                   {/* <p>Key User Journeys:</p> */}
@@ -442,7 +442,7 @@ export default function Remedify() {
               </div>
               <div className={styles.wireframeImages}>
                 <img
-                  src="/westPointHotel/wireframe.png"
+                  src="/equityFirstHR/wireframe.png"
                   alt="West Point Hotel Wireframe"
                   width="600"
                   className={styles.wireframeImage}
@@ -466,7 +466,7 @@ export default function Remedify() {
                   <div className={styles.testingImageContainer}>
                     <div>
                       <img
-                        src="/westPointHotel/before1.png"
+                        src="/equityFirstHR/before1.png"
                         alt="Favoriting System Before Usability Testing"
                         width="600"
                         className={styles.testingImage}
@@ -474,7 +474,7 @@ export default function Remedify() {
                     </div>
                     <div>
                       <img
-                        src="/westPointHotel/after1.png"
+                        src="/equityFirstHR/after1.png"
                         alt="Favoriting System After Usability Testing"
                         width="600"
                         className={styles.testingImage}
@@ -508,7 +508,7 @@ export default function Remedify() {
                   <div className={styles.testingImageContainer}>
                     <div>
                       <img
-                        src="/westPointHotel/before2.png"
+                        src="/equityFirstHR/before2.png"
                         alt="Meditation Categories Before Usability Testing"
                         width="600"
                         className={styles.testingImage}
@@ -516,7 +516,7 @@ export default function Remedify() {
                     </div>
                     <div>
                       <img
-                        src="/westPointHotel/after2.png"
+                        src="/equityFirstHR/after2.png"
                         alt="Meditation Categories After Usability Testing"
                         width="600"
                         className={styles.testingImage}
@@ -550,7 +550,7 @@ export default function Remedify() {
                   <div className={styles.testingImageContainer}>
                     <div>
                       <img
-                        src="/westPointHotel/before3.png"
+                        src="/equityFirstHR/before3.png"
                         alt="Weather Section Before Usability Testing"
                         width="600"
                         className={styles.testingImage}
@@ -558,7 +558,7 @@ export default function Remedify() {
                     </div>
                     <div>
                       <img
-                        src="/westPointHotel/after3.png"
+                        src="/equityFirstHR/after3.png"
                         alt="Weather Section After Usability Testing"
                         width="600"
                         className={styles.testingImage}
@@ -594,7 +594,7 @@ export default function Remedify() {
             {/* <div className={styles.initialHiFi} id="usability-testing">
               <ContentSection
                 title="Usability Testing"
-                image="/westPointHotel/usability-testing.png"
+                image="/equityFirstHR/usability-testing.png"
                 alt="West Point Hotel Usability Testing"
                 overview="Usability testing was conducted with 5 participants, which involved observing users as they interacted with West Point Hotel’s website. Insights are then drawn to improve the interface and functionality of the website."
               />
@@ -626,7 +626,7 @@ export default function Remedify() {
               </div>
               <AppFeature1
                 feature1="Navigation Issues"
-                image1="/westPointHotel/recommendation1.png"
+                image1="/equityFirstHR/recommendation1.png"
                 alt1="Navigation Issues"
                 descriptions1={[
                   "Added breadcrumbs for easier navigation."
@@ -634,7 +634,7 @@ export default function Remedify() {
               />
               <AppFeature2
                 feature2="Call-to-Action for Booking"
-                image2="/westPointHotel/recommendation2.png"
+                image2="/equityFirstHR/recommendation2.png"
                 alt2="Call-to-Action for Booking"
                 descriptions2={[
                   'Implemented a prominent "Book Now" CTA on the homepage.'
@@ -642,7 +642,7 @@ export default function Remedify() {
               />
               <AppFeature1
                 feature1="Itinerary Page"
-                image1="/westPointHotel/recommendation3.png"
+                image1="/equityFirstHR/recommendation3.png"
                 alt1="Itinerary Page"
                 descriptions1={[
                   "Create packages that include multiple activities and display these packages in itinerary view.",
@@ -656,7 +656,7 @@ export default function Remedify() {
             <div className={styles.initialHiFi} id="final-hifi">
                 <ContentSection
                   title="Final Hi-Fi"
-                  image="/westPointHotel/final-hifi.png"
+                  image="/equityFirstHR/final-hifi.png"
                   alt="West Point Hotel Final Hi-Fi"
                   overview="The final iteration of West Point Hotel's website incorporates client and user feedback to provide an intuitive, visually appealing, and highly functional website experience."
                 />
