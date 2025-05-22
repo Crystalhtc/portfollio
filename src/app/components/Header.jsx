@@ -52,7 +52,7 @@ export default function Header() {
   ];
 
   const uxProjects = [
-    "Remedify", "Tranquify", "West Point Hotel", "Navie", "Squiz", "Dolce Donuts"
+    "Remedify", "Equity First HR", "Tranquify", "West Point Hotel", "Navie", "Squiz", "Dolce Donuts"
   ];
   const graphicProjects = [
     "Campus Canvas", "Teaddy", "One Timeless Step", "Mood Tracking Motion Graphic Video"
