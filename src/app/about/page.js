@@ -243,7 +243,7 @@ export default function About() {
                 </a>
               </div>
             </div>
-            <div className={styles.resume}>
+            {/* <div className={styles.resume}>
               <h2>Check out my resume!</h2>
               <a
                 className={styles.button}
@@ -252,7 +252,7 @@ export default function About() {
               >
                 <button>Resume</button>
               </a>
-            </div>
+            </div> */}
           </motion.div>
 
           <motion.div
