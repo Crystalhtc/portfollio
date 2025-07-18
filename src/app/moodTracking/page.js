@@ -90,7 +90,7 @@ export default function Remedify() {
                   {/* <div className={styles.prototypeContainer}>
                     <iframe src="https://www.youtube.com/watch?v=Olqu-rU1vaI" allowFullScreen />
                   </div> */}
-                  <video controls autoPlay loop poster="/moodTracking/thumbnail.png" className={styles.prototypeContainer}>
+                  <video controls autoPlay muted loop poster="/moodTracking/thumbnail.png" className={styles.prototypeContainer}>
                     <source src="/moodTracking/video.mp4" type="video/mp4"/>
                     Your browser does not support the video tag.
                   </video>

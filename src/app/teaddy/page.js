@@ -258,16 +258,27 @@ export default function Remedify() {
                 </div>
               </div>
 
-              <div className={styles.userResearch} id="reflection">
-                <UserResearch
-                  title="Reflection and Learnings"
-                  descriptions={[
-                    "Learned how to create a visual identity that aligns with a brand’s mission and personality.",
-                    "Discovered the impact of using mascots to evoke emotions and build brand recognition.",
-                    "Explored ways to blend a cute and friendly theme with a refined, modern aesthetic."
-                  ]}
-                />
-              </div>
+              <div className={styles.detailsContainer} id="reflection">
+                <div>
+                  <div className={styles.details}>
+                    <h2>Reflection and Learnings</h2>
+                    <ul className={styles.detailsList}>
+                      <div>
+                        <li>Learned how to create a visual identity that aligns with a brand’s mission and personality.</li>
+                        {/* <li className={styles.subIndent}>Aligning brand identity with organizational values by developing a cohesive visual system that communicates professionalism, inclusivity, and trust.</li> */}
+                      </div>
+                      <div>
+                        <li>Discovered the impact of using mascots to evoke emotions and build brand recognition.</li>
+                        {/* <li className={styles.subIndent}>Evaluate and improve existing websites by identifying usability issues, restructuring content, and implementing modern, accessible design patterns.</li> */}
+                      </div>
+                      <div>
+                        <li>Explored ways to blend a cute and friendly theme with a refined, modern aesthetic.</li>
+                        {/* <li className={styles.subIndent}>Developing interactive infographics that translate complex consulting processes into digestible, engaging visuals—enhancing clarity and user engagement.</li> */}
+                      </div>
+                    </ul>
+                  </div>
+                </div>
+            </div>
 
               <div className={styles.nextProject}>
                 <h2>Next Project is...</h2>

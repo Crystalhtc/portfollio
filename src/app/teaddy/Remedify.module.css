@@ -242,18 +242,18 @@
     }
 
     .appFeatures {
-        padding: 3rem 6rem 4rem;
+        padding: 3rem 0rem 4rem;
         gap: 4rem;
     }
 
     .details,
     .wireframeImage {
-        padding: 0 10rem;
+        padding: 0 5rem;
         padding-bottom: 3rem;
     }
 
     .userResearch {
-        padding: 5rem 10rem;
+        padding: 5rem 0rem;
     }
 
     .detailsContainer,
