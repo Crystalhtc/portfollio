@@ -280,6 +280,7 @@
 
 .client {
     padding: 2rem 0;
+    border-bottom: 1.5px solid var(--light-red);
 }
 
 .table,
@@ -436,22 +437,23 @@
     }
 
     .prototype {
-        width: 400px;
+        width: 900px;
+        height: 500px;
     }
 
     .appFeatures,
     .recommendations {
-        padding: 3rem 6rem 4rem;
+        padding: 3rem 0rem 4rem;
         gap: 4rem;
     }
 
     .details,
     .wireframeImage {
-        padding: 0 10rem;
+        padding: 0 5rem;
     }
 
     .userResearch {
-        padding: 5rem 10rem;
+        padding: 5rem 5rem;
     }
 
     .detailsContainer,
@@ -540,7 +542,8 @@
     }
 
     .prototype {
-        width: 600px;
+        width: 1200px;
+        height: 600px;
     }
 
     .userResearch {

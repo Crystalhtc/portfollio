@@ -227,7 +227,7 @@ export default function Remedify() {
             <div className={styles.details}>
                 <h2>User Persona</h2>
                 <p>Crafting user personas for end users provides essential insights into our target audience. This approach prioritizes user needs, allowing us to customize our products accordingly and deliver a delightful user experience.</p>
-                <ul className={styles.detailsList}>
+                <ul className={`${styles.detailsList} ${styles.persona}`}>
                   <div>
                     <img
                       src="/tranquify/persona1.png"

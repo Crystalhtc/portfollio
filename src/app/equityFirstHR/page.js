@@ -249,7 +249,7 @@ export default function Remedify() {
                     </div>
                     <div>
                       <li className={styles.bold}>Intuitive Navigation:</li>
-                      <li className={styles.indent}>Clear hierarchy and consistent menu labels (e.g., “Services” instead of “More”)</li>
+                      <li className={styles.indent}>Clear hierarchy and consistent menu labels (e.g. “Services” instead of “More”)</li>
                       <li className={styles.indent}>Prevent hidden items on  navigation bar</li>
                     </div>
                     <div>
