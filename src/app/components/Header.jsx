@@ -47,6 +47,7 @@ export default function Header() {
     // { name: "Dolce Donuts", image: "/dolcedonuts-homepage.png", link: "/dolceDonuts" },
     { name: "Campus Canvas", image: "/campusCanvas-homepage.png", link: "/campusCanvas" },
     { name: "Teaddy", image: "/teaddy-homepage.png", link: "/teaddy" },
+    { name: "REPAIR Framework White Paper", image: "/whitePaper-homepage.png", link: "/whitePaper" },
     { name: "One Timeless Step", image: "/oneTimelessStep-homepage.png", link: "/oneTimelessStep" },
     { name: "Mood Tracking Motion Graphic Video", image: "/moodTracking-homepage.png", link: "/moodTracking" }
   ];
@@ -55,7 +56,7 @@ export default function Header() {
     "Remedify", "Equity First HR", "Tranquify", "West Point Hotel", "Navie", "Squiz", "Dolce Donuts"
   ];
   const graphicProjects = [
-    "Campus Canvas", "Teaddy", "One Timeless Step", "Mood Tracking Motion Graphic Video"
+    "Campus Canvas", "Teaddy", "REPAIR Framework White Paper", "One Timeless Step", "Mood Tracking Motion Graphic Video"
   ];
 
   useEffect(() => {
