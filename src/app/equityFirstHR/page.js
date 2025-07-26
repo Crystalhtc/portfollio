@@ -58,7 +58,7 @@ export default function Remedify() {
                 description="This project aimed to modernize the digital presence of Equity First HR while reflecting its core values of equity, diversity, and inclusion. The redesign addressed outdated visuals, unclear navigation, and a lack of integration for new services. A refreshed brand identity and accessible website were developed to better serve clients and reflect the organization’s credibility."
                 role="UX/UI Re-design, Rebranding, Infographics, UX Research, Graphic Design, Usability Testing, Competitive Analysis"
                 tools="Figma, Adobe Illustrator"
-                duration="Apr 2025 – Current"
+                duration="Apr 2025 – May 2025 (1 month)"
                 prototypeLink="https://www.figma.com/proto/57WnoTyPGOE5hvJN5O0Lvm/Equity-First-HR-Branding---Website-Redesign?node-id=479-3713&p=f&t=MTec5UwLcT8sfExJ-1&scaling=scale-down-width&content-scaling=fixed&page-id=475%3A1532&starting-point-node-id=493%3A6545"
                 figmaLink="https://www.figma.com/design/57WnoTyPGOE5hvJN5O0Lvm/Equity-First-HR-Branding---Website-Redesign--Copy-?node-id=475-1532&t=bV3HteFHgKXOr5es-1"
                 styleguideLink="https://www.figma.com/design/57WnoTyPGOE5hvJN5O0Lvm/Equity-First-HR?node-id=932-3803&p=f&t=S46cMl1IVwfFA1Ir-0"
