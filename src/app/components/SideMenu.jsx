@@ -44,6 +44,7 @@ const SideMenu = () => {
     { name: 'Key Animations', id: 'key-motion' },
     { name: 'Digital Design', id: 'digital-design' },
     { name: 'Final Design', id: 'final-design' },
+    { name: 'White Paper Design', id: 'white-paper' },
     { name: 'Reflection and Learnings', id: 'reflection' },
   ];
 

@@ -383,6 +383,27 @@ export default function Remedify() {
                 </div>
             </div>
 
+            <div className={styles.detailsContainer} id="white-paper">
+              <div className={styles.details}>
+                <h2>Extending the Brand: REPAIR Framework White Paper</h2>
+                <p>As part of Equity First HR’s broader rebranding initiative, a complementary project involved designing their REPAIR Framework White Paper—a document that translates dense, equity-focused content into a clean, accessible editorial format.</p>
+                <p>This project showcases how the same visual language—typography, color palette, iconography, and tone—was extended from the digital interface to long-form print collateral, reinforcing brand consistency across platforms.</p>
+              </div>
+              <div className={styles.wireframeImages}>
+                <img
+                  src="/equityFirst/white-paper.png"
+                  alt="Equity First HR REPAIR Framework White Paper White Paper"
+                  width="600"
+                  className={styles.wireframeImage}
+                />
+              </div>  
+              <div className={styles.linkButton}>
+                    <a className={styles.button} href="https://www.crystalhtc.com/whitePaper" target="_blank">
+                      <button className={styles.button}>View Project</button>
+                    </a>
+                  </div>
+            </div>
+
             <div className={styles.detailsContainer} id="reflection">
                 <div>
                   <div className={styles.details}>
