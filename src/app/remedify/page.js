@@ -770,6 +770,27 @@ export default function Remedify() {
                 </div>
             </div>
 
+            <div className={styles.detailsContainer} id="social-media">
+              <div className={styles.details}>
+                <h2>Social Media Posts Design</h2>
+                <p>The social media posts were designed using Remedify’s established branding, ensuring consistency across all platforms. The visuals highlight key features like smart reminders, label scanning, and one-tap logging—tailored to engage users and attract potential investors.</p>
+                <p>Each post uses clear hierarchy, friendly icons, and concise messaging to communicate the app’s value. Formats were optimized for Instagram, Facebook, and LinkedIn to maximize reach and engagement.</p>
+              </div>
+              <div className={styles.wireframeImages}>
+                <img
+                  src="/remedify/social-media.png"
+                  alt="Remedify Social Media Posts"
+                  width="600"
+                  className={styles.wireframeImage}
+                />
+              </div>  
+              <div className={styles.linkButton}>
+                  <a className={styles.button} href="https://www.figma.com/design/Eg3oN310XPng2Wi30vmui0/Remedify-Social-Media-Posts?node-id=0-1&t=5GIAozX1WuRcUP8L-1" target="_blank">
+                    <button  className={styles.button}>View Design</button>
+                  </a>
+              </div>
+            </div>
+
             <div className={styles.detailsContainer} id="reflection">
                 <div>
                   <div className={styles.details}>
