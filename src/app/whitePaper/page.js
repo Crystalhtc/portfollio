@@ -231,7 +231,7 @@ export default function Remedify() {
                     </div>
                   </ul>
                 </div>
-              </div>
+              </div>   
 
               <div className={styles.detailsContainer} id="infographics">
                 <ContentSection
