@@ -236,10 +236,10 @@ export default function Remedify() {
               <div className={styles.detailsContainer} id="infographics">
                 <ContentSection
                   title="Infographics"
-                  image="/whitePaper/infographic.png"
+                  image="/whitePaper/infographic.png"  
                   alt="Equity First HR's Infographics Design on REPAIR Framework white paper"
                   overview="The REPAIR framework, a justice-focused tool for centering equity-deserving groups, is transformed into clear, engaging visuals that enhance understanding and retention. By turning complex concepts into accessible graphics, the design helps readers quickly grasp the framework’s key principles while keeping the content visually appealing."
-                />
+                />  
                 <div>
                   <div className={styles.details}>
                     <ul className={styles.detailsList}>
