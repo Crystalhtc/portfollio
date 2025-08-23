@@ -5,10 +5,10 @@ import AppCard from "./components/AppCard";
 import Footer from "./components/Footer";
 import AboutCard from "./components/AboutCard";
 import ScrollButton from "./components/ScrollButton";
-import ProjectsSection from './components/ProjectsSection';
 import LoadingScreen from './components/LoadingScreen';
 import { useState, useEffect, useRef } from "react";
 import { MouseParallaxContainer, MouseParallaxChild } from "react-parallax-mouse";
+import DesignCard from "./components/DesignCard";
 
 export default function Home() {
   const [taglineScale, setTaglineScale] = useState(1);
@@ -263,7 +263,23 @@ useEffect(() => {
               <div className={`${styles.projectsWrapper} ${showProjects ? styles.showProjects : ''}`}>
                 <div className={styles.projectOffset} id="project"></div>
                 <div className={styles.projects}>
-                  <ProjectsSection />
+                  <h2>Projects</h2>
+                  <div className={styles.projectContainer}>
+                    <DesignCard 
+                      name="UX/UI Design"
+                      image="/uxui.png"
+                      alt="UX/UI Design Projects"
+                      link="/uxui"
+                      button="View"
+                    />
+                    <DesignCard 
+                      name="Graphic Design"
+                      image="/graphic.png"
+                      alt="Graphic Design Projects"
+                      link="/uxui"
+                      button="View"
+                    />
+                  </div>
                 </div>
 
                 <div className={styles.aboutMe}>

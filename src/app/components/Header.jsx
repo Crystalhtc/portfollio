@@ -1,41 +1,38 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "./Header.module.css";
-import projectStyles from "./ProjectsSection.module.css"; // ← import the button styles
 import { Menu, X, ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [isProjectsHovered, setIsProjectsHovered] = useState(false);
-  const [activeFilter, setActiveFilter] = useState('all');
+  const [hoveredCategory, setHoveredCategory] = useState(null); // "ux" | "graphic" | null
   const projectsContainerRef = useRef(null);
 
-  const handleMouseEnter = () => setIsProjectsHovered(true);
-  const handleMouseLeave = () => setIsProjectsHovered(false);
+  const handleMouseLeave = () => setHoveredCategory(null);
 
-  const scrollToProjects = (event) => {
-    event.preventDefault();
-    setIsProjectsHovered(false);
-    setIsMenuOpen(false);
-    document.body.style.overflow = "unset";
+  // const scrollToProjects = (event) => {
+  //   event.preventDefault();
+  //   setHoveredCategory(null);
+  //   setIsMenuOpen(false);
+  //   document.body.style.overflow = "unset";
 
-    if (window.location.pathname === "/") {
-      setTimeout(() => {
-        const projectSection = document.getElementById("project");
-        if (projectSection) {
-          const headerHeight = document.querySelector(`.${styles.header}`).offsetHeight;
-          const sectionTop = projectSection.getBoundingClientRect().top + window.scrollY;
-          window.scrollTo({ top: sectionTop - headerHeight, behavior: "smooth" });
-        }
-      }, 100);
-    } else {
-      if (typeof window !== "undefined") {
-        sessionStorage.setItem("jumpToProject", "true");
-        window.location.href = "/";
-      }
-    }
-  };
+  //   if (window.location.pathname === "/") {
+  //     setTimeout(() => {
+  //       const projectSection = document.getElementById("project");
+  //       if (projectSection) {
+  //         const headerHeight = document.querySelector(`.${styles.header}`).offsetHeight;
+  //         const sectionTop = projectSection.getBoundingClientRect().top + window.scrollY;
+  //         window.scrollTo({ top: sectionTop - headerHeight, behavior: "smooth" });
+  //       }
+  //     }, 100);
+  //   } else {
+  //     if (typeof window !== "undefined") {
+  //       sessionStorage.setItem("jumpToProject", "true");
+  //       window.location.href = "/";
+  //     }
+  //   }
+  // };
 
   const projectPreviews = [
     { name: "Remedify", image: "/remedify-homepage.png", link: "/remedify" },
@@ -82,11 +79,16 @@ export default function Header() {
   };
 
   const scrollLeft = () => {
-    projectsContainerRef.current.scrollBy({ left: -540, behavior: "smooth" });
+    projectsContainerRef.current?.scrollBy({ left: -540, behavior: "smooth" });
   };
 
   const scrollRight = () => {
-    projectsContainerRef.current.scrollBy({ left: 540, behavior: "smooth" });
+    projectsContainerRef.current?.scrollBy({ left: 540, behavior: "smooth" });
+  };
+
+  const filtered = (category) => {
+    const names = category === "ux" ? uxProjects : graphicProjects;
+    return projectPreviews.filter(p => names.includes(p.name));
   };
 
   return (
@@ -121,61 +123,58 @@ export default function Header() {
         <div className={styles.menuContent}>
           <button className={styles.closeButton} onClick={closeMenu} aria-label="Close menu" />
           <div className={styles.links}>
+            {/* UX/UI */}
             <div
               className={styles.projectsLink}
-              onMouseEnter={handleMouseEnter}
+              onMouseEnter={() => setHoveredCategory("ux")}
             >
-              <a href="/#project" onClick={scrollToProjects}>Projects</a>
-              {isProjectsHovered && (
+              <a href="/uxui" >UX/UI Design</a>
+              {hoveredCategory === "ux" && (
                 <div className={styles.projectsOverlay} onMouseLeave={handleMouseLeave}>
-                  
-                  {/* --- Filter Buttons --- */}
-                  <div className={`${projectStyles.filterContainer} ${styles.filterContainer}`}>
-                    <button
-                      onClick={() => setActiveFilter("all")}
-                      className={`${projectStyles.filterButton} ${activeFilter === "all" ? projectStyles.active : ""}`}
-                    >
-                      All
-                    </button>
-                    <button
-                      onClick={() => setActiveFilter("ux")}
-                      className={`${projectStyles.filterButton} ${activeFilter === "ux" ? projectStyles.active : ""}`}
-                    >
-                      UX/UI Design
-                    </button>
-                    <button
-                      onClick={() => setActiveFilter("graphic")}
-                      className={`${projectStyles.filterButton} ${activeFilter === "graphic" ? projectStyles.active : ""}`}
-                    >
-                      Graphic Design
-                    </button>
-                  </div>
-
-                  {/* --- Scroll Buttons + Filtered Projects --- */}
                   <button className={styles.scrollButton} onClick={scrollLeft}>
                     <ChevronLeft size={40} />
                   </button>
 
                   <div className={styles.projectsContainer} ref={projectsContainerRef}>
-                    {projectPreviews
-                      .filter(project =>
-                        activeFilter === 'all' ||
-                        (activeFilter === 'ux' && uxProjects.includes(project.name)) ||
-                        (activeFilter === 'graphic' && graphicProjects.includes(project.name))
-                      )
-                      .map((project) => (
-                        <a key={project.name} href={project.link} className={styles.projectPreview}>
-                          <img src={project.image} alt={project.name} />
-                          <span>{project.name}</span>
-                        </a>
-                      ))
-                    }
+                    {filtered("ux").map((project) => (
+                      <a key={project.name} href={project.link} className={styles.projectPreview}>
+                        <img src={project.image} alt={project.name} />
+                        <span>{project.name}</span>
+                      </a>
+                    ))}
                   </div>
 
                   <button className={styles.scrollButton} onClick={scrollRight}>
                     <ChevronRight size={40} />
                   </button>
+                </div>
+              )}
+            </div>
 
+            {/* Graphic */}
+            <div
+              className={styles.projectsLink}
+              onMouseEnter={() => setHoveredCategory("graphic")}
+            >
+              <a href="/graphic">Graphic Design</a>
+              {hoveredCategory === "graphic" && (
+                <div className={styles.projectsOverlay} onMouseLeave={handleMouseLeave}>
+                  <button className={styles.scrollButton} onClick={scrollLeft}>
+                    <ChevronLeft size={40} />
+                  </button>
+
+                  <div className={styles.projectsContainer} ref={projectsContainerRef}>
+                    {filtered("graphic").map((project) => (
+                      <a key={project.name} href={project.link} className={styles.projectPreview}>
+                        <img src={project.image} alt={project.name} />
+                        <span>{project.name}</span>
+                      </a>
+                    ))}
+                  </div>
+
+                  <button className={styles.scrollButton} onClick={scrollRight}>
+                    <ChevronRight size={40} />
+                  </button>
                 </div>
               )}
             </div>

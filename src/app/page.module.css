@@ -75,6 +75,16 @@
   margin-top: 0rem;
 }
 
+.nextButton {
+  margin-top: 0rem;
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  width: 240px;
+}
+
 .heroImageContainer {
   display: flex;
   justify-content: center;
@@ -102,13 +112,18 @@
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
   gap: 1rem;
+  margin-bottom: 5rem;
+  border-bottom: 1.5px solid var(--light-red);
+  padding-bottom: 5rem;
 }
 
 .projects h2 {
   width: 90%;
   margin: 2rem auto 0;
   font-size: 1.5rem;
+  text-align: center;
 }
 
 .appCardList {
@@ -185,6 +200,24 @@
   display: block;
 }
 
+.prototype {
+  width: 100%;
+}
+
+ .projectContainer {
+   display: flex;
+    flex-direction: column;
+ }
+
+.prototypeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+}
+
 @media (min-width: 400px) {
   .aboutMe {
     padding: 6rem 4rem 4rem;
@@ -209,11 +242,20 @@
     max-height: 45vh;
     object-fit: cover;
   }
+
 }
 
 /* Tablet (768px and up) */
 @media (min-width: 768px) {
+
+  .projects {
+    margin: 0 2rem;
+  }
   
+  .prototypeContainer {
+    gap: 0rem;
+  }
+
   .heroImageMobile {
       display: none;
     }
@@ -302,6 +344,11 @@
     font-size: 1.75rem;
   }
 
+    .projectContainer {
+    display: flex;
+    padding: 0 2rem;
+    }
+
   .appCardList {
     flex-direction: row;
     flex-wrap: wrap;
@@ -316,6 +363,11 @@
 }
 
 @media (min-width: 900px) {
+  .projectContainer {
+      display: flex;
+      flex-direction: row;
+    }
+    
   .heroImageTablet {
     display: none;
   }
@@ -355,6 +407,13 @@
     font-size: 3rem;
   }
   
+    .projectContainer {
+      gap: 2rem;
+    }
+
+        .projects {
+          margin: 0 10rem;
+        }
 }
 
 /* Desktop (1024px and up) */
@@ -459,6 +518,8 @@
 .projectsWrapper {
   padding-top: 95rem;
 }
+
+
 }
 
 @media (min-width: 2000px) {
@@ -469,6 +530,14 @@
   .projectsWrapper {
     padding-top: 150rem;
   }
+
+    .projectContainer {
+      gap: 2rem;
+    }
+
+        .projects {
+          margin: 0 15rem;
+        }
 }
 
 /* Base styles (Mobile first) */

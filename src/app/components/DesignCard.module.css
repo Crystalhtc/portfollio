@@ -1,0 +1,63 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1rem 2rem;
+    align-items: center;
+    background-color: var(--background);
+    transition: transform 0.3s ease;
+}
+
+.appImage {
+    width: 100%;
+    padding: 0.5rem;
+}
+
+.appName {
+    display: flex;
+    justify-content: center;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 1rem;
+    width: 100%;
+}
+
+.button {
+    transition: background-color 0.3s ease;
+}
+
+.card:hover {
+    transform: translate(0px, -10px);
+    transition: transform 0.3s ease;
+}
+
+.card:hover .button {
+    background-color: var(--light-red);
+    color: var(--background);
+}
+
+/* Tablet and up (768px and up) */
+@media (min-width: 768px) {
+    /* .card {
+        width: 50vw;
+    } */
+
+    .appImage {
+        width: 100%;
+        padding: 0 1rem;
+    }
+}
+
+/* Desktop (1024px and up) */
+@media (min-width: 1024px) {
+    .card {
+        width: 30vw;
+    }
+}
+
+/* Large Desktop (1440px and up) */
+@media (min-width: 1440px) {}
