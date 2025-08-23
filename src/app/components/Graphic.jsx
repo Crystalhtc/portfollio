@@ -69,7 +69,7 @@ const ProjectsSection = () => {
 
   return (
     <div className={styles.projects}>
-      <h2>UX/UI Projects</h2>
+      <h2>Graphic Design Projects</h2>
       <div className={styles.appCardList}>
         {projects.map((project, index) => (
           <motion.div

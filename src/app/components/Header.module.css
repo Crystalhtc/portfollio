@@ -117,7 +117,7 @@
 }
 
 .menuOpen {
-    height: 360px;
+    height: 420px;
     opacity: 1;
     transition: all 0.3s ease;
 }
