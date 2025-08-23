@@ -276,7 +276,7 @@ useEffect(() => {
                       name="Graphic Design"
                       image="/graphic.png"
                       alt="Graphic Design Projects"
-                      link="/uxui"
+                      link="/graphic"
                       button="View"
                     />
                   </div>
