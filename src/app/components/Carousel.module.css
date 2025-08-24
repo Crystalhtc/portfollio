@@ -1,0 +1,132 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.viewport {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.nav {
+  position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 40px;
+    width: 40px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(6px);
+    cursor: pointer;
+    font-size: 30px;
+    line-height: 1;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    transition: transform 120ms ease, opacity 120ms ease;
+    color: rgba(98, 98, 98, 0.9);
+}
+
+.wrapper:hover .nav {
+  display: flex;
+}
+
+
+
+.track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  gap: 0;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.slide {
+  scroll-snap-align: start;
+}
+
+.media {
+  width: 100%;
+  /* Keeps height consistent across slides; adjust aspect ratio via prop */
+  background: #f6f6f6;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.viewport::-webkit-scrollbar {
+  /* Chrome/Safari/Edge (Blink/WebKit) */
+  display: none;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* or "contain" if you want full image without crop */
+  user-select: none;
+  pointer-events: none;
+  /* allows smooth drag scrolling without grabbing the image */
+}
+
+.nav:hover {
+  transform: translateY(-50%) scale(1.05);
+}
+
+.nav:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.prev {
+  left: 8px;
+}
+
+.next {
+  right: 8px;
+}
+
+.dots {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.25);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.activeDot {
+  background: var(--light-red);
+}
+
+@media screen and (min-width: 1500px) {
+  .wrapper {
+    max-width: 600px;
+  }
+  
+  .nav {
+    width: 50px;
+    height: 50px;
+    font-size: 36px;
+  }
+  
+  .dot {
+    width: 12px;
+    height: 12px;
+  }
+}
+
