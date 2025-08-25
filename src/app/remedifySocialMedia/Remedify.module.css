@@ -10,6 +10,10 @@
             left: 40px;
 } */
 
+.centerTitle {
+    text-align: center;
+}
+
 .content {
     width: 90%;
     margin: 0 auto;
@@ -232,11 +236,13 @@
 
 }
 
-
-@media screen and (min-width: 1024px) {
+@media screen and (max-width: 1024px) {
     .contentContainer {
         flex-direction: column;
     }
+}
+
+@media screen and (min-width: 1024px) {
 
     .post {
         flex-direction: row;
@@ -339,6 +345,10 @@
     .initialHiFi,
     .competitiveAnalysis {
         padding: 5rem 0;
+    }
+
+    .post {
+        margin: 0 5rem;
     }
 }
 
@@ -479,6 +489,10 @@
         margin: 2rem 4rem;
         padding: 2rem 4rem;
     }
+
+    .post {
+        margin-bottom: 2rem;
+    }
 }
 
 /* Large Desktop (1500px and up) */
@@ -488,5 +502,6 @@
     .appIntrocard {
         margin: 2rem 12rem;
     }
+
 }
 

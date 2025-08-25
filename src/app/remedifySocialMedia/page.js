@@ -74,7 +74,7 @@ export default function Remedify() {
         <div className={styles.hero}>
           <div>
             <img
-              src="/campusCanvas/banner.png"
+              src="/socialMedia/banner.png"
               alt="Tranquify"
               className={styles.heroImage}
               priority="true"
@@ -103,7 +103,7 @@ export default function Remedify() {
             <div className={styles.appIntroContainer}>
                 <div className={styles.appIntrodetails}>
                     <p className={styles.appIntrorowTitle}>Role</p>
-                    <p className={styles.appIntrorowContent}>Graphic Designer, Social Media Content Creator</p>
+                    <p className={styles.appIntrorowContent}>Graphic Designer <br/> Social Media Content Creator</p>
                 </div>
                 <div className={styles.appIntrodetails}>
                     <p className={styles.appIntrorowTitle}>Tools</p>
@@ -114,8 +114,8 @@ export default function Remedify() {
                     <p className={styles.appIntrorowContent}>Nov 2024 - Dec 2024 (1 month)</p>
                 </div>
                 <div className={styles.appIntrobuttons}>
-                <a className={styles.button} href="https://www.instagram.com/rememberwithremedify/" target="_blank">
-                    <button className={styles.button}>View instagram</button>
+                <a className={styles.button} href="https://www.figma.com/design/Eg3oN310XPng2Wi30vmui0/Remedify-Social-Media-Posts?node-id=1-2345&t=NDy5AIuTRGrsLxJG-1" target="_blank">
+                    <button className={styles.button}>VIEW FIGMA DESIGN</button>
                 </a>
                 </div>
             </div>
@@ -123,27 +123,9 @@ export default function Remedify() {
         </motion.div>
           </div>
 
-          <div className={styles.prototypeBanner} id="instagram-page">
-              <div className={styles.prototypeTitle}>
-                <h2>Instagram Page</h2>
-              </div> 
-              <div className={styles.prototypes}>
-                <div className={styles.prototypeContainer}>
-                  <div style={{ display: 'flex', justifyContent: 'center' }}>
-                    {/* <InstagramEmbed url="https://www.instagram.com/rememberwithremedify/" width={500} /> */}
-                  </div>
-                  {/* <div className={styles.appIntrobuttons}>
-                    <a className={styles.button} href="https://www.instagram.com/rememberwithremedify/" target="_blank">
-                        <button className={styles.button}>View instagram</button>
-                    </a>
-                  </div> */}
-                </div>
-              </div>
-            </div>
-
           <div className={styles.detailsContainer} id="instagram-series">
             <div className={styles.details}>
-              <h2>Instagram Posts</h2>
+              <h2 className={styles.centerTitle}>Instagram Posts</h2>
               {/* <p>Wireframing serves as a blueprint for creating user interfaces. It provides a visual representation of the structure and layout of an application or website, focusing on functionality and user experience.</p> */}
             </div>
             <div className={`${styles.post}`}>
@@ -153,9 +135,11 @@ export default function Remedify() {
               <div className={styles.caption}>
                 <ul className={styles.detailsList}>
                   <div>
-                    <p className={styles.bold}>Caption:</p>
+                    <p className={styles.bold}>What is Remedify?</p>
                     <br/>
-                    <li className={styles.indent}>Meet Remedify! 🐍 We’re more than just a pillbox—Remedify is your AI-powered partner in making medication management simpler and more empowering.</li>
+                    <li className={styles.indent}>Meet Remedify! 🐍 </li>
+                    <br/>
+                    <li className={styles.indent}>We’re more than just a pillbox—Remedify is your AI-powered partner in making medication management simpler and more empowering.</li>
                     <br/>
                     <li className={styles.indent}>Take control of your health with ease and confidence. Let’s make wellness simpler—together. 💪</li>
                     <br/>
@@ -172,13 +156,20 @@ export default function Remedify() {
               <div className={styles.caption}>
                 <ul className={styles.detailsList}>
                   <div>
-                    <p className={styles.bold}>Caption:</p>
+                    <p className={styles.bold}>Why Medication Adherence Matters?</p>
                     <br/>
-                    <li className={styles.indent}>Meet Remedify! 🐍 We’re more than just a pillbox—Remedify is your AI-powered partner in making medication management simpler and more empowering.</li>
+                    <li className={styles.indent}>Did you know that 50% of people with chronic illnesses don’t take their medications as prescribed? 🤔 Forgetfulness and misunderstanding directions are major causes.</li>
                     <br/>
-                    <li className={styles.indent}>Take control of your health with ease and confidence. Let’s make wellness simpler—together. 💪</li>
+                    <li className={styles.indent}>This is why we created Remedify – to make medication management simple, smart, and reliable. 💊</li>
                     <br/>
-                    <li className={styles.indent}>#remedify #healthsupport #medicationreminder #AIpowered </li>
+                    <li className={styles.indent}>✨ Here’s how we help:</li>
+                    <li className={styles.indent}>✅ AI-powered label scanning for easy setup</li>
+                    <li className={styles.indent}>✅ Timely reminders that fit your routine</li>
+                    <li className={styles.indent}>✅ Clear medication library for better understanding</li>
+                    <br/>
+                    <li className={styles.indent}>Take control of your health with confidence! 💪</li>
+                    <br/>
+                    <li className={styles.indent}>#MedicationManagement #HealthTech #Remedify</li>
                   </div>
                 </ul>
               </div>    
@@ -191,13 +182,15 @@ export default function Remedify() {
               <div className={styles.caption}>
                 <ul className={styles.detailsList}>
                   <div>
-                    <p className={styles.bold}>Caption:</p>
+                    <p className={styles.bold}>Meet Remedify Team:</p>
                     <br/>
-                    <li className={styles.indent}>Meet Remedify! 🐍 We’re more than just a pillbox—Remedify is your AI-powered partner in making medication management simpler and more empowering.</li>
+                    <li className={styles.indent}>👋 Meet the team behind Remedify! </li>
                     <br/>
-                    <li className={styles.indent}>Take control of your health with ease and confidence. Let’s make wellness simpler—together. 💪</li>
+                    <li className={styles.indent}>We’re a passionate, diverse group working together to make your life easier. Each of us brings unique skills to the table to build a simple, smart, and reliable experience for you.</li>
                     <br/>
-                    <li className={styles.indent}>#remedify #healthsupport #medicationreminder #AIpowered </li>
+                    <li className={styles.indent}>With a perfect blend of creativity, expertise, and collaboration, we’re here to handle the reminders – so you can focus on what truly matters. 💪 </li>
+                    <br/>
+                    <li className={styles.indent}>#MeetTheTeam #MedicationReminder #Remedify</li>
                   </div>
                 </ul>
               </div>    
@@ -210,13 +203,21 @@ export default function Remedify() {
               <div className={styles.caption}>
                 <ul className={styles.detailsList}>
                   <div>
-                    <p className={styles.bold}>Caption:</p>
+                    <p className={styles.bold}>Feature Highlight</p>
                     <br/>
-                    <li className={styles.indent}>Meet Remedify! 🐍 We’re more than just a pillbox—Remedify is your AI-powered partner in making medication management simpler and more empowering.</li>
+                    <li className={styles.indent}>Discover the Features of Remedify! 🐍💫</li>
                     <br/>
-                    <li className={styles.indent}>Take control of your health with ease and confidence. Let’s make wellness simpler—together. 💪</li>
+                    <li className={styles.indent}>Managing your meds has never been easier. Here’s what makes Remedify your ultimate health companion:</li>
+                    <li className={styles.indent}>⏰ Medication Reminders</li>
+                    <li className={styles.indent}>🤳 AI-Powered Label Scanning</li>
+                    <li className={styles.indent}>👆 One-Tap Medication Logging</li>
+                    <li className={styles.indent}>📚 Accessible Medication Library</li>
                     <br/>
-                    <li className={styles.indent}>#remedify #healthsupport #medicationreminder #AIpowered </li>
+                    <li className={styles.indent}>Understand your medications better with clear, user-friendly details.</li>
+                    <br/>
+                    <li className={styles.indent}>Simplify your health journey today with Remedify! 💡</li>
+                    <br/>
+                    <li className={styles.indent}>#remedify #medicationreminder #healthsupport</li>
                   </div>
                 </ul>
               </div>    
@@ -229,23 +230,29 @@ export default function Remedify() {
               <div className={styles.caption}>
                 <ul className={styles.detailsList}>
                   <div>
-                    <p className={styles.bold}>Caption:</p>
+                    <p className={styles.bold}>Why can you trust Remedify?</p>
                     <br/>
-                    <li className={styles.indent}>Meet Remedify! 🐍 We’re more than just a pillbox—Remedify is your AI-powered partner in making medication management simpler and more empowering.</li>
+                    <li className={styles.indent}>💊 Why Trust Remedify?</li>
                     <br/>
-                    <li className={styles.indent}>Take control of your health with ease and confidence. Let’s make wellness simpler—together. 💪</li>
+                    <li className={styles.indent}>Because we’ve got the facts to back it up!</li>
+                    <li className={styles.indent}>Our app uses the Canadian Drug Product Database (DPD) and AI-powered insights to provide reliable, curated, and up-to-date information about your medications.</li>
                     <br/>
-                    <li className={styles.indent}>#remedify #healthsupport #medicationreminder #AIpowered </li>
+                    <li className={styles.indent}>📚 What is the DPD?</li>
+                    <li className={styles.indent}>A comprehensive database from Health Canada offering detailed, product-specific information on medications approved for use.</li>
+                    <br/>
+                    <li className={styles.indent}>✨ With our DPD integration, you can access accurate medication details anytime, right at your fingertips!</li>
+                    <br/>
+                    <li className={styles.indent}>#remedify #canadiandrugproductdatabas #medicationlibrary #healthsupport</li>
                   </div>
                 </ul>
               </div>    
             </div>
           </div>
 
-           <div className={styles.detailsContainer} id="style-guide">
+           <div className={styles.detailsContainer} id="design-approach">
               <ContentSection
-                  title="Style Guide"
-                  image="/campusCanvas/styleguide.png"
+                  title="Design Approach"
+                  image="/socialMedia/styleguide.png"
                   alt="Campus Canvas Style Guidee"
                   // overview="Remedify app's style guide is crafted to embody the app’s mission of supporting users in managing their health and medication. It is designed to provoke a calming, warm, inclusive, and accessible feeling."
                 />
@@ -253,21 +260,16 @@ export default function Remedify() {
                   <div className={styles.details}>
                     <ul className={styles.detailsList}>
                       <div>
-                        <li className={styles.bold}>Color Palette:</li>
-                        <li className={styles.subIndent}>To maintain a minimalist aesthetic, the magazine’s color palette is derived primarily from the carefully chosen photographs.</li>
-                        <li className={styles.subIndent}><span className={styles.semiBold}>Gray:</span> Inspired by the campus's concrete architecture, create a clean, minimalistic foundation while emphasizing the modern style.</li>
-                        <li className={styles.subIndent}><span className={styles.semiBold}>Blue:</span> Symbolizes tranquility and aligns with the open sky.</li>
-                        <li className={styles.subIndent}><span className={styles.semiBold}>Green:</span>Represents the greenery that complement the rigid architectural forms.</li>
+                        <li>Applied the <span className={styles.semiBold}>brand’s color palette</span> with warm oranges to convey empathy and support, and cool greens and blues to establish trust.</li>
                       </div>
                       <div>
-                        <li className={styles.bold}>Typography:</li>
-                        <li className={styles.subIndent}><span className={styles.semiBold}>Futura:</span> Used in cover titles and headings. Futura Condensed Medium is chosen particularly for headings, as its narrow forms echo the verticality of the campus buildings.</li>
-                        <li className={styles.subIndent}><span className={styles.semiBold}>Minion Variable Concept:</span> Used in body text. The serif font was selected for its high readability and academic feel, matching the university’s intellectual atmosphere.</li>
+                        <li>Used the <span className={styles.semiBold}>Poppins font</span> to ensure readability and accessibility, especially for older audiences.</li>
                       </div>
                       <div>
-                        <li className={styles.bold}>Graphic Elements:</li>
-                        <li className={styles.subIndent}>All graphic elements and photos follow a rectangular structure to reflect the rigid, minimalist architectural style of the campus.</li>
-                        <li className={styles.subIndent}>The use of negative space emphasizes the modern aesthetic while ensuring the layout remains clean and organized.</li>
+                        <li>Designed <span className={styles.semiBold}>carousel layouts</span> with clear hierarchy, bold typography, iconography, and rounded graphics for visual clarity.</li>
+                      </div>
+                      <div>
+                        <li>Maintained an <span className={styles.semiBold}>approachable tone</span> for social media while upholding the professionalism required of a healthcare-related product.</li>
                       </div>
                     </ul>
                     {/* <div className={styles.linkButton}>
@@ -279,33 +281,25 @@ export default function Remedify() {
                 </div>
           </div>
 
-          <div className={styles.initialHiFi} id="digital-design">
+          <div className={styles.initialHiFi} id="impact">
               <ContentSection
-                title="Digital Design"
-                image="/campusCanvas/digital-design.png"
-                alt="Campus Canvas Digital Design"
-                overview="A digital version of the magazine is designed, allowing it to be accessed through digital devices like tablets and desktop as well."
+                title="Impact"
+                image="/socialMedia/social-media.png"
+                alt="Remedify Social Media Campaign Impact"
+                // overview="A digital version of the magazine is designed, allowing it to be accessed through digital devices like tablets and desktop as well."
               />
               <div className={styles.details}>
-                <p>Major Adjustments:</p>
                 <ul className={styles.detailsList}>
-                  <div>
-                    <li className={styles.bold}>Landscape Layout:</li>
-                    <li className={styles.indent}>The layout is changed from portrait view to landscape view to fit the viewport of tablet and desktop.</li>
-                  </div>
-                  <div>
-                    <li className={styles.bold}>Interactive Element:</li>
-                    <li className={styles.indent}>An interactive table of content is added to allow easy navigation.</li>
-                  </div>
-                  <div>
-                    <li className={styles.bold}>Animations:</li>
-                    <li className={styles.indent}>Animations were added to enhance user experience.</li>
-                  </div>
-                  <div>
-                    <li className={styles.bold}>Font Size:</li>
-                    <li className={styles.indent}>Font sizes are enlarged to enhance comfort while reading on a digital device.</li>
-                  </div>
-                </ul>
+                      <div>
+                        <li>Created a <span className={styles.semiBold}>consistent Instagram campaign</span> that positioned Remedify as both approachable and trustworthy.</li>
+                      </div>
+                      <div>
+                        <li>Balanced <span className={styles.semiBold}>educational storytelling</span> with <span className={styles.semiBold}>brand-building visuals</span> to engage diverse audiences.</li>
+                      </div>
+                      <div>
+                        <li>Developed assets adaptable for <span className={styles.semiBold}>cross-platform use</span>, including LinkedIn posts and motion graphics for wider reach.</li>
+                      </div>
+                    </ul>
                 <div className={styles.linkButton}>
                   <a className={styles.button} href="https://indd.adobe.com/view/bf5a23eb-0abe-44da-92d4-f3d4b5b0d9bd" target="_blank">
                     <button  className={styles.button}>View Digital Design</button>
@@ -318,8 +312,9 @@ export default function Remedify() {
                 <UserResearch
                   title="Reflection and Learnings"
                   descriptions={[
-                    "Designing across both print and digital formats enhanced my understanding of how layouts need to adapt to different mediums.",
-                    "Incorporating interactive elements and animations in Adobe InDesign provided an opportunity to expand my skill set in digital design."
+                    "Gained experience in aligning design with campaign objectives, ensuring each post contributed to awareness, credibility, and audience engagement.",
+                    "Recognized the impact of content sequencing to build a narrative flow from introduction to credibility.",
+                    "Recognized how visual consistency across multiple posts reinforces recognition and trust in a new brand.",
                   ]}
                 />
             </div>
