@@ -283,10 +283,10 @@ export default function Remedify() {
               <div className={styles.nextProject}>
                 <h2>Next Project is...</h2>
                 <NextCard
-                  name="REPAIR Framework White Paper"
-                  image="/whitePaper-homepage.png"
-                  alt="REPAIR Framework White Paper"
-                  link="/whitePaper"
+                  name="One Timeless Step"
+                  image="/oneTimelessStep-homepage.png"
+                  alt="One Timeless Step"
+                  link="/oneTimelessStep"
                   button="Next Project"
                 />
               </div>

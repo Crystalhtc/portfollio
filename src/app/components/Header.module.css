@@ -1,101 +1,101 @@
 .header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background-color: var(--background);
-    width: 100%;
-    left: 0;
-    right: 0;
-    padding: 0.5rem 0;
-    border-bottom: 1.5px solid transparent;
-    transition: all 0.3s ease;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--background);
+  width: 100%;
+  left: 0;
+  right: 0;
+  padding: 0.5rem 0;
+  border-bottom: 1.5px solid transparent;
+  transition: all 0.3s ease;
 }
 
 .header.scrolled {
-    border-bottom: 1.5px solid var(--light-red);
-    padding: 0;
-    transition: all 0.3s ease;
+  border-bottom: 1.5px solid var(--light-red);
+  padding: 0;
+  transition: all 0.3s ease;
 }
 
 .nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    position: relative;
-    z-index: 1002;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  position: relative;
+  z-index: 1002;
 }
 
 .logoContainer {
-    position: relative;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    text-wrap: nowrap;
+  position: relative;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  text-wrap: nowrap;
 }
 
 .logo {
-    padding-left: 0.5rem;
-    width: 10vw;
-    max-width: 50px;
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+  padding-left: 0.5rem;
+  width: 10vw;
+  max-width: 50px;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .logo.logoHidden {
-    opacity: 0;
-    transform: translateY(-10px);
+  opacity: 0;
+  transform: translateY(-10px);
 }
 
 .textLogo {
-    position: absolute;
-    left: 0.5rem;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--light-red);
-    font-family: 'Bona Nova', serif;
-    text-transform: uppercase;
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    pointer-events: none;
+  position: absolute;
+  left: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--light-red);
+  font-family: "Bona Nova", serif;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
 }
 
 .textLogo.textLogoVisible {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events:all;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
 }
 
 .transitioning {
-    transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 /* Rest of the existing CSS remains the same */
 .menuButton {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    background: none;
-    border: none;
-    padding: 0.5rem;
-    cursor: pointer;
-    color: var(--light-red);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: var(--light-red);
 }
 
 /* ... rest of your existing CSS ... */
 
 .menuButton a {
-    color: var(--light-red);
+  color: var(--light-red);
 }
 
 .textLogo {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--light-red);
-    font-family: 'Bona Nova', serif;
-    text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--light-red);
+  font-family: "Bona Nova", serif;
+  text-transform: uppercase;
 }
 
 /* .menuButton:hover {
@@ -104,43 +104,43 @@
 
 /* Mobile menu styles */
 .mobileMenu {
-    position: fixed;
-    /* opacity: 0; */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 72px;
-    overflow: hidden;
-    transition: all 0.2s ease-in-out;
-    z-index: 1001;
-    background-color: var(--background);
+  position: fixed;
+  /* opacity: 0; */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 72px;
+  overflow: hidden;
+  transition: all 0.2s ease-in-out;
+  z-index: 1001;
+  background-color: var(--background);
 }
 
 .menuOpen {
-    height: 420px;
-    opacity: 1;
-    transition: all 0.3s ease;
+  height: 420px;
+  opacity: 1;
+  transition: all 0.3s ease;
 }
 
 .menuContent {
-    padding: 5rem 2rem 2rem;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  padding: 5rem 2rem 2rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .closeButton {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: none;
-    border: none;
-    padding: 0.5rem;
-    cursor: pointer;
-    color: var(--light-red);
-    display: flex;
-    justify-content: flex-end;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: var(--light-red);
+  display: flex;
+  justify-content: flex-end;
 }
 
 /* .closeButton:hover {
@@ -148,290 +148,272 @@
 } */
 
 .links {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-    margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
 .links a {
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: var(--light-red);
-    text-align: center;
-    border-bottom: 2px solid transparent;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--light-red);
+  text-align: center;
+  border-bottom: 2px solid transparent;
 }
 
 .links a:hover {
-    color: var(--red);
-    border-bottom: 2px solid var(--red);
+  color: var(--red);
+  border-bottom: 2px solid var(--red);
 }
 
 .overlay {
-    position: fixed;
-    /* opacity: 0; */
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 998;
-    /* transition: all 0.2s ease-in-out; */
+  position: fixed;
+  /* opacity: 0; */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  /* transition: all 0.2s ease-in-out; */
 }
 
 .projectsLink {
-    display: flex;
+  display: flex;
 }
 
 .projectsOverlay {
-    position: absolute;
-    width: 100%;
-    /* height: 330px; */
-    top: 100%;
-    left: 0;
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    gap: 1rem;
-    padding: 1rem 1rem 2rem 1rem;
-    background-color: var(--background);
-    border-bottom: 1px solid var(--light-red);
-    z-index: 1000;
-    visibility: visible;
-    opacity: 1;
-    transform: translateY(0);
-    transition: opacity 0.3s ease, transform 0.3s ease;
+  position: absolute;
+  width: 100%;
+  /* height: 330px; */
+  top: 100%;
+  left: 0;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem 1rem 2rem 1rem;
+  background-color: var(--background);
+  border-bottom: 1px solid var(--light-red);
+  z-index: 1000;
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .filterContainer {
-    width: 100%;
+  width: 100%;
 }
 
 .projectPreview {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    color: var(--text-color);
-    width: 240px;
-    height: 280px;
-    transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-color);
+  width: 240px;
+  height: 280px;
+  transition: transform 0.3s ease;
 }
 
 .projectPreview img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
 }
 
 .projectPreview span {
-    margin-top: 0.5rem;
-    font-size: 1.2rem;
-    font-weight: 500;
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 .projectPreview:hover {
-    transform: scale(1.05);
-    border: none;
+  transform: scale(1.05);
+  border: none;
 }
 
-
 .projectsContainer {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-behavior: smooth;
-    max-width: 70%;
-    white-space: nowrap;
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  max-width: 70%;
+  white-space: nowrap;
 }
 
 /* Hide scrollbar for Webkit (Chrome, Safari) */
 .projectsContainer::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 /* Hide scrollbar for Firefox */
 .projectsContainer {
-    scrollbar-width: none;
+  scrollbar-width: none;
 }
 
 .projectPreview {
-    flex: 0 0 auto;
-    width: 240px;
-    transition: transform 0.3s ease;
+  flex: 0 0 auto;
+  width: 240px;
+  transition: transform 0.3s ease;
 }
 
 .projectPreview span {
-    text-wrap: wrap;
+  text-wrap: wrap;
 }
 
 .projectPreview img {
-    width: 100%;
-    border-radius: 8px;
+  width: 100%;
+  border-radius: 8px;
 }
 
 .projectPreview:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .scrollButton {
-    border: none;
-    color: var(--light-red);
-    /* padding: 0.5rem; */
-    cursor: pointer;
-    width: fit-content;
+  border: none;
+  color: var(--light-red);
+  /* padding: 0.5rem; */
+  cursor: pointer;
+  width: fit-content;
 }
 
 .scrollButton:hover {
-    color: var(--red);
-    background-color: transparent;
-    border: none;
+  color: var(--red);
+  background-color: transparent;
+  border: none;
 }
 
 .connect {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-    width: 100%;
-    padding: 0.7rem 1rem;
-    background-color: var(--light-red);
-    transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.7rem 1rem;
+  background-color: var(--light-red);
+  transition: all 0.3s ease;
 }
 
 .connect p {
-    font-weight: 400;
-    font-size: 1.5rem;
-    color: var(--background);
-    transition: all 0.3s ease;
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: var(--background);
+  transition: all 0.3s ease;
 }
 
 .connect:hover {
-    cursor: pointer;
-    background-color: var(--background);
+  cursor: pointer;
+  background-color: var(--background);
 }
 
 .connect:hover p {
-    color: var(--light-red);
+  color: var(--light-red);
 }
 
 .connectContainer {
-    border-bottom: none !important;
+  border-bottom: none !important;
 }
 
 .connectContainer:hover {
-    border-bottom: none !important;
+  border-bottom: none !important;
 }
 
 .linkedin {
-    fill: var(--background);
-    transition: all 0.3s ease;
+  fill: var(--background);
+  transition: all 0.3s ease;
 }
 
 .connect:hover .linkedin {
-    fill: var(--light-red);
+  fill: var(--light-red);
 }
 
 /* Tablet and up (768px and up) */
 @media (min-width: 768px) {
-    .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-right: 3rem;
-    }
-
-    .menuButton,
-    .closeButton {
-        display: none;
-    }
-
-    .nav {
-        padding: 1rem 3rem;
-        /* width: 80%; */
-    }
-
-    .name {
-        font-size: 1.3rem;
-    }
-
-    .mobileMenu {
-        position: static;
-        height: auto;
-        width: auto;
-    }
-
-    .menuContent {
-        padding: 0;
-    }
-
-    .links {
-        margin-top: 0.5rem;
-        flex-direction: row;
-        gap: 2rem;
-    }
-
-    .links a {
-        font-size: 1.1rem;
-        border-bottom: 2px solid transparent;
-        padding: 0 0 0.5rem;
-    }
-
-    .links a:hover {
-        border-bottom: 2px solid var(--red);
-    }
-
-    .projectsOverlay a:hover {
-        border-bottom: none;
-    }
-
-    .overlay {
-        display: none;
-    }
-
-    .header.scrolled {
-        padding-right: 3rem;
-    }
-
-    .connect p {
-        font-size: 1.1rem;
-    }
+  .nav {
+    padding: 1rem 3rem;
+  }
 }
 
 /* Desktop (1024px and up) */
 @media (min-width: 1024px) {
-    .nav {
-        padding: 1rem 5rem;
-    }
+  .menuButton,
+  .closeButton {
+    display: none;
+  }
 
-    .name {
-        font-size: 1.5rem;
-    }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 3rem;
+  }
 
-    .links {
-        gap: 3rem;
-        padding-right: 3rem;
-    }
+.nav {
+    padding: 1rem 5rem;
+}
 
-    .links a {
-        font-size: 1.2rem;
-    }
+  .name {
+      font-size: 1.5rem;
+  }
+
+  .mobileMenu {
+    position: static;
+    height: auto;
+    width: auto;
+  }
+
+  .menuContent {
+    padding: 0;
+  }
+
+  .links {
+    margin-top: 0.5rem;
+    flex-direction: row;
+    gap: 3rem;
+    padding-right: 3rem;
+  }
+
+  .links a {
+    font-size: 1.2rem;
+    border-bottom: 2px solid transparent;
+    padding: 0 0 0.5rem;
+  }
+
+  .links a:hover {
+    border-bottom: 2px solid var(--red);
+  }
+
+  .projectsOverlay a:hover {
+    border-bottom: none;
+  }
+
+  .overlay {
+    display: none;
+  }
+
+  .header.scrolled {
+    padding-right: 3rem;
+  }
+
+  .connect p {
+    font-size: 1.1rem;
+  }
 
     .projectsContainer {
         max-width: 80%;
     }
-
 }
 
 /* Large Desktop (1440px and up) */
 @media (min-width: 1440px) {
-    .nav {
-        padding: 1rem 8rem;
-    }
-
-
+  .nav {
+    padding: 1rem 8rem;
+  }
 }
-

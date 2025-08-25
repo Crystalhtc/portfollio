@@ -10,6 +10,8 @@ const SideMenu = () => {
   // List of all possible sections
   const allSections = [
     { name: 'Introduction', id: "app-intro" },
+    { name: 'Objectives', id: "objectives" },
+    { name: 'Instagram Posts', id: "instagram-posts" },
     { name: 'Final Video', id: "final-video" },
     { name: 'WordPress Website', id: "wordpress" },
     { name: 'Prototype', id: 'prototype' },
@@ -30,6 +32,7 @@ const SideMenu = () => {
     { name: 'Cover Design', id: 'cover-design' },
     { name: 'Infographics', id: 'infographics' },
     { name: 'Style Guide', id: 'style-guide' },
+    { name: 'Design Approach', id: 'design-approach' },
     { name: 'Site Map', id: 'site-map' },
     { name: 'User Story Map', id: 'user-story-map' },
     { name: 'User Flow Map', id: 'user-flow-map' },
@@ -40,6 +43,7 @@ const SideMenu = () => {
     { name: 'Final Hi-Fi', id: 'final-hifi' },
     { name: 'Marketing Landing Page', id: 'marketing-landing-page' },
     { name: 'Web App', id: 'web-app' },
+    { name: 'Impact', id: 'impact' },
     { name: 'Color Usage', id: 'color' },
     { name: 'Key Animations', id: 'key-motion' },
     { name: 'Digital Design', id: 'digital-design' },

@@ -7,6 +7,30 @@ const ProjectsSection = () => {
   const projects = [
     {
       category: 'graphic',
+      image: "/socialMedia-homepage.png",
+      alt: "Remedify Social Media Campaign",
+      name: "Remedify Social Media Campaign",
+      link: "/remedifySocialMedia",
+      description: "A branded social media campaign that introduces Remedify through a five-post Instagram series, translating healthcare messaging into approachable visuals with cohesive layouts, clear hierarchy, and an empathetic tone.",
+      skills: ["Graphic Design"],
+      application: "Social Media",
+      appIcon: "/socialMedia.svg",
+      appType: "Social Media"
+    },
+    {
+      category: 'graphic',
+      image: "/whitePaper-homepage.png",
+      alt: "REPAIR Framework White Paper",
+      name: "REPAIR Framework White Paper",
+      link: "/whitePaper",
+      description: "A branded white paper redesign that turns complex equity-focused content into a clear, accessible publication with strong hierarchy, custom infographics, and a polished layout for Equity First HR.",
+      skills: ["Graphic Design"],
+      application: "White Paper",
+      appIcon: "/magazine.svg",
+      appType: "White Paper"
+    },
+    {
+      category: 'graphic',
       image: "/campusCanvas-homepage.png",
       alt: "Campus Canvas",
       name: "Campus Canvas",
@@ -29,18 +53,7 @@ const ProjectsSection = () => {
       appIcon: "/poster.svg",
       appType: "Poster"
     },
-    {
-      category: 'graphic',
-      image: "/whitePaper-homepage.png",
-      alt: "REPAIR Framework White Paper",
-      name: "REPAIR Framework White Paper",
-      link: "/whitePaper",
-      description: "A branded white paper redesign that turns complex equity-focused content into a clear, accessible publication with strong hierarchy, custom infographics, and a polished layout for Equity First HR.",
-      skills: ["Graphic Design"],
-      application: "White Paper",
-      appIcon: "/magazine.svg",
-      appType: "White Paper"
-    },
+   
     {
       category: 'graphic',
       image: "/oneTimelessStep-homepage.png",

@@ -122,8 +122,19 @@ export default function Remedify() {
         </div>
         </motion.div>
           </div>
+          <div className={styles.userResearch} id="objectives">
+                <UserResearch
+                  title="Objectives"
+                  descriptions={[
+                    "Establish a cohesive visual identity on Instagram.",
+                    "Educate audiences about the importance of medication adherence.",
+                    "Showcase the team and mission behind Remedify to foster trust.",
+                    "Highlight key app features and emphasize data security.",
+                  ]}
+                />
+            </div>
 
-          <div className={styles.detailsContainer} id="instagram-series">
+          <div className={styles.detailsContainer} id="instagram-posts">
             <div className={styles.details}>
               <h2 className={styles.centerTitle}>Instagram Posts</h2>
               {/* <p>Wireframing serves as a blueprint for creating user interfaces. It provides a visual representation of the structure and layout of an application or website, focusing on functionality and user experience.</p> */}
@@ -320,15 +331,15 @@ export default function Remedify() {
             </div>
 
           <div className={styles.nextProject}>
-            <h2>Next Project is...</h2>
-              <NextCard 
-              name="Teaddy"
-              image="/teaddy-homepage.png"
-              alt="Teaddy"
-              link="/teaddy"
-              button="Next Project"
-            />
-          </div>
+                <h2>Next Project is...</h2>
+                <NextCard
+                  name="REPAIR Framework White Paper"
+                  image="/whitePaper-homepage.png"
+                  alt="REPAIR Framework White Paper"
+                  link="/whitePaper"
+                  button="Next Project"
+                />
+              </div>
         </div>
         </div>
         </div>
