@@ -187,17 +187,10 @@ export default function About() {
               </div>
               <div className={styles.text}>
                 <p>
-                  Hi! I'm Crystal Cheung, a UX/UI designer with a background in
-                  social sciences. I love creating designs that aren't just
-                  pretty but actually make people's lives easier and more
-                  enjoyable!
+                  Hi! I’m Crystal Cheung. I work as a UX/UI and Graphic Designer, and what I love most is creating designs that actually make people’s lives easier and more enjoyable. My background in social sciences helps me understand people on a deeper level, so I always design with empathy and a user-first mindset.
                 </p>
                 <p>
-                  I'm currently studying Digital Design and Development at BCIT,
-                  where I've been diving into UX research, wireframing, and
-                  prototyping. My social sciences background helps me understand
-                  people on a deeper level, so I always design with empathy and
-                  a user-first mindset.
+                  I recently graduated with distinction from BCIT’s Digital Design and Development program, where I focused on UX research, wireframing, prototyping, and visual design. Along the way, I’ve also built strong graphic design skills, which means I can bring together both usability and aesthetics in every project I work on.
                 </p>
                 <p>
                   When I'm not designing, you'll probably find me dancing
