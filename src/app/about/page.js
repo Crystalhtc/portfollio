@@ -187,16 +187,16 @@ export default function About() {
               </div>
               <div className={styles.text}>
                 <p>
-                  Hi! I’m Crystal Cheung. I work as a UX/UI and Graphic Designer, and what I love most is creating designs that actually make people’s lives easier and more enjoyable. My background in social sciences helps me understand people on a deeper level, so I always design with empathy and a user-first mindset.
+                  Hi! I’m Crystal Cheung, a UX/UI and Graphic Designer who loves creating designs that are both intuitive and visually impactful. With a background in social sciences, I approach every project with empathy and a user-first mindset.
                 </p>
                 <p>
-                  I recently graduated with distinction from BCIT’s Digital Design and Development program, where I focused on UX research, wireframing, prototyping, and visual design. Along the way, I’ve also built strong graphic design skills, which means I can bring together both usability and aesthetics in every project I work on.
+                  I graduated with distinction from BCIT’s Digital Design and Development program, where I grew my skills in both UX/UI and graphic design. I enjoy creating everything from digital experiences to visual storytelling, always aiming for designs that feel intuitive, engaging, and people-focused.
                 </p>
                 <p>
                   When I'm not designing, you'll probably find me dancing
                   ballet. Whether I'm perfecting a pirouette or refining a user
                   flow, I believe great design, just like dance, is all about
-                  precision, balance, and creativity.
+                  precision and creativity.
                 </p>
                 <p>
                   Excited to connect and create meaningful experiences together!
