@@ -9,12 +9,13 @@ export default function Footer() {
             <div className={styles.upper}>
                     <div className={styles.info}>
                         <a className={styles.name} href="/">Crystal Cheung</a>
-                        <p className={styles.role}>UX/UI Designer</p>
+                        <p className={styles.role}>UX/UI Designer | Graphic Designer</p>
                     </div>
                 
                 <div className={styles.infoContainer}>
                     <div className={styles.siteLinks}>
-                        <a href="/#project">Projects</a>
+                        <a href="/uxui">UX/UI Design</a>
+                        <a href="/graphic">Graphic Design</a>
                         <a href="/about">About</a>
                     </div>
                     <div className={styles.connectContainer}>
