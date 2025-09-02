@@ -48,6 +48,7 @@ const TopMenu = () => {
     { name: 'Impact', id: 'impact' },
     { name: 'Color Usage', id: 'color' },
     { name: 'Key Animations', id: 'key-motion' },
+    { name: 'Proof Design', id: 'proof-design' },
     { name: 'Digital Design', id: 'digital-design' },
     { name: 'Final Design', id: 'final-design' },
     { name: 'White Paper Design', id: 'white-paper' },

@@ -46,6 +46,7 @@ export default function Header() {
     { name: "REPAIR Framework White Paper", image: "/whitePaper-homepage.png", link: "/whitePaper" },
     { name: "Campus Canvas", image: "/campusCanvas-homepage.png", link: "/campusCanvas" },
     { name: "Teaddy", image: "/teaddy-homepage.png", link: "/teaddy" },
+    { name: "Bocha", image: "/bocha-homepage.png", link: "/bocha" },
     { name: "One Timeless Step", image: "/oneTimelessStep-homepage.png", link: "/oneTimelessStep" },
     { name: "Mood Tracking Motion Graphic Video", image: "/moodTracking-homepage.png", link: "/moodTracking" }
   ];
@@ -54,7 +55,7 @@ export default function Header() {
     "Remedify", "Equity First HR", "Tranquify", "West Point Hotel", "Navie", "Squiz", "Dolce Donuts"
   ];
   const graphicProjects = [
-    "Remedify Social Media Campaign", "REPAIR Framework White Paper", "Campus Canvas", "Teaddy", "One Timeless Step", "Mood Tracking Motion Graphic Video"
+    "Remedify Social Media Campaign", "REPAIR Framework White Paper", "Campus Canvas", "Teaddy", "Bocha", "One Timeless Step", "Mood Tracking Motion Graphic Video"
   ];
 
   useEffect(() => {

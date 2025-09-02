@@ -53,6 +53,18 @@ const ProjectsSection = () => {
       appIcon: "/poster.svg",
       appType: "Poster"
     },
+    {
+      category: 'graphic',
+      image: "/bocha-homepage.png",
+      alt: "Bocha",
+      name: "Bocha",
+      link: "/bocha",
+      description: "Bubble tea packaging design for Bocha, using pale colors, milk-splash graphics, and boba-inspired motifs to create a playful and cohesive brand identity.",
+      skills: ["Graphic Design"],
+      application: "Packaging",
+      appIcon: "/gift.svg",
+      appType: "Packaging"
+    },
    
     {
       category: 'graphic',
