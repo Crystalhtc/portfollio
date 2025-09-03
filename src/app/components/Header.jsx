@@ -129,9 +129,9 @@ export default function Header() {
             {/* UX/UI */}
             <div
               className={styles.projectsLink}
-              onMouseEnter={() => setHoveredCategory("ux")}
+              onClick={handleClick}
             >
-              <a href="/uxui" onClick={handleClick}>UX/UI Design</a>
+              <a href="/uxui" onMouseEnter={() => setHoveredCategory("ux")}>UX/UI Design</a>
               {hoveredCategory === "ux" && (
                 <div className={styles.projectsOverlay} onMouseLeave={handleMouseLeave}>
                   <button className={styles.scrollButton} onClick={scrollLeft}>
@@ -157,9 +157,9 @@ export default function Header() {
             {/* Graphic */}
             <div
               className={styles.projectsLink}
-              onMouseEnter={() => setHoveredCategory("graphic")}
+              onClick={handleClick}
             >
-              <a href="/graphic" onClick={handleClick}>Graphic Design</a>
+              <a href="/graphic" onMouseEnter={() => setHoveredCategory("graphic")}>Graphic Design</a>
               {hoveredCategory === "graphic" && (
                 <div className={styles.projectsOverlay} onMouseLeave={handleMouseLeave}>
                   <button className={styles.scrollButton} onClick={scrollLeft}>
