@@ -11,29 +11,6 @@ export default function Header() {
 
   const handleMouseLeave = () => setHoveredCategory(null);
 
-  // const scrollToProjects = (event) => {
-  //   event.preventDefault();
-  //   setHoveredCategory(null);
-  //   setIsMenuOpen(false);
-  //   document.body.style.overflow = "unset";
-
-  //   if (window.location.pathname === "/") {
-  //     setTimeout(() => {
-  //       const projectSection = document.getElementById("project");
-  //       if (projectSection) {
-  //         const headerHeight = document.querySelector(`.${styles.header}`).offsetHeight;
-  //         const sectionTop = projectSection.getBoundingClientRect().top + window.scrollY;
-  //         window.scrollTo({ top: sectionTop - headerHeight, behavior: "smooth" });
-  //       }
-  //     }, 100);
-  //   } else {
-  //     if (typeof window !== "undefined") {
-  //       sessionStorage.setItem("jumpToProject", "true");
-  //       window.location.href = "/";
-  //     }
-  //   }
-  // };
-
   const projectPreviews = [
     { name: "Remedify", image: "/remedify-homepage.png", link: "/remedify" },
     { name: "Equity First HR", image: "/equityFirst-homepage.png", link: "/equityFirstHR" },
@@ -71,12 +48,17 @@ export default function Header() {
   }, []);
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setIsMenuOpen((prev) => {
+      const next = !prev;
+      if (!next) setHoveredCategory(null); // ensure overlay cleared when closing via toggle
+      return next;
+    });
     document.body.style.overflow = !isMenuOpen ? "hidden" : "unset";
   };
 
   const closeMenu = () => {
     setIsMenuOpen(false);
+    setHoveredCategory(null); // <— key: clear overlay on close
     document.body.style.overflow = "unset";
   };
 
@@ -90,13 +72,13 @@ export default function Header() {
 
   const filtered = (category) => {
     const names = category === "ux" ? uxProjects : graphicProjects;
-    return projectPreviews.filter(p => names.includes(p.name));
+    return projectPreviews.filter((p) => names.includes(p.name));
   };
 
   return (
     <header className={`${styles.header} ${isScrolled ? styles.scrolled : ""}`}>
       <nav className={styles.nav}>
-        <a href="/" className={styles.name}>
+        <a href="/" className={styles.name} onClick={closeMenu}>
           <div className={styles.logoContainer}>
             <img
               src="/logo.svg"
@@ -130,7 +112,7 @@ export default function Header() {
               className={styles.projectsLink}
               onMouseEnter={() => setHoveredCategory("ux")}
             >
-              <a href="/uxui" >UX/UI Design</a>
+              <a href="/uxui" onClick={closeMenu}>UX/UI Design</a>
               {hoveredCategory === "ux" && (
                 <div className={styles.projectsOverlay} onMouseLeave={handleMouseLeave}>
                   <button className={styles.scrollButton} onClick={scrollLeft}>
@@ -139,7 +121,12 @@ export default function Header() {
 
                   <div className={styles.projectsContainer} ref={projectsContainerRef}>
                     {filtered("ux").map((project) => (
-                      <a key={project.name} href={project.link} className={styles.projectPreview}>
+                      <a
+                        key={project.name}
+                        href={project.link}
+                        className={styles.projectPreview}
+                        onClick={closeMenu} // clear overlay & close menu on click
+                      >
                         <img src={project.image} alt={project.name} />
                         <span>{project.name}</span>
                       </a>
@@ -158,7 +145,7 @@ export default function Header() {
               className={styles.projectsLink}
               onMouseEnter={() => setHoveredCategory("graphic")}
             >
-              <a href="/graphic">Graphic Design</a>
+              <a href="/graphic" onClick={closeMenu}>Graphic Design</a>
               {hoveredCategory === "graphic" && (
                 <div className={styles.projectsOverlay} onMouseLeave={handleMouseLeave}>
                   <button className={styles.scrollButton} onClick={scrollLeft}>
@@ -167,7 +154,12 @@ export default function Header() {
 
                   <div className={styles.projectsContainer} ref={projectsContainerRef}>
                     {filtered("graphic").map((project) => (
-                      <a key={project.name} href={project.link} className={styles.projectPreview}>
+                      <a
+                        key={project.name}
+                        href={project.link}
+                        className={styles.projectPreview}
+                        onClick={closeMenu} // clear overlay & close menu on click
+                      >
                         <img src={project.image} alt={project.name} />
                         <span>{project.name}</span>
                       </a>
@@ -183,7 +175,13 @@ export default function Header() {
 
             <a href="/about" onClick={closeMenu}>About</a>
 
-            <a className={styles.connectContainer} href="https://www.linkedin.com/in/crystal-cheunghtc/" target="_blank" rel="noopener noreferrer">
+            <a
+              className={styles.connectContainer}
+              href="https://www.linkedin.com/in/crystal-cheunghtc/"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={closeMenu}
+            >
               <button className={styles.connect}>
                 <svg className={styles.linkedin} xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
                   <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
