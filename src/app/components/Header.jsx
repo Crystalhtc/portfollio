@@ -10,7 +10,6 @@ export default function Header() {
   const projectsContainerRef = useRef(null);
 
   const handleMouseLeave = () => setHoveredCategory(null);
-  const handleClick = () => setHoveredCategory(null);
 
   // const scrollToProjects = (event) => {
   //   event.preventDefault();
@@ -129,8 +128,9 @@ export default function Header() {
             {/* UX/UI */}
             <div
               className={styles.projectsLink}
+              onMouseEnter={() => setHoveredCategory("ux")}
             >
-              <a href="/uxui" onClick={handleClick} onMouseEnter={() => setHoveredCategory("ux")}>UX/UI Design</a>
+              <a href="/uxui" >UX/UI Design</a>
               {hoveredCategory === "ux" && (
                 <div className={styles.projectsOverlay} onMouseLeave={handleMouseLeave}>
                   <button className={styles.scrollButton} onClick={scrollLeft}>
@@ -156,8 +156,9 @@ export default function Header() {
             {/* Graphic */}
             <div
               className={styles.projectsLink}
+              onMouseEnter={() => setHoveredCategory("graphic")}
             >
-              <a href="/graphic" onClick={handleClick} onMouseEnter={() => setHoveredCategory("graphic")}>Graphic Design</a>
+              <a href="/graphic">Graphic Design</a>
               {hoveredCategory === "graphic" && (
                 <div className={styles.projectsOverlay} onMouseLeave={handleMouseLeave}>
                   <button className={styles.scrollButton} onClick={scrollLeft}>
