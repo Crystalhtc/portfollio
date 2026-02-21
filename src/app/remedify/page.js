@@ -763,7 +763,7 @@ export default function Remedify() {
                 />
                 <div className={styles.details}>
                   <div className={styles.linkButton}>
-                    <a className={styles.button} href="https://www.remedify.ca/" target="_blank">
+                    <a className={styles.button} href="https://remedify.vercel.app/" target="_blank">
                       <button  className={styles.button}>View Landing Page</button>
                     </a>
                   </div>
