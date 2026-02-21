@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Script from 'next/script';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,6 +40,20 @@ export default function RootLayout({ children }) {
         <meta name="twitter:image" content="https://www.crystalhtc.com/linkedin-share.png" />
         <meta name="twitter:site" content="@your_twitter_handle" />
       </head>
+      
+      <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-BH7EJSH99N"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-BH7EJSH99N');
+          `}
+        </Script>
+
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         {children}
       </body>
